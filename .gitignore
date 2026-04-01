@@ -28,3 +28,6 @@ yarn-error.log*
 .vscode
 *.swp
 .DS_Store
+
+# netlify local cache
+.netlify/
