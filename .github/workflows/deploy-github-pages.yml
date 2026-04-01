@@ -1,6 +1,6 @@
 # 推送到 main 后自动构建并发布到 GitHub Pages。
 # 仓库设置：Settings → Pages → Build and deployment → Source 选 “GitHub Actions”。
-# 若站点地址为 https://用户名.github.io/仓库名/（子路径），需在 next.config 中配置 basePath: '/仓库名'。
+# 构建时通过 BASE_PATH 匹配 GitHub Pages 子路径（本仓库为 /longxiaclub）。
 name: Deploy to GitHub Pages
 
 on:
@@ -28,6 +28,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          BASE_PATH: /longxiaclub
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
