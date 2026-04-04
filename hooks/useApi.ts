@@ -20,7 +20,12 @@ export const swrConfig: SWRConfiguration = {
   revalidateOnReconnect: true,
   dedupingInterval: 5000,  // 5秒内重复请求去重
   errorRetryCount: 3,
-  errorRetryInterval: (retryCount: number) => Math.min(1000 * 2 ** retryCount, 30000),
+  errorRetryInterval: 5000, // 静态重试间隔
+  onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+    // 动态重试间隔：指数退避，最大30秒
+    const timeout = Math.min(1000 * 2 ** retryCount, 30000);
+    setTimeout(() => revalidate({ retryCount }), timeout);
+  },
 };
 
 // 工具列表 Hook
