@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import type { Tool, Skill } from '@/types';
 import { searchSupabase } from '@/lib/supabase';
 import { tools as localTools, skills as localSkills } from '@/data/tools';
 
@@ -33,7 +34,7 @@ export async function GET(request: Request) {
     }
     
     // 本地数据搜索
-    const results = { tools: [], skills: [] };
+    const results: { tools: Tool[]; skills: Skill[] } = { tools: [], skills: [] };
     const lowerQuery = q.toLowerCase();
     
     if (type === 'all' || type === 'tools') {

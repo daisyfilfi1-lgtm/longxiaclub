@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import type { Tool, Skill } from '@/types';
 import { getToolsFromSupabase } from '@/lib/supabase';
 import { tools as localTools } from '@/data/tools';
 
@@ -21,7 +22,7 @@ export async function GET(request: Request) {
     
     // 如果指定了 local 或 supabase 获取失败，使用本地数据
     if (source === 'local' || source === 'auto') {
-      let filteredTools = localTools;
+      let filteredTools: Tool[] = [...localTools];
       
       if (category) {
         filteredTools = filteredTools.filter(t => t.category === category);

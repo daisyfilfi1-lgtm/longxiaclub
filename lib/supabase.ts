@@ -85,9 +85,9 @@ export async function getSkillsFromSupabase(options?: {
 }
 
 // 工具函数：搜索
-export async function searchSupabase(query: string, type: 'tools' | 'skills' | 'all' = 'all') {
+export async function searchSupabase(query: string, type: 'tools' | 'skills' | 'all' = 'all'): Promise<{ tools: Tool[]; skills: Skill[] }> {
   try {
-    const results = { tools: [], skills: [] };
+    const results: { tools: Tool[]; skills: Skill[] } = { tools: [], skills: [] };
     
     if (type === 'all' || type === 'tools') {
       const { data: tools } = await supabase
@@ -95,7 +95,7 @@ export async function searchSupabase(query: string, type: 'tools' | 'skills' | '
         .select('*')
         .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
         .limit(10);
-      results.tools = tools || [];
+      results.tools = (tools as Tool[]) || [];
     }
     
     if (type === 'all' || type === 'skills') {
@@ -104,7 +104,7 @@ export async function searchSupabase(query: string, type: 'tools' | 'skills' | '
         .select('*')
         .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
         .limit(10);
-      results.skills = skills || [];
+      results.skills = (skills as Skill[]) || [];
     }
     
     return results;

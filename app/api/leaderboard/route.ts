@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import type { Tool, Skill } from '@/types';
 import { getToolsFromSupabase, getSkillsFromSupabase } from '@/lib/supabase';
 import { tools as localTools, skills as localSkills } from '@/data/tools';
 
@@ -29,7 +30,7 @@ export async function GET(request: Request) {
     
     // 本地数据回退
     if (type === 'skills') {
-      let filteredSkills = [...localSkills];
+      let filteredSkills: Skill[] = [...localSkills];
       if (category) {
         filteredSkills = filteredSkills.filter(s => s.category === category);
       }
@@ -41,7 +42,7 @@ export async function GET(request: Request) {
         source: 'local' 
       });
     } else {
-      let filteredTools = [...localTools];
+      let filteredTools: Tool[] = [...localTools];
       if (category) {
         filteredTools = filteredTools.filter(t => t.category === category);
       }

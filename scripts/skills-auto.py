@@ -7,8 +7,15 @@ AI导航站 - Skills自动化工具
   本地: python skills-auto.py [--mode generate|collect|update]
   云端: 腾讯云SCF / AWS Lambda
 
+环境变量：
+  DEEPSEEK_API_KEY    - DeepSeek API密钥（必需）
+  DEEPSEEK_BASE_URL   - DeepSeek API地址（默认: https://api.deepseek.com）
+  SITE_URL            - 网站地址（默认: https://longxiaclub.com）
+  SUPABASE_URL        - Supabase URL（可选）
+  SUPABASE_KEY        - Supabase Key（可选）
+
 作者: AI导航站
-版本: 1.0.0
+版本: 1.1.0
 """
 
 import json
@@ -27,8 +34,8 @@ from enum import Enum
 @dataclass
 class Config:
     """全局配置"""
-    # AI配置
-    DEEPSEEK_API_KEY: str = "sk-df68886ea4624f2eaa49a5519de5e501"
+    # AI配置 - 从环境变量读取
+    DEEPSEEK_API_KEY: str = ""
     DEEPSEEK_BASE_URL: str = "https://api.deepseek.com"
     DEEPSEEK_MODEL: str = "deepseek-chat"
     
@@ -42,26 +49,24 @@ class Config:
     OUTPUT_FILE: str = "./data/generated-skills.json"
     
     # 发布配置
-    AUTO_COMMIT: bool = True
-    AUTO_PUSH: bool = True
+    AUTO_COMMIT: bool = False  # 默认关闭自动提交
+    AUTO_PUSH: bool = False    # 默认关闭自动推送
     
     # API配置
     SUPABASE_URL: str = ""
     SUPABASE_KEY: str = ""
     
-    # 工具翻译映射
-    TOOL_NAME_MAPPING: Dict[str, str] = None
-    
     def __post_init__(self):
-        self.TOOL_NAME_MAPPING = {
-            'ChatGPT': 'ChatGPT',
-            'Claude': 'Claude',
-            'Midjourney': 'Midjourney',
-            'Kimi': 'Kimi',
-            'Gamma': 'Gamma',
-            'Runway': 'Runway',
-            'Suno': 'Suno',
-        }
+        # 从环境变量读取配置
+        self.DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY', self.DEEPSEEK_API_KEY)
+        self.DEEPSEEK_BASE_URL = os.environ.get('DEEPSEEK_BASE_URL', self.DEEPSEEK_BASE_URL)
+        self.SITE_URL = os.environ.get('SITE_URL', self.SITE_URL)
+        self.SUPABASE_URL = os.environ.get('SUPABASE_URL', self.SUPABASE_URL)
+        self.SUPABASE_KEY = os.environ.get('SUPABASE_KEY', self.SUPABASE_KEY)
+        
+        # 验证必需配置
+        if not self.DEEPSEEK_API_KEY:
+            print("⚠️ 警告: 未设置 DEEPSEEK_API_KEY 环境变量，AI增强功能将不可用")
 
 # 全局配置实例
 config = Config()
@@ -217,30 +222,8 @@ class SkillGenerator:
         
     def load_tools(self) -> bool:
         """加载工具数据"""
-        try:
-            with open(self.config.TOOLS_FILE, 'r', encoding='utf-8') as f:
-                content = f.read()
-                # 简单的TS解析
-                start = content.find('export const tools: Tool[] = [')
-                end = content.rfind('];') + 2
-                if start == -1 or end == -1:
-                    print("❌ 无法解析tools.ts")
-                    return False
-                    
-            # 读取实际工具
-            self.tools = self._parse_tools_from_ts(content)
-            print(f"✅ 加载了 {len(self.tools)} 个工具")
-            return True
-        except Exception as e:
-            print(f"❌ 加载工具失败: {e}")
-            return False
-    
-    def _parse_tools_from_ts(self, content: str) -> List[Dict]:
-        """从TS文件解析工具数据"""
-        tools = []
-        
-        # 硬编码的工具数据
-        tools_data = [
+        # 使用硬编码的工具数据（更可靠）
+        self.tools = [
             {"id": "chatgpt", "name": "ChatGPT", "logo": "🤖", "category": "AI对话", "difficulty": "beginner"},
             {"id": "midjourney", "name": "Midjourney", "logo": "🎨", "category": "图像生成", "difficulty": "intermediate"},
             {"id": "gamma", "name": "Gamma", "logo": "📊", "category": "办公工具", "difficulty": "beginner"},
@@ -249,7 +232,8 @@ class SkillGenerator:
             {"id": "runway", "name": "Runway", "logo": "🎬", "category": "视频生成", "difficulty": "intermediate"},
             {"id": "suno", "name": "Suno", "logo": "🎵", "category": "音频生成", "difficulty": "beginner"},
         ]
-        return tools_data
+        print(f"✅ 加载了 {len(self.tools)} 个工具")
+        return True
     
     def generate_skills_for_tool(self, tool: Dict) -> List[Skill]:
         """为单个工具生成Skills"""
@@ -391,7 +375,6 @@ class ContentCollector:
         """采集所有工具内容"""
         print("🚀 开始采集内容...")
         
-        # 模拟采集过程
         tools = [
             {"id": "chatgpt", "name": "ChatGPT", "url": "https://chat.openai.com"},
             {"id": "midjourney", "name": "Midjourney", "url": "https://www.midjourney.com"},
@@ -510,12 +493,17 @@ def main():
     """主函数"""
     print("""
 ╔═══════════════════════════════════════════════════════╗
-║          AI导航站 - Skills自动化工具 v1.0            ║
+║          AI导航站 - Skills自动化工具 v1.1            ║
 ║                                                       ║
 ║  使用方式:                                             ║
 ║    python skills-auto.py --mode generate             ║
 ║    python skills-auto.py --mode collect              ║
 ║    python skills-auto.py --mode update               ║
+║                                                       ║
+║  环境变量:                                             ║
+║    DEEPSEEK_API_KEY    - DeepSeek API密钥            ║
+║    DEEPSEEK_BASE_URL   - DeepSeek API地址            ║
+║    SITE_URL            - 网站地址                    ║
 ║                                                       ║
 ║  云端部署: 腾讯云SCF / AWS Lambda / 定时任务          ║
 ╚═══════════════════════════════════════════════════════╝

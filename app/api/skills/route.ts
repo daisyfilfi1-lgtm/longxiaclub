@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import type { Skill } from '@/types';
 import { getSkillsFromSupabase } from '@/lib/supabase';
 import { skills as localSkills } from '@/data/tools';
 
@@ -21,7 +22,7 @@ export async function GET(request: Request) {
     
     // 如果指定了 local 或 supabase 获取失败，使用本地数据
     if (source === 'local' || source === 'auto') {
-      let filteredSkills = localSkills;
+      let filteredSkills: Skill[] = localSkills;
       
       if (category) {
         filteredSkills = filteredSkills.filter(s => s.category === category);
