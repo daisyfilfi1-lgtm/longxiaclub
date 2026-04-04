@@ -161,5 +161,5 @@ export function refreshAll() {
 
 // 预加载数据
 export function prefetch(url: string) {
-  return swrMutate(url, fetcher);
+  return swrMutate(url, fetcher(url));
 }
