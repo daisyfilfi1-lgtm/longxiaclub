@@ -40,10 +40,19 @@ export default function SkillsPage() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <Link
+            <div
               key={skill.id}
-              href={`/skills/${skill.id}`}
-              className="group"
+              onClick={() => {
+                const skillData = JSON.stringify(skill, null, 2);
+                const blob = new Blob([skillData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${skill.id}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              className="group cursor-pointer"
               style={{ animationDelay: `${index * 30}ms` }}
             >
               <div className="relative p-6 rounded-2xl bg-white border border-slate-200 hover:border-purple-300 hover:shadow-lg hover:shadow-purple-100 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
@@ -119,7 +128,7 @@ export default function SkillsPage() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

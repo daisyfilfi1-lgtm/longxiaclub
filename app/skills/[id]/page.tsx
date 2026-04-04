@@ -122,7 +122,20 @@ export default async function SkillDetailPage({ params }: Props) {
                 </div>
 
                 {/* Install Button */}
-                <button className="inline-flex items-center space-x-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium hover:shadow-lg hover:shadow-purple-200 transition-all">
+                <button 
+                  onClick={() => {
+                    // 生成Skill文件下载
+                    const skillData = JSON.stringify(skill, null, 2);
+                    const blob = new Blob([skillData], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${skill.id}.json`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                  }}
+                  className="inline-flex items-center space-x-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium hover:shadow-lg hover:shadow-purple-200 transition-all"
+                >
                   <Download className="w-5 h-5" />
                   <span>一键安装</span>
                 </button>
