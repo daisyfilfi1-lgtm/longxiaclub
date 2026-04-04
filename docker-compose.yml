@@ -4,10 +4,17 @@
 # 功能：始终在线的Skills自动更新
 #
 # 使用方式：
-#   docker-compose up -d        # 启动
-#   docker-compose logs -f      # 查看日志
-#   docker-compose restart      # 重启
-#   docker-compose down         # 停止
+#   1. 复制 .env.example 为 .env 并填写实际值
+#   2. docker-compose up -d        # 启动
+#   3. docker-compose logs -f      # 查看日志
+#   4. docker-compose restart      # 重启
+#   5. docker-compose down         # 停止
+#
+# 环境变量配置：
+#   在项目根目录创建 .env 文件，包含：
+#   - DEEPSEEK_API_KEY=your_api_key
+#   - DEEPSEEK_BASE_URL=https://api.deepseek.com
+#   - SITE_URL=https://longxiaclub.com
 # ============================================================
 
 version: '3.8'
@@ -19,7 +26,7 @@ services:
     restart: always
     environment:
       - TZ=Asia/Shanghai
-      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-sk-df68886ea4624f2eaa49a5519de5e501}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
       - DEEPSEEK_BASE_URL=${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
       - SITE_URL=${SITE_URL:-https://longxiaclub.com}
       - MODE=update
