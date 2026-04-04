@@ -3,8 +3,9 @@ import type { NextConfig } from "next";
 const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "") || "";
 
 const nextConfig: NextConfig = {
-  // 使用 SSR 模式以支持 API 路由和动态功能
-  // 如需静态导出，请使用: output: "export", distDir: "dist"
+  // 输出模式：standalone 用于 Docker 部署
+  output: 'standalone',
+  
   images: {
     unoptimized: true,
   },
@@ -14,6 +15,12 @@ const nextConfig: NextConfig = {
   // 环境变量可在构建时使用
   env: {
     SITE_URL: process.env.SITE_URL || 'https://longxiaclub.com',
+  },
+  
+  // 实验性功能
+  experimental: {
+    // 优化包体积
+    optimizePackageImports: ['lucide-react'],
   },
 };
 

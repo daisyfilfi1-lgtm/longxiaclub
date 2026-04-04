@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { Search, Filter, X, Star, Flame } from 'lucide-react';
 import Navbar from '@/components/Navbar';
-import { Tool } from '@/types';
+import { useTools } from '@/hooks/useApi';
+import { captureError } from '@/lib/monitoring';
 
 // 价格选项
 const PRICE_OPTIONS = [
@@ -30,8 +31,6 @@ const CATEGORY_OPTIONS = [
 
 export default function ToolsPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
   
   // 筛选状态
@@ -39,29 +38,26 @@ export default function ToolsPage() {
   const [difficultyFilter, setDifficultyFilter] = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('全部');
 
-  // 获取工具数据
+  // 使用 SWR 获取数据
+  const { tools, isLoading, isError, error } = useTools({ limit: 100 });
+
+  // 错误监控
   useEffect(() => {
-    fetch('/api/tools')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data) {
-          setTools(data.data);
-        }
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+    if (error) {
+      captureError(error, { page: 'tools' });
+    }
+  }, [error]);
 
   // 过滤工具
   const filteredTools = useMemo(() => {
-    return tools.filter(tool => {
+    return tools.filter((tool: any) => {
       // 搜索过滤
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
         const matchName = tool.name.toLowerCase().includes(q);
         const matchDesc = tool.description.toLowerCase().includes(q);
-        const matchTags = tool.tags.some(t => t.toLowerCase().includes(q));
-        const matchCategory = tool.category.toLowerCase().includes(q);
+        const matchTags = tool.tags?.some((t: string) => t.toLowerCase().includes(q));
+        const matchCategory = tool.category?.toLowerCase().includes(q);
         if (!matchName && !matchDesc && !matchTags && !matchCategory) return false;
       }
       // 价格过滤
@@ -82,6 +78,18 @@ export default function ToolsPage() {
   };
 
   const hasActiveFilters = priceFilter !== 'all' || difficultyFilter !== 'all' || categoryFilter !== '全部';
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-slate-50 dot-pattern">
+        <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
+        <Navbar />
+        <div className="pt-32 text-center">
+          <div className="w-8 h-8 border-4 border-teal-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
@@ -225,12 +233,7 @@ export default function ToolsPage() {
 
       {/* Tools Grid */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        {loading ? (
-          <div className="text-center py-20">
-            <div className="w-8 h-8 border-4 border-teal-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-            <p className="mt-4 text-slate-500">加载中...</p>
-          </div>
-        ) : filteredTools.length === 0 ? (
+        {filteredTools.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-slate-500 mb-4">没有找到匹配的工具</p>
             <button 
@@ -242,7 +245,7 @@ export default function ToolsPage() {
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredTools.map((tool, index) => (
+            {filteredTools.map((tool: any, index: number) => (
               <Link
                 key={tool.id}
                 href={`/tools/${tool.id}`}
@@ -275,7 +278,7 @@ export default function ToolsPage() {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {tool.tags.slice(0, 2).map((tag) => (
+                      {tool.tags?.slice(0, 2).map((tag: string) => (
                         <span
                           key={tag}
                           className="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600"

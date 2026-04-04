@@ -1,9 +1,18 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: 'AI导航站 - 发现最佳AI工具与技能',
   description: '连接GitHub前沿技术产品与大众用户的中间层，通过场景化策展降低AI工具的发现与使用门槛',
+  keywords: ['AI工具', 'AI导航', 'AI技能', '人工智能', 'ChatGPT', 'Midjourney'],
+  authors: [{ name: 'AI导航站' }],
+  openGraph: {
+    title: 'AI导航站 - 发现最佳AI工具与技能',
+    description: '连接前沿AI技术与大众用户',
+    type: 'website',
+    url: 'https://longxiaclub.com',
+  },
 }
 
 export default function RootLayout({
@@ -14,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className="min-h-screen">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   )

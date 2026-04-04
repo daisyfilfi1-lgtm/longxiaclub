@@ -31,3 +31,10 @@ yarn-error.log*
 
 # netlify local cache
 .netlify/
+
+# docker
+/docker-data/
+/logs/
+*.env
+!.env.example
+!.env.docker.example
