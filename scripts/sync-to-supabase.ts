@@ -155,8 +155,9 @@ class DataSync {
             }
           }
         } catch (error: any) {
-          result.errors.push(`${mappedData.id}: ${error.message}`);
-          console.error(`  ❌ 错误处理 ${mappedData.id}: ${error.message}`);
+          const itemId = (item as any).id || 'unknown';
+          result.errors.push(`${itemId}: ${error.message}`);
+          console.error(`  ❌ 错误处理 ${itemId}: ${error.message}`);
         }
       }
 
