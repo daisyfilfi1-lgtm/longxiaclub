@@ -1,0 +1,186 @@
+{
+  "2026-04-02": {
+    "ts": "2026-04-02T00:00:00.000Z",
+    "tools": {
+      "chatgpt": {
+        "heat": 79.2,
+        "heatGrowth": 12
+      },
+      "cursor": {
+        "heat": 91.5,
+        "heatGrowth": 67
+      },
+      "midjourney": {
+        "heat": 72.3,
+        "heatGrowth": 8
+      },
+      "claude": {
+        "heat": 82.1,
+        "heatGrowth": 18
+      },
+      "kimi": {
+        "heat": 85.2,
+        "heatGrowth": 35
+      },
+      "gamma": {
+        "heat": 68.7,
+        "heatGrowth": 23
+      },
+      "perplexity": {
+        "heat": 74.9,
+        "heatGrowth": 28
+      },
+      "heygen": {
+        "heat": 73.2,
+        "heatGrowth": 38
+      },
+      "runway": {
+        "heat": 79.8,
+        "heatGrowth": 45
+      },
+      "suno": {
+        "heat": 77.5,
+        "heatGrowth": 52
+      },
+      "notion-ai": {
+        "heat": 76.3,
+        "heatGrowth": 15
+      },
+      "elevenlabs": {
+        "heat": 70.5,
+        "heatGrowth": 31
+      },
+      "figma-ai": {
+        "heat": 71.8,
+        "heatGrowth": 22
+      },
+      "remove-bg": {
+        "heat": 68.9,
+        "heatGrowth": 5
+      },
+      "firefly": {
+        "heat": 67.4,
+        "heatGrowth": 19
+      }
+    },
+    "skills": {
+      "skill_xhs_rewrite": {
+        "installCount": 12500,
+        "successRate": 94.7,
+        "heatGrowth": 45
+      },
+      "skill_auto_ppt": {
+        "installCount": 8900,
+        "successRate": 96.2,
+        "heatGrowth": 38
+      },
+      "skill_weekly_report": {
+        "installCount": 15200,
+        "successRate": 92.5,
+        "heatGrowth": 32
+      },
+      "skill_batch_image": {
+        "installCount": 6700,
+        "successRate": 88.3,
+        "heatGrowth": 28
+      },
+      "skill_code_review": {
+        "installCount": 9200,
+        "successRate": 91.8,
+        "heatGrowth": 55
+      }
+    }
+  },
+  "2026-04-03": {
+    "ts": "2026-04-03T06:35:46.384Z",
+    "tools": {
+      "chatgpt": {
+        "heat": 77.9,
+        "heatGrowth": 12.6
+      },
+      "cursor": {
+        "heat": 86.3,
+        "heatGrowth": 64.3
+      },
+      "midjourney": {
+        "heat": 74,
+        "heatGrowth": 10.4
+      },
+      "claude": {
+        "heat": 66.1,
+        "heatGrowth": 19.8
+      },
+      "kimi": {
+        "heat": 67.5,
+        "heatGrowth": 35.4
+      },
+      "gamma": {
+        "heat": 59.4,
+        "heatGrowth": 21.4
+      },
+      "perplexity": {
+        "heat": 52,
+        "heatGrowth": 24.9
+      },
+      "heygen": {
+        "heat": 57.1,
+        "heatGrowth": 36.5
+      },
+      "runway": {
+        "heat": 56.1,
+        "heatGrowth": 44.2
+      },
+      "suno": {
+        "heat": 62.7,
+        "heatGrowth": 51.6
+      },
+      "notion-ai": {
+        "heat": 59.8,
+        "heatGrowth": 17.1
+      },
+      "elevenlabs": {
+        "heat": 50.6,
+        "heatGrowth": 33.3
+      },
+      "figma-ai": {
+        "heat": 62,
+        "heatGrowth": 20.7
+      },
+      "remove-bg": {
+        "heat": 39.8,
+        "heatGrowth": 8.2
+      },
+      "firefly": {
+        "heat": 45.5,
+        "heatGrowth": 21.6
+      }
+    },
+    "skills": {
+      "skill_xhs_rewrite": {
+        "installCount": 12611,
+        "successRate": 95.2,
+        "heatGrowth": 40.7
+      },
+      "skill_auto_ppt": {
+        "installCount": 9143,
+        "successRate": 95.3,
+        "heatGrowth": 38.5
+      },
+      "skill_weekly_report": {
+        "installCount": 15629,
+        "successRate": 92,
+        "heatGrowth": 39.1
+      },
+      "skill_batch_image": {
+        "installCount": 6972,
+        "successRate": 88.1,
+        "heatGrowth": 27.5
+      },
+      "skill_code_review": {
+        "installCount": 9578,
+        "successRate": 91.2,
+        "heatGrowth": 52.6
+      }
+    }
+  }
+}

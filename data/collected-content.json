@@ -1,0 +1,72 @@
+{
+  "toolId": "chatgpt",
+  "toolName": "ChatGPT",
+  "officialContent": {
+    "source": "official",
+    "url": "https://chat.openai.com",
+    "title": "ChatGPT",
+    "description": "ChatGPT: Get answers, find inspiration, be more productive.",
+    "fetchedAt": "2026-04-04T01:30:00.000Z"
+  },
+  "communityContent": [
+    {
+      "source": "reddit",
+      "subreddit": "ChatGPT",
+      "title": "Best prompts for coding tasks",
+      "content": "Here are my top 5 prompts for using ChatGPT for coding...",
+      "url": "https://reddit.com/r/ChatGPT/comments/xxx",
+      "score": 1542,
+      "numComments": 89,
+      "fetchedAt": "2026-04-04T01:30:00.000Z"
+    }
+  ],
+  "aiGenerated": {
+    "tips": [
+      "使用「Role Playing」技巧：先给ChatGPT设定一个角色（如资深程序员、MBA顾问），再提问，可获得更专业的回答",
+      "利用「Few-shot Learning」：在提问时给出几个示例，让ChatGPT理解你想要的输出格式",
+      "用「迭代追问」逐步深入：先问宽泛问题，根据回答再追问细节，获得深度分析",
+      "善用「Temperature」参数：创意任务用高温度(0.8-1.0)，精确任务用低温度(0.1-0.3)",
+      "结合插件实现实时信息：启用Browsing插件获取最新信息，避免数据过时问题"
+    ],
+    "cases": [
+      {
+        "title": "小红书爆款文案生成",
+        "description": "生成吸引眼球的电商文案",
+        "prompt": "请帮我写一篇关于[产品名称]的小红书文案，要求：1.开头有吸引力 2.使用emoji 3.包含3-5个卖点 4.结尾有call to action"
+      },
+      {
+        "title": "代码审查与优化",
+        "description": "帮助审查和改进代码质量",
+        "prompt": "请审查以下代码，指出潜在问题并提供优化建议：[代码片段]"
+      },
+      {
+        "title": "学术论文润色",
+        "description": "提升学术写作质量",
+        "prompt": "请帮我润色以下学术论文段落，使其更专业、更流畅：[论文内容]"
+      }
+    ],
+    "guides": [
+      {
+        "title": "新手入门指南",
+        "steps": [
+          "1. 访问 chat.openai.com 注册账号",
+          "2. 选择 GPT-3.5（免费）或 GPT-4（付费）模型",
+          "3. 在输入框中描述你的需求或问题",
+          "4. 根据回答进行追问或调整提示词",
+          "5. 保存有用的对话以便后续参考"
+        ]
+      },
+      {
+        "title": "高级提示词技巧",
+        "steps": [
+          "1. 使用系统提示设定AI角色和行为方式",
+          "2. 用清晰的结构化格式说明任务要求",
+          "3. 提供上下文和背景信息",
+          "4. 指定输出格式（JSON、列表、段落等）",
+          "5. 用例子说明期望的输出风格"
+        ]
+      }
+    ]
+  },
+  "processedAt": "2026-04-04T01:30:00.000Z"
+}

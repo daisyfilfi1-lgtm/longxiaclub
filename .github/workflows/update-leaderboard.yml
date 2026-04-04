@@ -1,0 +1,111 @@
+name: Daily Leaderboard Update
+
+# ============================================================
+# 每日榜单数据自动更新
+# 触发时间: 每天 06:00 UTC = 14:00 北京时间
+# ============================================================
+on:
+  schedule:
+    - cron: '0 6 * * *'        # 每天 UTC 06:00
+  workflow_dispatch:              # 也可手动触发 (GitHub Actions 页面 → Run workflow)
+    inputs:
+      dry_run:
+        description: 'Dry Run (预览不写入)'
+        required: false
+        default: 'false'
+  push:
+    # data/ 目录变化时也触发 (允许外部数据源更新)
+    paths:
+      - 'data/**'
+      - 'scripts/**'
+
+jobs:
+  update:
+    name: Update Leaderboard Data
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # 深度1, 加快checkout
+          fetch-depth: 1
+          # 需要写权限用于提交
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ai-nav/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ai-nav
+
+      - name: Run leaderboard update
+        id: update
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+            node scripts/update-leaderboard.js --dry-run
+          else
+            node scripts/update-leaderboard.js
+          fi
+        working-directory: ai-nav
+
+      - name: Commit and push changes
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 检查是否有变更
+          if git diff --quiet; then
+            echo "✅ No changes to commit"
+          else
+            # 添加 data 目录变更
+            git add data/
+            
+            # 提取top变化生成commit message
+            DATE=$(date +%Y-%m-%d)
+            echo "📊 Daily leaderboard update $DATE" > /tmp/commit_msg.txt
+            echo "" >> /tmp/commit_msg.txt
+            git diff --stat data/ >> /tmp/commit_msg.txt
+            
+            # 提交
+            git commit -F /tmp/commit_msg.txt
+            git push
+            
+            echo "✅ Changes committed and pushed"
+          fi
+        working-directory: ai-nav
+
+      - name: Trigger Netlify rebuild (optional)
+        if: github.event.inputs.dry_run != 'true'
+        # 如果配置了 NETLIFY_BUILD_HOOK_URL secrets, 触发Netlify重建
+        # 配置方式: GitHub repo Settings → Secrets → Add NETLIFY_BUILD_HOOK_URL
+        # 值格式: https://api.netlify.com/build_hooks/xxxxx
+        # 如不需要Netlify自动构建, 可以删除此step
+        env:
+          NETLIFY_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+        run: |
+          if [ -n "$NETLIFY_HOOK_URL" ]; then
+            echo "🔄 Triggering Netlify rebuild..."
+            curl -s -X POST "$NETLIFY_HOOK_URL" > /dev/null && echo "✅ Netlify rebuild triggered" || echo "⚠️ Netlify trigger failed"
+          else
+            echo "ℹ️ NETLIFY_BUILD_HOOK_URL not configured, skipping Netlify rebuild"
+            echo "   (Changes will be built on next push to main branch)"
+          fi
+
+      - name: Summary
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          echo "## 📊 Daily Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 项目 | 值 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
+          echo "| 日期 | $(date +%Y-%m-%d) |" >> $GITHUB_STEP_SUMMARY
+          echo "| 触发 | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY

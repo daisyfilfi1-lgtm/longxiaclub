@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Bookmark, CheckCircle, Zap, Wrench, Layers, Spar
 import Navbar from '@/components/Navbar';
 import { scenes, tools, skills } from '@/data/tools';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -13,6 +14,22 @@ export async function generateStaticParams() {
   return scenes.map((scene) => ({
     id: scene.id,
   }));
+}
+
+// SEO metadata
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const scene = scenes.find((s) => s.id === id);
+  if (!scene) return { title: '场景未找到' };
+  return {
+    title: `${scene.name} - 场景方案 - AI导航站`,
+    description: `${scene.description} | ${scene.toolCount}款工具 | ${scene.skillCount}个Skill | ${(scene.xhsSaves / 1000).toFixed(1)}k人收藏`,
+    openGraph: {
+      title: `${scene.name} - AI应用场景`,
+      description: scene.description,
+      type: 'website',
+    },
+  };
 }
 
 export default async function SceneDetailPage({ params }: Props) {
@@ -27,9 +44,23 @@ export default async function SceneDetailPage({ params }: Props) {
     t.sceneTags.some((tag) => scene.tags.includes(tag))
   ).slice(0, 6);
 
-  const sceneSkills = skills.filter((s) => 
-    s.category === scene.tags[0] || scene.tags.includes(s.category)
-  ).slice(0, 4);
+  // 通过场景关联工具的 relatedSkills 找相关 Skill（更精确）
+  const sceneToolIds = sceneTools.map((t) => t.id);
+  const sceneSkills = skills.filter((s) => {
+    // Skill 被该场景工具关联
+    const linkedByTools = sceneToolIds.some((toolId) => 
+      tools.some((t) => t.id === toolId && (t.relatedSkills || []).includes(s.id))
+    );
+    // 或 Skill 分类匹配场景标签
+    const categoryMatch = scene.tags.includes(s.category);
+    // 或 Skill workflow 中涉及场景关键词
+    const workflowMatch = s.workflow.some((step) => 
+      scene.tags.some((tag) => 
+        step.title.includes(tag) || step.description.includes(tag)
+      )
+    );
+    return linkedByTools || categoryMatch || workflowMatch;
+  }).slice(0, 4);
 
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">

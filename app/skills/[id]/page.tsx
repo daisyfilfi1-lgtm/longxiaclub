@@ -3,6 +3,7 @@ import { ExternalLink, Heart, Share2, Download, Star, CheckCircle, GitBranch, Ar
 import Navbar from '@/components/Navbar';
 import { skills, tools } from '@/data/tools';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -13,6 +14,22 @@ export async function generateStaticParams() {
   return skills.map((skill) => ({
     id: skill.id,
   }));
+}
+
+// SEO metadata
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const skill = skills.find((s) => s.id === id);
+  if (!skill) return { title: 'Skill未找到' };
+  return {
+    title: `${skill.name} - Skill市场 - AI导航站`,
+    description: `${skill.description} | 安装${(skill.installCount / 1000).toFixed(1)}k | 成功率${skill.successRate}%`,
+    openGraph: {
+      title: `${skill.name} - AI Skill详情`,
+      description: skill.description,
+      type: 'website',
+    },
+  };
 }
 
 export default async function SkillDetailPage({ params }: Props) {

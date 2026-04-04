@@ -18,6 +18,23 @@ export interface Tool {
   xhsSaves?: number;
   b站弹幕?: number;
   category: string;
+  // 增强内容 (AI生成)
+  enhancedTips?: string[];
+  cases?: ToolCase[];
+  guides?: ToolGuide[];
+  contentUpdatedAt?: string;
+}
+
+export interface ToolCase {
+  title: string;
+  description: string;
+  prompt?: string;
+  result?: string;
+}
+
+export interface ToolGuide {
+  title: string;
+  steps: string[];
 }
 
 export interface Prompt {
@@ -97,3 +114,17 @@ export interface DailyPick {
   xhsSaves: number;
   date: string;
 }
+
+// 场景标签常量
+export const SCENE_TAGS = [
+  '办公提效',
+  '内容创作', 
+  '编程开发',
+  '设计创作',
+  '电商运营',
+  '餐饮',
+  '短视频',
+  '学术研究'
+] as const;
+
+export type SceneTag = typeof SCENE_TAGS[number];

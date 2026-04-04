@@ -2,7 +2,9 @@
 
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { sceneTags } from '@/data/tools';
+
+// 场景标签列表
+const sceneTagList = ['办公提效', '内容创作', '编程开发', '设计创作', '电商运营', '餐饮', '短视频'];
 
 export default function SceneTags() {
   return (
@@ -25,10 +27,10 @@ export default function SceneTags() {
         
         {/* Tags Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-          {sceneTags.map((tag, index) => (
+          {(sceneTagList).map((tag, index) => (
             <Link
-              key={tag.id}
-              href={`/scenes/${tag.id}`}
+              key={tag}
+              href={`/scenes?tag=${tag}`}
               className="group"
               style={{ animationDelay: `${index * 50}ms` }}
             >
@@ -39,10 +41,10 @@ export default function SceneTags() {
                 {/* Content */}
                 <div className="relative flex flex-col items-center text-center">
                   <span className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
-                    {tag.icon}
+                    🎯
                   </span>
                   <span className="text-sm font-medium text-slate-700 group-hover:text-teal-700 transition-colors">
-                    {tag.name}
+                    {tag}
                   </span>
                 </div>
 

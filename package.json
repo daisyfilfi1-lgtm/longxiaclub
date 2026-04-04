@@ -13,6 +13,7 @@
     "skills:preview": "node -e \"import('./scripts/skill-generator.js').then(m => m.generateSkillsFromTool({id:'chatgpt',name:'ChatGPT',difficulty:'beginner',prompts:[{scene:'办公'}],tips:['技巧1']}).then(s => console.log(JSON.stringify(s,null,2))))\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
     "@types/node": "^22.15.3",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.3",

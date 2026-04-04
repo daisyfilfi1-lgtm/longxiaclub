@@ -1,0 +1,115 @@
+-- AI导航站数据库初始化 SQL
+-- 请在 Supabase Dashboard → SQL Editor 中执行
+
+-- 工具表
+CREATE TABLE IF NOT EXISTS tools (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  logo TEXT,
+  description TEXT,
+  url TEXT,
+  price TEXT,
+  difficulty TEXT,
+  heat DECIMAL(5,1) DEFAULT 50,
+  heatGrowth DECIMAL(5,1) DEFAULT 0,
+  tags TEXT[],
+  tech_tags TEXT[],
+  scene_tags TEXT[],
+  cost_tags TEXT[],
+  category TEXT,
+  prompts JSONB,
+  tips TEXT[],
+  related_skills TEXT[],
+  xhs_saves INTEGER DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Skills表
+CREATE TABLE IF NOT EXISTS skills (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  category TEXT,
+  difficulty TEXT,
+  author TEXT,
+  version TEXT,
+  install_count INTEGER DEFAULT 0,
+  success_rate DECIMAL(5,2) DEFAULT 90,
+  rating DECIMAL(3,1) DEFAULT 4,
+  price TEXT,
+  compatibility TEXT[],
+  workflow JSONB,
+  dependencies JSONB,
+  input TEXT,
+  output TEXT,
+  icon TEXT,
+  heat DECIMAL(5,1) DEFAULT 50,
+  heatGrowth DECIMAL(5,1) DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 场景表
+CREATE TABLE IF NOT EXISTS scenes (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  icon TEXT,
+  description TEXT,
+  tags TEXT[],
+  tool_count INTEGER DEFAULT 0,
+  skill_count INTEGER DEFAULT 0,
+  xhs_saves INTEGER DEFAULT 0,
+  heat DECIMAL(5,1) DEFAULT 50,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 榜单历史
+CREATE TABLE IF NOT EXISTS leaderboard_history (
+  id SERIAL PRIMARY KEY,
+  date DATE NOT NULL,
+  tool_id TEXT,
+  skill_id TEXT,
+  heat DECIMAL(5,1),
+  heat_growth DECIMAL(5,1),
+  install_count INTEGER,
+  success_rate DECIMAL(5,2),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(date, tool_id, skill_id)
+);
+
+-- 收藏
+CREATE TABLE IF NOT EXISTS favorites (
+  id SERIAL PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  item_id TEXT NOT NULL,
+  item_type TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(user_id, item_id, item_type)
+);
+
+-- 索引
+CREATE INDEX IF NOT EXISTS idx_tools_heat ON tools(heat DESC);
+CREATE INDEX IF NOT EXISTS idx_tools_category ON tools(category);
+CREATE INDEX IF NOT EXISTS idx_skills_heat ON skills(heat DESC);
+CREATE INDEX IF NOT EXISTS idx_skills_category ON skills(category);
+CREATE INDEX IF NOT EXISTS idx_scenes_heat ON scenes(heat DESC);
+
+-- 初始化场景数据
+INSERT INTO scenes (id, name, icon, description, tags, tool_count, skill_count, xhs_saves, heat)
+VALUES 
+  ('scene_catering', '🍜 餐饮行业', '🍜', '餐饮行业AI工具集', ARRAY['餐饮', '小红书', '本地生活'], 5, 3, 50000, 75),
+  ('scene_ecommerce', '🛒 电商运营', '🛒', '电商运营AI工具集', ARRAY['电商', '带货', '淘宝'], 8, 4, 120000, 85),
+  ('scene_video', '🎬 视频创作', '🎬', '视频创作AI工具集', ARRAY['视频', '剪辑', '短视频'], 6, 2, 80000, 80),
+  ('scene_office', '📊 办公提效', '📊', '办公提效AI工具集', ARRAY['办公', '周报', 'PPT'], 10, 5, 150000, 90),
+  ('scene_academic', '📚 学术研究', '📚', '学术研究AI工具集', ARRAY['学术', '论文', '翻译'], 4, 2, 30000, 65),
+  ('scene_medical', '🏥 医疗健康', '🏥', '医疗健康AI工具集', ARRAY['医疗', '健康', '问诊'], 3, 1, 25000, 60),
+  ('scene_design', '🎨 设计创意', '🎨', '设计创意AI工具集', ARRAY['设计', '插画', '海报'], 5, 2, 45000, 70),
+  ('scene_dev', '💻 编程开发', '💻', '编程开发AI工具集', ARRAY['编程', '代码', '开发'], 12, 6, 200000, 95)
+ON CONFLICT (id) DO NOTHING;
+
+SELECT '✅ 数据库初始化完成! 共 ' || 
+  (SELECT COUNT(*) FROM tools) || ' tools, ' || 
+  (SELECT COUNT(*) FROM skills) || ' skills, ' || 
+  (SELECT COUNT(*) FROM scenes) || ' scenes' as result;
