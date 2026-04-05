@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-04-05T04:07:08.114Z",
+  "repositories": [
+    {
+      "name": "copilot-docs",
+      "full_name": "github/copilot-docs",
+      "description": "Documentation for GitHub Copilot",
+      "stars": 23253,
+      "forks": 2383,
+      "watchers": 23253,
+      "open_issues": 17,
+      "issues_count": 64,
+      "pulls_count": 64,
+      "last_commit": "2022-07-11T15:35:19Z",
+      "created_at": "2021-10-23T16:07:04Z",
+      "updated_at": "2026-04-05T03:36:14Z"
+    },
+    {
+      "name": "AutoGPT",
+      "full_name": "Significant-Gravitas/AutoGPT",
+      "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "stars": 183131,
+      "forks": 46212,
+      "watchers": 183131,
+      "open_issues": 380,
+      "issues_count": 12676,
+      "pulls_count": 12676,
+      "last_commit": "2026-03-27T06:11:23Z",
+      "created_at": "2023-03-16T09:21:07Z",
+      "updated_at": "2026-04-05T04:00:36Z"
+    },
+    {
+      "name": "babyagi",
+      "full_name": "yoheinakajima/babyagi",
+      "description": null,
+      "stars": 22211,
+      "forks": 2843,
+      "watchers": 22211,
+      "open_issues": 22,
+      "issues_count": 413,
+      "pulls_count": 411,
+      "last_commit": "2026-01-31T05:05:45Z",
+      "created_at": "2023-04-03T00:40:27Z",
+      "updated_at": "2026-04-04T21:24:01Z"
+    },
+    {
+      "name": "langchain",
+      "full_name": "langchain-ai/langchain",
+      "description": "The agent engineering platform",
+      "stars": 132387,
+      "forks": 21838,
+      "watchers": 132387,
+      "open_issues": 516,
+      "issues_count": 36533,
+      "pulls_count": 36532,
+      "last_commit": "2026-04-04T03:42:16Z",
+      "created_at": "2022-10-17T02:58:36Z",
+      "updated_at": "2026-04-05T04:00:33Z"
+    },
+    {
+      "name": "llama_index",
+      "full_name": "run-llama/llama_index",
+      "description": "LlamaIndex is the leading document agent and OCR platform",
+      "stars": 48298,
+      "forks": 7161,
+      "watchers": 48298,
+      "open_issues": 271,
+      "issues_count": 21305,
+      "pulls_count": 21304,
+      "last_commit": "2026-04-04T02:09:34Z",
+      "created_at": "2022-11-02T04:24:54Z",
+      "updated_at": "2026-04-05T03:28:26Z"
+    },
+    {
+      "name": "gym",
+      "full_name": "openai/gym",
+      "description": "A toolkit for developing and comparing reinforcement learning algorithms.",
+      "stars": 37134,
+      "forks": 8705,
+      "watchers": 37134,
+      "open_issues": 128,
+      "issues_count": 3328,
+      "pulls_count": 3328,
+      "last_commit": "2026-03-26T23:13:24Z",
+      "created_at": "2016-04-27T14:59:16Z",
+      "updated_at": "2026-04-05T00:30:31Z"
+    },
+    {
+      "name": "transformers",
+      "full_name": "huggingface/transformers",
+      "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
+      "stars": 158810,
+      "forks": 32732,
+      "watchers": 158810,
+      "open_issues": 2358,
+      "issues_count": 45247,
+      "pulls_count": 45247,
+      "last_commit": "2026-04-04T18:48:43Z",
+      "created_at": "2018-10-29T13:56:00Z",
+      "updated_at": "2026-04-05T03:59:18Z"
+    }
+  ]
+}

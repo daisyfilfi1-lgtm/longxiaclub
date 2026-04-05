@@ -1,0 +1,107 @@
+{
+  "timestamp": "2026-04-05T04:22:12.509Z",
+  "source": "producthunt",
+  "products": [
+    {
+      "name": "GPT-4o",
+      "description": "OpenAI最新一代旗舰模型",
+      "votes": 5000,
+      "category": "ai",
+      "url": "https://openai.com",
+      "launched_at": "2026-04-01",
+      "heat_score": 100,
+      "rank": 1
+    },
+    {
+      "name": "Claude 4",
+      "description": "Anthropic最新AI助手",
+      "votes": 4200,
+      "category": "ai",
+      "url": "https://claude.ai",
+      "launched_at": "2026-03-28",
+      "heat_score": 84,
+      "rank": 2
+    },
+    {
+      "name": "Cursor",
+      "description": "AI驱动的代码编辑器",
+      "votes": 3800,
+      "category": "developer-tools",
+      "url": "https://cursor.sh",
+      "launched_at": "2024-01",
+      "heat_score": 76,
+      "rank": 3
+    },
+    {
+      "name": "Notion AI",
+      "description": "AI赋能的笔记工具",
+      "votes": 3500,
+      "category": "productivity",
+      "url": "https://notion.so",
+      "launched_at": "2023-02",
+      "heat_score": 70,
+      "rank": 4
+    },
+    {
+      "name": "Midjourney V6",
+      "description": "AI图像生成最新版本",
+      "votes": 3200,
+      "category": "ai",
+      "url": "https://midjourney.com",
+      "launched_at": "2023-12",
+      "heat_score": 64,
+      "rank": 5
+    },
+    {
+      "name": "Suno V4",
+      "description": "AI音乐生成工具",
+      "votes": 2800,
+      "category": "ai",
+      "url": "https://suno.ai",
+      "launched_at": "2024-03",
+      "heat_score": 56,
+      "rank": 6
+    },
+    {
+      "name": "Perplexity",
+      "description": "AI搜索引擎",
+      "votes": 2600,
+      "category": "ai",
+      "url": "https://perplexity.ai",
+      "launched_at": "2023-08",
+      "heat_score": 52,
+      "rank": 7
+    },
+    {
+      "name": "Runway Gen-3",
+      "description": "AI视频生成工具",
+      "votes": 2400,
+      "category": "ai",
+      "url": "https://runwayml.com",
+      "launched_at": "2024-06",
+      "heat_score": 48,
+      "rank": 8
+    },
+    {
+      "name": "HeyGen",
+      "description": "AI数字人视频",
+      "votes": 2200,
+      "category": "ai",
+      "url": "https://heygen.com",
+      "launched_at": "2023-05",
+      "heat_score": 44,
+      "rank": 9
+    },
+    {
+      "name": "Gamma",
+      "description": "AI PPT生成工具",
+      "votes": 2000,
+      "category": "productivity",
+      "url": "https://gamma.app",
+      "launched_at": "2023-11",
+      "heat_score": 40,
+      "rank": 10
+    }
+  ],
+  "total": 10
+}

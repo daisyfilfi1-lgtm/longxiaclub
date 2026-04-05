@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-04-05T04:07:18.161Z",
+  "weights": {
+    "github": {
+      "stars": 0.4,
+      "stars_growth": 0.2,
+      "forks": 0.15,
+      "issues": 0.1,
+      "commits": 0.15
+    },
+    "community": {
+      "discord_members": 0.3,
+      "reddit_subscribers": 0.2,
+      "reddit_active": 0.2,
+      "discussion_volume": 0.3
+    }
+  },
+  "skills": [
+    {
+      "name": "AutoGPT",
+      "github_heat": 81451.95000000001,
+      "community_heat": 0,
+      "total_heat": 48871.170000000006,
+      "stars": 183131,
+      "forks": 46212,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    },
+    {
+      "name": "transformers",
+      "github_heat": 72958.65,
+      "community_heat": 0,
+      "total_heat": 43775.189999999995,
+      "stars": 158810,
+      "forks": 32732,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    },
+    {
+      "name": "langchain",
+      "github_heat": 59883.950000000004,
+      "community_heat": 0,
+      "total_heat": 35930.37,
+      "stars": 132387,
+      "forks": 21838,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    },
+    {
+      "name": "llama_index",
+      "github_heat": 22524.000000000004,
+      "community_heat": 0,
+      "total_heat": 13514.400000000001,
+      "stars": 48298,
+      "forks": 7161,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    },
+    {
+      "name": "gym",
+      "github_heat": 16492.300000000003,
+      "community_heat": 0,
+      "total_heat": 9895.380000000001,
+      "stars": 37134,
+      "forks": 8705,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    },
+    {
+      "name": "copilot-docs",
+      "github_heat": 9665.2,
+      "community_heat": 0,
+      "total_heat": 5799.12,
+      "stars": 23253,
+      "forks": 2383,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    },
+    {
+      "name": "babyagi",
+      "github_heat": 9352.3,
+      "community_heat": 0,
+      "total_heat": 5611.379999999999,
+      "stars": 22211,
+      "forks": 2843,
+      "timestamp": "2026-04-05T04:07:18.161Z"
+    }
+  ]
+}

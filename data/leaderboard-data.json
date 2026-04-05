@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-04-05T04:22:41.691Z",
+  "sources": {
+    "github": "2026-04-05T04:07:08.114Z",
+    "product_hunt": "2026-04-05T04:22:12.509Z",
+    "google_trends": "2026-04-05T04:22:19.102Z"
+  },
+  "leaderboard": [
+    {
+      "keyword": "Claude",
+      "github_heat": 0,
+      "ph_heat": 84,
+      "trends_heat": 82,
+      "total_heat": 42
+    },
+    {
+      "keyword": "GPT-4",
+      "github_heat": 0,
+      "ph_heat": 100,
+      "trends_heat": 52,
+      "total_heat": 41
+    },
+    {
+      "keyword": "Cursor",
+      "github_heat": 0,
+      "ph_heat": 76,
+      "trends_heat": 81,
+      "total_heat": 39
+    },
+    {
+      "keyword": "Notion AI",
+      "github_heat": 0,
+      "ph_heat": 70,
+      "trends_heat": 87,
+      "total_heat": 39
+    },
+    {
+      "keyword": "HeyGen",
+      "github_heat": 0,
+      "ph_heat": 44,
+      "trends_heat": 98,
+      "total_heat": 33
+    },
+    {
+      "keyword": "Gamma",
+      "github_heat": 0,
+      "ph_heat": 40,
+      "trends_heat": 93,
+      "total_heat": 31
+    },
+    {
+      "keyword": "Midjourney",
+      "github_heat": 0,
+      "ph_heat": 64,
+      "trends_heat": 43,
+      "total_heat": 28
+    },
+    {
+      "keyword": "Perplexity",
+      "github_heat": 0,
+      "ph_heat": 52,
+      "trends_heat": 63,
+      "total_heat": 28
+    },
+    {
+      "keyword": "Suno",
+      "github_heat": 0,
+      "ph_heat": 56,
+      "trends_heat": 43,
+      "total_heat": 26
+    },
+    {
+      "keyword": "Runway",
+      "github_heat": 0,
+      "ph_heat": 48,
+      "trends_heat": 52,
+      "total_heat": 25
+    },
+    {
+      "keyword": "Stable Diffusion",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 78,
+      "total_heat": 16
+    },
+    {
+      "keyword": "Copilot",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 76,
+      "total_heat": 16
+    },
+    {
+      "keyword": "ChatGPT",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 65,
+      "total_heat": 13
+    },
+    {
+      "keyword": "DALL-E",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 57,
+      "total_heat": 12
+    },
+    {
+      "keyword": "Llama",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 52,
+      "total_heat": 11
+    },
+    {
+      "keyword": "Kimi",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 49,
+      "total_heat": 10
+    },
+    {
+      "keyword": "LangChain",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 0,
+      "total_heat": 0
+    },
+    {
+      "keyword": "AutoGPT",
+      "github_heat": 0,
+      "ph_heat": 0,
+      "trends_heat": 0,
+      "total_heat": 0
+    }
+  ],
+  "summary": {
+    "total_items": 18,
+    "top_3": [
+      "Claude",
+      "GPT-4",
+      "Cursor"
+    ]
+  }
+}
