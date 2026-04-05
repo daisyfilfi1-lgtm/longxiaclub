@@ -3,6 +3,7 @@ name: Daily Leaderboard Update
 # ============================================================
 # 每日榜单数据自动更新
 # 触发时间: 每天 06:00 UTC = 14:00 北京时间
+# 包含: GitHub数据 + Product Hunt数据 + Google Trends数据
 # ============================================================
 on:
   schedule:
@@ -23,16 +24,24 @@ jobs:
   update:
     name: Update Leaderboard Data
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # 深度1, 加快checkout
           fetch-depth: 1
-          # 需要写权限用于提交
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install pytrends
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -41,19 +50,39 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ai-nav/package-lock.json
 
-      - name: Install dependencies
+      - name: Install Node dependencies
         run: npm ci
         working-directory: ai-nav
 
-      - name: Run leaderboard update
+      - name: Set Environment Variables
+        run: |
+          echo "PH_API_KEY=${{ secrets.PH_API_KEY }}" >> $GITHUB_ENV
+          echo "PH_API_SECRET=${{ secrets.PH_API_SECRET }}" >> $GITHUB_ENV
+
+      - name: Run Product Hunt Update
+        run: |
+          node ai-nav/scripts/ph-client-auth.js
+        working-directory: .
+
+      - name: Run Google Trends Update
+        run: |
+          python ai-nav/scripts/google-trends-collector.py
+        working-directory: .
+
+      - name: Run Leaderboard Update
         id: update
         run: |
           if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
-            node scripts/update-leaderboard.js --dry-run
+            node ai-nav/scripts/update-leaderboard.js --dry-run
           else
-            node scripts/update-leaderboard.js
+            node ai-nav/scripts/update-leaderboard.js
           fi
-        working-directory: ai-nav
+        working-directory: .
+
+      - name: Run Comprehensive Collector
+        run: |
+          node ai-nav/scripts/comprehensive-collector.js
+        working-directory: .
 
       - name: Commit and push changes
         if: github.event.inputs.dry_run != 'true'
@@ -63,14 +92,14 @@ jobs:
           
           # 检查是否有变更
           if git diff --quiet; then
-            echo "✅ No changes to commit"
+            echo "No changes to commit"
           else
             # 添加 data 目录变更
             git add data/
             
-            # 提取top变化生成commit message
+            # 生成commit message
             DATE=$(date +%Y-%m-%d)
-            echo "📊 Daily leaderboard update $DATE" > /tmp/commit_msg.txt
+            echo "Daily leaderboard update $DATE" > /tmp/commit_msg.txt
             echo "" >> /tmp/commit_msg.txt
             git diff --stat data/ >> /tmp/commit_msg.txt
             
@@ -78,34 +107,26 @@ jobs:
             git commit -F /tmp/commit_msg.txt
             git push
             
-            echo "✅ Changes committed and pushed"
+            echo "Changes committed and pushed"
           fi
-        working-directory: ai-nav
+        working-directory: .
 
       - name: Trigger Netlify rebuild (optional)
         if: github.event.inputs.dry_run != 'true'
-        # 如果配置了 NETLIFY_BUILD_HOOK_URL secrets, 触发Netlify重建
-        # 配置方式: GitHub repo Settings → Secrets → Add NETLIFY_BUILD_HOOK_URL
-        # 值格式: https://api.netlify.com/build_hooks/xxxxx
-        # 如不需要Netlify自动构建, 可以删除此step
         env:
           NETLIFY_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
         run: |
           if [ -n "$NETLIFY_HOOK_URL" ]; then
-            echo "🔄 Triggering Netlify rebuild..."
-            curl -s -X POST "$NETLIFY_HOOK_URL" > /dev/null && echo "✅ Netlify rebuild triggered" || echo "⚠️ Netlify trigger failed"
-          else
-            echo "ℹ️ NETLIFY_BUILD_HOOK_URL not configured, skipping Netlify rebuild"
-            echo "   (Changes will be built on next push to main branch)"
+            curl -s -X POST "$NETLIFY_HOOK_URL" > /dev/null && echo "Netlify rebuild triggered" || echo "Netlify trigger failed"
           fi
 
       - name: Summary
         if: github.event.inputs.dry_run != 'true'
         run: |
-          echo "## 📊 Daily Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## Daily Update Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| 项目 | 值 |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
-          echo "| 日期 | $(date +%Y-%m-%d) |" >> $GITHUB_STEP_SUMMARY
-          echo "| 触发 | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Date | $(date +%Y-%m-%d) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Trigger | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Commit | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY
