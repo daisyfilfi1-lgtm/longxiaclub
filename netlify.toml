@@ -16,3 +16,9 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# 定时任务配置 (每天 UTC 0:00 = 北京时间 08:00)
+[context.production]
+  [[scheduled_functions.daily-update]]
+    schedule = "@daily"
+    function = "scheduled-update"
