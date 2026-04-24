@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { Tool, Skill } from '@/types';
-import { searchSupabase } from '@/lib/supabase';
+import { searchSupabase, isSupabaseAvailable } from '@/lib/supabase';
 import { tools as localTools, skills as localSkills } from '@/data/tools';
 
 export const dynamic = 'force-dynamic';
@@ -18,10 +18,7 @@ export async function GET(request: Request) {
   try {
     // 尝试从 Supabase 搜索
     if (source === 'supabase' || source === 'auto') {
-      const supabaseUrl = process.env.SUPABASE_URL;
-      const supabaseKey = process.env.SUPABASE_ANON_KEY;
-      
-      if (supabaseUrl && supabaseKey) {
+      if (isSupabaseAvailable()) {
         const results = await searchSupabase(q, type as 'tools' | 'skills' | 'all');
         if (results.tools.length > 0 || results.skills.length > 0) {
           return NextResponse.json({ 

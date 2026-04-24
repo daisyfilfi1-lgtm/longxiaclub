@@ -1,19 +1,37 @@
 import { createClient } from '@supabase/supabase-js';
 import { Tool, Skill, Scene } from '@/types';
 
-// 创建 Supabase 客户端
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '';
+let _supabase: ReturnType<typeof createClient> | null = null;
 
-if (!supabaseUrl || !supabaseKey) {
-  console.warn('Supabase credentials not configured. Using local data fallback.');
+function getSupabaseUrl(): string {
+  return process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '';
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey, {
-  auth: {
-    persistSession: false, // 服务端渲染时不需要持久化会话
-  },
-});
+function getSupabaseKey(): string {
+  return process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '';
+}
+
+/** 获取 Supabase 客户端（lazy init，仅在调用时创建） */
+export function getSupabaseClient() {
+  if (_supabase) return _supabase;
+  const url = getSupabaseUrl();
+  const key = getSupabaseKey();
+  if (!url || !key) {
+    console.warn('Supabase credentials not configured. Using local data fallback.');
+    return null;
+  }
+  _supabase = createClient(url, key, {
+    auth: {
+      persistSession: false,
+    },
+  });
+  return _supabase;
+}
+
+/** 检查 Supabase 是否可用 */
+export function isSupabaseAvailable(): boolean {
+  return !!(getSupabaseUrl() && getSupabaseKey());
+}
 
 // 工具函数：从 Supabase 获取工具列表
 export async function getToolsFromSupabase(options?: {
@@ -22,7 +40,10 @@ export async function getToolsFromSupabase(options?: {
   orderBy?: string;
 }): Promise<Tool[]> {
   try {
-    let query = supabase.from('tools').select('*');
+    const client = getSupabaseClient();
+    if (!client) return [];
+
+    let query = client.from('tools').select('*');
     
     if (options?.category) {
       query = query.eq('category', options.category);
@@ -58,7 +79,10 @@ export async function getSkillsFromSupabase(options?: {
   category?: string;
 }): Promise<Skill[]> {
   try {
-    let query = supabase.from('skills').select('*');
+    const client = getSupabaseClient();
+    if (!client) return [];
+
+    let query = client.from('skills').select('*');
     
     if (options?.category) {
       query = query.eq('category', options.category);
@@ -87,10 +111,13 @@ export async function getSkillsFromSupabase(options?: {
 // 工具函数：搜索
 export async function searchSupabase(query: string, type: 'tools' | 'skills' | 'all' = 'all'): Promise<{ tools: Tool[]; skills: Skill[] }> {
   try {
+    const client = getSupabaseClient();
+    if (!client) return { tools: [], skills: [] };
+
     const results: { tools: Tool[]; skills: Skill[] } = { tools: [], skills: [] };
     
     if (type === 'all' || type === 'tools') {
-      const { data: tools } = await supabase
+      const { data: tools } = await client
         .from('tools')
         .select('*')
         .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
@@ -99,7 +126,7 @@ export async function searchSupabase(query: string, type: 'tools' | 'skills' | '
     }
     
     if (type === 'all' || type === 'skills') {
-      const { data: skills } = await supabase
+      const { data: skills } = await client
         .from('skills')
         .select('*')
         .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
