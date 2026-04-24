@@ -64,7 +64,7 @@ export async function getSkillsFromSupabase(options?: {
       query = query.eq('category', options.category);
     }
     
-    query = query.order('heat', { ascending: false });
+    query = query.order('install_count', { ascending: false });
     
     if (options?.limit) {
       query = query.limit(options.limit);
