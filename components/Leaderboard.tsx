@@ -21,27 +21,56 @@ export default function Leaderboard() {
   });
 
   useEffect(() => {
+    let cancelled = false;
+
+    // 超时保护：8秒后自动停止 loading
+    const timeoutId = setTimeout(() => {
+      if (!cancelled) {
+        setData(prev => ({
+          ...prev,
+          loading: false,
+          error: '加载超时，请稍后重试'
+        }));
+      }
+    }, 8000);
+
     // 并行获取工具和技能数据
     Promise.all([
-      fetch('/api/leaderboard?type=tools&limit=5').then(r => r.json()),
-      fetch('/api/leaderboard?type=skills&limit=5').then(r => r.json())
+      fetch('/api/leaderboard?type=tools&limit=5').then(r => {
+        if (!r.ok) throw new Error(`Tools API: ${r.status}`);
+        return r.json();
+      }),
+      fetch('/api/leaderboard?type=skills&limit=5').then(r => {
+        if (!r.ok) throw new Error(`Skills API: ${r.status}`);
+        return r.json();
+      })
     ])
       .then(([toolsRes, skillsRes]) => {
+        if (cancelled) return;
+        clearTimeout(timeoutId);
         setData({
-          tools: toolsRes.success ? toolsRes.data.slice(0, 5) : [],
-          skills: skillsRes.success ? skillsRes.data.slice(0, 5) : [],
+          tools: toolsRes?.success ? (toolsRes.data || []).slice(0, 5) : [],
+          skills: skillsRes?.success ? (skillsRes.data || []).slice(0, 5) : [],
           loading: false,
           error: null
         });
       })
       .catch(error => {
+        if (cancelled) return;
+        clearTimeout(timeoutId);
         console.error('Failed to fetch leaderboard:', error);
-        setData(prev => ({
-          ...prev,
+        setData({
+          tools: [],
+          skills: [],
           loading: false,
           error: '加载失败，请刷新页面重试'
-        }));
+        });
       });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   if (data.loading) {

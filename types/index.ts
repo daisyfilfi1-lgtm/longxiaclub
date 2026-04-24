@@ -64,6 +64,9 @@ export interface Skill {
   output: string;
   icon: string;
   heatGrowth: number;
+  heat?: number;
+  githubStars?: number;
+  githubForks?: number;
 }
 
 export interface WorkflowStep {
