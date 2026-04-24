@@ -23,7 +23,7 @@ export default function Leaderboard() {
   useEffect(() => {
     let cancelled = false;
 
-    // 超时保护：8秒后自动停止 loading
+    // 超时保护：5秒后自动停止 loading
     const timeoutId = setTimeout(() => {
       if (!cancelled) {
         setData(prev => ({
@@ -32,7 +32,7 @@ export default function Leaderboard() {
           error: '加载超时，请稍后重试'
         }));
       }
-    }, 8000);
+    }, 5000);
 
     // 并行获取工具和技能数据
     Promise.all([

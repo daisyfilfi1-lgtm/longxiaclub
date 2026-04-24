@@ -3,6 +3,7 @@ import './globals.css'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://longxiaclub.com'),
   title: {
     default: 'AI导航站 - 发现最佳AI工具与技能',
     template: '%s | AI导航站',
