@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Leaderboard from '@/components/Leaderboard';
 import SceneTags from '@/components/SceneTags';
+import EvolutionLog from '@/components/EvolutionLog';
 import { Sparkles } from 'lucide-react';
 
 export default function Home() {
@@ -17,6 +18,9 @@ export default function Home() {
         
         {/* Scene Tags */}
         <SceneTags />
+
+        {/* Evolution Log - Self-improvement transparency */}
+        <EvolutionLog />
         
         {/* Footer */}
         <footer className="border-t border-slate-200 py-12 bg-white mt-12">

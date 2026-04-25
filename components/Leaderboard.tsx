@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { TrendingUp, Zap, ArrowUpRight, Star, Download, Flame } from 'lucide-react';
+import { TrendingUp, Zap, ArrowUpRight, Star, Download, Flame, Clock, Sparkles } from 'lucide-react';
 import { Tool, Skill } from '@/types';
 
 interface LeaderboardData {
@@ -12,6 +12,24 @@ interface LeaderboardData {
   error: string | null;
 }
 
+type SortMode = 'heat' | 'trending';
+
+interface TabOption {
+  id: SortMode;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const toolsTabs: TabOption[] = [
+  { id: 'heat', label: '热度排行', icon: <Flame className="w-4 h-4" /> },
+  { id: 'trending', label: '趋势飙升', icon: <TrendingUp className="w-4 h-4" /> },
+];
+
+const skillsTabs: TabOption[] = [
+  { id: 'heat', label: '安装最多', icon: <Download className="w-4 h-4" /> },
+  { id: 'trending', label: '增长最快', icon: <Sparkles className="w-4 h-4" /> },
+];
+
 export default function Leaderboard() {
   const [data, setData] = useState<LeaderboardData>({
     tools: [],
@@ -19,11 +37,56 @@ export default function Leaderboard() {
     loading: true,
     error: null
   });
+  const [toolsSort, setToolsSort] = useState<SortMode>('heat');
+  const [skillsSort, setSkillsSort] = useState<SortMode>('heat');
+  const [fetchKey, setFetchKey] = useState(0);
+
+  const fetchData = useCallback(async () => {
+    setData(prev => ({ ...prev, loading: true, error: null }));
+
+    // 超时保护：5秒后自动停止 loading
+    const timeoutId = setTimeout(() => {
+      setData(prev => ({
+        ...prev,
+        loading: false,
+        error: '加载超时，请稍后重试'
+      }));
+    }, 5000);
+
+    try {
+      const [toolsRes, skillsRes] = await Promise.all([
+        fetch(`/api/leaderboard?type=tools&limit=5&sort=${toolsSort}`).then(r => {
+          if (!r.ok) throw new Error(`Tools API: ${r.status}`);
+          return r.json();
+        }),
+        fetch(`/api/leaderboard?type=skills&limit=5&sort=${skillsSort}`).then(r => {
+          if (!r.ok) throw new Error(`Skills API: ${r.status}`);
+          return r.json();
+        })
+      ]);
+
+      clearTimeout(timeoutId);
+      setData({
+        tools: toolsRes?.success ? (toolsRes.data || []).slice(0, 5) : [],
+        skills: skillsRes?.success ? (skillsRes.data || []).slice(0, 5) : [],
+        loading: false,
+        error: null
+      });
+    } catch (error) {
+      clearTimeout(timeoutId);
+      console.error('Failed to fetch leaderboard:', error);
+      setData({
+        tools: [],
+        skills: [],
+        loading: false,
+        error: '加载失败，请刷新页面重试'
+      });
+    }
+  }, [toolsSort, skillsSort]);
 
   useEffect(() => {
     let cancelled = false;
 
-    // 超时保护：5秒后自动停止 loading
     const timeoutId = setTimeout(() => {
       if (!cancelled) {
         setData(prev => ({
@@ -34,13 +97,12 @@ export default function Leaderboard() {
       }
     }, 5000);
 
-    // 并行获取工具和技能数据
     Promise.all([
-      fetch('/api/leaderboard?type=tools&limit=5').then(r => {
+      fetch(`/api/leaderboard?type=tools&limit=5&sort=${toolsSort}`).then(r => {
         if (!r.ok) throw new Error(`Tools API: ${r.status}`);
         return r.json();
       }),
-      fetch('/api/leaderboard?type=skills&limit=5').then(r => {
+      fetch(`/api/leaderboard?type=skills&limit=5&sort=${skillsSort}`).then(r => {
         if (!r.ok) throw new Error(`Skills API: ${r.status}`);
         return r.json();
       })
@@ -71,7 +133,7 @@ export default function Leaderboard() {
       cancelled = true;
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [toolsSort, skillsSort]);
 
   if (data.loading) {
     return (
@@ -119,14 +181,14 @@ export default function Leaderboard() {
           <div className="bg-white rounded-3xl border border-slate-200 shadow-lg shadow-slate-100 overflow-hidden">
             {/* Header */}
             <div className="p-6 border-b border-slate-100">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg shadow-orange-100">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-slate-800">产品飙升榜</h3>
-                    <p className="text-sm text-slate-500">本周热度增长最快</p>
+                    <p className="text-sm text-slate-500">{toolsSort === 'heat' ? '热度排行' : '趋势飙升'}</p>
                   </div>
                 </div>
                 <Link
@@ -135,6 +197,23 @@ export default function Leaderboard() {
                 >
                   <ArrowUpRight className="w-5 h-5" />
                 </Link>
+              </div>
+              {/* Sort Tabs */}
+              <div className="flex space-x-2">
+                {toolsTabs.map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setToolsSort(tab.id)}
+                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      toolsSort === tab.id
+                        ? 'bg-gradient-to-r from-orange-400 to-red-500 text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    }`}
+                  >
+                    {tab.icon}
+                    <span>{tab.label}</span>
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -179,11 +258,18 @@ export default function Leaderboard() {
                       <p className="text-sm text-slate-500 truncate">{tool.description?.slice(0, 25)}...</p>
                     </div>
 
-                    {/* Growth */}
-                    <div className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 ml-3">
-                      <Flame className="w-3.5 h-3.5 text-emerald-500" />
-                      <span className="text-sm font-medium text-emerald-600">+{tool.heatGrowth || 0}%</span>
-                    </div>
+                    {/* Growth or Heat */}
+                    {toolsSort === 'trending' ? (
+                      <div className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 ml-3">
+                        <Flame className="w-3.5 h-3.5 text-emerald-500" />
+                        <span className="text-sm font-medium text-emerald-600">+{tool.heatGrowth || 0}%</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-100 ml-3">
+                        <Flame className="w-3.5 h-3.5 text-amber-500" />
+                        <span className="text-sm font-medium text-amber-600">{tool.heat || 0}</span>
+                      </div>
+                    )}
                   </Link>
                 ))
               )}
@@ -205,14 +291,14 @@ export default function Leaderboard() {
           <div className="bg-white rounded-3xl border border-slate-200 shadow-lg shadow-slate-100 overflow-hidden">
             {/* Header */}
             <div className="p-6 border-b border-slate-100">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-100">
                     <Zap className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-slate-800">Skill热门榜</h3>
-                    <p className="text-sm text-slate-500">本周安装/使用最多</p>
+                    <p className="text-sm text-slate-500">{skillsSort === 'heat' ? '安装最多' : '增长最快'}</p>
                   </div>
                 </div>
                 <Link
@@ -221,6 +307,23 @@ export default function Leaderboard() {
                 >
                   <ArrowUpRight className="w-5 h-5" />
                 </Link>
+              </div>
+              {/* Sort Tabs */}
+              <div className="flex space-x-2">
+                {skillsTabs.map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setSkillsSort(tab.id)}
+                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      skillsSort === tab.id
+                        ? 'bg-gradient-to-r from-purple-400 to-pink-500 text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    }`}
+                  >
+                    {tab.icon}
+                    <span>{tab.label}</span>
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -266,16 +369,23 @@ export default function Leaderboard() {
                     </div>
 
                     {/* Stats */}
-                    <div className="flex items-center space-x-3 ml-3">
-                      <div className="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-100">
-                        <Star className="w-3 h-3 text-blue-500" />
-                        <span className="text-xs font-medium text-blue-600">{skill.successRate || 90}%</span>
+                    {skillsSort === 'trending' ? (
+                      <div className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 ml-3">
+                        <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+                        <span className="text-sm font-medium text-emerald-600">+{skill.heatGrowth || 0}%</span>
                       </div>
-                      <div className="flex items-center space-x-1 text-slate-400">
-                        <Download className="w-3.5 h-3.5" />
-                        <span className="text-xs">{((skill.installCount || 0) / 1000).toFixed(1)}k</span>
+                    ) : (
+                      <div className="flex items-center space-x-3 ml-3">
+                        <div className="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-100">
+                          <Star className="w-3 h-3 text-blue-500" />
+                          <span className="text-xs font-medium text-blue-600">{skill.successRate || 90}%</span>
+                        </div>
+                        <div className="flex items-center space-x-1 text-slate-400">
+                          <Download className="w-3.5 h-3.5" />
+                          <span className="text-xs">{((skill.installCount || 0) / 1000).toFixed(1)}k</span>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </Link>
                 ))
               )}
