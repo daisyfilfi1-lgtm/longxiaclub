@@ -5,14 +5,17 @@ import Link from 'next/link';
 import { useFavorites } from '@/hooks/useFavorites';
 import { ExternalLink, Heart, Share2, Copy, CheckCircle, Lightbulb, ArrowLeft, Flame, Star, Sparkles } from 'lucide-react';
 
-import { Tool, Skill } from '@/types';
+import { Tool, Skill, Scene } from '@/types';
+import type { Relation } from '@/lib/knowledge-graph';
 
 interface Props {
   tool: Tool;
   relatedSkills: Skill[];
+  relatedTools: Relation[];
+  primaryRelatedSkills: Relation[];
 }
 
-export default function ToolDetailClient({ tool, relatedSkills }: Props) {
+export default function ToolDetailClient({ tool, relatedSkills, relatedTools, primaryRelatedSkills }: Props) {
   const { isLoaded, isToolFavorite, toggleToolFavorite } = useFavorites();
   const [copiedPrompt, setCopiedPrompt] = useState<string | null>(null);
 
@@ -289,29 +292,66 @@ export default function ToolDetailClient({ tool, relatedSkills }: Props) {
 
             {/* Right Column */}
             <div className="space-y-6">
-              {/* Related Skills */}
-              {relatedSkills.length > 0 && (
-                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
-                  <h3 className="font-bold text-slate-800 mb-4">🔗 关联Skill</h3>
-                  <div className="space-y-3">
-                    {relatedSkills.map((skill) => (
-                      <Link
-                        key={skill.id}
-                        href={`/skills/${skill.id}`}
-                        className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors group"
-                      >
-                        <span className="text-2xl">{skill.icon}</span>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-slate-800 text-sm group-hover:text-purple-600 transition-colors truncate">{skill.name}</h4>
-                          <p className="text-xs text-slate-500 truncate">{skill.description.slice(0, 20)}...</p>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+              {/* 知识图谱推荐 — 关联 Skill */}
+            {primaryRelatedSkills.length > 0 && (
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-bold text-slate-800">🔗 知识图谱推荐</h3>
+                  <span className="text-xs bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full">
+                    自动关联
+                  </span>
                 </div>
-              )}
+                <div className="space-y-3">
+                  {primaryRelatedSkills.map((rel) => (
+                    <Link
+                      key={rel.id}
+                      href={`/skills/${rel.id}`}
+                      className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors group"
+                    >
+                      <span className="text-2xl">{rel.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-slate-800 text-sm group-hover:text-purple-600 transition-colors truncate">{rel.name}</h4>
+                        <div className="flex items-center space-x-1 mt-0.5">
+                          {rel.tags.slice(0, 2).map((tag, i) => (
+                            <span key={i} className="text-[10px] bg-purple-50 text-purple-500 px-1.5 py-0.5 rounded-full">{tag}</span>
+                          ))}
+                          <span className="text-[10px] text-slate-400">{Math.round(rel.score * 100)}%</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
-              {/* Tech Tags */}
+            {/* 知识图谱推荐 — 关联工具 */}
+            {relatedTools.length > 0 && (
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-bold text-slate-800">🎯 搭配工具</h3>
+                  <span className="text-xs bg-cyan-50 text-cyan-600 px-2 py-0.5 rounded-full">
+                    自动推荐
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {relatedTools.map((rel) => (
+                    <Link
+                      key={rel.id}
+                      href={`/tools/${rel.id}`}
+                      className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 hover:bg-cyan-50 transition-colors group"
+                    >
+                      <span className="text-2xl">{rel.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-slate-800 text-sm group-hover:text-cyan-600 transition-colors truncate">{rel.name}</h4>
+                        <p className="text-xs text-slate-500 truncate">{rel.description?.slice(0, 30)}...</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Tech Tags */}
               <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
                 <h3 className="font-bold text-slate-800 mb-4">🏷️ 技术标签</h3>
                 <div className="flex flex-wrap gap-2">

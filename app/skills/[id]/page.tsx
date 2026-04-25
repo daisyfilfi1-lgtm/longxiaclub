@@ -5,8 +5,10 @@ import { useState, useEffect } from 'react';
 import { ExternalLink, Heart, Share2, Download, Star, CheckCircle, GitBranch, ArrowLeft, Lightbulb, Target, Copy, Check } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { skills as localSkills, tools } from '@/data/tools';
+import { getRelatedToolsBySkill, getRelatedSkillsBySkill } from '@/lib/knowledge-graph';
 import { notFound, useParams } from 'next/navigation';
 import type { Skill } from '@/types';
+import type { Relation } from '@/lib/knowledge-graph';
 
 // 强制动态渲染，防止预渲染失败
 export const dynamic = 'force-dynamic';
@@ -85,6 +87,8 @@ export default function SkillDetailPage() {
   const [skill, setSkill] = useState<Skill | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [relatedTools, setRelatedTools] = useState<Relation[]>([]);
+  const [relatedSkills, setRelatedSkills] = useState<Relation[]>([]);
 
   // 获取Skill数据
   useEffect(() => {
@@ -98,6 +102,9 @@ export default function SkillDetailPage() {
             const foundSkill = data.data.find((s: Skill) => s.id === id);
             if (foundSkill) {
               setSkill(foundSkill);
+              // 计算知识图谱推荐
+              setRelatedTools(getRelatedToolsBySkill(foundSkill.id, 5));
+              setRelatedSkills(getRelatedSkillsBySkill(foundSkill.id, 5));
               setIsLoading(false);
               return;
             }
@@ -110,6 +117,8 @@ export default function SkillDetailPage() {
       const localSkill = localSkills.find((s) => s.id === id);
       if (localSkill) {
         setSkill(localSkill);
+        setRelatedTools(getRelatedToolsBySkill(localSkill.id, 5));
+        setRelatedSkills(getRelatedSkillsBySkill(localSkill.id, 5));
       }
       setIsLoading(false);
     };
@@ -413,6 +422,65 @@ export default function SkillDetailPage() {
                   ))}
                 </div>
               </div>
+
+              {/* 知识图谱推荐：推荐工具 */}
+              {relatedTools.length > 0 && (
+                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-slate-800">🎯 推荐工具</h3>
+                    <span className="text-xs bg-cyan-50 text-cyan-600 px-2 py-0.5 rounded-full">
+                      自动推荐
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    {relatedTools.map((rel) => (
+                      <Link
+                        key={rel.id}
+                        href={`/tools/${rel.id}`}
+                        className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 hover:bg-cyan-50 transition-colors group"
+                      >
+                        <span className="text-2xl">{rel.icon}</span>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-slate-800 text-sm group-hover:text-cyan-600 transition-colors truncate">{rel.name}</h4>
+                          <p className="text-xs text-slate-500 truncate">{rel.description?.slice(0, 30)}...</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 知识图谱推荐：关联Skill */}
+              {relatedSkills.length > 0 && (
+                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-slate-800">🔗 关联 Skill</h3>
+                    <span className="text-xs bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full">
+                      自动关联
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    {relatedSkills.map((rel) => (
+                      <Link
+                        key={rel.id}
+                        href={`/skills/${rel.id}`}
+                        className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors group"
+                      >
+                        <span className="text-2xl">{rel.icon}</span>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-slate-800 text-sm group-hover:text-purple-600 transition-colors truncate">{rel.name}</h4>
+                          <div className="flex items-center space-x-1 mt-0.5">
+                            {rel.tags.slice(0, 2).map((tag, i) => (
+                              <span key={i} className="text-[10px] bg-purple-50 text-purple-500 px-1.5 py-0.5 rounded-full">{tag}</span>
+                            ))}
+                            <span className="text-[10px] text-slate-400">{Math.round(rel.score * 100)}%</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Author */}
               <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-100">

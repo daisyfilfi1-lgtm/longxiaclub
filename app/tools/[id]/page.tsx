@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import ToolDetailClient from '@/components/ToolDetailClient';
 import { tools, skills } from '@/data/tools';
+import { getRelatedSkills, getRelatedTools } from '@/lib/knowledge-graph';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
@@ -60,9 +61,25 @@ export default async function ToolDetailPage({ params }: Props) {
     notFound();
   }
 
+  // 知识图谱动态计算关联
+  const relatedSkillsFromGraph = getRelatedSkills(tool.id, 8);
+  const relatedToolsFromGraph = getRelatedTools(tool.id, 6);
+  
+  // 兼容旧数据：优先用图谱结果，不足时用手工维护的
   const relatedSkillsList = skills.filter((s) => (tool.relatedSkills || []).includes(s.id));
+  // 图谱结果比手工关联更丰富，优先展示
+  const primaryRelatedSkills = relatedSkillsFromGraph.length >= 3 
+    ? relatedSkillsFromGraph 
+    : relatedSkillsList.map(s => ({
+        id: s.id,
+        name: s.name,
+        type: 'skill' as const,
+        score: 1,
+        tags: ['关联Skill'],
+        icon: s.icon,
+        description: s.description.slice(0, 60),
+      }));
 
-  // 构建结构化数据（JSON-LD）
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -89,7 +106,12 @@ export default async function ToolDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <ToolDetailClient tool={tool} relatedSkills={relatedSkillsList} />
+      <ToolDetailClient 
+        tool={tool} 
+        relatedSkills={relatedSkillsList} 
+        relatedTools={relatedToolsFromGraph}
+        primaryRelatedSkills={primaryRelatedSkills}
+      />
     </>
   );
 }
