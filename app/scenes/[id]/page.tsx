@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Bookmark, CheckCircle, Zap, Wrench, Layers, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Bookmark, CheckCircle, Zap, Wrench, Layers, Sparkles, Network } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { scenes, tools, skills } from '@/data/tools';
+import { getSceneRelations } from '@/lib/knowledge-graph';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
@@ -40,27 +41,12 @@ export default async function SceneDetailPage({ params }: Props) {
     notFound();
   }
 
-  const sceneTools = tools.filter((t) => 
-    t.sceneTags.some((tag) => scene.tags.includes(tag))
-  ).slice(0, 6);
-
-  // 通过场景关联工具的 relatedSkills 找相关 Skill（更精确）
-  const sceneToolIds = sceneTools.map((t) => t.id);
-  const sceneSkills = skills.filter((s) => {
-    // Skill 被该场景工具关联
-    const linkedByTools = sceneToolIds.some((toolId) => 
-      tools.some((t) => t.id === toolId && (t.relatedSkills || []).includes(s.id))
-    );
-    // 或 Skill 分类匹配场景标签
-    const categoryMatch = scene.tags.includes(s.category);
-    // 或 Skill workflow 中涉及场景关键词
-    const workflowMatch = s.workflow.some((step) => 
-      scene.tags.some((tag) => 
-        step.title.includes(tag) || step.description.includes(tag)
-      )
-    );
-    return linkedByTools || categoryMatch || workflowMatch;
-  }).slice(0, 4);
+  // 知识图谱自动计算关联
+  const sceneRelations = getSceneRelations(scene.tags[0]);
+  const sceneTools = sceneRelations.tools.slice(0, 6);
+  const sceneSkills = sceneRelations.skills.slice(0, 4);
+  const actualToolCount = sceneRelations.tools.length;
+  const actualSkillCount = sceneRelations.skills.length;
 
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
@@ -96,6 +82,14 @@ export default async function SceneDetailPage({ params }: Props) {
                     <Bookmark className="w-5 h-5 text-rose-500" />
                     <span className="font-bold text-slate-800">{(scene.xhsSaves / 1000).toFixed(1)}k</span>
                     <span className="text-slate-500">人收藏使用</span>
+                  </div>
+                  <div className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-teal-50 to-cyan-50 border border-teal-100 shadow-sm">
+                    <Network className="w-5 h-5 text-teal-500" />
+                    <span className="font-bold text-slate-800">{actualToolCount}</span>
+                    <span className="text-slate-500">工具</span>
+                    <span className="text-slate-300">·</span>
+                    <span className="font-bold text-slate-800">{actualSkillCount}</span>
+                    <span className="text-slate-500">Skill</span>
                   </div>
                   {scene.tags.map((tag) => (
                     <span
@@ -191,11 +185,11 @@ export default async function SceneDetailPage({ params }: Props) {
                   className="flex items-center space-x-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-teal-300 hover:shadow-md transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-2xl group-hover:bg-teal-50 transition-colors">
-                    {tool.logo}
+                    {tool.icon}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-slate-800 group-hover:text-teal-600 transition-colors">{tool.name}</h3>
-                    <p className="text-sm text-slate-500 truncate">{tool.description.slice(0, 30)}...</p>
+                    <p className="text-sm text-slate-500 truncate">{tool.description}</p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
                 </Link>
@@ -223,7 +217,7 @@ export default async function SceneDetailPage({ params }: Props) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-slate-800 group-hover:text-purple-600 transition-colors">{skill.name}</h3>
-                    <p className="text-sm text-slate-500 truncate">{skill.description.slice(0, 30)}...</p>
+                    <p className="text-sm text-slate-500 truncate">{skill.description}</p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" />
                 </Link>

@@ -1,9 +1,18 @@
 import Link from 'next/link';
-import { ArrowUpRight, Bookmark, Layers } from 'lucide-react';
+import { ArrowUpRight, Bookmark, Layers, Network } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { scenes } from '@/data/tools';
+import { getSceneRelations } from '@/lib/knowledge-graph';
 
 export default function ScenesPage() {
+  // 知识图谱预先计算所有场景的统计数据
+  const sceneStats = Object.fromEntries(
+    scenes.map(scene => {
+      const rel = getSceneRelations(scene.tags[0]);
+      return [scene.id, { toolCount: rel.tools.length, skillCount: rel.skills.length }];
+    })
+  );
+
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
@@ -49,15 +58,16 @@ export default function ScenesPage() {
                   </h3>
                   <p className="text-sm text-slate-500 mb-4">{scene.description}</p>
 
-                  {/* Stats */}
+                  {/* Stats — 知识图谱自动计算 */}
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="flex items-center space-x-1.5 text-sm text-slate-500">
                       <Layers className="w-4 h-4" />
-                      <span className="font-semibold text-slate-800">{scene.toolCount}</span>
+                      <span className="font-semibold text-slate-800">{sceneStats[scene.id]?.toolCount || scene.toolCount}</span>
                       <span>工具</span>
                     </div>
                     <div className="flex items-center space-x-1.5 text-sm text-slate-500">
-                      <span className="font-semibold text-slate-800">{scene.skillCount}</span>
+                      <Network className="w-4 h-4" />
+                      <span className="font-semibold text-slate-800">{sceneStats[scene.id]?.skillCount || scene.skillCount}</span>
                       <span>Skill</span>
                     </div>
                   </div>
