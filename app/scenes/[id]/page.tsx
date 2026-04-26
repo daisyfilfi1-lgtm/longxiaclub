@@ -25,10 +25,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${scene.name} - 场景方案 - AI导航站`,
     description: `${scene.description} | ${scene.toolCount}款工具 | ${scene.skillCount}个Skill | ${(scene.xhsSaves / 1000).toFixed(1)}k人收藏`,
+    keywords: [...scene.tags, scene.name, 'AI场景', 'AI工具', '人工智能'],
     openGraph: {
       title: `${scene.name} - AI应用场景`,
       description: scene.description,
       type: 'website',
+      url: `https://longxiaclub.com/scenes/${scene.id}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${scene.name} - AI应用场景`,
+      description: scene.description,
+    },
+    alternates: {
+      canonical: `/scenes/${scene.id}`,
     },
   };
 }
@@ -41,18 +51,67 @@ export default async function SceneDetailPage({ params }: Props) {
     notFound();
   }
 
-  // 知识图谱自动计算关联
-  const sceneRelations = getSceneRelations(scene.tags[0]);
+  // 知识图谱自动计算关联 — use scene.name as the matching key for sceneTags
+  const sceneRelations = getSceneRelations(scene.name);
   const sceneTools = sceneRelations.tools.slice(0, 6);
   const sceneSkills = sceneRelations.skills.slice(0, 4);
   const actualToolCount = sceneRelations.tools.length;
   const actualSkillCount = sceneRelations.skills.length;
+
+  // 构建 CollectionPage JSON-LD
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${scene.name} - AI应用场景方案`,
+    description: scene.description,
+    url: `https://longxiaclub.com/scenes/${scene.id}`,
+    about: {
+      '@type': 'Thing',
+      name: scene.name,
+      description: scene.description,
+    },
+    numberOfItems: actualToolCount + actualSkillCount,
+    mainEntity: {
+      '@type': 'ItemList',
+      name: `相关AI工具与Skill`,
+      numberOfItems: actualToolCount + actualSkillCount,
+      itemListElement: [
+        ...sceneTools.map((t, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          item: {
+            '@type': 'SoftwareApplication',
+            name: t.name,
+            description: t.description,
+            url: `https://longxiaclub.com/tools/${t.id}`,
+          }
+        })),
+        ...sceneSkills.map((s, i) => ({
+          '@type': 'ListItem',
+          position: sceneTools.length + i + 1,
+          item: {
+            '@type': 'TechArticle',
+            name: s.name,
+            description: s.description,
+            url: `https://longxiaclub.com/skills/${s.id}`,
+          }
+        }))
+      ]
+    },
+    keywords: [...scene.tags, scene.name, 'AI场景', 'AI工具'].join(', ')
+  };
 
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
       
       <Navbar />
+      
+      {/* JSON-LD 结构化数据 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       
       <div className="relative pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

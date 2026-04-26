@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${tool.name} - AI导航站`,
     description: `${tool.description} | 热度${tool.heat} | ${tool.tags.join(', ')}`,
-    keywords: [...tool.tags, tool.category, tool.name],
+    keywords: [...tool.tags, tool.category, tool.name, ...(tool.sceneTags || []), ...(tool.techTags || [])],
     openGraph: {
       title: `${tool.name} - AI工具详情`,
       description: tool.description,
@@ -98,6 +98,20 @@ export default async function ToolDetailPage({ params }: Props) {
     }
   };
 
+  // 如果工具有 guides，生成 FAQPage JSON-LD
+  const faqJsonLd = tool.guides && tool.guides.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: tool.guides.map(guide => ({
+      '@type': 'Question',
+      name: `如何${guide.title}？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: guide.steps.join('\n')
+      }
+    }))
+  } : null;
+
   return (
     <>
       {/* JSON-LD 结构化数据 */}
@@ -105,6 +119,12 @@ export default async function ToolDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Navbar />
       <ToolDetailClient 
         tool={tool} 

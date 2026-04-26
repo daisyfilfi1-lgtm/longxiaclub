@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Search, Filter, X, Star, Flame } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { useTools } from '@/hooks/useApi';
@@ -47,6 +47,42 @@ export default function ToolsPage() {
       captureError(error, { page: 'tools' });
     }
   }, [error]);
+
+  // 注入 ItemList JSON-LD 结构化数据
+  const jsonLdRef = useRef<HTMLScriptElement>(null);
+  useEffect(() => {
+    // 更新页面标题
+    document.title = '产品中心 - AI导航站 | 发现最佳AI工具';
+    
+    // 注入 JSON-LD
+    const categories = CATEGORY_OPTIONS.filter(c => c !== '全部');
+    const itemListData = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'AI工具产品中心',
+      description: '发现最实用的AI工具，按热度、场景、技术分类浏览',
+      url: 'https://longxiaclub.com/tools',
+      numberOfItems: tools?.length || 0,
+      itemListOrder: 'Descending',
+      mainEntityOfPage: {
+        '@type': 'CollectionPage',
+        name: 'AI工具列表',
+      },
+      itemListElement: categories.map((cat, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CategoryCode',
+          name: cat,
+          description: `${cat}类AI工具`,
+        }
+      }))
+    };
+    
+    if (jsonLdRef.current) {
+      jsonLdRef.current.textContent = JSON.stringify(itemListData);
+    }
+  }, [tools]);
 
   // 过滤工具
   const filteredTools = useMemo(() => {
@@ -96,6 +132,12 @@ export default function ToolsPage() {
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
       
       <Navbar />
+      
+      {/* JSON-LD 结构化数据 */}
+      <script
+        ref={jsonLdRef}
+        type="application/ld+json"
+      />
       
       {/* Header */}
       <div className="relative pt-32 pb-12">
