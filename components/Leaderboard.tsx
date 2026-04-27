@@ -55,11 +55,11 @@ export default function Leaderboard() {
 
     try {
       const [toolsRes, skillsRes] = await Promise.all([
-        fetch(`/api/leaderboard?type=tools&limit=5&sort=${toolsSort}`).then(r => {
+        fetch(`/api/leaderboard/?type=tools&limit=5&sort=${toolsSort}`).then(r => {
           if (!r.ok) throw new Error(`Tools API: ${r.status}`);
           return r.json();
         }),
-        fetch(`/api/leaderboard?type=skills&limit=5&sort=${skillsSort}`).then(r => {
+        fetch(`/api/leaderboard/?type=skills&limit=5&sort=${skillsSort}`).then(r => {
           if (!r.ok) throw new Error(`Skills API: ${r.status}`);
           return r.json();
         })
@@ -98,11 +98,11 @@ export default function Leaderboard() {
     }, 5000);
 
     Promise.all([
-      fetch(`/api/leaderboard?type=tools&limit=5&sort=${toolsSort}`).then(r => {
+      fetch(`/api/leaderboard/?type=tools&limit=5&sort=${toolsSort}`).then(r => {
         if (!r.ok) throw new Error(`Tools API: ${r.status}`);
         return r.json();
       }),
-      fetch(`/api/leaderboard?type=skills&limit=5&sort=${skillsSort}`).then(r => {
+      fetch(`/api/leaderboard/?type=skills&limit=5&sort=${skillsSort}`).then(r => {
         if (!r.ok) throw new Error(`Skills API: ${r.status}`);
         return r.json();
       })
