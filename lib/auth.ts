@@ -10,20 +10,25 @@ let _authClient: SupabaseClient | null = null;
 
 export function getAuthClient(): SupabaseClient | null {
   if (_authClient) return _authClient;
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-  if (!supabaseUrl || !supabaseKey) {
-    console.warn('Supabase auth not configured. Auth features disabled.');
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    if (!supabaseUrl || !supabaseKey) {
+      console.warn('Supabase auth not configured. Auth features disabled.');
+      return null;
+    }
+    _authClient = createClient(supabaseUrl, supabaseKey, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
+    });
+    return _authClient;
+  } catch (e) {
+    console.warn('Supabase auth init failed:', e);
     return null;
   }
-  _authClient = createClient(supabaseUrl, supabaseKey, {
-    auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      detectSessionInUrl: true,
-    },
-  });
-  return _authClient;
 }
 
 // 用户类型
