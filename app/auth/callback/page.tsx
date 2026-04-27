@@ -2,14 +2,19 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabaseAuth } from '@/lib/auth';
+import { getAuthClient } from '@/lib/auth';
 
 export default function AuthCallbackPage() {
   const router = useRouter();
 
   useEffect(() => {
     // 处理 OAuth 回调
-    supabaseAuth.auth.onAuthStateChange((event, session) => {
+    const client = getAuthClient();
+    if (!client) {
+      router.push('/?error=auth_unavailable');
+      return;
+    }
+    client.auth.onAuthStateChange((event, _session) => {
       if (event === 'SIGNED_IN') {
         router.push('/');
       }

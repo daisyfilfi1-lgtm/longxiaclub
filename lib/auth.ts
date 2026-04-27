@@ -8,7 +8,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 let _authClient: SupabaseClient | null = null;
 
-function getAuthClient(): SupabaseClient | null {
+export function getAuthClient(): SupabaseClient | null {
   if (_authClient) return _authClient;
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
