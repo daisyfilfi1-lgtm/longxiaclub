@@ -4,17 +4,27 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+let _authClient: SupabaseClient | null = null;
 
-export const supabaseAuth = createClient(supabaseUrl, supabaseKey, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-    detectSessionInUrl: true,
-  },
-});
+function getAuthClient(): SupabaseClient | null {
+  if (_authClient) return _authClient;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase auth not configured. Auth features disabled.');
+    return null;
+  }
+  _authClient = createClient(supabaseUrl, supabaseKey, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true,
+    },
+  });
+  return _authClient;
+}
 
 // 用户类型
 export interface User {
@@ -35,7 +45,10 @@ export interface AuthResponse {
 // 注册
 export async function signUp(email: string, password: string, username?: string): Promise<AuthResponse> {
   try {
-    const { data, error } = await supabaseAuth.auth.signUp({
+    const client = getAuthClient();
+    if (!client) return { success: false, error: '认证服务未配置' };
+
+    const { data, error } = await client.auth.signUp({
       email,
       password,
       options: {
@@ -68,7 +81,10 @@ export async function signUp(email: string, password: string, username?: string)
 // 登录
 export async function signIn(email: string, password: string): Promise<AuthResponse> {
   try {
-    const { data, error } = await supabaseAuth.auth.signInWithPassword({
+    const client = getAuthClient();
+    if (!client) return { success: false, error: '认证服务未配置' };
+
+    const { data, error } = await client.auth.signInWithPassword({
       email,
       password,
     });
@@ -96,7 +112,10 @@ export async function signIn(email: string, password: string): Promise<AuthRespo
 
 // 第三方登录
 export async function signInWithProvider(provider: 'github' | 'google') {
-  const { data, error } = await supabaseAuth.auth.signInWithOAuth({
+  const client = getAuthClient();
+  if (!client) return { data: null, error: { name: 'AuthNotConfigured', message: '认证服务未配置', status: 503 } };
+
+  const { data, error } = await client.auth.signInWithOAuth({
     provider,
     options: {
       redirectTo: `${window.location.origin}/auth/callback`,
@@ -109,7 +128,10 @@ export async function signInWithProvider(provider: 'github' | 'google') {
 // 登出
 export async function signOut(): Promise<{ success: boolean; error?: string }> {
   try {
-    const { error } = await supabaseAuth.auth.signOut();
+    const client = getAuthClient();
+    if (!client) return { success: false, error: '认证服务未配置' };
+
+    const { error } = await client.auth.signOut();
     if (error) throw error;
     return { success: true };
   } catch (error: any) {
@@ -120,7 +142,10 @@ export async function signOut(): Promise<{ success: boolean; error?: string }> {
 // 获取当前用户
 export async function getCurrentUser(): Promise<User | null> {
   try {
-    const { data: { user }, error } = await supabaseAuth.auth.getUser();
+    const client = getAuthClient();
+    if (!client) return null;
+
+    const { data: { user }, error } = await client.auth.getUser();
     
     if (error || !user) return null;
 
@@ -138,7 +163,10 @@ export async function getCurrentUser(): Promise<User | null> {
 
 // 监听认证状态变化
 export function onAuthStateChange(callback: (user: User | null) => void) {
-  const { data: { subscription } } = supabaseAuth.auth.onAuthStateChange(
+  const client = getAuthClient();
+  if (!client) return { unsubscribe: () => {} };
+
+  const { data: { subscription } } = client.auth.onAuthStateChange(
     async (event, session) => {
       if (session?.user) {
         callback({
@@ -160,7 +188,10 @@ export function onAuthStateChange(callback: (user: User | null) => void) {
 // 重置密码
 export async function resetPassword(email: string): Promise<{ success: boolean; error?: string }> {
   try {
-    const { error } = await supabaseAuth.auth.resetPasswordForEmail(email, {
+    const client = getAuthClient();
+    if (!client) return { success: false, error: '认证服务未配置' };
+
+    const { error } = await client.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/auth/reset-password`,
     });
     
@@ -174,7 +205,10 @@ export async function resetPassword(email: string): Promise<{ success: boolean; 
 // 更新用户资料
 export async function updateProfile(updates: { username?: string; avatar_url?: string }) {
   try {
-    const { error } = await supabaseAuth.auth.updateUser({
+    const client = getAuthClient();
+    if (!client) return { success: false, error: '认证服务未配置' };
+
+    const { error } = await client.auth.updateUser({
       data: updates
     });
     
