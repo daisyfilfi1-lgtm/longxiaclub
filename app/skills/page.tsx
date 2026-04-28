@@ -91,10 +91,31 @@ export default function SkillsPage() {
       ],
     };
     
+    // ItemList: list all skills
+    const itemListJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'AI Skill市场',
+      description: '为Agent选购可插拔的Skill组件，50+个AI Skill覆盖办公提效、内容创作、编程开发等场景。',
+      url: 'https://longxiaclub.com/skills',
+      numberOfItems: skills.length,
+      itemListOrder: 'Descending',
+      itemListElement: skills.map((s, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: {
+          '@type': 'HowTo',
+          name: s.name,
+          description: s.description,
+          url: `https://longxiaclub.com/skills/${s.id}`,
+        }
+      })),
+    };
+    
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.setAttribute('data-jsonld', 'skills-list');
-    script.textContent = JSON.stringify(breadcrumbJsonLd);
+    script.textContent = JSON.stringify([breadcrumbJsonLd, itemListJsonLd]);
     document.head.appendChild(script);
     
     return () => {

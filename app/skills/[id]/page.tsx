@@ -173,10 +173,38 @@ export default function SkillDetailPage() {
     
     const scripts = [];
     
-    // SoftwareApplication JSON-LD
+    // HowTo JSON-LD (replacing TechArticle)
+    const skillData_settings = SKILL_SCENARIOS[skill.id] || {
+      scenarios: [
+        { title: '日常工作', description: '适用于日常办公场景，提升工作效率', example: '快速处理重复性任务' },
+        { title: '学习提升', description: '帮助学习新知识，加速技能成长', example: '系统化学习路径' }
+      ],
+      tips: ['根据实际需求调整使用方式', '多尝试不同的输入方式', '结合其他工具使用效果更佳'],
+      examplePrompt: '请使用这个Skill帮助我：[你的具体需求]'
+    };
+    const howToSteps = [
+      ...skill.workflow.map((w) => ({
+        '@type': 'HowToStep',
+        position: w.step,
+        name: w.title,
+        text: w.description,
+      })),
+      {
+        '@type': 'HowToStep',
+        position: skill.workflow.length + 1,
+        name: '使用技巧',
+        text: skillData_settings.tips.join('；'),
+      },
+      {
+        '@type': 'HowToStep',
+        position: skill.workflow.length + 2,
+        name: '示例提示词',
+        text: skillData_settings.examplePrompt,
+      },
+    ];
     const jsonLd = {
       '@context': 'https://schema.org',
-      '@type': 'TechArticle',
+      '@type': 'HowTo',
       name: skill.name,
       description: skill.description,
       version: skill.version,
@@ -202,6 +230,7 @@ export default function SkillDetailPage() {
         priceCurrency: 'CNY',
         availability: 'https://schema.org/OnlineOnly',
       },
+      step: howToSteps,
     };
     scripts.push(jsonLd);
     

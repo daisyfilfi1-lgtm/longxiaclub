@@ -76,6 +76,16 @@ const faqJsonLd = {
   ]
 };
 
+// BreadcrumbList JSON-LD for homepage
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  name: '面包屑导航',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'AI导航站', item: 'https://longxiaclub.com' },
+  ],
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
@@ -88,6 +98,12 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      
+      {/* BreadcrumbList JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       
       <div className="relative pt-24">

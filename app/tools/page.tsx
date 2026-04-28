@@ -117,8 +117,18 @@ export default function ToolsPage() {
       }))
     };
     
+    const breadcrumbData = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      name: '面包屑导航',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'AI导航站', item: 'https://longxiaclub.com' },
+        { '@type': 'ListItem', position: 2, name: '产品中心', item: 'https://longxiaclub.com/tools' },
+      ],
+    };
+    
     if (jsonLdRef.current) {
-      jsonLdRef.current.textContent = JSON.stringify(itemListData);
+      jsonLdRef.current.textContent = JSON.stringify([itemListData, breadcrumbData]);
     }
   }, [tools]);
 

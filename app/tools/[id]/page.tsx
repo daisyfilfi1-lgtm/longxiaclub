@@ -195,6 +195,37 @@ export default async function ToolDetailPage({ params }: Props) {
     ]
   };
 
+  // ItemList JSON-LD for related tools
+  const relatedToolsForJsonLd = relatedToolsFromGraph.slice(0, 10).map((rt, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: rt.name,
+      description: rt.description,
+      url: `https://longxiaclub.com/tools/${rt.id}`,
+    }
+  }));
+  const relatedSkillsForJsonLd = primaryRelatedSkills.slice(0, 10).map((rs, idx) => ({
+    '@type': 'ListItem',
+    position: relatedToolsFromGraph.slice(0, 10).length + idx + 1,
+    item: {
+      '@type': 'HowTo',
+      name: rs.name,
+      description: rs.description,
+      url: `https://longxiaclub.com/skills/${rs.id}`,
+    }
+  }));
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${tool.name} - 关联工具和技能`,
+    description: `与${tool.name}相关的AI工具和Skill推荐`,
+    url: `https://longxiaclub.com/tools/${tool.id}`,
+    numberOfItems: relatedToolsForJsonLd.length + relatedSkillsForJsonLd.length,
+    itemListElement: [...relatedToolsForJsonLd, ...relatedSkillsForJsonLd],
+  };
+
   return (
     <>
       {/* JSON-LD 结构化数据 */}
@@ -209,6 +240,10 @@ export default async function ToolDetailPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedFaqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <Navbar />
       <ToolDetailClient 
