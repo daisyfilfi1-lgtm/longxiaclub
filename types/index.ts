@@ -23,6 +23,14 @@ export interface Tool {
   cases?: ToolCase[];
   guides?: ToolGuide[];
   contentUpdatedAt?: string;
+  // 深度化扩展字段
+  features?: string[];
+  pricing?: string;
+  pros?: string[];
+  cons?: string[];
+  targetAudience?: string[];
+  useCases?: string[];
+  faqs?: { question: string; answer: string }[];
 }
 
 export interface ToolCase {
