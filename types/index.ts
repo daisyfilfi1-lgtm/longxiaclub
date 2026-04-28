@@ -141,3 +141,62 @@ export const SCENE_TAGS = [
 ] as const;
 
 export type SceneTag = typeof SCENE_TAGS[number];
+
+// ====== Daily Report Types ======
+
+export interface DailyReportMeta {
+  date: string;
+  title: string;
+  summary: string;
+  highlights: string[];
+}
+
+export interface DailyReportItem {
+  title?: string;
+  description?: string;
+  url?: string;
+  insight?: string;
+  source?: string;
+  likes?: number;
+  retweets?: number;
+  score?: number;
+  creator?: string;
+  platform?: string;
+  blog?: string;
+  name?: string;
+  stars?: number;
+  items?: string[];
+}
+
+export interface DailyReportSubsection {
+  title: string;
+  entries: any[];
+  note?: string;
+}
+
+export interface DailyReportSection {
+  title: string;
+  items?: DailyReportItem[];
+  subsections?: DailyReportSubsection[];
+  note?: string;
+  github_projects?: DailyReportItem[];
+}
+
+export interface DailyReport {
+  date: string;
+  title: string;
+  summary: string;
+  highlights: string[];
+  sections: {
+    S: DailyReportSection;
+    A: DailyReportSection;
+    B: DailyReportSection;
+    C: DailyReportSection;
+    D: DailyReportSection;
+  };
+  source_info: {
+    data_sources: string;
+    collection_time: string;
+    generated_by: string;
+  };
+}
