@@ -11,6 +11,20 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+// AI Level badge config
+const aiLevelConfig: Record<string, { label: string; bg: string; text: string; border: string }> = {
+  L1: { label: '⚡L1 · 基础入门', bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
+  L2: { label: '🔵L2 · 标准提效', bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+  L3: { label: '🟣L3 · 专业进阶', bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200' },
+  L4: { label: '🤖L4 · 前沿高阶', bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' },
+};
+
+// Category badge config
+const categoryConfig: Record<string, { label: string; icon: string; bg: string; text: string; border: string }> = {
+  personal: { label: '个人效率', icon: '🖥️', bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-200' },
+  enterprise: { label: '企业组织', icon: '🏢', bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' },
+};
+
 // Generate static params for all scenes
 export async function generateStaticParams() {
   return scenes.map((scene) => ({
@@ -62,6 +76,9 @@ export default async function SceneDetailPage({ params }: Props) {
   const actualToolCount = sceneRelations.tools.length;
   const actualSkillCount = sceneRelations.skills.length;
 
+  const levelCfg = aiLevelConfig[scene.aiLevel];
+  const catCfg = categoryConfig[scene.category];
+
   // 构建 CollectionPage JSON-LD
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -77,7 +94,7 @@ export default async function SceneDetailPage({ params }: Props) {
     numberOfItems: actualToolCount + actualSkillCount,
     mainEntity: {
       '@type': 'ItemList',
-      name: `相关AI工具与Skill`,
+      name: '相关AI工具与Skill',
       numberOfItems: actualToolCount + actualSkillCount,
       itemListElement: [
         ...sceneTools.map((t, i) => ({
@@ -193,11 +210,12 @@ export default async function SceneDetailPage({ params }: Props) {
               <div className="text-[8rem] lg:text-[10rem] leading-none drop-shadow-lg">
                 {scene.coverImage}
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left flex-1">
                 <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-4">{scene.name}</h1>
                 <p className="text-xl text-slate-600 mb-6">{scene.description}</p>
                 
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                  {/* Stats */}
                   <div className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-sm">
                     <Bookmark className="w-5 h-5 text-rose-500" />
                     <span className="font-bold text-slate-800">{(scene.xhsSaves / 1000).toFixed(1)}k</span>
@@ -211,6 +229,22 @@ export default async function SceneDetailPage({ params }: Props) {
                     <span className="font-bold text-slate-800">{actualSkillCount}</span>
                     <span className="text-slate-500">Skill</span>
                   </div>
+                  
+                  {/* AI Level Badge */}
+                  {levelCfg && (
+                    <span className={`px-3 py-1.5 rounded-full font-bold text-xs border shadow-sm ${levelCfg.bg} ${levelCfg.text} ${levelCfg.border}`}>
+                      {levelCfg.label}
+                    </span>
+                  )}
+                  
+                  {/* Category Badge */}
+                  {catCfg && (
+                    <span className={`px-4 py-2 rounded-xl text-sm font-medium border ${catCfg.bg} ${catCfg.text} ${catCfg.border}`}>
+                      {catCfg.icon} {catCfg.label}
+                    </span>
+                  )}
+                  
+                  {/* Tags */}
                   {scene.tags.map((tag) => (
                     <span
                       key={tag}

@@ -98,6 +98,8 @@ export interface Scene {
   icon: string;
   description: string;
   coverImage: string;
+  category: 'personal' | 'enterprise';  // 场景分类：个人效率/企业组织
+  aiLevel: 'L1' | 'L2' | 'L3' | 'L4';  // 对应混沌L级
   toolCount: number;
   skillCount: number;
   xhsSaves: number;

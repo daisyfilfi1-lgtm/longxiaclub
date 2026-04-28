@@ -907,62 +907,74 @@ export const skills: Skill[] = [
 
 export const scenes: Scene[] = [
   // Primary scenes — names match tool.sceneTags for direct lookup
-  { id: 'scene_office', name: '办公提效', icon: '📊', description: '办公提效的AI应用场景，涵盖文档处理、会议纪要、周报月报、邮件撰写、简历优化等日常办公环节', coverImage: '📊', toolCount: 26, skillCount: 10, xhsSaves: 128000, tags: ['办公提效', '自动化', '生产力'], solutions: [
+  { id: 'scene_office', name: '办公提效', icon: '📊', description: '办公提效的AI应用场景，涵盖文档处理、会议纪要、周报月报、邮件撰写、简历优化等日常办公环节', coverImage: '📊', category: 'personal', aiLevel: 'L1', toolCount: 26, skillCount: 10, xhsSaves: 128000, tags: ['办公提效', '自动化', '生产力'], solutions: [
     { id: 's1', type: 'auto', title: 'AI智能办公助手', description: '用AI自动生成周报月报、会议纪要、商务邮件，大幅提升办公效率', tools: ['ChatGPT', 'Kimi', 'Notion AI', '通义千问', 'DeepSeek'], skills: ['skill_weekly_report', 'skill_meeting_summary', 'skill_email_write', 'skill_resume_optimize'], effect: '办公效率提升200%，每日节省2小时', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: 'PPT/AI幻灯片制作', description: '一句话生成专业PPT，支持学术答辩、商业计划等场景', tools: ['Gamma', 'ChatGPT', 'Kimi'], skills: ['skill_auto_ppt', 'skill_pitch_deck'], effect: 'PPT制作时间从4小时缩短至10分钟', difficulty: 'beginner' },
     { id: 's3', type: 'auto', title: '企业内部知识库AI化', description: '将企业内部文档、流程、规范转化为AI可检索的知识库', tools: ['Kimi', 'Notion AI', '通义千问'], skills: ['skill_meeting_summary'], effect: '员工知识检索效率提升200%', difficulty: 'intermediate' }
   ] },
-  { id: 'scene_content', name: '内容创作', icon: '✍️', description: '内容创作的AI应用场景，包括文章写作、社交媒体文案、公众号文章、小红书笔记等', coverImage: '✍️', toolCount: 28, skillCount: 12, xhsSaves: 176000, tags: ['内容创作', '写作', '文案'], solutions: [
+  { id: 'scene_content', name: '内容创作', icon: '✍️', description: '内容创作的AI应用场景，包括文章写作、社交媒体文案、公众号文章、小红书笔记等', coverImage: '✍️', category: 'personal', aiLevel: 'L1', toolCount: 28, skillCount: 12, xhsSaves: 176000, tags: ['内容创作', '写作', '文案'], solutions: [
     { id: 's1', type: 'auto', title: 'AI文章与文案生成', description: '根据主题自动生成高质量文章、公众号推文、小红书笔记', tools: ['ChatGPT', 'Claude', 'Kimi', '文心一言'], skills: ['skill_xhs_rewrite', 'skill_wechat_article', 'skill_weibo_content'], effect: '写作效率提升300%，每日可产出20+篇内容', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: '多平台内容矩阵', description: '一篇文章自动适配公众号/小红书/微博/抖音等不同平台', tools: ['ChatGPT', 'Claude', '豆包'], skills: ['skill_xhs_rewrite', 'skill_wechat_article', 'skill_weibo_content'], effect: '内容分发效率提升500%', difficulty: 'intermediate' }
   ] },
-  { id: 'scene_programming', name: '编程开发', icon: '💻', description: '编程开发的AI应用场景，包括代码生成、代码审查、单元测试、API文档、数据库设计等', coverImage: '💻', toolCount: 24, skillCount: 10, xhsSaves: 128000, tags: ['编程开发', '代码', '开发工具'], solutions: [
+  { id: 'scene_programming', name: '编程开发', icon: '💻', description: '编程开发的AI应用场景，包括代码生成、代码审查、单元测试、API文档、数据库设计等', coverImage: '💻', category: 'personal', aiLevel: 'L1', toolCount: 24, skillCount: 10, xhsSaves: 128000, tags: ['编程开发', '代码', '开发工具'], solutions: [
     { id: 's1', type: 'auto', title: 'AI编程辅助', description: '用AI进行代码生成、补全、重构和审查，提升开发效率', tools: ['Cursor', 'GitHub Copilot', 'Claude', 'ChatGPT', 'Devin'], skills: ['skill_code_review', 'skill_vibe_coding', 'skill_unit_test', 'skill_api_doc'], effect: '开发效率提升300%，Bug率降低60%', difficulty: 'beginner' },
     { id: 's2', type: 'auto', title: 'AI全栈开发工作流', description: '从需求描述到部署的全流程AI辅助开发', tools: ['Cursor', 'Devin', 'Claude', 'ChatGPT', 'DeepSeek'], skills: ['skill_vibe_coding', 'skill_glue_coding', 'skill_database_schema'], effect: 'MVP开发周期从3周缩短至3天', difficulty: 'advanced' }
   ] },
-  { id: 'scene_design', name: '设计创作', icon: '🎨', description: '设计创作的AI应用场景，涵盖AI绘画、图像生成、Logo设计、产品图、插画等创意领域', coverImage: '🎨', toolCount: 22, skillCount: 8, xhsSaves: 94000, tags: ['设计创作', 'AI绘画', '创意设计'], solutions: [
+  { id: 'scene_design', name: '设计创作', icon: '🎨', description: '设计创作的AI应用场景，涵盖AI绘画、图像生成、Logo设计、产品图、插画等创意领域', coverImage: '🎨', category: 'personal', aiLevel: 'L2', toolCount: 22, skillCount: 8, xhsSaves: 94000, tags: ['设计创作', 'AI绘画', '创意设计'], solutions: [
     { id: 's1', type: 'auto', title: 'AI图像生成工作流', description: '用AI生成高质量图片，涵盖人物、场景、产品、插画等', tools: ['Midjourney', 'DALL·E 3', 'Stable Diffusion', 'Leonardo AI'], skills: ['skill_product_image', 'skill_avatar_design', 'skill_logo_design'], effect: '设计效率提升500%，单张成本降低90%', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: '品牌视觉设计', description: '用AI完成Logo、VI、包装等品牌视觉设计', tools: ['Midjourney', 'DALL·E 3', 'Stable Diffusion'], skills: ['skill_logo_design', 'skill_avatar_design'], effect: '品牌设计周期从2周缩短至2天', difficulty: 'intermediate' }
   ] },
-  { id: 'scene_research', name: '学术研究', icon: '📚', description: '学术研究的AI应用场景，包括论文润色、文献综述、论文摘要改写、知识总结等', coverImage: '📚', toolCount: 18, skillCount: 7, xhsSaves: 62000, tags: ['学术研究', '论文', '教育'], solutions: [
+  { id: 'scene_research', name: '学术研究', icon: '📚', description: '学术研究的AI应用场景，包括论文润色、文献综述、论文摘要改写、知识总结等', coverImage: '📚', category: 'personal', aiLevel: 'L3', toolCount: 18, skillCount: 7, xhsSaves: 62000, tags: ['学术研究', '论文', '教育'], solutions: [
     { id: 's1', type: 'auto', title: 'AI学术研究助手', description: '用AI进行论文润色、文献综述、摘要改写、长文档分析', tools: ['ChatGPT', 'Claude', 'Kimi', 'Perplexity', 'DeepSeek'], skills: ['skill_paper_polish', 'skill_literature_review', 'skill_thesis_abstract'], effect: '论文写作效率提升200%，质量显著提升', difficulty: 'intermediate' },
     { id: 's2', type: 'auto', title: 'AI深度研究分析', description: '用AI进行文献调研、数据分析和论文核心提炼', tools: ['Perplexity', 'Kimi', 'ChatGPT'], skills: ['skill_knowledge_summary', 'skill_data_analysis'], effect: '文献调研时间缩短80%', difficulty: 'intermediate' }
   ] },
-  { id: 'scene_shortvideo', name: '短视频', icon: '🎬', description: '短视频创作的AI应用场景，包括脚本创作、视频生成、数字人播报、背景音乐等', coverImage: '🎬', toolCount: 14, skillCount: 7, xhsSaves: 203000, tags: ['短视频', '视频创作', '社交媒体'], solutions: [
+  { id: 'scene_shortvideo', name: '短视频', icon: '🎬', description: '短视频创作的AI应用场景，包括脚本创作、视频生成、数字人播报、背景音乐等', coverImage: '🎬', category: 'personal', aiLevel: 'L1', toolCount: 14, skillCount: 7, xhsSaves: 203000, tags: ['短视频', '视频创作', '社交媒体'], solutions: [
     { id: 's1', type: 'auto', title: 'AI短视频批量生产', description: '用AI生成脚本、数字人播报、添加音乐，批量制作短视频', tools: ['Runway', 'HeyGen', 'Suno', '豆包'], skills: ['skill_short_video_script', 'skill_video_subtitle'], effect: '短视频制作效率提升10倍', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: '爆款短视频流水线', description: '从选题策划到后期制作的全流程AI辅助', tools: ['Runway', 'HeyGen', 'Suno', '豆包', 'ChatGPT'], skills: ['skill_short_video_script', 'skill_podcast_script'], effect: '完播率提升40%，涨粉速度翻倍', difficulty: 'intermediate' }
   ] },
-  { id: 'scene_ecommerce', name: '电商运营', icon: '🛒', description: '电商运营的AI应用场景，包括商品描述、产品场景图、客服话术、活动策划等', coverImage: '🛒', toolCount: 18, skillCount: 8, xhsSaves: 156000, tags: ['电商运营', '营销', '运营'], solutions: [
+  { id: 'scene_ecommerce', name: '电商运营', icon: '🛒', description: '电商运营的AI应用场景，包括商品描述、产品场景图、客服话术、活动策划等', coverImage: '🛒', category: 'personal', aiLevel: 'L1', toolCount: 18, skillCount: 8, xhsSaves: 156000, tags: ['电商运营', '营销', '运营'], solutions: [
     { id: 's1', type: 'auto', title: '商品卖点提炼', description: '自动分析商品特点，提炼核心卖点', tools: ['ChatGPT', 'Claude'], skills: ['skill_ecommerce_copy'], effect: '快速生成吸引人的商品描述', difficulty: 'beginner' },
     { id: 's2', type: 'auto', title: 'AI电商全链路', description: '从商品图生成到文案撰写到客服话术的完整AI流程', tools: ['Midjourney', 'DALL·E 3', '通义千问', 'ChatGPT', 'HeyGen'], skills: ['skill_product_image', 'skill_ecommerce_copy', 'skill_customer_service'], effect: '转化率提升35%，运营成本降低50%', difficulty: 'intermediate' }
   ] },
   // Niche scenes — tool sceneTags that didn't fit primary categories
-  { id: 'scene_game', name: '游戏开发', icon: '🎮', description: '游戏开发的AI应用场景，包括角色设计、概念图、3D模型、游戏资产创建等', coverImage: '🎮', toolCount: 3, skillCount: 2, xhsSaves: 42000, tags: ['游戏开发', '设计创作', '3D'], solutions: [
+  { id: 'scene_game', name: '游戏开发', icon: '🎮', description: '游戏开发的AI应用场景，包括角色设计、概念图、3D模型、游戏资产创建等', coverImage: '🎮', category: 'personal', aiLevel: 'L3', toolCount: 3, skillCount: 2, xhsSaves: 42000, tags: ['游戏开发', '设计创作', '3D'], solutions: [
     { id: 's1', type: 'auto', title: 'AI游戏资产生成', description: '用AI快速生成游戏角色、场景、道具等视觉资产', tools: ['Leonardo AI', 'Midjourney', 'Stable Diffusion', 'Luma AI'], skills: ['skill_avatar_design', 'skill_product_image'], effect: '游戏开发周期缩短40%，美术成本降低60%', difficulty: 'intermediate' },
   ] },
-  { id: 'scene_video_production', name: '影视制作', icon: '🎥', description: '影视制作的AI应用场景，包括视频生成、特效制作、后期编辑、动态设计等', coverImage: '🎥', toolCount: 2, skillCount: 2, xhsSaves: 56000, tags: ['影视制作', '视频制作', '特效'], solutions: [
+  { id: 'scene_video_production', name: '影视制作', icon: '🎥', description: '影视制作的AI应用场景，包括视频生成、特效制作、后期编辑、动态设计等', coverImage: '🎥', category: 'personal', aiLevel: 'L3', toolCount: 2, skillCount: 2, xhsSaves: 56000, tags: ['影视制作', '视频制作', '特效'], solutions: [
     { id: 's1', type: 'auto', title: 'AI影视内容创作', description: '用AI生成影视级视频内容和特效', tools: ['Runway', 'HeyGen', 'Luma AI'], skills: ['skill_short_video_script', 'skill_video_subtitle'], effect: '视频制作效率提升5倍，专业品质无需专业团队', difficulty: 'advanced' },
   ] },
-  { id: 'scene_music', name: '音乐制作', icon: '🎵', description: 'AI音乐制作的创作场景，包括AI作曲、歌曲生成、背景音乐、AI翻唱等', coverImage: '🎵', toolCount: 1, skillCount: 1, xhsSaves: 34000, tags: ['音乐制作', '音频', '创作'], solutions: [
+  { id: 'scene_music', name: '音乐制作', icon: '🎵', description: 'AI音乐制作的创作场景，包括AI作曲、歌曲生成、背景音乐、AI翻唱等', coverImage: '🎵', category: 'personal', aiLevel: 'L1', toolCount: 1, skillCount: 1, xhsSaves: 34000, tags: ['音乐制作', '音频', '创作'], solutions: [
     { id: 's1', type: 'auto', title: 'AI音乐创作工坊', description: '用AI生成完整歌曲、背景音乐、配乐', tools: ['Suno', 'ElevenLabs'], skills: ['skill_podcast_script'], effect: '音乐创作门槛降至零，3分钟内生成专业级作品', difficulty: 'beginner' },
   ] },
-  { id: 'scene_business_plan', name: '商业计划书', icon: '📋', description: 'AI辅助商业计划书和PPT制作场景，包括融资BP、商业方案、路演材料等', coverImage: '📋', toolCount: 1, skillCount: 3, xhsSaves: 38000, tags: ['商业计划书', '创业', '融资'], solutions: [
+  { id: 'scene_business_plan', name: '商业计划书', icon: '📋', description: 'AI辅助商业计划书和PPT制作场景，包括融资BP、商业方案、路演材料等', coverImage: '📋', category: 'personal', aiLevel: 'L2', toolCount: 1, skillCount: 3, xhsSaves: 38000, tags: ['商业计划书', '创业', '融资'], solutions: [
     { id: 's1', type: 'auto', title: 'AI商业方案生成', description: '用AI快速生成商业计划书、融资BP和路演PPT', tools: ['Gamma', 'ChatGPT', 'Claude'], skills: ['skill_pitch_deck', 'skill_bd_proposal', 'skill_auto_ppt'], effect: '商业计划书制作时间从1周缩短至1天', difficulty: 'intermediate' },
   ] },
-  { id: 'scene_course_outline', name: '课程大纲', icon: '📖', description: 'AI辅助教育课程设计场景，包括课程大纲生成、课件制作、培训材料编写等', coverImage: '📖', toolCount: 1, skillCount: 3, xhsSaves: 29000, tags: ['课程大纲', '教育', '培训'], solutions: [
+  { id: 'scene_course_outline', name: '课程大纲', icon: '📖', description: 'AI辅助教育课程设计场景，包括课程大纲生成、课件制作、培训材料编写等', coverImage: '📖', category: 'personal', aiLevel: 'L2', toolCount: 1, skillCount: 3, xhsSaves: 29000, tags: ['课程大纲', '教育', '培训'], solutions: [
     { id: 's1', type: 'auto', title: 'AI课程设计助手', description: '用AI生成课程大纲、培训课件和教学材料', tools: ['Gamma', 'ChatGPT', 'Kimi'], skills: ['skill_exam_prep', 'skill_knowledge_summary', 'skill_child_education'], effect: '课程设计效率提升300%，内容质量专业级', difficulty: 'intermediate' },
   ] },
   // Legacy scenes kept for backwards compatibility
-  { id: 'scene_enterprise_ai', name: '企业AI自动化', icon: '🏢', description: '企业级AI应用场景，涵盖智能客服、流程自动化、数据分析、知识管理等核心业务环节', coverImage: '🏢', toolCount: 10, skillCount: 6, xhsSaves: 45000, tags: ['企业AI', '自动化', '办公提效', '数据分析'], solutions: [
+  { id: 'scene_enterprise_ai', name: '企业AI自动化', icon: '🏢', description: '企业级AI应用场景，涵盖智能客服、流程自动化、数据分析、知识管理等核心业务环节', coverImage: '🏢', category: 'enterprise', aiLevel: 'L4', toolCount: 10, skillCount: 6, xhsSaves: 45000, tags: ['企业AI', '自动化', '办公提效', '数据分析'], solutions: [
     { id: 's1', type: 'auto', title: '智能客服系统搭建', description: '用AI搭建7x24小时智能客服，处理常见问题、工单分配、客户意向识别', tools: ['ChatGPT', 'OpenAI Agents SDK'], skills: ['skill_weekly_report', 'skill_meeting_summary'], effect: '客服响应速度提升300%，人工成本降低60%', difficulty: 'advanced' },
     { id: 's2', type: 'semi', title: '企业内部知识库AI化', description: '将企业内部文档、流程、规范转化为AI可检索的知识库', tools: ['Kimi', 'Notion AI', '通义千问'], skills: ['skill_meeting_summary'], effect: '员工知识检索效率提升200%，新员工培训周期缩短50%', difficulty: 'intermediate' },
     { id: 's3', type: 'auto', title: '财务与人事报表自动化', description: '用AI自动生成财务分析、人事报表、销售预测等企业管理报表', tools: ['ChatGPT', 'Claude', 'DeepSeek'], skills: ['skill_weekly_report', 'skill_email_write'], effect: '报表制作时间从2小时缩短至10分钟', difficulty: 'intermediate' }
   ] },
   // ===== 新增：AI Agent场景（今日热点） =====
-  { id: 'scene_ai_agent', name: 'AI Agent', icon: '🤖', description: 'AI Agent架构与开发场景，涵盖Managed Agents范式、MCP生态、三文件框架、TDD驱动工作流等最新趋势', coverImage: '🤖', toolCount: 6, skillCount: 6, xhsSaves: 52000, tags: ['AI Agent', 'MCP', 'Agent架构', '自动化'], solutions: [
+  { id: 'scene_ai_agent', name: 'AI Agent', icon: '🤖', description: 'AI Agent架构与开发场景，涵盖Managed Agents范式、MCP生态、三文件框架、TDD驱动工作流等最新趋势', coverImage: '🤖', category: 'enterprise', aiLevel: 'L4', toolCount: 6, skillCount: 6, xhsSaves: 52000, tags: ['AI Agent', 'MCP', 'Agent架构', '自动化'], solutions: [
     { id: 's1', type: 'auto', title: 'Managed Agents架构', description: '按照Anthropic提出的大脑与手解耦范式，构建可扩展的Agent系统', tools: ['Claude', 'GPT-4', 'MCP Server'], skills: ['skill_managed_agents', 'skill_mcp_server_build'], effect: 'Agent系统架构清晰可扩展，大脑与手解耦独立演进', difficulty: 'advanced' },
     { id: 's2', type: 'auto', title: '三文件Agent搭建', description: '使用SOUL.md+RULES.md+MEMORY.md三文件极简框架配置Coding Agent', tools: ['Claude Code', 'Cursor'], skills: ['skill_three_file_framework', 'skill_vibe_coding'], effect: '5分钟完成Agent个性配置，开发效率翻倍', difficulty: 'beginner' },
     { id: 's3', type: 'auto', title: 'MCP生态接入', description: '为你的应用构建MCP Server，接入AI Agent生态', tools: ['MCP Server', 'Claude', 'Python'], skills: ['skill_mcp_server_build', 'skill_api_doc'], effect: '让你的App被AI Agent直接调用', difficulty: 'intermediate' }
+  ] },
+  // ===== 新增：企业AI转型（2026-04-28） =====
+  { id: 'scene_enterprise_transform', name: '企业AI转型', icon: '🏭', description: '企业级AI转型的系统方法论与实践指南，涵盖AI ROI评估、组织级Prompt工程体系、TOKEN成本归因、AI文化建设等核心环节', coverImage: '🏭', category: 'enterprise', aiLevel: 'L2', toolCount: 12, skillCount: 8, xhsSaves: 65000, tags: ['企业AI', 'AI转型', '组织能力', '数字化转型'], solutions: [
+    { id: 's1', type: 'auto', title: 'AI ROI评估与成本控制', description: '建立TOKEN级归因体系，精确统计每个部门、每个任务的AI消耗与产出，避免糊涂账', tools: ['ChatGPT', 'Claude', 'DeepSeek'], skills: ['skill_weekly_report', 'skill_meeting_summary'], effect: 'AI投入产出比可量化，TOKEN成本降低40%', difficulty: 'intermediate' },
+    { id: 's2', type: 'auto', title: '企业级Prompt工程体系', description: '构建统一的Prompt模板库、质量标准和版本管理机制，让全公司共享高质量的AI提示词', tools: ['ChatGPT', 'Claude', 'Kimi'], skills: ['skill_email_write', 'skill_meeting_summary'], effect: 'Prompt复用率提升300%，AI输出质量标准化', difficulty: 'intermediate' },
+    { id: 's3', type: 'auto', title: 'AI组织能力建设', description: '从CEO认知跃迁到全员AI素养，构建AI-First的组织文化、人才梯队和协作机制', tools: ['ChatGPT', 'Claude', 'Notion AI'], skills: ['skill_weekly_report', 'skill_knowledge_summary'], effect: '组织AI采用率提升200%，跨部门协作效率翻倍', difficulty: 'advanced' }
+  ] },
+  // ===== 新增：GEO优化（2026-04-28） =====
+  { id: 'scene_geo_optimization', name: 'GEO优化', icon: '🔍', description: 'GEO（生成式引擎优化）时代的AI品牌策略，让企业在AI搜索结果中被优先推荐和展示', coverImage: '🔍', category: 'enterprise', aiLevel: 'L2', toolCount: 8, skillCount: 5, xhsSaves: 48000, tags: ['GEO优化', 'SEO', 'AI搜索', '品牌策略', '流量获取'], solutions: [
+    { id: 's1', type: 'auto', title: 'GEO内容策略', description: '从AI搜索的视角重构品牌表达，通过事实性描述、权威度背书和结构化呈现，让AI将企业识别为优质信息源', tools: ['ChatGPT', 'Claude', 'Perplexity'], skills: ['skill_wechat_article', 'skill_xhs_rewrite'], effect: 'AI搜索结果中的品牌曝光率提升500%', difficulty: 'intermediate' },
+    { id: 's2', type: 'auto', title: '结构化数据优化', description: '通过Schema.org结构化数据标记、FAQPage/HowTo/ItemList等JSON-LD，让AI搜索引擎准确理解和推荐网站内容', tools: ['ChatGPT', 'Claude'], skills: ['skill_knowledge_summary'], effect: 'AI搜索结果摘要点击率提升200%', difficulty: 'advanced' },
+    { id: 's3', type: 'semi', title: '多平台GEO矩阵', description: '在微信公众号、知乎、小红书、独立博客等平台构建GEO内容矩阵，全网覆盖AI搜索的流量入口', tools: ['ChatGPT', 'Claude', 'Kimi', '豆包'], skills: ['skill_wechat_article', 'skill_xhs_rewrite', 'skill_weibo_content'], effect: '全平台AI搜索可见度提升300%', difficulty: 'intermediate' }
   ] },
 ];
 
