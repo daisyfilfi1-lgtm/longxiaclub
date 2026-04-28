@@ -1,0 +1,238 @@
+{
+  "date": "2026-04-29",
+  "title": "AI 日报 | 2026-04-29 周三",
+  "summary": "Anthropic发布Managed Agents架构升级与Claude Code auto mode，大脑与手解耦成为Agent设计新范式。Sam Altman力推Codex $20计划获7712赞。Google与Kaggle联合推出AI Agents Vibe Coding课程。微软开源VibeVoice语音AI。",
+  "highlights": [
+    "Anthropic Managed Agents：Agent大脑与手解耦架构再升级",
+    "Sam Altman：Codex $20计划性价比极高，获7712爱心",
+    "Google × Kaggle 联合推出AI Agents Vibe Coding课程（6月）",
+    "Garry Tan：GStack内置Chromium+Claude Code，Agent跨平台互操作性提升",
+    "微软开源VibeVoice前沿语音AI"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "Personalized Worked Example Generation from Student Code Submissions",
+          "url": "https://arxiv.org/abs/2604.24758",
+          "description": "利用基于模式的知识组件，从学生代码提交中自动生成个性化编程示例，减少人工编写练习库的工作量。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Learning to Think from Multiple Thinkers",
+          "url": "https://arxiv.org/abs/2604.24737",
+          "description": "研究从多个推理者提供的思维链学习中——不同推理者提供正确但路径各异的解决方案。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Learning to Rotate: Temporal and Semantic Rotary Encoding",
+          "url": "https://arxiv.org/abs/2604.24717",
+          "description": "提出时序与语义旋转编码，优化RoPE位置编码在Transformer中的旋转流形利用效率。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Long-Context Aware Upcycling for Hybrid LLM Scaling",
+          "url": "https://arxiv.org/abs/2604.24715",
+          "description": "通过upcycling方法从预训练检查点初始化混合Transformer+线性模型，无需从头训练。",
+          "source": "arXiv"
+        },
+        {
+          "title": "The Optimal Sample Complexity of Multiclass and List Learning",
+          "url": "https://arxiv.org/abs/2604.24749",
+          "description": "解决了多类分类样本复杂度的最优性问题——VC维视角下的理论突破。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Sentiment and Emotion Classification of Indonesian E-Commerce Reviews",
+          "url": "https://arxiv.org/abs/2604.24720",
+          "description": "印尼电商评论情感分类，处理混合词汇、俚语、外来词和表情符号等多语言挑战。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Case-Specific Rubrics for Clinical AI Evaluation",
+          "url": "https://arxiv.org/abs/2604.24710",
+          "description": "面向临床AI的案例特定评估方法论，覆盖823次医患交互的验证。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Conflict-Aware Harmonized Rotational Gradient for Multiscale Kinetic Regimes",
+          "url": "https://arxiv.org/abs/2604.24745",
+          "description": "多尺度动力学问题的谐波旋转梯度方法。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "Scaling Managed Agents：大脑（规划层）与手（执行层）解耦，提升Agent系统的可扩展性和安全性",
+            "Claude Code auto mode：更安全的权限跳过方案，减少用户确认干扰",
+            "Claude Code 4月23日质量报告后续更新"
+          ],
+          "url": "https://www.anthropic.com/engineering/managed-agents"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "与Kaggle合作推出AI Agents Vibe Coding课程（2026年6月）",
+            "Gemini 8个空间与生活整理小技巧"
+          ],
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
+        },
+        {
+          "source": "Stability AI",
+          "entries": [
+            "SD-XL 1.0发布0.1.0版本，采用宽松许可协议"
+          ],
+          "url": "https://github.com/Stability-AI/generative-models/releases/tag/0.1.0"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Sam Altman",
+          "content": "Codex以$20美元的定价是超值选择，获7712爱心，为今日最高赞推文。同时表达对用户的喜爱，获6497爱心。",
+          "url": "https://x.com/sama/status/2048913887614115857",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Amjad Masad (Replit)",
+          "content": "Replit在一年前就已验证AI编码的Agent生产隔离方案，垂直集成平台优势持续放大。发起8周赚到第一美金挑战赛，20名builder参与。",
+          "url": "https://x.com/amasad/status/2048911624061522228",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Garry Tan (Y Combinator)",
+          "content": "GStack内置Chromium+Claude Code作为CLI，支持/pair-agent命令从其他Agent框架协作。跨平台Agent互操作性正在标准化。",
+          "url": "https://x.com/garrytan/status/2049035231903301771",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Matt Turck (FirstMark Capital)",
+          "content": "硅谷认为AI自我加速、Agent接管一切；而Global 2000企业花大价钱买了AI聊天却零生产力提升。AI行业的地面真相：鸿沟依然巨大。",
+          "url": "https://x.com/mattturck/status/2048896617424527499",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Zara Zhang",
+          "content": "最资深AI用户只和一个Agent日常对话，由该Agent分配任务给子Agent。单一入口+子Agent调度成为最佳实践。",
+          "url": "https://x.com/zarazhangrui/status/2049027061768192288",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger",
+          "content": "GitHub限流下，Codex自动打开浏览器点击GitHub界面作为API限制的变通方案。",
+          "url": "https://x.com/steipete/status/2049035044702843053",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Dan Shipper (Every)",
+          "content": "代码便宜了，软件就是新的媒体。",
+          "url": "https://x.com/danshipper/status/2048818450915586364",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Yang",
+          "content": "需要API/MCP协议的领域清单：Substack、视频编辑工具、非Mercury的银行、政府网站、医疗门户。MCP生态需求即创业机会。",
+          "url": "https://x.com/petergyang/status/2048918016642154698",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Nikunj Kothari",
+          "content": "推出Dawn社区——为曾经的创业者提供再次创业的交流平台。",
+          "url": "https://x.com/nikunj/status/2048900068523266544",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aditya Agarwal (Bevel)",
+          "content": "Bevel 3.0发布，从追踪分析公司升级为最智能的健康与生物伴侣。",
+          "url": "https://x.com/adityaag/status/2048868147525222602",
+          "source": "X/Twitter"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": [
+        {
+          "name": "openclaw/openclaw",
+          "stars": "365,860",
+          "description": "你的个人AI助手，跨平台，开源。TypeScript编写。",
+          "url": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "name": "nilbuild/developer-roadmap",
+          "stars": "353,845",
+          "description": "开发者成长路线图与学习指南。",
+          "url": "https://github.com/nilbuild/developer-roadmap"
+        },
+        {
+          "name": "tensorflow/tensorflow",
+          "stars": "194,928",
+          "description": "开源机器学习框架。",
+          "url": "https://github.com/tensorflow/tensorflow"
+        },
+        {
+          "name": "nexu-io/open-design",
+          "stars": "1,024",
+          "description": "本地优先的Claude Design开源复刻。19 Skills + 71品牌级设计系统 + 沙盒预览。",
+          "url": "https://github.com/nexu-io/open-design"
+        },
+        {
+          "name": "evanklem/evanflow",
+          "stars": "335",
+          "description": "TDD驱动的迭代反馈循环开发流程，集成16个Claude Code技能。",
+          "url": "https://github.com/evanklem/evanflow"
+        },
+        {
+          "name": "DanOps-1/gpt-pp-team",
+          "stars": "227",
+          "description": "ChatGPT Team订阅端到端协议重放工具集，含hCaptcha视觉求解器。",
+          "url": "https://github.com/DanOps-1/gpt-pp-team"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Talkie: 一款来自1930年代的13B参数复古语言模型",
+          "url": "https://talkie-lm.com/introducing-talkie",
+          "source": "Hacker News",
+          "description": "风格化/角色型LLM的新探索——不追求通用能力，而聚焦独特风格。获625分。",
+          "score": "625"
+        },
+        {
+          "title": "VibeVoice: 微软开源的前沿语音AI",
+          "url": "https://github.com/microsoft/VibeVoice",
+          "source": "Hacker News",
+          "description": "微软在语音AI领域的开源布局。获300分。",
+          "score": "300"
+        },
+        {
+          "title": "Training Data Podcast: From SEO to Agent-Led Growth",
+          "url": "https://www.youtube.com/watch?v=RyTwRCKeDo4",
+          "source": "YouTube",
+          "description": "Profound创始人James Cadwallader分享从SEO到Agent驱动增长的转变策略。"
+        },
+        {
+          "title": "SD-XL 1.0转宽松许可",
+          "url": "https://github.com/Stability-AI/generative-models/releases/tag/0.1.0",
+          "source": "GitHub",
+          "description": "Stability AI发布SD-XL 1.0 0.1.0版本，采用宽松许可协议，可能带动商业应用爆发。"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Blog, Google AI Blog, Stability AI Blog, X/Twitter AI Builders, GitHub Trending, Hacker News, YouTube",
+    "collection_time": "2026-04-29 06:00 BJT",
+    "generated_by": "Daisy AI Agent"
+  }
+}
