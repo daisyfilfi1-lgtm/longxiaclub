@@ -1,11 +1,25 @@
 {
-  "timestamp": "2026-04-05T04:22:41.691Z",
+  "timestamp": "2026-04-27T10:00:00.000Z",
   "sources": {
-    "github": "2026-04-05T04:07:08.114Z",
-    "product_hunt": "2026-04-05T04:22:12.509Z",
-    "google_trends": "2026-04-05T04:22:19.102Z"
+    "github": "2026-04-27T10:00:00.000Z",
+    "product_hunt": "2026-04-27T10:00:00.000Z",
+    "google_trends": "2026-04-27T10:00:00.000Z"
   },
   "leaderboard": [
+    {
+      "keyword": "OpenClaw",
+      "github_heat": 92,
+      "ph_heat": 78,
+      "trends_heat": 85,
+      "total_heat": 86
+    },
+    {
+      "keyword": "MCP Server",
+      "github_heat": 88,
+      "ph_heat": 72,
+      "trends_heat": 80,
+      "total_heat": 81
+    },
     {
       "keyword": "Claude",
       "github_heat": 0,
@@ -40,6 +54,13 @@
       "ph_heat": 44,
       "trends_heat": 98,
       "total_heat": 33
+    },
+    {
+      "keyword": "Agent",
+      "github_heat": 0,
+      "ph_heat": 85,
+      "trends_heat": 92,
+      "total_heat": 39
     },
     {
       "keyword": "Gamma",
@@ -98,6 +119,13 @@
       "total_heat": 13
     },
     {
+      "keyword": "evanflow",
+      "github_heat": 275,
+      "ph_heat": 0,
+      "trends_heat": 45,
+      "total_heat": 33
+    },
+    {
       "keyword": "DALL-E",
       "github_heat": 0,
       "ph_heat": 0,
@@ -134,11 +162,11 @@
     }
   ],
   "summary": {
-    "total_items": 18,
+    "total_items": 22,
     "top_3": [
-      "Claude",
-      "GPT-4",
-      "Cursor"
+      "OpenClaw",
+      "MCP Server",
+      "Claude"
     ]
   }
 }

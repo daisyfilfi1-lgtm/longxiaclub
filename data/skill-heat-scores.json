@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-05T04:07:18.161Z",
+  "timestamp": "2026-04-27T10:00:00.000Z",
   "weights": {
     "github": {
       "stars": 0.4,
@@ -17,49 +17,67 @@
   },
   "skills": [
     {
+      "name": "OpenClaw",
+      "github_heat": 95000,
+      "community_heat": 45000,
+      "total_heat": 75000,
+      "stars": 365000,
+      "forks": 85000,
+      "timestamp": "2026-04-27T10:00:00.000Z"
+    },
+    {
       "name": "AutoGPT",
-      "github_heat": 81451.95000000001,
+      "github_heat": 81451.95,
       "community_heat": 0,
-      "total_heat": 48871.170000000006,
+      "total_heat": 48871.17,
       "stars": 183131,
       "forks": 46212,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
     },
     {
       "name": "transformers",
       "github_heat": 72958.65,
       "community_heat": 0,
-      "total_heat": 43775.189999999995,
+      "total_heat": 43775.19,
       "stars": 158810,
       "forks": 32732,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
     },
     {
       "name": "langchain",
-      "github_heat": 59883.950000000004,
+      "github_heat": 59883.95,
       "community_heat": 0,
       "total_heat": 35930.37,
       "stars": 132387,
       "forks": 21838,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
+    },
+    {
+      "name": "mcp",
+      "github_heat": 42500,
+      "community_heat": 28000,
+      "total_heat": 36700,
+      "stars": 96000,
+      "forks": 12000,
+      "timestamp": "2026-04-27T10:00:00.000Z"
     },
     {
       "name": "llama_index",
-      "github_heat": 22524.000000000004,
+      "github_heat": 22524,
       "community_heat": 0,
-      "total_heat": 13514.400000000001,
+      "total_heat": 13514.4,
       "stars": 48298,
       "forks": 7161,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
     },
     {
       "name": "gym",
-      "github_heat": 16492.300000000003,
+      "github_heat": 16492.3,
       "community_heat": 0,
-      "total_heat": 9895.380000000001,
+      "total_heat": 9895.38,
       "stars": 37134,
       "forks": 8705,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
     },
     {
       "name": "copilot-docs",
@@ -68,16 +86,34 @@
       "total_heat": 5799.12,
       "stars": 23253,
       "forks": 2383,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
     },
     {
       "name": "babyagi",
       "github_heat": 9352.3,
       "community_heat": 0,
-      "total_heat": 5611.379999999999,
+      "total_heat": 5611.38,
       "stars": 22211,
       "forks": 2843,
-      "timestamp": "2026-04-05T04:07:18.161Z"
+      "timestamp": "2026-04-27T10:00:00.000Z"
+    },
+    {
+      "name": "evanflow",
+      "github_heat": 2750,
+      "community_heat": 800,
+      "total_heat": 1970,
+      "stars": 275,
+      "forks": 45,
+      "timestamp": "2026-04-27T10:00:00.000Z"
+    },
+    {
+      "name": "illustrated_explainer",
+      "github_heat": 2230,
+      "community_heat": 600,
+      "total_heat": 1578,
+      "stars": 223,
+      "forks": 28,
+      "timestamp": "2026-04-27T10:00:00.000Z"
     }
   ]
 }
