@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Bookmark, CheckCircle, Zap, Wrench, Layers, Sparkles, Network } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Bookmark, CheckCircle, Zap, Wrench, Layers, Sparkles, Network, ExternalLink, Clock, User } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { scenes, tools, skills } from '@/data/tools';
 import { getSceneRelations } from '@/lib/knowledge-graph';
@@ -378,6 +378,74 @@ export default async function SceneDetailPage({ params }: Props) {
               ))}
             </div>
           </div>
+
+          {/* Case Studies */}
+          {scene.caseStudies && scene.caseStudies.length > 0 && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shadow-lg shadow-red-100">
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </div>
+                <span>精选案例</span>
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {scene.caseStudies.map((cs, idx) => (
+                  <a
+                    key={idx}
+                    href={cs.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all p-5 flex flex-col"
+                  >
+                    {/* Source badge */}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="inline-flex items-center space-x-1.5 text-xs px-2.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-200 font-medium">
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span>YouTube</span>
+                      </span>
+                      <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-red-500 transition-colors" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-semibold text-slate-800 group-hover:text-red-600 transition-colors mb-2 line-clamp-2">
+                      {cs.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-slate-500 mb-3 line-clamp-2 flex-1">
+                      {cs.description}
+                    </p>
+
+                    {/* Meta info */}
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 mt-auto pt-3 border-t border-slate-100">
+                      {cs.creator && (
+                        <span className="inline-flex items-center space-x-1">
+                          <User className="w-3 h-3" />
+                          <span>{cs.creator}</span>
+                        </span>
+                      )}
+                      {cs.duration && (
+                        <span className="inline-flex items-center space-x-1">
+                          <Clock className="w-3 h-3" />
+                          <span>{cs.duration}</span>
+                        </span>
+                      )}
+                      {cs.skill && (
+                        <span className="ml-auto px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-medium">
+                          {cs.skill}
+                        </span>
+                      )}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
     </main>

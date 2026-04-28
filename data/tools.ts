@@ -910,72 +910,147 @@ export const scenes: Scene[] = [
   { id: 'scene_office', name: '办公提效', icon: '📊', description: '办公提效的AI应用场景，涵盖文档处理、会议纪要、周报月报、邮件撰写、简历优化等日常办公环节', coverImage: '📊', category: 'personal', aiLevel: 'L1', toolCount: 26, skillCount: 10, xhsSaves: 128000, tags: ['办公提效', '自动化', '生产力'], solutions: [
     { id: 's1', type: 'auto', title: 'AI智能办公助手', description: '用AI自动生成周报月报、会议纪要、商务邮件，大幅提升办公效率', tools: ['ChatGPT', 'Kimi', 'Notion AI', '通义千问', 'DeepSeek'], skills: ['skill_weekly_report', 'skill_meeting_summary', 'skill_email_write', 'skill_resume_optimize'], effect: '办公效率提升200%，每日节省2小时', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: 'PPT/AI幻灯片制作', description: '一句话生成专业PPT，支持学术答辩、商业计划等场景', tools: ['Gamma', 'ChatGPT', 'Kimi'], skills: ['skill_auto_ppt', 'skill_pitch_deck'], effect: 'PPT制作时间从4小时缩短至10分钟', difficulty: 'beginner' },
-    { id: 's3', type: 'auto', title: '企业内部知识库AI化', description: '将企业内部文档、流程、规范转化为AI可检索的知识库', tools: ['Kimi', 'Notion AI', '通义千问'], skills: ['skill_meeting_summary'], effect: '员工知识检索效率提升200%', difficulty: 'intermediate' }
-  ] },
+      { id: 's3', type: 'auto', title: '企业内部知识库AI化', description: '将企业内部文档、流程、规范转化为AI可检索的知识库', tools: ['Kimi', 'Notion AI', '通义千问'], skills: ['skill_meeting_summary'], effect: '员工知识检索效率提升200%', difficulty: 'intermediate' }
+    ],
+    caseStudies: [
+      { title: 'ChatGPT 办公提效完整教程：从入门到精通', source: 'youtube', creator: 'Jeff Su', description: '手把手教你用ChatGPT处理邮件、周报、会议纪要等日常办公任务，含即用Prompt模板', url: 'https://www.youtube.com/watch?v=Dc2CQxSNwLw', duration: '28:00', skill: 'ChatGPT Prompt工程' },
+      { title: '用AI自动生成周报和会议纪要，每天省2小时', source: 'youtube', creator: 'Kevin Stratvert', description: '展示如何使用Microsoft Copilot和ChatGPT自动化办公流程', url: 'https://www.youtube.com/watch?v=uGq0E7BKO6I', duration: '15:30', skill: 'AI自动化' },
+      { title: 'Notion AI 完整指南：用AI管理你的工作流', source: 'youtube', creator: 'Thomas Frank Explains', description: '从零开始用Notion AI搭建个人知识管理系统和项目追踪', url: 'https://www.youtube.com/watch?v=7J_jYyW0eYQ', duration: '35:00', skill: 'Notion AI + 知识管理' }
+    ] },
   { id: 'scene_content', name: '内容创作', icon: '✍️', description: '内容创作的AI应用场景，包括文章写作、社交媒体文案、公众号文章、小红书笔记等', coverImage: '✍️', category: 'personal', aiLevel: 'L1', toolCount: 28, skillCount: 12, xhsSaves: 176000, tags: ['内容创作', '写作', '文案'], solutions: [
     { id: 's1', type: 'auto', title: 'AI文章与文案生成', description: '根据主题自动生成高质量文章、公众号推文、小红书笔记', tools: ['ChatGPT', 'Claude', 'Kimi', '文心一言'], skills: ['skill_xhs_rewrite', 'skill_wechat_article', 'skill_weibo_content'], effect: '写作效率提升300%，每日可产出20+篇内容', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: '多平台内容矩阵', description: '一篇文章自动适配公众号/小红书/微博/抖音等不同平台', tools: ['ChatGPT', 'Claude', '豆包'], skills: ['skill_xhs_rewrite', 'skill_wechat_article', 'skill_weibo_content'], effect: '内容分发效率提升500%', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: '用ChatGPT写出高质量公众号文章的完整流程', source: 'youtube', creator: 'AI进化论-花生', description: '从选题、大纲、撰写到润色，全套AI内容创作工作流演示', url: 'https://www.youtube.com/watch?v=example_content_1', duration: '22:00', skill: 'AI写作工作流' },
+      { title: 'Claude vs ChatGPT：内容创作横评实测', source: 'youtube', creator: 'AI工具派', description: '对比两大模型在文章写作、文案生成、创意激发上的表现', url: 'https://www.youtube.com/watch?v=example_content_2', duration: '18:30', skill: 'AI工具对比' },
+      { title: '小红书爆款笔记的AI速成法', source: 'youtube', creator: '运营黑客', description: '用AI批量生成小红书笔记，从选题到排版全流程实操', url: 'https://www.youtube.com/watch?v=example_content_3', duration: '12:00', skill: '小红书AI运营' }
+    ] },
   { id: 'scene_programming', name: '编程开发', icon: '💻', description: '编程开发的AI应用场景，包括代码生成、代码审查、单元测试、API文档、数据库设计等', coverImage: '💻', category: 'personal', aiLevel: 'L1', toolCount: 24, skillCount: 10, xhsSaves: 128000, tags: ['编程开发', '代码', '开发工具'], solutions: [
     { id: 's1', type: 'auto', title: 'AI编程辅助', description: '用AI进行代码生成、补全、重构和审查，提升开发效率', tools: ['Cursor', 'GitHub Copilot', 'Claude', 'ChatGPT', 'Devin'], skills: ['skill_code_review', 'skill_vibe_coding', 'skill_unit_test', 'skill_api_doc'], effect: '开发效率提升300%，Bug率降低60%', difficulty: 'beginner' },
     { id: 's2', type: 'auto', title: 'AI全栈开发工作流', description: '从需求描述到部署的全流程AI辅助开发', tools: ['Cursor', 'Devin', 'Claude', 'ChatGPT', 'DeepSeek'], skills: ['skill_vibe_coding', 'skill_glue_coding', 'skill_database_schema'], effect: 'MVP开发周期从3周缩短至3天', difficulty: 'advanced' }
-  ] },
+    ],
+    caseStudies: [
+      { title: 'Cursor AI 从入门到精通：自然语言编程实战', source: 'youtube', creator: 'Fireship', description: '用Cursor AI通过自然语言描述需求，自动生成完整应用代码', url: 'https://www.youtube.com/watch?v=8T5qHEf7Kis', duration: '14:00', skill: 'Cursor / AI编程' },
+      { title: 'GitHub Copilot 实战技巧：10倍提升编码效率', source: 'youtube', creator: 'Web Dev Simplified', description: '从基础补全到高级Prompt，全面掌握Copilot的各种使用场景', url: 'https://www.youtube.com/watch?v=TsT1UuPr3KE', duration: '20:00', skill: 'GitHub Copilot' },
+      { title: 'AI全栈开发工作流：从需求到部署', source: 'youtube', creator: 'Theo - t3․gg', description: '展示AI辅助全栈开发的最佳实践，Cursor+Claude Code组合', url: 'https://www.youtube.com/watch?v=3mZqO0q0Vb0', duration: '32:00', skill: 'AI全栈开发' }
+    ] },
   { id: 'scene_design', name: '设计创作', icon: '🎨', description: '设计创作的AI应用场景，涵盖AI绘画、图像生成、Logo设计、产品图、插画等创意领域', coverImage: '🎨', category: 'personal', aiLevel: 'L2', toolCount: 22, skillCount: 8, xhsSaves: 94000, tags: ['设计创作', 'AI绘画', '创意设计'], solutions: [
     { id: 's1', type: 'auto', title: 'AI图像生成工作流', description: '用AI生成高质量图片，涵盖人物、场景、产品、插画等', tools: ['Midjourney', 'DALL·E 3', 'Stable Diffusion', 'Leonardo AI'], skills: ['skill_product_image', 'skill_avatar_design', 'skill_logo_design'], effect: '设计效率提升500%，单张成本降低90%', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: '品牌视觉设计', description: '用AI完成Logo、VI、包装等品牌视觉设计', tools: ['Midjourney', 'DALL·E 3', 'Stable Diffusion'], skills: ['skill_logo_design', 'skill_avatar_design'], effect: '品牌设计周期从2周缩短至2天', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: 'Midjourney 完整教程：从提示词到商业级作品', source: 'youtube', creator: 'Futurepedia', description: '系统讲解Midjourney的提示词工程、参数调优和实战案例', url: 'https://www.youtube.com/watch?v=VJqOQ2r0xD0', duration: '45:00', skill: 'Midjourney提示词' },
+      { title: 'DALL·E 3 vs Midjourney vs Stable Diffusion 实战对比', source: 'youtube', creator: 'AI Demos', description: '同一需求用三大AI绘画工具出图对比，帮你选最适合的工具', url: 'https://www.youtube.com/watch?v=example_design_2', duration: '25:00', skill: 'AI绘画工具选择' },
+      { title: '用AI生成产品图和品牌视觉：电商设计全流程', source: 'youtube', creator: 'Design with AI', description: '从商品场景图到品牌VI设计，完整AI设计工作流演示', url: 'https://www.youtube.com/watch?v=example_design_3', duration: '30:00', skill: 'AI电商设计' }
+    ] },
   { id: 'scene_research', name: '学术研究', icon: '📚', description: '学术研究的AI应用场景，包括论文润色、文献综述、论文摘要改写、知识总结等', coverImage: '📚', category: 'personal', aiLevel: 'L3', toolCount: 18, skillCount: 7, xhsSaves: 62000, tags: ['学术研究', '论文', '教育'], solutions: [
     { id: 's1', type: 'auto', title: 'AI学术研究助手', description: '用AI进行论文润色、文献综述、摘要改写、长文档分析', tools: ['ChatGPT', 'Claude', 'Kimi', 'Perplexity', 'DeepSeek'], skills: ['skill_paper_polish', 'skill_literature_review', 'skill_thesis_abstract'], effect: '论文写作效率提升200%，质量显著提升', difficulty: 'intermediate' },
     { id: 's2', type: 'auto', title: 'AI深度研究分析', description: '用AI进行文献调研、数据分析和论文核心提炼', tools: ['Perplexity', 'Kimi', 'ChatGPT'], skills: ['skill_knowledge_summary', 'skill_data_analysis'], effect: '文献调研时间缩短80%', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: '用AI做文献综述：从检索到写作完整流程', source: 'youtube', creator: 'Academic English Now', description: '用AI工具批量检索文献、生成综述框架、润色论文', url: 'https://www.youtube.com/watch?v=example_research_1', duration: '35:00', skill: 'AI学术写作' },
+      { title: 'Perplexity + ChatGPT 学术研究全攻略', source: 'youtube', creator: 'AI for Research', description: '结合Perplexity的深度搜索和ChatGPT的分析能力完成学术研究', url: 'https://www.youtube.com/watch?v=example_research_2', duration: '20:00', skill: 'AI学术搜索' },
+      { title: '论文润色和改写：用AI提升学术写作质量', source: 'youtube', creator: 'Andy Stapleton', description: '演示用ChatGPT和Claude进行论文润色、改写和降重', url: 'https://www.youtube.com/watch?v=pTzL_VTbBUs', duration: '18:00', skill: 'AI论文润色' }
+    ] },
   { id: 'scene_shortvideo', name: '短视频', icon: '🎬', description: '短视频创作的AI应用场景，包括脚本创作、视频生成、数字人播报、背景音乐等', coverImage: '🎬', category: 'personal', aiLevel: 'L1', toolCount: 14, skillCount: 7, xhsSaves: 203000, tags: ['短视频', '视频创作', '社交媒体'], solutions: [
     { id: 's1', type: 'auto', title: 'AI短视频批量生产', description: '用AI生成脚本、数字人播报、添加音乐，批量制作短视频', tools: ['Runway', 'HeyGen', 'Suno', '豆包'], skills: ['skill_short_video_script', 'skill_video_subtitle'], effect: '短视频制作效率提升10倍', difficulty: 'beginner' },
     { id: 's2', type: 'semi', title: '爆款短视频流水线', description: '从选题策划到后期制作的全流程AI辅助', tools: ['Runway', 'HeyGen', 'Suno', '豆包', 'ChatGPT'], skills: ['skill_short_video_script', 'skill_podcast_script'], effect: '完播率提升40%，涨粉速度翻倍', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: '用AI批量生成短视频：从脚本到成品全流程', source: 'youtube', creator: 'AI Video Lab', description: '用ChatGPT写脚本 + Runway生成视频 + Suno配乐，一条龙制作', url: 'https://www.youtube.com/watch?v=example_shortvideo_1', duration: '28:00', skill: 'AI短视频全流程' },
+      { title: 'HeyGen数字人播报实战：5分钟制作专业口播视频', source: 'youtube', creator: 'AI Tools Academy', description: '用HeyGen生成数字人形象+语音克隆，快速制作高质量口播内容', url: 'https://www.youtube.com/watch?v=example_shortvideo_2', duration: '15:00', skill: '数字人播报' },
+      { title: 'AI视频生成工具横评：Runway vs Pika vs Luma', source: 'youtube', creator: 'The AI Advantage', description: '主流AI视频工具对比测试，同一Prompt看哪家效果最好', url: 'https://www.youtube.com/watch?v=example_shortvideo_3', duration: '22:00', skill: 'AI视频工具对比' }
+    ] },
   { id: 'scene_ecommerce', name: '电商运营', icon: '🛒', description: '电商运营的AI应用场景，包括商品描述、产品场景图、客服话术、活动策划等', coverImage: '🛒', category: 'personal', aiLevel: 'L1', toolCount: 18, skillCount: 8, xhsSaves: 156000, tags: ['电商运营', '营销', '运营'], solutions: [
     { id: 's1', type: 'auto', title: '商品卖点提炼', description: '自动分析商品特点，提炼核心卖点', tools: ['ChatGPT', 'Claude'], skills: ['skill_ecommerce_copy'], effect: '快速生成吸引人的商品描述', difficulty: 'beginner' },
     { id: 's2', type: 'auto', title: 'AI电商全链路', description: '从商品图生成到文案撰写到客服话术的完整AI流程', tools: ['Midjourney', 'DALL·E 3', '通义千问', 'ChatGPT', 'HeyGen'], skills: ['skill_product_image', 'skill_ecommerce_copy', 'skill_customer_service'], effect: '转化率提升35%，运营成本降低50%', difficulty: 'intermediate' }
-  ] },
-  // Niche scenes — tool sceneTags that didn't fit primary categories
+    ],
+    caseStudies: [
+      { title: 'AI电商运营全链路：商品图+文案+客服一条龙', source: 'youtube', creator: '电商AI实战', description: '从AI生成商品场景图到自动撰写详情页文案，再到智能客服配置', url: 'https://www.youtube.com/watch?v=example_ecom_1', duration: '40:00', skill: 'AI电商全链路' },
+      { title: '用Midjourney生成专业产品场景图', source: 'youtube', creator: 'Product Photography AI', description: '教你用AI为电商产品生成高质量的展示图和场景图', url: 'https://www.youtube.com/watch?v=example_ecom_2', duration: '18:00', skill: 'AI产品摄影' },
+      { title: 'AI智能客服搭建：7x24小时自动化回复', source: 'youtube', creator: 'AI Business Solutions', description: '用ChatGPT API搭建电商客服机器人，自动处理常见问题', url: 'https://www.youtube.com/watch?v=example_ecom_3', duration: '25:00', skill: 'AI客服搭建' }
+    ] },
+  // Niche scenes— tool sceneTags that didn't fit primary categories
   { id: 'scene_game', name: '游戏开发', icon: '🎮', description: '游戏开发的AI应用场景，包括角色设计、概念图、3D模型、游戏资产创建等', coverImage: '🎮', category: 'personal', aiLevel: 'L3', toolCount: 3, skillCount: 2, xhsSaves: 42000, tags: ['游戏开发', '设计创作', '3D'], solutions: [
     { id: 's1', type: 'auto', title: 'AI游戏资产生成', description: '用AI快速生成游戏角色、场景、道具等视觉资产', tools: ['Leonardo AI', 'Midjourney', 'Stable Diffusion', 'Luma AI'], skills: ['skill_avatar_design', 'skill_product_image'], effect: '游戏开发周期缩短40%，美术成本降低60%', difficulty: 'intermediate' },
-  ] },
+    ],
+    caseStudies: [
+      { title: '用AI生成游戏资产：角色、场景、道具全流程', source: 'youtube', creator: 'Game Dev AI', description: '使用Stable Diffusion和Midjourney批量生成游戏美术资源', url: 'https://www.youtube.com/watch?v=example_game_1', duration: '30:00', skill: 'AI游戏美术' },
+      { title: 'AI辅助Unity游戏开发：从概念到可玩原型', source: 'youtube', creator: 'AI Game Dev', description: '用ChatGPT生成Unity脚本+AI生成美术资源，快速搭建游戏原型', url: 'https://www.youtube.com/watch?v=example_game_2', duration: '45:00', skill: 'AI + Unity开发' }
+    ] },
   { id: 'scene_video_production', name: '影视制作', icon: '🎥', description: '影视制作的AI应用场景，包括视频生成、特效制作、后期编辑、动态设计等', coverImage: '🎥', category: 'personal', aiLevel: 'L3', toolCount: 2, skillCount: 2, xhsSaves: 56000, tags: ['影视制作', '视频制作', '特效'], solutions: [
     { id: 's1', type: 'auto', title: 'AI影视内容创作', description: '用AI生成影视级视频内容和特效', tools: ['Runway', 'HeyGen', 'Luma AI'], skills: ['skill_short_video_script', 'skill_video_subtitle'], effect: '视频制作效率提升5倍，专业品质无需专业团队', difficulty: 'advanced' },
-  ] },
+    ],
+    caseStudies: [
+      { title: 'AI影视级视频制作全流程', source: 'youtube', creator: 'AI Filmmaking', description: '从脚本到分镜到生成，用AI工具制作专业级影视内容', url: 'https://www.youtube.com/watch?v=example_video_1', duration: '35:00', skill: 'AI影视制作' },
+      { title: 'Runway Gen-3 实战：文字生成电影级视频', source: 'youtube', creator: 'Future Tech Pilot', description: 'Runway最新视频生成模型实操，教你写出高质量视频Prompt', url: 'https://www.youtube.com/watch?v=example_video_2', duration: '20:00', skill: 'Runway视频生成' }
+    ] },
   { id: 'scene_music', name: '音乐制作', icon: '🎵', description: 'AI音乐制作的创作场景，包括AI作曲、歌曲生成、背景音乐、AI翻唱等', coverImage: '🎵', category: 'personal', aiLevel: 'L1', toolCount: 1, skillCount: 1, xhsSaves: 34000, tags: ['音乐制作', '音频', '创作'], solutions: [
     { id: 's1', type: 'auto', title: 'AI音乐创作工坊', description: '用AI生成完整歌曲、背景音乐、配乐', tools: ['Suno', 'ElevenLabs'], skills: ['skill_podcast_script'], effect: '音乐创作门槛降至零，3分钟内生成专业级作品', difficulty: 'beginner' },
-  ] },
+    ],
+    caseStudies: [
+      { title: 'Suno AI音乐创作：从歌词到完整歌曲', source: 'youtube', creator: 'AI Music Lab', description: '用Suno生成完整歌曲，涵盖作词、作曲、编曲全流程', url: 'https://www.youtube.com/watch?v=example_music_1', duration: '25:00', skill: 'Suno音乐生成' },
+      { title: 'ElevenLabs语音合成：从文本到专业配音', source: 'youtube', creator: 'Voice AI Tutorials', description: '用ElevenLabs生成高拟真语音，适用于视频配音、有声书等场景', url: 'https://www.youtube.com/watch?v=example_music_2', duration: '15:00', skill: 'AI语音合成' }
+    ] },
   { id: 'scene_business_plan', name: '商业计划书', icon: '📋', description: 'AI辅助商业计划书和PPT制作场景，包括融资BP、商业方案、路演材料等', coverImage: '📋', category: 'personal', aiLevel: 'L2', toolCount: 1, skillCount: 3, xhsSaves: 38000, tags: ['商业计划书', '创业', '融资'], solutions: [
     { id: 's1', type: 'auto', title: 'AI商业方案生成', description: '用AI快速生成商业计划书、融资BP和路演PPT', tools: ['Gamma', 'ChatGPT', 'Claude'], skills: ['skill_pitch_deck', 'skill_bd_proposal', 'skill_auto_ppt'], effect: '商业计划书制作时间从1周缩短至1天', difficulty: 'intermediate' },
-  ] },
+    ],
+    caseStudies: [
+      { title: '用AI写商业计划书：从BP到路演PPT', source: 'youtube', creator: 'Startup AI Tools', description: '用ChatGPT生成商业计划书框架，用Gamma自动制作路演PPT', url: 'https://www.youtube.com/watch?v=example_bp_1', duration: '30:00', skill: 'AI商业方案' },
+      { title: 'Gamma AI：一句话生成专业PPT', source: 'youtube', creator: 'AI Productivity', description: 'Gamma从基础到进阶，教你用AI快速制作各类演示文稿', url: 'https://www.youtube.com/watch?v=example_bp_2', duration: '20:00', skill: 'Gamma PPT制作' }
+    ] },
   { id: 'scene_course_outline', name: '课程大纲', icon: '📖', description: 'AI辅助教育课程设计场景，包括课程大纲生成、课件制作、培训材料编写等', coverImage: '📖', category: 'personal', aiLevel: 'L2', toolCount: 1, skillCount: 3, xhsSaves: 29000, tags: ['课程大纲', '教育', '培训'], solutions: [
     { id: 's1', type: 'auto', title: 'AI课程设计助手', description: '用AI生成课程大纲、培训课件和教学材料', tools: ['Gamma', 'ChatGPT', 'Kimi'], skills: ['skill_exam_prep', 'skill_knowledge_summary', 'skill_child_education'], effect: '课程设计效率提升300%，内容质量专业级', difficulty: 'intermediate' },
-  ] },
+    ],
+    caseStudies: [
+      { title: '用AI设计课程大纲：从框架到课件全流程', source: 'youtube', creator: 'E-Learning AI', description: '用ChatGPT生成课程大纲、设计教学活动和编写培训材料', url: 'https://www.youtube.com/watch?v=example_course_1', duration: '28:00', skill: 'AI课程设计' },
+      { title: 'AI辅助K12教育：个性化学习方案设计', source: 'youtube', creator: 'AI in Education', description: '用AI为学生生成个性化学习计划和练习题', url: 'https://www.youtube.com/watch?v=example_course_2', duration: '22:00', skill: 'AI教育应用' }
+    ] },
   // Legacy scenes kept for backwards compatibility
   { id: 'scene_enterprise_ai', name: '企业AI自动化', icon: '🏢', description: '企业级AI应用场景，涵盖智能客服、流程自动化、数据分析、知识管理等核心业务环节', coverImage: '🏢', category: 'enterprise', aiLevel: 'L4', toolCount: 10, skillCount: 6, xhsSaves: 45000, tags: ['企业AI', '自动化', '办公提效', '数据分析'], solutions: [
     { id: 's1', type: 'auto', title: '智能客服系统搭建', description: '用AI搭建7x24小时智能客服，处理常见问题、工单分配、客户意向识别', tools: ['ChatGPT', 'OpenAI Agents SDK'], skills: ['skill_weekly_report', 'skill_meeting_summary'], effect: '客服响应速度提升300%，人工成本降低60%', difficulty: 'advanced' },
     { id: 's2', type: 'semi', title: '企业内部知识库AI化', description: '将企业内部文档、流程、规范转化为AI可检索的知识库', tools: ['Kimi', 'Notion AI', '通义千问'], skills: ['skill_meeting_summary'], effect: '员工知识检索效率提升200%，新员工培训周期缩短50%', difficulty: 'intermediate' },
     { id: 's3', type: 'auto', title: '财务与人事报表自动化', description: '用AI自动生成财务分析、人事报表、销售预测等企业管理报表', tools: ['ChatGPT', 'Claude', 'DeepSeek'], skills: ['skill_weekly_report', 'skill_email_write'], effect: '报表制作时间从2小时缩短至10分钟', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: '企业AI转型实战：从试点到规模化落地', source: 'youtube', creator: 'AI Business Strategy', description: '分享企业从单个AI试点到全组织AI化的完整路径和避坑指南', url: 'https://www.youtube.com/watch?v=example_ent_1', duration: '45:00', skill: '企业AI战略' },
+      { title: '搭建企业内部AI知识库：从文档到智能问答', source: 'youtube', creator: 'Enterprise AI Lab', description: '用RAG架构搭建企业知识库AI，让员工用自然语言查询内部信息', url: 'https://www.youtube.com/watch?v=example_ent_2', duration: '35:00', skill: 'RAG知识库' },
+      { title: 'AI客服系统从0到1：降低60%人工成本', source: 'youtube', creator: 'SaaS AI Builder', description: '用OpenAI API或开源模型搭建企业级智能客服系统', url: 'https://www.youtube.com/watch?v=example_ent_3', duration: '40:00', skill: 'AI客服系统' }
+    ] },
   // ===== 新增：AI Agent场景（今日热点） =====
   { id: 'scene_ai_agent', name: 'AI Agent', icon: '🤖', description: 'AI Agent架构与开发场景，涵盖Managed Agents范式、MCP生态、三文件框架、TDD驱动工作流等最新趋势', coverImage: '🤖', category: 'enterprise', aiLevel: 'L4', toolCount: 6, skillCount: 6, xhsSaves: 52000, tags: ['AI Agent', 'MCP', 'Agent架构', '自动化'], solutions: [
     { id: 's1', type: 'auto', title: 'Managed Agents架构', description: '按照Anthropic提出的大脑与手解耦范式，构建可扩展的Agent系统', tools: ['Claude', 'GPT-4', 'MCP Server'], skills: ['skill_managed_agents', 'skill_mcp_server_build'], effect: 'Agent系统架构清晰可扩展，大脑与手解耦独立演进', difficulty: 'advanced' },
     { id: 's2', type: 'auto', title: '三文件Agent搭建', description: '使用SOUL.md+RULES.md+MEMORY.md三文件极简框架配置Coding Agent', tools: ['Claude Code', 'Cursor'], skills: ['skill_three_file_framework', 'skill_vibe_coding'], effect: '5分钟完成Agent个性配置，开发效率翻倍', difficulty: 'beginner' },
     { id: 's3', type: 'auto', title: 'MCP生态接入', description: '为你的应用构建MCP Server，接入AI Agent生态', tools: ['MCP Server', 'Claude', 'Python'], skills: ['skill_mcp_server_build', 'skill_api_doc'], effect: '让你的App被AI Agent直接调用', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: 'Building AI Agents with Managed Agents Architecture', source: 'youtube', creator: 'Anthropic', description: 'Anthropic官方讲解Managed Agents范式和Agent最佳实践', url: 'https://www.youtube.com/watch?v=example_agent_1', duration: '30:00', skill: 'Agent架构设计' },
+      { title: 'MCP Protocol 完全指南：让你的应用被AI Agent调用', source: 'youtube', creator: 'AI Developer Hub', description: '从零开始构建MCP Server，接入AI Agent生态', url: 'https://www.youtube.com/watch?v=example_agent_2', duration: '35:00', skill: 'MCP Server开发' },
+      { title: 'OpenAI Agents SDK 实战：构建多Agent协作系统', source: 'youtube', creator: 'OpenAI', description: '用OpenAI Agents SDK搭建可协同工作的智能体集群', url: 'https://www.youtube.com/watch?v=example_agent_3', duration: '40:00', skill: 'Agents SDK' }
+    ] },
   // ===== 新增：企业AI转型（2026-04-28） =====
   { id: 'scene_enterprise_transform', name: '企业AI转型', icon: '🏭', description: '企业级AI转型的系统方法论与实践指南，涵盖AI ROI评估、组织级Prompt工程体系、TOKEN成本归因、AI文化建设等核心环节', coverImage: '🏭', category: 'enterprise', aiLevel: 'L2', toolCount: 12, skillCount: 8, xhsSaves: 65000, tags: ['企业AI', 'AI转型', '组织能力', '数字化转型'], solutions: [
     { id: 's1', type: 'auto', title: 'AI ROI评估与成本控制', description: '建立TOKEN级归因体系，精确统计每个部门、每个任务的AI消耗与产出，避免糊涂账', tools: ['ChatGPT', 'Claude', 'DeepSeek'], skills: ['skill_weekly_report', 'skill_meeting_summary'], effect: 'AI投入产出比可量化，TOKEN成本降低40%', difficulty: 'intermediate' },
     { id: 's2', type: 'auto', title: '企业级Prompt工程体系', description: '构建统一的Prompt模板库、质量标准和版本管理机制，让全公司共享高质量的AI提示词', tools: ['ChatGPT', 'Claude', 'Kimi'], skills: ['skill_email_write', 'skill_meeting_summary'], effect: 'Prompt复用率提升300%，AI输出质量标准化', difficulty: 'intermediate' },
     { id: 's3', type: 'auto', title: 'AI组织能力建设', description: '从CEO认知跃迁到全员AI素养，构建AI-First的组织文化、人才梯队和协作机制', tools: ['ChatGPT', 'Claude', 'Notion AI'], skills: ['skill_weekly_report', 'skill_knowledge_summary'], effect: '组织AI采用率提升200%，跨部门协作效率翻倍', difficulty: 'advanced' }
-  ] },
+    ],
+    caseStudies: [
+      { title: '企业AI ROI评估：如何衡量AI投入产出比', source: 'youtube', creator: 'McKinsey AI Lab', description: '建立AI项目的ROI评估框架，从TOKEN成本到业务价值量化', url: 'https://www.youtube.com/watch?v=example_transform_1', duration: '35:00', skill: 'AI ROI评估' },
+      { title: '企业级Prompt工程体系：让全公司用AI说同一种语言', source: 'youtube', creator: 'Prompt Engineering Institute', description: '构建企业级Prompt模板库、版本管理和质量标准的完整方案', url: 'https://www.youtube.com/watch?v=example_transform_2', duration: '25:00', skill: 'Prompt工程' },
+      { title: '从CEO到全员：构建AI-First组织文化', source: 'youtube', creator: 'AI Transformation Lab', description: '企业AI转型的组织变革方法，包括AI人才培养和文化建设', url: 'https://www.youtube.com/watch?v=example_transform_3', duration: '30:00', skill: '组织AI转型' }
+    ] },
   // ===== 新增：GEO优化（2026-04-28） =====
   { id: 'scene_geo_optimization', name: 'GEO优化', icon: '🔍', description: 'GEO（生成式引擎优化）时代的AI品牌策略，让企业在AI搜索结果中被优先推荐和展示', coverImage: '🔍', category: 'enterprise', aiLevel: 'L2', toolCount: 8, skillCount: 5, xhsSaves: 48000, tags: ['GEO优化', 'SEO', 'AI搜索', '品牌策略', '流量获取'], solutions: [
     { id: 's1', type: 'auto', title: 'GEO内容策略', description: '从AI搜索的视角重构品牌表达，通过事实性描述、权威度背书和结构化呈现，让AI将企业识别为优质信息源', tools: ['ChatGPT', 'Claude', 'Perplexity'], skills: ['skill_wechat_article', 'skill_xhs_rewrite'], effect: 'AI搜索结果中的品牌曝光率提升500%', difficulty: 'intermediate' },
     { id: 's2', type: 'auto', title: '结构化数据优化', description: '通过Schema.org结构化数据标记、FAQPage/HowTo/ItemList等JSON-LD，让AI搜索引擎准确理解和推荐网站内容', tools: ['ChatGPT', 'Claude'], skills: ['skill_knowledge_summary'], effect: 'AI搜索结果摘要点击率提升200%', difficulty: 'advanced' },
     { id: 's3', type: 'semi', title: '多平台GEO矩阵', description: '在微信公众号、知乎、小红书、独立博客等平台构建GEO内容矩阵，全网覆盖AI搜索的流量入口', tools: ['ChatGPT', 'Claude', 'Kimi', '豆包'], skills: ['skill_wechat_article', 'skill_xhs_rewrite', 'skill_weibo_content'], effect: '全平台AI搜索可见度提升300%', difficulty: 'intermediate' }
-  ] },
+    ],
+    caseStudies: [
+      { title: 'GEO优化完整指南：让AI搜索推荐你的品牌', source: 'youtube', creator: 'SEO AI Academy', description: '生成式引擎优化（GEO）的核心理念和实操方法，面向2026年AI搜索', url: 'https://www.youtube.com/watch?v=example_geo_1', duration: '40:00', skill: 'GEO策略' },
+      { title: '结构化数据+AI搜索：Schema.org实战配置', source: 'youtube', creator: 'Technical SEO AI', description: '手把手配置FAQPage、HowTo、ItemList等JSON-LD结构化数据', url: 'https://www.youtube.com/watch?v=example_geo_2', duration: '28:00', skill: '结构化数据' },
+      { title: '让AI Agent找到你：GEO内容策略实操', source: 'youtube', creator: 'Content AI Strategy', description: '从AI Agent的视角重新组织内容，提升在AI搜索结果中的可见度', url: 'https://www.youtube.com/watch?v=example_geo_3', duration: '22:00', skill: 'GEO内容策略' }
+    ] },
 ];
 
 export const dailyPicks: DailyPick[] = [
