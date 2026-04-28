@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useFavorites } from '@/hooks/useFavorites';
-import { ExternalLink, Heart, Share2, Copy, CheckCircle, Lightbulb, ArrowLeft, Flame, Star, Sparkles } from 'lucide-react';
+import { ExternalLink, Heart, Share2, Copy, CheckCircle, Lightbulb, ArrowLeft, Flame, Star, Sparkles, Clock, User, Play } from 'lucide-react';
 
 import { Tool, Skill, Scene } from '@/types';
 import type { Relation } from '@/lib/knowledge-graph';
@@ -407,6 +407,63 @@ export default function ToolDetailClient({ tool, relatedSkills, relatedTools, pr
           </div>
         </div>
       </div>
+
+      {/* 精选教程 */}
+      {tool.caseStudies && tool.caseStudies.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center shadow-lg shadow-red-100">
+              <Play className="w-5 h-5 text-white" />
+            </div>
+            <span>精选教程</span>
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {tool.caseStudies.map((cs, idx) => (
+              <a
+                key={idx}
+                href={cs.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
+                    cs.source === 'bilibili'
+                      ? 'bg-sky-100 text-sky-700'
+                      : 'bg-red-100 text-red-700'
+                  }`}>
+                    {cs.source === 'bilibili' ? '📺 B站' : '🎬 YouTube'}
+                  </span>
+                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-red-500 transition-colors" />
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2 group-hover:text-red-600 transition-colors line-clamp-2">
+                  {cs.title}
+                </h3>
+                <p className="text-sm text-slate-500 mb-3 line-clamp-2">{cs.description}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-1.5 text-xs text-slate-400">
+                    <User className="w-3.5 h-3.5" />
+                    <span>{cs.creator}</span>
+                  </div>
+                  {cs.duration && (
+                    <div className="flex items-center space-x-1.5 text-xs text-slate-400">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{cs.duration}</span>
+                    </div>
+                  )}
+                </div>
+                {cs.skill && (
+                  <div className="mt-3 pt-3 border-t border-slate-100">
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100">
+                      🎯 {cs.skill}
+                    </span>
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </main>
   );
 }

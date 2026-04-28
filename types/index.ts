@@ -33,6 +33,7 @@ export interface Tool {
   targetAudience?: string[];
   useCases?: string[];
   faqs?: { question: string; answer: string }[];
+  caseStudies?: CaseStudy[];
 }
 
 export interface ToolCase {
