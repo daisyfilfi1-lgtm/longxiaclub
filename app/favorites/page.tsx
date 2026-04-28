@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useFavorites } from '@/hooks/useFavorites';
 import { Trash2, ExternalLink, Bookmark, ArrowLeft, Star, Flame } from 'lucide-react';
@@ -10,6 +10,46 @@ import { tools, skills } from '@/data/tools';
 export default function FavoritesPage() {
   const [activeTab, setActiveTab] = useState<'tools' | 'skills'>('tools');
   const { favorites, isLoaded, toggleToolFavorite, toggleSkillFavorite, isToolFavorite, isSkillFavorite } = useFavorites();
+
+  // 设置页面元数据
+  useEffect(() => {
+    document.title = '我的收藏 - AI导航站';
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    metaDesc.setAttribute('content', '管理你收藏的AI工具和Skill，快速访问感兴趣的AI资源。');
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+    
+    // OG tags
+    const setOG = (prop: string, content: string) => {
+      const el = document.querySelector(`meta[property="${prop}"]`) || document.createElement('meta');
+      el.setAttribute('property', prop);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setOG('og:title', '我的收藏 - AI导航站');
+    setOG('og:description', '管理你收藏的AI工具和Skill。');
+    setOG('og:url', 'https://longxiaclub.com/favorites');
+    setOG('og:type', 'website');
+    setOG('og:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Twitter
+    const setTW = (name: string, content: string) => {
+      const el = document.querySelector(`meta[name="${name}"]`) || document.createElement('meta');
+      el.setAttribute('name', name);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setTW('twitter:card', 'summary_large_image');
+    setTW('twitter:title', '我的收藏 - AI导航站');
+    setTW('twitter:description', '管理你收藏的AI工具和Skill。');
+    setTW('twitter:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Canonical
+    const canon = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canon.setAttribute('rel', 'canonical');
+    canon.setAttribute('href', 'https://longxiaclub.com/favorites');
+    if (!canon.parentNode) document.head.appendChild(canon);
+  }, []);
 
   // 过滤出收藏的工具和技能
   const favoriteTools = tools.filter(t => favorites.tools.includes(t.id));

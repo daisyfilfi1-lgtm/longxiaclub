@@ -39,6 +39,70 @@ export default function SkillsPage() {
     fetchSkills();
   }, []);
 
+  // JSON-LD 结构化数据注入
+  useEffect(() => {
+    document.title = 'Skill市场 - AI导航站 | 发现AI技能';
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    metaDesc.setAttribute('content', '为Agent选购可插拔的Skill组件，像App Store一样选购工作流。50+个AI Skill覆盖办公提效、内容创作、编程开发等场景。');
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+    
+    // Open Graph
+    const setOG = (prop: string, content: string) => {
+      const el = document.querySelector(`meta[property="${prop}"]`) || document.createElement('meta');
+      el.setAttribute('property', prop);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setOG('og:title', 'Skill市场 - AI导航站 | 发现AI技能');
+    setOG('og:description', '为Agent选购可插拔的Skill组件，50+个AI Skill覆盖办公提效、内容创作、编程开发等场景。');
+    setOG('og:url', 'https://longxiaclub.com/skills');
+    setOG('og:type', 'website');
+    setOG('og:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Twitter Card
+    const setTW = (name: string, content: string) => {
+      const el = document.querySelector(`meta[name="${name}"]`) || document.createElement('meta');
+      el.setAttribute('name', name);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setTW('twitter:card', 'summary_large_image');
+    setTW('twitter:title', 'Skill市场 - AI导航站 | 发现AI技能');
+    setTW('twitter:description', '为Agent选购可插拔的Skill组件，50+个AI Skill覆盖多场景。');
+    setTW('twitter:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Canonical
+    const canon = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canon.setAttribute('rel', 'canonical');
+    canon.setAttribute('href', 'https://longxiaclub.com/skills');
+    if (!canon.parentNode) document.head.appendChild(canon);
+    
+    // JSON-LD
+    const existing = document.querySelectorAll('[data-jsonld="skills-list"]');
+    existing.forEach(el => el.remove());
+    
+    const breadcrumbJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'AI导航站', item: 'https://longxiaclub.com' },
+        { '@type': 'ListItem', position: 2, name: 'Skill市场', item: 'https://longxiaclub.com/skills' },
+      ],
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-jsonld', 'skills-list');
+    script.textContent = JSON.stringify(breadcrumbJsonLd);
+    document.head.appendChild(script);
+    
+    return () => {
+      const toRemove = document.querySelectorAll('[data-jsonld="skills-list"]');
+      toRemove.forEach(el => el.remove());
+    };
+  }, []);
+
   // 排序和过滤
   const processedSkills = [...skills]
     .filter(skill => 

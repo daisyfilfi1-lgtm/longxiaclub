@@ -82,6 +82,18 @@ export default function ToolDetailClient({ tool, relatedSkills, relatedTools, pr
             <div className="lg:col-span-2 space-y-6">
               {/* Hero Card */}
               <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-lg shadow-slate-100">
+                {/* AI搜索摘要 — 结构化摘要适合被AI搜索直接引用 */}
+                <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-teal-50 to-cyan-50 border border-teal-100">
+                  <p className="text-sm text-teal-800 leading-relaxed">
+                    <strong className="text-teal-900">{tool.name}</strong> 是一款{tool.category}类AI工具。
+                    {tool.description}
+                    价格：{tool.price === 'free' ? '完全免费' : tool.price === 'freemium' ? '免费试用，高级功能付费' : tool.price === 'paid' ? '付费工具' : '企业定制'}。
+                    难度：{difficultyLabel}。
+                    主要应用场景：{tool.sceneTags?.join('、') || tool.tags?.join('、')}。
+                    热度评分：{tool.heat}，热度增长：+{tool.heatGrowth}%。
+                  </p>
+                </div>
+                
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-6">
                     <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center text-5xl border border-teal-200">

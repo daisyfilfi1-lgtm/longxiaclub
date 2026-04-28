@@ -125,6 +125,142 @@ export default function SkillDetailPage() {
     fetchSkill();
   }, [id]);
 
+  // JSON-LD 结构化数据注入 + SEO
+  useEffect(() => {
+    if (!skill) return;
+    
+    // Set basic SEO metadata
+    document.title = `${skill.name} - AI Skill - AI导航站`;
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    metaDesc.setAttribute('content', `${skill.name}是一款${skill.category}类AI Skill。${skill.description} 评分${skill.rating}，安装量${(skill.installCount / 1000).toFixed(1)}k。`);
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+    
+    // Open Graph
+    const setOG = (prop: string, content: string) => {
+      const el = document.querySelector(`meta[property="${prop}"]`) || document.createElement('meta');
+      el.setAttribute('property', prop);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setOG('og:title', `${skill.name} - AI Skill - AI导航站`);
+    setOG('og:description', skill.description);
+    setOG('og:url', `https://longxiaclub.com/skills/${skill.id}`);
+    setOG('og:type', 'article');
+    setOG('og:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Twitter Card
+    const setTW = (name: string, content: string) => {
+      const el = document.querySelector(`meta[name="${name}"]`) || document.createElement('meta');
+      el.setAttribute('name', name);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setTW('twitter:card', 'summary_large_image');
+    setTW('twitter:title', `${skill.name} - AI Skill - AI导航站`);
+    setTW('twitter:description', skill.description);
+    setTW('twitter:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Canonical
+    const canon = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canon.setAttribute('rel', 'canonical');
+    canon.setAttribute('href', `https://longxiaclub.com/skills/${skill.id}`);
+    if (!canon.parentNode) document.head.appendChild(canon);
+    
+    // Cleanup previous scripts
+    const existing = document.querySelectorAll('[data-jsonld="skill"]');
+    existing.forEach(el => el.remove());
+    
+    const scripts = [];
+    
+    // SoftwareApplication JSON-LD
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      name: skill.name,
+      description: skill.description,
+      version: skill.version,
+      keywords: [skill.category, skill.name, 'AI Skill', 'AI技能'].join(', '),
+      author: {
+        '@type': 'Person',
+        name: skill.author,
+      },
+      dateModified: new Date().toISOString().split('T')[0],
+      about: {
+        '@type': 'Thing',
+        name: skill.category,
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: skill.rating?.toString() || '4.5',
+        ratingCount: skill.installCount || 100,
+        bestRating: '5',
+      },
+      offers: {
+        '@type': 'Offer',
+        price: skill.price === 'free' ? '0' : typeof skill.price === 'number' ? skill.price.toString() : '0',
+        priceCurrency: 'CNY',
+        availability: 'https://schema.org/OnlineOnly',
+      },
+    };
+    scripts.push(jsonLd);
+    
+    // BreadcrumbList
+    const breadcrumbJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'AI导航站', item: 'https://longxiaclub.com' },
+        { '@type': 'ListItem', position: 2, name: 'Skill市场', item: 'https://longxiaclub.com/skills' },
+        { '@type': 'ListItem', position: 3, name: skill.name, item: `https://longxiaclub.com/skills/${skill.id}` },
+      ],
+    };
+    scripts.push(breadcrumbJsonLd);
+    
+    // FAQPage
+    const faqJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: `${skill.name}是什么？有什么用途？`,
+          acceptedAnswer: { '@type': 'Answer', text: `${skill.name}是一款${skill.category}类AI Skill。${skill.description}` }
+        },
+        {
+          '@type': 'Question',
+          name: `${skill.name}需要什么工具支持？`,
+          acceptedAnswer: { '@type': 'Answer', text: skill.compatibility.length > 0 ? `${skill.name}兼容${skill.compatibility.join('、')}等平台。` : `${skill.name}可在主流AI平台上使用。` }
+        },
+        {
+          '@type': 'Question',
+          name: `${skill.name}如何安装使用？`,
+          acceptedAnswer: { '@type': 'Answer', text: skill.workflow.length > 0 ? `${skill.name}的使用流程：${skill.workflow.map(w => w.title).join(' → ')}。` : '点击一键安装按钮即可使用。' }
+        },
+        {
+          '@type': 'Question',
+          name: `${skill.name}是免费的吗？`,
+          acceptedAnswer: { '@type': 'Answer', text: skill.price === 'free' ? `${skill.name}完全免费使用。` : skill.price === 'member' ? `${skill.name}为会员专享。` : `${skill.name}价格为¥${skill.price}。` }
+        },
+      ],
+    };
+    scripts.push(faqJsonLd);
+    
+    // Inject scripts
+    scripts.forEach(data => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-jsonld', 'skill');
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    });
+    
+    return () => {
+      const toRemove = document.querySelectorAll('[data-jsonld="skill"]');
+      toRemove.forEach(el => el.remove());
+    };
+  }, [skill]);
+
   if (isLoading) {
     return (
       <main className="min-h-screen bg-slate-50 dot-pattern flex items-center justify-center">

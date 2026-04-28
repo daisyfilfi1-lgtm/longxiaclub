@@ -34,7 +34,6 @@ function StatCard({
     purple: 'bg-purple-50 text-purple-600 border-purple-100',
     orange: 'bg-orange-50 text-orange-600 border-orange-100',
   };
-
   return (
     <div className="bg-white rounded-2xl border border-slate-200 p-6">
       <div className="flex items-start justify-between">
@@ -72,7 +71,6 @@ function ActionButton({
     danger: 'bg-rose-500 hover:bg-rose-600 text-white',
     secondary: 'bg-slate-100 hover:bg-slate-200 text-slate-700',
   };
-
   return (
     <button
       onClick={onClick}
@@ -92,6 +90,15 @@ function AdminDashboard() {
     users: 0,
     pageViews: 0,
   });
+
+  // Set noindex and title for admin page
+  useEffect(() => {
+    document.title = '管理后台 - AI导航站';
+    const robots = document.querySelector('meta[name="robots"]') || document.createElement('meta');
+    robots.setAttribute('name', 'robots');
+    robots.setAttribute('content', 'noindex, nofollow');
+    if (!robots.parentNode) document.head.appendChild(robots);
+  }, []);
   const [loading, setLoading] = useState<Record<string, boolean>>({});
   const [logs, setLogs] = useState<Array<{ type: 'success' | 'error'; message: string; time: string }>>([]);
 

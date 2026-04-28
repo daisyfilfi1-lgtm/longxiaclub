@@ -8,6 +8,20 @@ export default function AuthCallbackPage() {
   const router = useRouter();
 
   useEffect(() => {
+    // Set metadata
+    document.title = '登录中 - AI导航站';
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    metaDesc.setAttribute('content', 'AI导航站登录回调处理中...');
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+    // Noindex
+    const robots = document.querySelector('meta[name="robots"]') || document.createElement('meta');
+    robots.setAttribute('name', 'robots');
+    robots.setAttribute('content', 'noindex, nofollow');
+    if (!robots.parentNode) document.head.appendChild(robots);
+  }, []);
+
+  useEffect(() => {
     // 处理 OAuth 回调
     const client = getAuthClient();
     if (!client) {

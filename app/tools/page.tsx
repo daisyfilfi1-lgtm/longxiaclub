@@ -7,6 +7,9 @@ import Navbar from '@/components/Navbar';
 import { useTools } from '@/hooks/useApi';
 import { captureError } from '@/lib/monitoring';
 
+// Static metadata for /tools page (used by search engines as fallback)
+// Dynamic metadata is set in useEffect below for client-side SEO
+
 // 价格选项
 const PRICE_OPTIONS = [
   { value: 'all', label: '全部' },
@@ -51,8 +54,43 @@ export default function ToolsPage() {
   // 注入 ItemList JSON-LD 结构化数据
   const jsonLdRef = useRef<HTMLScriptElement>(null);
   useEffect(() => {
-    // 更新页面标题
+    // 更新页面元数据 - SEO
     document.title = '产品中心 - AI导航站 | 发现最佳AI工具';
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    metaDesc.setAttribute('content', '发现最实用的AI工具，按热度、场景、技术分类浏览。收录ChatGPT、Midjourney、Claude等22+款AI工具，覆盖AI对话、图像生成、视频生成、编程开发等场景。');
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+    
+    // Open Graph tags
+    const setOG = (prop: string, content: string) => {
+      const el = document.querySelector(`meta[property="${prop}"]`) || document.createElement('meta');
+      el.setAttribute('property', prop);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setOG('og:title', '产品中心 - AI导航站 | 发现最佳AI工具');
+    setOG('og:description', '发现最实用的AI工具，按热度、场景、技术分类浏览。收录ChatGPT、Midjourney、Claude等22+款AI工具。');
+    setOG('og:url', 'https://longxiaclub.com/tools');
+    setOG('og:type', 'website');
+    setOG('og:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Twitter Card
+    const setTW = (name: string, content: string) => {
+      const el = document.querySelector(`meta[name="${name}"]`) || document.createElement('meta');
+      el.setAttribute('name', name);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setTW('twitter:card', 'summary_large_image');
+    setTW('twitter:title', '产品中心 - AI导航站 | 发现最佳AI工具');
+    setTW('twitter:description', '发现最实用的AI工具，按热度、场景、技术分类浏览。');
+    setTW('twitter:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Canonical
+    const canon = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canon.setAttribute('rel', 'canonical');
+    canon.setAttribute('href', 'https://longxiaclub.com/tools');
+    if (!canon.parentNode) document.head.appendChild(canon);
     
     // 注入 JSON-LD
     const categories = CATEGORY_OPTIONS.filter(c => c !== '全部');

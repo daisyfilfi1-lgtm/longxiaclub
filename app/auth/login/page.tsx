@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
@@ -10,6 +10,32 @@ import { Github, Mail, Lock, Eye, EyeOff, Sparkles } from 'lucide-react';
 export default function LoginPage() {
   const router = useRouter();
   const { signIn, signInWithGithub, signInWithGoogle, isAuthenticated } = useAuth();
+
+  // 设置页面元数据
+  useEffect(() => {
+    document.title = '登录 - AI导航站';
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    metaDesc.setAttribute('content', '登录AI导航站，同步收藏的AI工具和Skill，获得个性化推荐体验。');
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+    // OG
+    const setOG = (prop: string, content: string) => {
+      const el = document.querySelector(`meta[property="${prop}"]`) || document.createElement('meta');
+      el.setAttribute('property', prop);
+      el.setAttribute('content', content);
+      if (!el.parentNode) document.head.appendChild(el);
+    };
+    setOG('og:title', '登录 - AI导航站');
+    setOG('og:description', '登录AI导航站，同步收藏的AI工具和Skill。');
+    setOG('og:url', 'https://longxiaclub.com/auth/login');
+    setOG('og:type', 'website');
+    setOG('og:image', 'https://longxiaclub.com/og-image.png');
+    // Canonical
+    const canon = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canon.setAttribute('rel', 'canonical');
+    canon.setAttribute('href', 'https://longxiaclub.com/auth/login');
+    if (!canon.parentNode) document.head.appendChild(canon);
+  }, []);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);

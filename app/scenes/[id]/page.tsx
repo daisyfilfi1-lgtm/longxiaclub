@@ -5,6 +5,7 @@ import { scenes, tools, skills } from '@/data/tools';
 import { getSceneRelations } from '@/lib/knowledge-graph';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { generateBreadcrumbJsonLd, HOME_CRUMB, SCENES_LIST_CRUMB } from '@/lib/breadcrumb';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -31,11 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: scene.description,
       type: 'website',
       url: `https://longxiaclub.com/scenes/${scene.id}`,
+      images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+      siteName: 'AI导航站',
     },
     twitter: {
       card: 'summary_large_image',
       title: `${scene.name} - AI应用场景`,
       description: scene.description,
+      images: ['https://longxiaclub.com/og-image.png'],
     },
     alternates: {
       canonical: `/scenes/${scene.id}`,
@@ -101,6 +105,55 @@ export default async function SceneDetailPage({ params }: Props) {
     keywords: [...scene.tags, scene.name, 'AI场景', 'AI工具'].join(', ')
   };
 
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    HOME_CRUMB,
+    SCENES_LIST_CRUMB,
+    { name: scene.name, url: `https://longxiaclub.com/scenes/${scene.id}` },
+  ]);
+
+  // FAQPage JSON-LD for scenes
+  const sceneFaqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `什么是${scene.name}？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${scene.name}是AI导航站中的一个AI应用场景，${scene.description}，包含${actualToolCount}款AI工具和${actualSkillCount}个Skill。`
+        }
+      },
+      {
+        '@type': 'Question',
+        name: `如何开始${scene.name}？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `在${scene.name}场景中，你可以根据难度选择解决方案。入门方案推荐${scene.solutions.filter(s => s.difficulty === 'beginner').map(s => s.title).join('、') || '浏览相关工具列表'}。`
+        }
+      },
+      {
+        '@type': 'Question',
+        name: `${scene.name}需要哪些工具？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `在${scene.name}场景中，推荐使用的AI工具包括：${sceneTools.map(t => t.name).join('、')}。`
+        }
+      },
+      {
+        '@type': 'Question',
+        name: `${scene.name}有哪些解决方案？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: scene.solutions.length > 0
+            ? `${scene.name}场景提供${scene.solutions.length}个解决方案：${scene.solutions.map(s => `${s.title}（${s.description}）`).join('；')}。`
+            : `${scene.name}场景提供多套解决方案，可浏览相关工具和Skill组合。`
+        }
+      },
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
@@ -111,6 +164,14 @@ export default async function SceneDetailPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sceneFaqJsonLd) }}
       />
       
       <div className="relative pt-24 pb-12">

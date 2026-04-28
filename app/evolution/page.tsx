@@ -1,6 +1,28 @@
 import Link from 'next/link';
 import { RefreshCw, Gem, Sparkles, BookOpen, TrendingUp, ChevronLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '进化历程 - AI导航站',
+  description: 'AI导航站持续自我进化，收录22+款AI工具和50+个AI Skill，覆盖内容扩充、功能升级、SEO优化等迭代记录。',
+  openGraph: {
+    title: '进化历程 - AI导航站',
+    description: 'AI导航站持续自我进化，记录每一次功能迭代和内容更新。',
+    type: 'website',
+    url: 'https://longxiaclub.com/evolution',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '进化历程 - AI导航站',
+    description: 'AI导航站持续自我进化，记录每一次功能迭代和内容更新。',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/evolution',
+  },
+};
 
 const allEntries = [
   {

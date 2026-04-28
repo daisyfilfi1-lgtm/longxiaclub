@@ -3,6 +3,29 @@ import { ArrowUpRight, Bookmark, Layers, Network } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { scenes } from '@/data/tools';
 import { getSceneRelations } from '@/lib/knowledge-graph';
+import { generateBreadcrumbJsonLd, HOME_CRUMB, SCENES_LIST_CRUMB } from '@/lib/breadcrumb';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '场景方案 - AI导航站 | 基于业务场景的AI解决方案',
+  description: '基于业务场景的AI解决方案推荐系统，整合工具和Skill。按内容创作、编程开发、办公提效等场景找到最佳AI工具组合和Skill搭配。',
+  openGraph: {
+    title: '场景方案 - AI导航站 | 基于业务场景的AI解决方案',
+    description: '基于业务场景的AI解决方案推荐系统，整合工具和Skill搭配。',
+    type: 'website',
+    url: 'https://longxiaclub.com/scenes',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '场景方案 - AI导航站',
+    description: '基于业务场景的AI解决方案推荐系统。',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/scenes',
+  },
+};
 
 export default function ScenesPage() {
   // 知识图谱预先计算所有场景的统计数据
@@ -13,11 +36,51 @@ export default function ScenesPage() {
     })
   );
 
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    HOME_CRUMB,
+    SCENES_LIST_CRUMB,
+  ]);
+
+  // CollectionPage JSON-LD for scenes list
+  const scenesListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: '场景方案 - AI导航站',
+    description: '基于业务场景的AI解决方案推荐系统。根据业务场景找到最佳AI工具组合和Skill搭配。',
+    url: 'https://longxiaclub.com/scenes',
+    numberOfItems: scenes.length,
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'AI应用场景列表',
+      itemListElement: scenes.map((scene, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CollectionPage',
+          name: scene.name,
+          description: scene.description,
+          url: `https://longxiaclub.com/scenes/${scene.id}`,
+        }
+      }))
+    },
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
       
       <Navbar />
+      
+      {/* JSON-LD 结构化数据 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(scenesListJsonLd) }}
+      />
       
       {/* Header */}
       <div className="relative pt-32 pb-12">
