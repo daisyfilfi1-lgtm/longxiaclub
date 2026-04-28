@@ -1,230 +1,195 @@
 {
   "date": "2026-04-28",
   "title": "AI 日报 | 2026-04-28 周二",
-  "summary": "微软与OpenAI终止独家分成协议，AI格局进入后独家时代。Anthropic提出Managed Agents架构，Agent最佳实践正在收敛。OpenClaw以36.5万星成为GitHub现象级项目。",
+  "summary": "微软与OpenAI终止独家分成协议，AI格局进入后独家时代。Anthropic提出Managed Agents架构，Agent大脑与手解耦成为最佳实践。OpenClaw以36.5万星成为GitHub现象级项目。Sam Altman称Codex $20计划性价比极高。",
   "highlights": [
     "微软 × OpenAI 分手：AI格局进入'后独家时代'",
-    "Agent架构范式确立：大脑与手解耦",
-    "OpenClaw现象：个人AI助手的爆发拐点"
+    "Managed Agents：大脑与手解耦 — Anthropic提出Agent架构新范式",
+    "OpenClaw现象：个人AI助手的爆发拐点，36.5万星",
+    "Sam Altman：Codex $20计划性价比极高，获7712爱心"
   ],
   "sections": {
-    "S": {
-      "title": "一手源头 — 前沿论文 & 大厂博客",
+    "papers": {
+      "title": "前沿论文",
       "items": [
         {
-          "title": "Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond",
-          "url": "https://arxiv.org/abs/2604.22748",
-          "description": "AI系统从文本生成走向目标驱动的持久交互，环境动态建模能力成为关键瓶颈。",
-          "insight": "这篇对longxiaclub的AI导航站分类有直接启发——'世界建模'是区分普通Agent与高级Agent的分水岭，值得作为内容标签引入。",
+          "title": "Personalized Worked Example Generation from Student Code Submissions",
+          "url": "https://arxiv.org/abs/2604.24758",
+          "description": "利用基于模式的知识组件，从学生代码提交中自动生成个性化示例，减少人工编写练习库的工作量。",
           "source": "arXiv"
         },
         {
-          "title": "Aligning Dense Retrievers with LLM Utility via Distillation",
-          "url": "https://arxiv.org/abs/2604.22722",
-          "description": "用蒸馏方法对齐稠密检索器与LLM的实用偏好，提升RAG精度。",
-          "insight": "RAG是Medilink平台文本检索的核心技术路线，这篇的蒸馏思路可以直接借鉴到医疗知识库的检索优化中。",
+          "title": "Learning to Think from Multiple Thinkers",
+          "url": "https://arxiv.org/abs/2604.24737",
+          "description": "研究从多个推理者提供的CoT监督中学习——他们都提供正确但可能系统性不同的解题方案。",
           "source": "arXiv"
         },
         {
-          "title": "How Do AI Agents Spend Your Money? — Token消耗分析与预测",
-          "url": "https://arxiv.org/abs/2604.22750",
-          "description": "分析了Agent在复杂编码任务中的token消耗模式，提出了预测框架。",
-          "insight": "做AI导航站的同学必读——不同Agent的'烧钱效率'对比评测是刚需内容方向。",
+          "title": "Learning to Rotate: Temporal and Semantic Rotary Encoding",
+          "url": "https://arxiv.org/abs/2604.24717",
+          "description": "提出时序与语义旋转编码，优化RoPE位置编码在Transformer中的旋转流形利用效率。",
           "source": "arXiv"
         },
         {
-          "title": "Representational Harms in LLM-Generated Narratives",
-          "url": "https://arxiv.org/abs/2604.22749",
-          "description": "LLM生成的文本对全球多数族裔存在表征性伤害，尤其是高风险的难民面试场景。",
-          "insight": "医疗旅游平台涉及多文化人群，内容生成的公平性合规是必须提前考虑的合规红线。",
+          "title": "Long-Context Aware Upcycling for Hybrid LLM Scaling",
+          "url": "https://arxiv.org/abs/2604.24715",
+          "description": "将高效Transformer组件与线性序列建模块组合的混合模型，通过upcycling方法从预训练检查点初始化。",
           "source": "arXiv"
         },
         {
-          "title": "Spend Less, Fit Better: Budget-Efficient Scaling Law Fitting",
-          "url": "https://arxiv.org/abs/2604.22753",
-          "description": "降低缩放定律拟合成本的方法，千万级训练预算下节省可观费用。",
-          "insight": "省钱方法论永不过时，对个人学习进化的资源配置也有启发——先做小规模实验再放大。",
+          "title": "The Optimal Sample Complexity of Multiclass and List Learning",
+          "url": "https://arxiv.org/abs/2604.24749",
+          "description": "解决了多类分类的样本复杂度最优性问题——VC维视角下长期开放的理论问题。",
           "source": "arXiv"
-        }
-      ],
-      "subsections": [
+        },
         {
-          "title": "大厂博客动态",
-          "entries": [
-            {
-              "source": "Anthropic",
-              "items": [
-                "Claude Code 质量报告更新（april-23-postmortem）",
-                "Scaling Managed Agents: 大脑与手的解耦架构",
-                "Claude Code auto mode: 更安全的权限跳过方案"
-              ],
-              "insight": "Anthropic的'managed agents'架构对Medilink的Agent化客服系统设计有直接参考价值——大脑（规划层）和手（执行层）分离是当前最佳实践。"
-            },
-            {
-              "source": "Google AI",
-              "items": [
-                "AI Agents Vibe Coding Course（与Kaggle合作，2026年6月开课）",
-                "Gemini 8条空间整理小技巧"
-              ],
-              "insight": "Google的Agent课程值得关注，可作为longxiaclub的课程推荐板块素材。"
-            }
-          ]
+          "title": "Sentiment and Emotion Classification of Indonesian E-Commerce Reviews",
+          "url": "https://arxiv.org/abs/2604.24720",
+          "description": "印尼电商评论情感分类，处理混合词汇、俚语、外来词和表情符号等多语言挑战。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Case-Specific Rubrics for Clinical AI Evaluation",
+          "url": "https://arxiv.org/abs/2604.24710",
+          "description": "面向临床AI的案例特定评估方法论，覆盖823次医患交互的验证。",
+          "source": "arXiv"
         }
       ]
     },
-    "A": {
-      "title": "社区风向 & AI Builder 动态",
+    "blogs": {
+      "title": "大厂博客",
       "items": [
         {
-          "title": "Sam Altman (@sama) — 5.5发布反响 & OpenAI原则",
-          "url": "https://x.com/sama",
-          "description": "\"看到Builder们觉得我们的工具好用，没有比这更让我高兴的事了。\" 公布5大原则：民主化、赋能、普适繁荣、韧性、适应性",
-          "likes": 3906,
-          "retweets": 2710,
-          "insight": "Sam此刻的'builder第一'态度很真诚，OpenAI 5.5成为日常工具的信号对AI导航站的产品对标评测是重要参考。",
-          "source": "X/Twitter"
-        },
-        {
-          "title": "Guillermo Rauch (@rauchg) — Coding Agents是超级智能的基础",
-          "url": "https://x.com/rauchg",
-          "description": "\"编码Agent将是所有超级智能的基础。编码能力与'精通计算机'没有区别。像Claude Code这样的优秀编码Agent精通bash、代码、部署...\"",
-          "likes": 427,
-          "insight": "Vercel CEO的视角——如果你只能投资一个Agent方向，那就是编码Agent。longxiaclub的Agent分类中'编码Agent'应该单独列为一类。",
-          "source": "X/Twitter"
-        },
-        {
-          "title": "Aaron Levie (@levie) — 关于Agent导致的'过度工作感'",
-          "url": "https://x.com/levie",
-          "description": "两个微妙因素：(1) AI带来的增量杠杆大幅提升，早期使用者会投入更多精力；(2) 人们看到自己行业AI的空间，却觉得别人的行业完全被AI替代了。",
-          "likes": 713,
-          "retweets": 263,
-          "insight": "Box CEO的这个观察非常到位——Daisy自己也要警惕'过度优化'陷阱，专注高杠杆点。",
-          "source": "X/Twitter"
-        },
-        {
-          "title": "Garry Tan (@garrytan) — 构建优秀Agent的三个核心文件",
-          "url": "https://x.com/garrytan",
-          "description": "SOUL.md（身份/价值观/输出标准）、RULES.md（约束/边界）、MEMORY.md（动态上下文）。还提到他的OpenClaw会在12:30后拒绝回答问题。",
-          "likes": 62,
-          "retweets": 28,
-          "insight": "这三个文件框架可以直接用在longxiaclub的'Agent构建指南'板块中，实用价值极高。",
-          "source": "X/Twitter"
-        },
-        {
-          "title": "Peter Yang (@petergyang) — 为自己的健身App构建MCP Server",
-          "url": "https://x.com/petergyang",
-          "description": "周末改进了移动健身App，构建了一个MCP Server以便通过Claude/Codex获取最新健身数据。",
-          "likes": 17,
-          "insight": "MCP生态正在快速生长，'为你的App做MCP Server'可能成为新潮流——longxiaclub应该收录MCP相关工具和教程。",
-          "source": "X/Twitter"
-        },
-        {
-          "title": "Peter Steinberger (@steipete) — OpenClaw + Blacksmith 极致算力",
-          "url": "https://x.com/steipete",
-          "description": "发布wacrawl 0.2.0（WhatsApp加密备份工具），以及使用Blacksmith在32vCPU上运行测试套件。",
-          "likes": 89,
-          "retweets": 332,
-          "insight": "OpenClaw一周飙到36万+星，Blacksmith作为Codex的云端算力提供者值得关注。",
-          "source": "X/Twitter"
-        }
-      ],
-      "subsections": [
-        {
-          "title": "GitHub Trending",
+          "source": "Anthropic",
           "entries": [
-            {
-              "name": "openclaw/openclaw",
-              "stars": 365335,
-              "description": "你的个人AI助手，任何OS，🦞方式",
-              "insight": "OpenClaw现象级增长，代表了'个人AI助手'赛道的爆发。longxiaclub的Agent评测板块可以重点跟进。"
-            },
-            {
-              "name": "nilbuild/developer-roadmap",
-              "stars": 353766,
-              "description": "开发者成长路线图"
-            },
-            {
-              "name": "tensorflow/tensorflow",
-              "stars": 194916,
-              "description": "开源ML框架"
-            }
-          ]
+            "Managed Agents架构：大脑（规划层）与手（执行层）解耦，提升Agent系统的可扩展性和安全性",
+            "Claude Code auto mode：更安全的权限跳过方案，减少用户确认干扰",
+            "Claude Code质量报告后续更新"
+          ],
+          "url": "https://www.anthropic.com/engineering/managed-agents"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "与Kaggle合作推出AI Agents Vibe Coding课程（2026年6月）",
+            "Gemini 8个空间与生活整理小技巧"
+          ],
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
         }
       ]
     },
-    "B": {
-      "title": "深度解读",
+    "builders": {
+      "title": "AI Builder动态",
       "items": [
         {
-          "source": "Stability AI Blog",
-          "description": "SD-XL 1.0 permissive license 发布（0.1.0 和 0.0.1 两个Release）",
-          "insight": "虽然Stability今天没大新闻，但SD-XL的开源许可更新对Medilink平台的图片生成功能仍有参考价值。"
+          "author": "Sam Altman",
+          "content": "Codex以$20美元的定价是超值选择，获7712爱心，为今日最高赞推文。同时重申OpenAI五大原则：民主化、赋能、普适繁荣、韧性、适应性。",
+          "url": "https://x.com/sama/status/2048913887614115857",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Amjad Masad (Replit)",
+          "content": "Replit在一年前就已验证AI编码的Agent生产隔离方案，垂直集成平台的竞争优势将持续扩大。发起8周赚到第一美金挑战赛。",
+          "url": "https://x.com/amasad/status/2048911624061522228",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Garry Tan (Y Combinator)",
+          "content": "构建Agent的三个核心文件框架：SOUL.md（身份与价值观）、RULES.md（约束与边界）、MEMORY.md（动态上下文）。GStack内置Chromium + Claude Code。",
+          "url": "https://x.com/garrytan/status/2049035231903301771",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Matt Turck",
+          "content": "AI行业的地面真相：硅谷认为AI自我加速、Agent接管一切；而Global 2000企业花大价钱买了AI聊天却零生产力提升。现实鸿沟依然巨大。",
+          "url": "https://x.com/mattturck/status/2048896617424527499",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Zara Zhang",
+          "content": "最资深AI用户的共同模式：只和一个Agent日常对话，由该Agent负责分配任务给子Agent。单一入口+子Agent调度的模式正在成为最佳实践。",
+          "url": "https://x.com/zarazhangrui/status/2049027061768192288",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger",
+          "content": "GitHub限流下，Codex自动打开浏览器点击GitHub界面作为变通方案。发布wacrawl 0.2.0 WhatsApp加密备份工具。",
+          "url": "https://x.com/steipete/status/2049035044702843053",
+          "source": "X/Twitter"
         }
-      ],
-      "note": "Lilian Weng Blog、Simon Willison Blog 暂无数据"
+      ]
     },
-    "C": {
-      "title": "实战 & 社区",
+    "github": {
+      "title": "GitHub热门项目",
       "items": [
         {
-          "title": "微软与OpenAI终止独家分成协议",
-          "source": "Hacker News",
-          "score": 709,
-          "url": "https://news.ycombinator.com",
-          "description": "Bloomberg报道，微软停止与OpenAI的收入分成。",
-          "insight": "AI格局的里程碑事件。微软和OpenAI的关系从'独家联姻'走向'开放竞争'——这对所有AI平台的商业模式评估都有影响，Medilink在做技术选型时也应考虑供应商锁定风险。"
+          "name": "openclaw/openclaw",
+          "stars": "365,614",
+          "description": "你的个人AI助手，跨平台，开源。TypeScript编写。",
+          "url": "https://github.com/openclaw/openclaw"
         },
         {
-          "title": "4TB语音数据被盗 — 涉及Mercor 4万名AI承包商",
-          "source": "Hacker News",
-          "score": 419,
-          "url": "https://app.oravys.com/blog/mercor-breach-2026",
-          "description": "数据安全警钟。",
-          "insight": "医疗旅游平台涉及患者隐私数据，这起事件说明AI供应链中的每一个环节都可能成为攻击入口。"
+          "name": "nilbuild/developer-roadmap",
+          "stars": "353,805",
+          "description": "开发者成长路线图与学习指南。",
+          "url": "https://github.com/nilbuild/developer-roadmap"
         },
         {
-          "title": "Pgbackrest停止维护",
-          "source": "Hacker News",
-          "score": 391,
-          "description": "PostgreSQL备份工具停更。",
-          "insight": "基础设施依赖的健康度值得关注。"
-        }
-      ],
-      "github_projects": [
-        {
-          "name": "PolyPulse-Analytics/hyperliquid-trading-bot",
-          "stars": 285,
-          "description": "Hyperliquid交易机器人"
+          "name": "tensorflow/tensorflow",
+          "stars": "194,919",
+          "description": "开源机器学习框架。",
+          "url": "https://github.com/tensorflow/tensorflow"
         },
         {
           "name": "evanklem/evanflow",
-          "stars": 275,
-          "description": "TDD驱动的迭代反馈循环开发流程，16个Claude Code技能",
-          "insight": "evanflow项目直接把Claude Code技能组织成TDD工作流——这可以作为longxiaclub'Agent工作流'类别的一个典型案例收录。"
+          "stars": "302",
+          "description": "TDD驱动的迭代反馈循环开发流程，集成16个Claude Code技能。",
+          "url": "https://github.com/evanklem/evanflow"
         },
         {
-          "name": "vthinkxie/illustrated-explainer-spec",
-          "stars": 223,
-          "description": "无限递进图解工具——点图即可生成下一层解释"
+          "name": "HKUDS-AI/polymarket-ai-trading",
+          "stars": "233",
+          "description": "Polymarket AI辅助模拟交易：OpenAI市场洞察、向量搜索、Kelly仓位管理。",
+          "url": "https://github.com/HKUDS-AI/polymarket-ai-trading"
+        },
+        {
+          "name": "Udacity-ai/pumpfun-ai-trading-bot",
+          "stars": "234",
+          "description": "OpenAI驱动的Solana Pump.fun评论自动化，支持代理和钱包模式。",
+          "url": "https://github.com/Udacity-ai/pumpfun-ai-trading-bot"
         }
       ]
     },
-    "D": {
-      "title": "中文精品",
+    "community": {
+      "title": "社区热点",
       "items": [
         {
-          "creator": "AI超元域",
-          "platform": "B站",
-          "description": "全栈开发者，擅长微调、RAG、AI应用开发",
-          "blog": "https://aivi.fyi",
-          "insight": "中文AI内容生态有待进一步采集。后续建议接入B站RSS和知乎AI领域优质创作者feed。"
+          "title": "微软与OpenAI终止独家分成协议",
+          "url": "https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai",
+          "source": "Bloomberg",
+          "description": "微软停止与OpenAI的独家合作和收入分成协议，AI格局进入后独家时代。",
+          "score": "889"
+        },
+        {
+          "title": "4TB语音数据被盗 — Mercor 4万名AI承包商受影响",
+          "url": "https://app.oravys.com/blog/mercor-breach-2026",
+          "source": "Oravys",
+          "description": "AI承包商平台的重大数据泄露事件，4TB语音样本被盗。",
+          "score": "540"
+        },
+        {
+          "title": "Pgbackrest PostgreSQL备份工具停止维护",
+          "url": "https://github.com/pgbackrest/pgbackrest",
+          "source": "GitHub",
+          "description": "流行的PostgreSQL备份工具宣布停止维护。",
+          "score": "430"
         }
       ]
     }
   },
   "source_info": {
-    "data_sources": "arXiv、Anthropic Blog、Google AI Blog、X/Twitter AI Builders、GitHub Trending、Hacker News",
-    "collection_time": "2026-04-28 北京时间",
+    "data_sources": "arXiv, Anthropic Blog, Google AI Blog, X/Twitter AI Builders, GitHub Trending, Hacker News",
+    "collection_time": "2026-04-28 06:00 BJT",
     "generated_by": "Daisy AI Agent"
   }
 }
