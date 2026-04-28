@@ -2,7 +2,8 @@ import Navbar from '@/components/Navbar';
 import Leaderboard from '@/components/Leaderboard';
 import SceneTags from '@/components/SceneTags';
 import EvolutionLog from '@/components/EvolutionLog';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, TrendingUp, ArrowRight, Flame } from 'lucide-react';
+import Link from 'next/link';
 
 // FAQ JSON-LD for homepage
 const faqJsonLd = {
@@ -112,6 +113,54 @@ export default function Home() {
         
         {/* Scene Tags */}
         <SceneTags />
+
+        {/* Trend Rankings Entry - 趋势榜单入口 */}
+        <section className="py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link
+              href="/trends"
+              className="group block relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-orange-50 via-amber-50 to-red-50 border border-orange-200 hover:border-orange-300 hover:shadow-lg hover:shadow-orange-100/50 transition-all duration-300 overflow-hidden"
+            >
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-orange-200/20 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-red-200/20 to-transparent rounded-full translate-y-1/2 -translate-x-1/2" />
+              
+              <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-start space-x-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg shadow-orange-200 flex-shrink-0">
+                    <Flame className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-orange-600 transition-colors">
+                      AI工具趋势榜单 <span className="text-orange-500">🔥</span>
+                    </h3>
+                    <p className="text-sm text-slate-500 leading-relaxed max-w-lg">
+                      基于 GitHub 星标、ProductHunt 投票和 Google Trends 的 AI 工具实时热度排名，发现最前沿的 AI 技术趋势
+                    </p>
+                    <div className="flex items-center space-x-3 mt-2">
+                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-orange-100 text-orange-700">
+                        <TrendingUp className="w-3 h-3" />
+                        <span>综合热度榜</span>
+                      </span>
+                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-teal-100 text-teal-700">
+                        <TrendingUp className="w-3 h-3" />
+                        <span>ProductHunt新品</span>
+                      </span>
+                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+                        <TrendingUp className="w-3 h-3" />
+                        <span>GitHub热门</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 text-sm font-medium text-orange-600 group-hover:text-orange-700 transition-colors flex-shrink-0">
+                  <span>查看榜单</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
 
         {/* Evolution Log - Self-improvement transparency */}
         <EvolutionLog />

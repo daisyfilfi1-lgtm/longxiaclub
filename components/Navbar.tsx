@@ -28,6 +28,7 @@ export default function Navbar() {
   const navItems = [
     { href: '/tools', label: '产品中心' },
     { href: '/skills', label: 'Skill市场' },
+    { href: '/trends', label: '趋势榜单' },
     { href: '/scenes', label: '场景方案' },
     { href: '/favorites', label: '收藏夹' },
   ];

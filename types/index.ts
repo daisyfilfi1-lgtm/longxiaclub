@@ -18,6 +18,8 @@ export interface Tool {
   xhsSaves?: number;
   b站弹幕?: number;
   category: string;
+  // 每日精选推荐文案
+  dailyPick?: string;
   // 增强内容 (AI生成)
   enhancedTips?: string[];
   cases?: ToolCase[];
