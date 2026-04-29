@@ -2,8 +2,7 @@ import Navbar from '@/components/Navbar';
 import Leaderboard from '@/components/Leaderboard';
 import SceneTags from '@/components/SceneTags';
 import EvolutionLog from '@/components/EvolutionLog';
-import DailyBrief from '@/components/DailyBrief';
-import { Sparkles, TrendingUp, ArrowRight, Flame, Newspaper } from 'lucide-react';
+import { TrendingUp, Flame, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 // FAQ JSON-LD for homepage
@@ -114,65 +113,6 @@ export default function Home() {
         
         {/* Scene Tags */}
         <SceneTags />
-
-        {/* Daily Brief - 今日AI速览 */}
-        <DailyBrief />
-
-        {/* Daily Report Entry - 今日AI日报入口 */}
-        <section className="py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link
-              href="/daily/2026-04-28"
-              className="group block relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-teal-50 via-cyan-50 to-green-50 border border-teal-200 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-100/50 transition-all duration-300 overflow-hidden"
-            >
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-teal-200/20 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-200/20 to-transparent rounded-full translate-y-1/2 -translate-x-1/2" />
-
-              <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="flex items-start space-x-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-lg shadow-teal-200 flex-shrink-0">
-                    <Newspaper className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-teal-600 transition-colors">
-                      今日AI日报 <span className="text-teal-500">📰</span>
-                    </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed max-w-lg">
-                      每日精选AI前沿论文、大厂动态、社区风向和深度解读，覆盖 S/A/B/C/D 五级内容体系，Daisy AI Agent 自动生成
-                    </p>
-                    <div className="flex items-center space-x-3 mt-2">
-                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-teal-100 text-teal-700">
-                        <Sparkles className="w-3 h-3" />
-                        <span>S级·前沿</span>
-                      </span>
-                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-blue-100 text-blue-700">
-                        <Sparkles className="w-3 h-3" />
-                        <span>A级·社区</span>
-                      </span>
-                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-green-100 text-green-700">
-                        <Sparkles className="w-3 h-3" />
-                        <span>B级·深度</span>
-                      </span>
-                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-amber-100 text-amber-700">
-                        <Sparkles className="w-3 h-3" />
-                        <span>C级·实战</span>
-                      </span>
-                      <span className="inline-flex items-center space-x-1 text-xs px-2.5 py-1 rounded-full bg-rose-100 text-rose-700">
-                        <Sparkles className="w-3 h-3" />
-                        <span>D级·中文</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2 text-sm font-medium text-teal-600 group-hover:text-teal-700 transition-colors flex-shrink-0">
-                  <span>查看今日日报</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </div>
-        </section>
 
         {/* Trend Rankings Entry - 趋势榜单入口 */}
         <section className="py-8">
