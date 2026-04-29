@@ -31,8 +31,8 @@ export default function Navbar() {
     { href: '/daily', label: 'AI日报' },
     { href: '/trends', label: '趋势榜单' },
     { href: '/scenes', label: '场景方案' },
+    { href: '/compare', label: '工具对比' },
     { href: '/favorites', label: '收藏夹' },
-    { href: '/compare/chatgpt-vs-deepseek', label: '工具对比' },
   ];
 
   // 搜索防抖
