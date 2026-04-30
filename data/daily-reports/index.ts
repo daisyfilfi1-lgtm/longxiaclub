@@ -7,13 +7,13 @@ const reports: DailyReportMeta[] = [
   {
     date: "2026-04-29",
     title: "AI 日报 | 2026-04-29 周三",
-    summary: "Sam Altman高赞Codex $20定价策略，独立开发者社区沸腾。Matt Turck揭示硅谷与Global 2000之间的AI生产力鸿沟。微软开源VibeVoice语音AI，Talkie 1930年代13B模型引爆复古AI讨论。",
+    summary: "Anthropic发布Claude Code质量复盘报告与Managed Agents架构升级，连接Adobe Creative Cloud等创意工具生态。递归多Agent系统论文定义Agent第三条scaling axis。Claude Design开源复刻open-design获2852星。",
     highlights: [
-      "Sam Altman：Codex $20定价获7712爱心，独立开发者认为这是AI编程民主化拐点",
-      "Matt Turck：硅谷AI自我加速 vs 企业零生产力提升，现实鸿沟仍在",
-      "微软开源VibeVoice：前沿语音AI模型进入开源社区",
-      "Talkie：1930年代13B复古语言模型登上Hacker News热榜",
-      "Zara Zhang：单一Agent入口+子Agent调度成为深度AI用户最佳实践"
+      "Anthropic发布Claude Code 4月23日质量报告复盘，透明度获认可",
+      "Anthropic Managed Agents：Agent大脑与手解耦架构深度解析",
+      "Claude Connector扩展：Adobe Creative Cloud/Ableton/Blender等创意工具全链条",
+      "Recursive Multi-Agent Systems论文：递归推理成为Agent第三条scaling axis",
+      "open-design（Claude Design开源复刻）一夜获2852星"
     ]
   },
   {
@@ -25,6 +25,18 @@ const reports: DailyReportMeta[] = [
       "Managed Agents：大脑与手解耦 — Anthropic提出Agent架构新范式",
       "OpenClaw现象：个人AI助手的爆发拐点，36.5万星",
       "Sam Altman：Codex $20计划性价比极高，获7712爱心"
+    ]
+  },
+  {
+    date: "2026-04-30",
+    title: "AI 日报 | 2026-04-30 周四",
+    summary: "Claude Connectors拓展至Autodesk Fusion等创意工具生态，2026被定义为Agent之年。TIDE论文提出跨架构蒸馏方法用于Diffusion LLM。ClawGym框架为Claw Agent构建提供可扩展基准。",
+    highlights: [
+      "Claude发布Autodesk Fusion等新Connector，连接器生态全面覆盖3D/设计/音频领域",
+      "TIDE: 跨架构蒸馏方法使Diffusion LLM无需相同架构即可知识迁移",
+      "ClawGym: 可扩展Claw Agent构建框架发布",
+      "Garry Tan定义2026年为Agent永恒九月——Agent生态系统加速涌现",
+      "Vercel Labs转型构建Agent用开发者工具"
     ]
   }
 ];
