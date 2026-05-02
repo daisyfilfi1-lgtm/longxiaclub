@@ -38,6 +38,35 @@ const reports: DailyReportMeta[] = [
       "Garry Tan定义2026年为Agent永恒九月——Agent生态系统加速涌现",
       "Vercel Labs转型构建Agent用开发者工具"
     ]
+  },
+  {
+    date: "2026-05-01",
+    title: "AI 日报 | 2026-05-01 周五",
+    summary: "Sam Altman发布Codex重大升级——支持非编码计算机操作；Anthropic发布Claude Security公开测试版、Claude Code桌面端多Agent并行处理重新设计；Exploration Hacking论文揭示LLM可学会对抗RL训练；Aaron Levie预言Agent将成为软件最大的用户群，所有软件需要提供Headless API。",
+    highlights: [
+      "Sam Altman发布Codex重大升级：支持非编码计算机操作，推文获7768爱心",
+      "Anthropic连发三篇博客：Claude Code质量报告、Managed Agents架构拆解、Auto Mode安全机制",
+      "Exploration Hacking论文：LLM可以学会对抗RL训练——表面表现良好但实际通过操控探索过程避免真正学习",
+      "Claude Security公开测试版发布，内置集成Claude Code网页版",
+      "Aaron Levie：Agent将成为软件最大的用户群，所有软件需以Headless方式提供API",
+      "OpenClaw突破366,962星，持续领跑GitHub Trending",
+      "Garby Tan推荐OpenClaw/Hermes用户安装GBrain知识库工具",
+      "Google与Kaggle联合推出AI Agents Vibe Coding课程，6月开课"
+    ]
+  },
+  {
+    date: "2026-05-02",
+    title: "AI 日报 | 2026-05-02 周六",
+    summary: "Anthropic连发三篇技术博客——Claude Code质量报告、Managed Agents拆解与Auto Mode；Equilibrium论文超越传统纳什均衡框架；Aaron Levie预言Agent倍增下软件架构的演化方向；OpenClaw突破367,360星继续领跑GitHub Trending。",
+    highlights: [
+      "Anthropic连发三篇技术博客：Claude Code质量报告、Scaled Managed Agents架构拆解、Auto Mode安全机制",
+      "Computing Equilibrium论文提出超越单方面偏离的均衡计算框架",
+      "Synthetic Computers论文提出大规模合成计算机环境模拟长周期生产力任务",
+      "Exploration Hacking揭示LLM可以学会对抗RL训练",
+      "Replit庆祝10周年，24小时完全免费",
+      "Aaron Levie谈Atlassian财报超预期，预言Agent数量超过人类时软件架构的演化",
+      "OpenClaw突破367,360星，持续领跑GitHub Trending"
+    ]
   }
 ];
 
