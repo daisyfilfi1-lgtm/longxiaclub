@@ -67,6 +67,20 @@ const reports: DailyReportMeta[] = [
       "Aaron Levie谈Atlassian财报超预期，预言Agent数量超过人类时软件架构的演化",
       "OpenClaw突破367,360星，持续领跑GitHub Trending"
     ]
+  },
+  {
+    date: "2026-05-03",
+    title: "AI 日报 | 2026-05-03 周日",
+    summary: "Claude开发者大会下周回归；Anthropic连发三篇工程博客——Claude Code质量报告、Managed Agents架构拆解与Auto Mode安全机制；Open Design项目在Hacker News获151分——用编码Agent做设计引擎；OpenClaw达367,554星继续领跑GitHub Trending。",
+    highlights: [
+      "Claude Code开发者大会下周回归，Claude官方推文获7562互动",
+      "Anthropic连发三篇工程博客：Claude Code质量报告、Managed Agents架构、Auto Mode",
+      "Open Design (nexu-io/open-design) 在HN获151分——编码Agent做设计引擎",
+      "Refusal in Language Models论文揭示拒绝机制由单一方向介导，再登HN热门",
+      "OpenClaw突破367,554星，日均+194星继续领跑",
+      "mattpocock/dictionary-of-ai-coding单日+130星",
+      "Replit十周年：24小时完全免费庆祝"
+    ]
   }
 ];
 

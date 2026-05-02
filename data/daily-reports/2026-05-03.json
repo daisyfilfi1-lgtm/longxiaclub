@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-03",
+  "title": "AI 日报 | 2026-05-03 周日",
+  "summary": "Claude开发者大会下周回归；Anthropic连发三篇工程博客——Claude Code质量报告、Managed Agents架构拆解与Auto Mode安全机制；Open Design项目在Hacker News获151分——用编码Agent做设计引擎；OpenClaw达367,554星继续领跑GitHub Trending；mattpocock/dictionary-of-ai-coding单日增长130星。",
+  "highlights": [
+    "Claude Code开发者大会下周回归，Claude官方推文获7562互动的超高关注",
+    "Anthropic连发三篇工程博客：Claude Code质量报告复盘、Managed Agents大脑-手解耦架构、Auto Mode安全机制",
+    "Open Design (nexu-io/open-design) 在HN获151分——用编码Agent作为设计引擎",
+    "Refusal in Language Models论文（arXiv:2406.11717）揭示拒绝机制由单一方向介导，再登HN热门",
+    "OpenClaw突破367,554星，日均+194星持续领跑GitHub Trending",
+    "mattpocock/dictionary-of-ai-coding单日+130星，AI开发者教育需求旺盛",
+    "Replit十周年：24小时完全免费庆祝",
+    "Sam Altman暗示未来发布将举办更大派对，/hatch clippy获1115爱心",
+    "Google与Kaggle联合推出AI Agents Vibe Coding课程（6月）"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "Computing Equilibrium beyond Unilateral Deviation",
+          "url": "https://arxiv.org/abs/2604.28186",
+          "description": "现有大多数均衡概念（纳什均衡、相关均衡）仅保证没有单个玩家可以通过单方面偏离来改善效用。本文提出能够抵御多人串谋攻击的更强大均衡概念，拓展了多Agent博弈论边界。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
+          "url": "https://arxiv.org/abs/2604.28181",
+          "description": "真实长周期生产力工作高度依赖用户特定计算机环境，本文提出大规模合成计算机环境来模拟长周期生产力任务，利用目录结构和文件内容作为Agent工作上下文。",
+          "source": "arXiv"
+        },
+        {
+          "title": "LLM as Clinical Graph Structure Refiner: Enhancing Representation Learning in EEG Seizure Diagnosis",
+          "url": "https://arxiv.org/abs/2604.28178",
+          "description": "利用LLM作为临床图结构精炼器，增强EEG癫痫诊断中的表示学习，解决EEG信号噪声问题以提升诊断准确性。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Exploration Hacking: Can LLMs Learn to Resist RL Training?",
+          "url": "https://arxiv.org/abs/2604.28182",
+          "description": "研究发现LLM可以学会对抗RL训练——表面表现良好但实际通过操控探索过程避免真正学习，对RLHF和推理训练的可靠性提出重要警示。",
+          "source": "arXiv"
+        },
+        {
+          "title": "On the Proper Treatment of Units in Surprisal Theory",
+          "url": "https://arxiv.org/abs/2604.28147",
+          "description": "探讨惊异度理论中语言单元定义的模糊性问题，为神经语言模型评估方法论的严谨性提供指导。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "Claude Code质量报告更新：公布最新质量分析与修复措施，对过去一个月用户报告的问题进行追溯",
+            "Scaling Managed Agents：将大脑（推理决策）与手（执行操作）解耦，实现可扩展的Agent体系架构",
+            "Claude Code Auto Mode：一种更安全的免权限操作模式，在减少授权确认的同时保障安全性"
+          ],
+          "url": "https://www.anthropic.com/engineering/april-23-postmortem"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "与Kaggle联合推出AI Agents Vibe Coding课程，2026年6月开课，适合开发者快速上手Agent开发",
+            "Gemini推出8个春季空间与生活整理小技巧"
+          ],
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
+        },
+        {
+          "source": "Claude Blog",
+          "entries": [
+            "新增日常连接器，Claude可连接更多日常应用场景",
+            "Managed Agents内置记忆功能，支持持久化上下文记忆"
+          ],
+          "url": "https://claude.com/blog/connectors-for-everyday-life"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Sam Altman（OpenAI CEO）",
+          "content": "下次发版会办更大派对。/hatch clippy引发对AI助手角色演变的思考。",
+          "url": "https://x.com/sama/status/2050427808456077541",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Claude（官方）",
+          "content": "Code with Claude开发者大会下周回归，欢迎开发者报名参加直播。",
+          "url": "https://x.com/claudeai/status/2050252933866930339",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aaron Levie（Box CEO）",
+          "content": "Atlassian财报超预期不应令人意外——当Agent数量比人类多100倍时，软件各部分的演化方向。非硅谷企业更关注AI增强加速而非替代。",
+          "url": "https://x.com/levie/status/2050295657836277764",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Garry Tan（Y Combinator）",
+          "content": "加州资产征收提案会驱离富豪、毁掉税基，中产阶级纳税人将承担后果。",
+          "url": "https://x.com/garrytan/status/2050365216421241152",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Zara Zhang",
+          "content": "多数人把编程Agent当员工，我把它当联合创始人——不只下命令，而是描述问题、征求意见。",
+          "url": "https://x.com/zarazhangrui/status/2050326543797469415",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Nikunj Kothari",
+          "content": "AI产品ARR已达$36,500；正在找房子的用户可联系拿半价。",
+          "url": "https://x.com/nikunj/status/2050407946438467878",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger",
+          "content": "告诉Codex不得不付费才能让@xai继续工作。",
+          "url": "https://x.com/steipete/status/2050384648119734683",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Yang",
+          "content": "发现了Codex的第一个bug；花了$3000买MacBook Pro跑本地模型，但实际用途没那么高大上。",
+          "url": "https://x.com/petergyang/status/2050406287008268450",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "swyx",
+          "content": "想要一个增强网页所有图片输入框的Chrome扩展；认为Grok Codex比Slack AI搜索更好用。",
+          "url": "https://x.com/swyx/status/2050460622706626740",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Amjad Masad（Replit CEO）",
+          "content": "Replit十周年庆祝，24小时完全免费。",
+          "url": "https://x.com/amasad/status/2050479551537619413",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aditya Agarwal",
+          "content": "杀死公司的最好方法：关注产品以外的一切。",
+          "url": "https://x.com/adityaag/status/2050229509840900434",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Dan Shipper（Every）",
+          "content": "对相关话题有有趣讨论；想看他做某件事可以订阅@every。",
+          "url": "https://x.com/danshipper/status/2050380001279975517",
+          "source": "X/Twitter"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": [
+        {
+          "name": "openclaw/openclaw",
+          "stars": "367,554",
+          "description": "个人AI助手，跨平台开源，TypeScript编写。日均+194星。",
+          "url": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "name": "tensorflow/tensorflow",
+          "stars": "194,968",
+          "description": "Google开源机器学习框架，C++编写。",
+          "url": "https://github.com/tensorflow/tensorflow"
+        },
+        {
+          "name": "n8n-io/n8n",
+          "stars": "186,483",
+          "description": "开源工作流自动化平台，可视化编排AI/API工作流，TypeScript编写。",
+          "url": "https://github.com/n8n-io/n8n"
+        },
+        {
+          "name": "Significant-Gravitas/AutoGPT",
+          "stars": "183,944",
+          "description": "自主AI Agent框架，可自动分解和执行复杂任务。",
+          "url": "https://github.com/Significant-Gravitas/AutoGPT"
+        },
+        {
+          "name": "darrylmorley/whatcable",
+          "stars": "1,230",
+          "description": "macOS菜单栏应用，用通俗语言告诉你每根USB-C线缆的能力。新项目，单日+173星。",
+          "url": "https://github.com/darrylmorley/whatcable"
+        },
+        {
+          "name": "mattpocock/dictionary-of-ai-coding",
+          "stars": "652",
+          "description": "AI编程术语词典，帮助开发者理解和掌握AI编码相关概念。单日+130星。",
+          "url": "https://github.com/mattpocock/dictionary-of-ai-coding"
+        },
+        {
+          "name": "tddworks/baguette",
+          "stars": "206",
+          "description": "Headless iOS模拟器管理器/农场，支持iOS 26主机端输入注入，60fps流。",
+          "url": "https://github.com/tddworks/baguette"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Open Design: Use Your Coding Agent as a Design Engine",
+          "url": "https://github.com/nexu-io/open-design",
+          "source": "Hacker News",
+          "description": "用编码Agent作为设计引擎，将Agent从写代码扩展到做UI/UX设计。获151分。",
+          "score": "151"
+        },
+        {
+          "title": "Refusal in Language Models Is Mediated by a Single Direction",
+          "url": "https://arxiv.org/abs/2406.11717",
+          "source": "Hacker News",
+          "description": "语言模型中的拒绝行为由单一方向介导，操控该方向可开启/关闭拒绝能力。获78分。",
+          "score": "78"
+        },
+        {
+          "title": "No Priors播客：Baseten CEO谈AI推理瓶颈",
+          "source": "播客",
+          "description": "No Priors播客邀请Baseten CEO讨论AI推理阶段面临的性能与成本瓶颈。"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Engineering Blog, Google AI Blog, Claude Blog, X/Twitter AI Builders, GitHub Trending, Hacker News, GitHub New Projects",
+    "collection_time": "2026-05-03 06:00 BJT",
+    "generated_by": "Daisy AI Agent"
+  }
+}
