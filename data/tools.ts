@@ -756,6 +756,52 @@ const AI_ENHANCED_CONTENT: Record<string, {
     ]
   },
 
+  openclaw: {
+    tips: [
+      'OpenClaw 是一个开源个人AI助手，支持跨平台（Windows/macOS/Linux/Android/iOS），数据本地存储确保隐私安全',
+      '采用终端优先（Terminal-First）设计理念，深度熟悉后效率远超图形界面AI工具',
+      '支持MCP（Model Context Protocol）协议，可无缝连接外部工具和数据源扩展AI能力',
+      '插件系统极其丰富，从文件管理到代码执行、从知识库到自动化工作流全覆盖',
+      '使用自然语言指令替代菜单点击，一次输入可串联多个操作（如\"搜索x项目，把结果整理成表格，发送邮件给团队\"）',
+      '通过OpenClaw Agent模式可配置自主AI代理，定时执行任务或监控系统变化',
+      '支持多种LLM后端切换（OpenAI/Claude/DeepSeek/本地模型），灵活控制成本和隐私',
+      '使用命令别名功能，将常用复杂操作简化为简短命令，大幅提升日常效率'
+    ],
+    cases: [
+      { title: '个人知识库搭建', description: '用OpenClaw构建个人知识管理系统', prompt: '请帮我用OpenClaw搭建一个个人知识库系统：1.创建知识库文件夹结构 2.配置Markdown文件自动索引 3.设置AI自动摘要和标签 4.集成搜索功能实现全文检索 5.配置定期自动整理规则' },
+      { title: '自动化工作流', description: '设计并运行自动化AI工作流', prompt: '帮我设计一个自动化工作流：1.每天早上8点抓取[指定网站/博客]的最新内容 2.AI提取关键信息并总结 3.整理为待办事项列表 4.输出到指定的Markdown文件中 5.如有紧急事项通过通知推送到手机' },
+      { title: '代码项目助手', description: '用OpenClaw管理代码项目', prompt: '用OpenClaw创建一个代码项目助手Agent，它能：1.理解项目的目录结构和文件关系 2.根据自然语言需求自动生成代码文件 3.运行代码并捕获错误 4.基于错误信息自动修复 5.保持项目代码风格一致' },
+      { title: '个人AI助手改造', description: '定制个性化AI助手', prompt: '帮我在OpenClaw中定制一个私人AI助手：1.角色设定为[技术/写作/学习]专家 2.加载我的个人笔记和知识库作为上下文 3.配置专属指令和响应风格 4.设定每日任务清单提醒 5.集成日历和待办事项管理' }
+    ],
+    guides: [
+      { title: '新手入门指南', steps: ['1. 从GitHub仓库（github.com/openclaw/openclaw）下载最新Release或通过包管理器安装', '2. 根据操作系统选择合适的安装方式：Windows用exe安装包，macOS用brew install，Linux用snap/apt', '3. 首次启动后按照引导完成基础配置：选择LLM后端（推荐先选DeepSeek免费使用）', '4. 学习核心命令：/help查看所有命令，/search搜索内容，/file管理文件', '5. 从插件市场安装常用插件：文件管理器、代码执行器、Markdown编辑器', '6. 尝试第一个任务：输入\"帮我创建一个待办事项列表\"体验自然语言交互', '7. 配置数据同步：连接本地文件夹或云存储，确保数据不丢失'] },
+      { title: '进阶技巧与自动化', steps: ['1. 编写自定义插件：遵循OpenClaw插件规范（Python/TypeScript），实现专属功能扩展', '2. 配置MCP Server连接外部数据源：如数据库、API、企业内部系统等', '3. 创建命令别名：将\"搜索论文，提取摘要，输出到research.md\"缩写为\"/paper <关键词>\"', '4. 设置定时任务：用Cron语法配置Agent定时执行任务（如每日新闻摘要、周报自动生成）', '5. 多Agent协作：创建多个专业Agent（编程Agent、写作Agent、数据Agent），配置它们之间的通信和协作流程', '6. 提示词模板库：为常用场景创建提示词模板，通过/load template_name快速加载', '7. 性能优化：选择轻量LLM后端减少响应延迟，配置本地Embedding模型加速知识检索'] }
+    ]
+  },
+
+  claude_code: {
+    tips: [
+      'Claude Code 直接在你的终端中运行，与现有开发工作流无缝集成，无需离开命令行',
+      '支持 ACP（Anthropic Context Protocol）协议，可让Claude Code访问和修改项目中的任何文件',
+      '内置Git集成：自动分析git diff、智能生成commit message、辅助处理合并冲突',
+      '使用\"Agent模式\"让Claude自主完成复杂任务：分析代码→搜索文件→修改→运行测试→修复问题的完整循环',
+      '项目管理能力：Claude Code能理解整个项目的目录结构、依赖关系和架构模式',
+      '支持在对话中引用具体文件（@file）、函数（@func）或搜索结果，精确控制上下文范围',
+      '与Claude Web端配合使用：在Web端构思复杂方案，在终端中用Code执行具体实现',
+      '使用/slash命令：/commit生成Git提交、/review审查代码、/test生成测试等快捷操作'
+    ],
+    cases: [
+      { title: '大型代码库重构', description: '用Claude Code重构整个项目', prompt: '请分析项目的整体架构，识别设计模式和反模式。然后逐步重构[具体模块/文件]，保持向后兼容性，每一步都需运行测试验证。重构过程中如遇到依赖问题，自动修复并继续。' },
+      { title: '全栈功能开发', description: '用Claude Code从零开发功能模块', prompt: '在项目中添加一个新的[功能名称]功能模块。步骤：1.设计数据库模型和迁移脚本 2.实现API路由和业务逻辑 3.创建前端组件和页面 4.编写单元测试和集成测试 5.更新项目文档。请确保遵循项目的代码风格和最佳实践。' },
+      { title: '迁移与升级', description: '用Claude Code升级技术栈', prompt: '将项目从[旧技术栈]迁移到[新技术栈]。具体任务：1.分析当前代码中所有需要迁移的点 2.制定分批迁移计划 3.逐模块执行迁移 4.迁移完成后修复所有编译错误和运行时错误 5.更新package.json和配置文件 6.确保所有测试通过。' },
+      { title: '代码审查与优化', description: '用Claude Code进行深度代码审查', prompt: '请审查项目中的[文件/模块]代码。审查范围包括：1.潜在bug和边缘情况 2.安全漏洞（SQL注入、XSS、CSRF等） 3.性能瓶颈 4.代码风格一致性 5.可维护性和可测试性 6.文档和注释完整性。对每个发现的问题给出修复方案。' }
+    ],
+    guides: [
+      { title: '新手入门指南', steps: ['1. 安装Claude Code: npm install -g @anthropic/claude-code 或通过pip/brew安装', '2. 在项目根目录运行 claude 命令启动交互式对话', '3. 首次运行需完成认证：登录Anthropic账号并授权终端访问', '4. 从简单任务开始：输入\"解释这个项目的架构\"让Claude分析代码结构', '5. 学习核心命令：/help查看所有命令、/commit处理Git提交、/review审查代码', '6. 尝试编辑任务：\"给main.ts添加错误处理中间件\"体验AI自动修改代码', '7. 配置.claude.md项目规则文件，让Claude了解项目的编码规范和偏好'] },
+      { title: '进阶使用技巧', steps: ['1. 编写项目规则：在项目根目录创建.claude.md，定义编码风格、技术栈偏好、测试要求等', '2. 利用ACP协议：Claude Code可自动创建、读取、更新、删除项目文件，无需手动复制粘贴', '3. Git工作流集成：用/commit生成符合Conventional Commits规范的提交信息，用/review审查PR', '4. 多步骤Agent任务：一次描述复杂需求（如\"添加用户认证模块，包含注册登录和密码重置\"），Claude自动规划并执行', '5. 上下文管理：使用@file和@func精确控制AI理解范围，避免不必要的token消耗', '6. 错误自愈循环：让Claude运行代码、捕获错误、分析根因、修复Bug、再次验证，形成闭环', '7. 与CI/CD集成：在GitHub Actions或GitLab CI中集成Claude Code进行自动化代码审查和测试生成'] }
+    ]
+  },
+
 };
 
 // 辅助函数：为工具添加增强内容
@@ -849,7 +895,7 @@ export const tools: Tool[] = [
   { id: 'windsurf', name: 'Windsurf', logo: '🌊', description: 'Codeium推出的AI原生IDE，Cursor最强竞品，提供智能代码补全、上下文理解和Agent模式', url: 'https://codeium.com/windsurf', price: 'freemium', difficulty: 'intermediate', heat: 57, heatGrowth: 48, tags: ['代码编辑器', 'AI编程', 'IDE'], techTags: ['CodeGen', 'GenerativeAI', 'Agent'], sceneTags: ['编程开发'], costTags: ['Freemium', '需翻墙'], category: '编程开发', prompts: [{ id: 'p1', title: '全栈应用开发', content: '帮我创建一个[技术栈]的全栈应用，包含：用户认证、数据库CRUD、前端UI，分步实现', scene: '编程开发' }, { id: 'p2', title: '代码优化重构', content: '请分析以下代码的性能瓶颈并给出优化方案，保持功能不变：[代码片段]', scene: '编程开发' }], tips: ['支持VS Code扩展生态', 'Cascade功能可以跨文件理解和编辑', '免费版功能强大，性价比高', '内置Agent模式可自动化多步骤任务'], relatedSkills: ['skill_code_review', 'skill_vibe_coding'] },
   { id: 'bolt_new', name: 'Bolt.new', logo: '⚡', description: 'StackBlitz推出的AI全栈Web应用生成器，在浏览器中直接通过自然语言创建、运行和部署应用', url: 'https://bolt.new', price: 'freemium', difficulty: 'beginner', heat: 63, heatGrowth: 60, tags: ['AI编程', '全栈开发', 'Web应用'], techTags: ['CodeGen', 'GenerativeAI', 'WebContainers'], sceneTags: ['编程开发'], costTags: ['Freemium', '需翻墙'], category: '编程开发', prompts: [{ id: 'p1', title: '快速搭建网站', content: '帮我创建一个[网站类型]网站，包含：首页、关于页、联系页，使用React+Tailwind CSS', scene: '编程开发' }, { id: 'p2', title: '全栈CRUD应用', content: '创建一个[功能描述]的CRUD应用，使用[技术栈]，包含数据库模型、API路由和前端界面', scene: '编程开发' }], tips: ['浏览器内即可完成开发、预览和部署', '无需本地环境配置，零门槛上手', '支持Next.js、React、Vue等主流框架', '免费版有一定使用额度'], relatedSkills: ['skill_vibe_coding'] },
   { id: 'v0_dev', name: 'v0.dev', logo: '🎨', description: 'Vercel推出的AI UI生成工具，基于Shadcn UI和Tailwind CSS生成可直接运行的React组件', url: 'https://v0.dev', price: 'freemium', difficulty: 'beginner', heat: 61, heatGrowth: 38, tags: ['UI生成', '前端开发', 'React组件'], techTags: ['CodeGen', 'GenerativeAI'], sceneTags: ['编程开发', '设计创作'], costTags: ['Freemium', '需翻墙'], category: '编程开发', prompts: [{ id: 'p1', title: 'UI组件生成', content: 'Create a [component name] component with [features], using shadcn/ui and Tailwind CSS, responsive design', scene: '编程开发' }, { id: 'p2', title: '页面布局设计', content: 'Design a [page type] page layout with: header, hero section, feature grid, testimonials, footer. Use Tailwind CSS', scene: '编程开发' }], tips: ['生成的组件直接兼容Next.js和Vercel部署', '基于shadcn/ui组件库，质量高', '支持迭代修改和重新生成', '可以导出为完整的React代码'], relatedSkills: ['skill_vibe_coding'] },
-  { id: 'claude_code', name: 'Claude Code', logo: '🖥️', description: 'Anthropic推出的终端AI编程工具，支持项目级代码编辑、Git集成和自动化任务执行', url: 'https://claude.ai/code', price: 'paid', difficulty: 'intermediate', heat: 66, heatGrowth: 52, tags: ['AI编程', '终端工具', '代码助手'], techTags: ['CodeGen', 'GenerativeAI', 'Agent'], sceneTags: ['编程开发'], costTags: ['Paid', '需翻墙'], category: '编程开发', prompts: [{ id: 'p1', title: '项目代码重构', content: '请分析整个项目的代码结构，给出架构优化建议，并逐步执行重构', scene: '编程开发' }, { id: 'p2', title: 'Git工作流辅助', content: '帮我审查当前的Git diff，找出代码问题并生成有意义的commit message', scene: '编程开发' }], tips: ['直接在终端中运行，与开发工作流无缝集成', '支持理解和编辑大型代码库', '可与Claude Web端配合使用', '支持Agent模式自主完成复杂任务'], relatedSkills: ['skill_code_review', 'skill_vibe_coding'] },
+  enhanceTool({ id: 'claude_code', name: 'Claude Code', logo: '🖥️', description: 'Anthropic推出的终端AI编程工具，支持项目级代码编辑、Git集成和自动化任务执行', url: 'https://claude.ai/code', price: 'paid', difficulty: 'intermediate', heat: 66, heatGrowth: 52, tags: ['AI编程', '终端工具', '代码助手'], techTags: ['CodeGen', 'GenerativeAI', 'Agent'], sceneTags: ['编程开发'], costTags: ['Paid', '需翻墙'], category: '编程开发', prompts: [{ id: 'p1', title: '项目代码重构', content: '请分析整个项目的代码结构，给出架构优化建议，并逐步执行重构', scene: '编程开发' }, { id: 'p2', title: 'Git工作流辅助', content: '帮我审查当前的Git diff，找出代码问题并生成有意义的commit message', scene: '编程开发' }], tips: ['直接在终端中运行，与开发工作流无缝集成', '支持理解和编辑大型代码库', '可与Claude Web端配合使用', '支持Agent模式自主完成复杂任务'], relatedSkills: ['skill_code_review', 'skill_vibe_coding'] }),
   { id: 'lovable', name: 'Lovable', logo: '💜', description: '前身为GPT Engineer，用自然语言对话快速构建网站和Web应用，全球增长最快的AI开发工具之一', url: 'https://lovable.dev', price: 'freemium', difficulty: 'beginner', heat: 55, heatGrowth: 45, tags: ['AI编程', 'Web开发', '无代码'], techTags: ['CodeGen', 'GenerativeAI'], sceneTags: ['编程开发'], costTags: ['Freemium', '需翻墙'], category: '编程开发', prompts: [{ id: 'p1', title: '网站构建', content: '帮我创建一个[网站类型]网站，包含首页、产品页、关于我们和联系页面，使用[技术栈]', scene: '编程开发' }, { id: 'p2', title: '应用功能添加', content: '为我的网站添加[功能描述]，包含前端UI和后端API', scene: '编程开发' }], tips: ['通过自然语言对话即可构建完整Web应用', '支持视觉编辑和实时预览', '生成的代码可直接导出和部署', '适合非技术用户快速建站'], relatedSkills: ['skill_vibe_coding'] },
 
   // ===== 新增工具：音频生成类 =====

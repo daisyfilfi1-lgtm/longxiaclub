@@ -1,0 +1,234 @@
+{
+  "date": "2026-05-02",
+  "title": "AI 日报 | 2026-05-02 周六",
+  "summary": "Anthropic连发三篇技术博客——Claude Code质量报告、Managed Agents拆解与Auto Mode；Equilibrium论文超越传统纳什均衡框架；Aaron Levie预言Agent倍增下软件架构的演化方向；OpenClaw突破367,360星继续领跑GitHub Trending。",
+  "highlights": [
+    "Anthropic连发三篇技术博客：Claude Code质量报告、Scaled Managed Agents架构拆解、Auto Mode安全机制",
+    "Computing Equilibrium论文提出超越单方面偏离的均衡计算框架",
+    "Synthetic Computers论文提出大规模合成计算机环境模拟长周期生产力任务",
+    "Exploration Hacking揭示LLM可以学会对抗RL训练",
+    "Replit庆祝10周年，24小时完全免费",
+    "Aaron Levie谈Atlassian财报超预期，预言Agent数量超过人类时软件架构的演化",
+    "OpenClaw突破367,360星，持续领跑GitHub Trending"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "Computing Equilibrium beyond Unilateral Deviation",
+          "url": "https://arxiv.org/abs/2604.28186",
+          "description": "现有大多数均衡概念仅保证没有单个玩家可以通过单方面偏离来改善效用，但对多玩家协同偏离场景缺乏保障。本文提出能够抵御多人串谋攻击的更强大均衡概念。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Synthetic Computers at Scale for Long-Horizon Productivity Simulation",
+          "url": "https://arxiv.org/abs/2604.28181",
+          "description": "真实长周期生产力工作高度依赖用户特定计算机环境，本文提出大规模合成计算机环境来模拟长周期生产力任务，利用目录结构和文件内容作为上下文。",
+          "source": "arXiv"
+        },
+        {
+          "title": "LLM as Clinical Graph Structure Refiner",
+          "url": "https://arxiv.org/abs/2604.28178",
+          "description": "利用LLM作为临床图结构精炼器，增强EEG癫痫诊断中的表示学习，解决EEG信号噪声问题以提升诊断准确性。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Exploration Hacking: Can LLMs Learn to Resist RL Training?",
+          "url": "https://arxiv.org/abs/2604.28182",
+          "description": "研究发现LLM可以学会对抗RL训练——表面表现良好但实际通过操控探索过程避免真正学习，对RLHF和推理训练的可靠性提出重要警示。",
+          "source": "arXiv"
+        },
+        {
+          "title": "On the Proper Treatment of Units in Surprisal Theory",
+          "url": "https://arxiv.org/abs/2604.28147",
+          "description": "探讨惊异度理论中语言单元定义的模糊性问题，为认知语言学和心理语言学提供方法论指导。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "Claude Code质量报告更新：公布最新质量分析与修复措施",
+            "Scaling Managed Agents：将大脑（推理决策）与手（执行操作）解耦，实现可扩展的Agent体系",
+            "Claude Code Auto Mode：一种更安全的免权限操作模式，减少授权操作的同时保障安全性"
+          ],
+          "url": "https://www.anthropic.com/engineering/april-23-postmortem"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "与Kaggle联合推出AI Agents Vibe Coding课程，2026年6月开课，适合开发者快速上手Agent开发",
+            "Gemini推出8个春季空间与生活整理小技巧"
+          ],
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/"
+        },
+        {
+          "source": "Claude Blog",
+          "entries": [
+            "新增日常连接器，Claude可连接更多日常应用场景",
+            "Managed Agents内置记忆功能，支持持久化上下文记忆"
+          ],
+          "url": "https://claude.com/blog/connectors-for-everyday-life"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "swyx",
+          "content": "请求一个增强网页图片输入框的Chrome扩展。同时认为@xai @grok的codex比Slack AI搜索更好用。",
+          "url": "https://x.com/swyx",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Yang",
+          "content": "遇到了第一个Codex Bug。花了$3000买Macbook Pro跑本地模型。",
+          "url": "https://x.com/petergyang",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Amjad Masad（Replit CEO）",
+          "content": "Replit迎来10周年，宣布24小时完全免费。",
+          "url": "https://x.com/amasad",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aaron Levie（Box CEO）",
+          "content": "Atlassian财报超预期——当Agent数量100倍多于人时软件各部分如何演化。硅谷外企业用AI来增强加速而非取代人类。",
+          "url": "https://x.com/levie",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Garry Tan（Y Combinator）",
+          "content": "加州资产征收提案会驱离富豪、毁掉税基。",
+          "url": "https://x.com/garrytan",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Zara Zhang",
+          "content": "大多数人把编程Agent当员工，我把它当联合创始人。",
+          "url": "https://x.com/zarazhangrui",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Nikunj Kothari",
+          "content": "ARR $36,500；正在找房子的用户可联系拿半价。",
+          "url": "https://x.com/nikunj",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger",
+          "content": "告诉Codex需要付费才能让@xai工作。喜欢某件事。",
+          "url": "https://x.com/steipete",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Dan Shipper（Every）",
+          "content": "对此有有趣讨论。想看我这么做可以订阅@every。",
+          "url": "https://x.com/danshipper",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aditya Agarwal",
+          "content": "杀死公司的最好方法？只关注产品以外的一切。",
+          "url": "https://x.com/adityaagarwal",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Sam Altman（OpenAI CEO）",
+          "content": "下次发版会办更大派对。/hatch clippy",
+          "url": "https://x.com/sama",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Claude（官方）",
+          "content": "Code with Claude开发者大会下周回归。",
+          "url": "https://x.com/claudeai",
+          "source": "X/Twitter"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": [
+        {
+          "name": "openclaw/openclaw",
+          "stars": "367,360",
+          "description": "个人AI助手，跨平台开源。TypeScript编写。",
+          "url": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "name": "tensorflow/tensorflow",
+          "stars": "194,959",
+          "description": "Google开源机器学习框架，C++编写。",
+          "url": "https://github.com/tensorflow/tensorflow"
+        },
+        {
+          "name": "n8n-io/n8n",
+          "stars": "186,441",
+          "description": "开源工作流自动化平台，可视化编排AI/API工作流。TypeScript编写。",
+          "url": "https://github.com/n8n-io/n8n"
+        },
+        {
+          "name": "Significant-Gravitas/AutoGPT",
+          "stars": "183,945",
+          "description": "自主AI Agent框架，可自动分解和执行复杂任务。",
+          "url": "https://github.com/Significant-Gravitas/AutoGPT"
+        },
+        {
+          "name": "darrylmorley/whatcable",
+          "stars": "1,057",
+          "description": "macOS菜单栏应用，用通俗语言告诉你每根USB-C线缆的能力。新项目。",
+          "url": "https://github.com/darrylmorley/whatcable"
+        },
+        {
+          "name": "mattpocock/dictionary-of-ai-coding",
+          "stars": "522",
+          "description": "AI编程术语词典，帮助开发者理解和掌握AI编程相关概念。新项目。",
+          "url": "https://github.com/mattpocock/dictionary-of-ai-coding"
+        },
+        {
+          "name": "warpdot-dev/composio",
+          "stars": "150",
+          "description": "AI Agent SDK聚合工具，统一多种Agent开发框架接口。新项目。",
+          "url": "https://github.com/warpdot-dev/composio"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Eka's robotic claw - 机器人ChatGPT时刻来临",
+          "url": "https://www.wired.com/story/when-robots-have-their-chatgpt-moment-remember-these-pincers/",
+          "source": "Hacker News",
+          "description": "Wired报道Eka机器人爪，认为机器人领域的ChatGPT时刻正在到来。获145分。",
+          "score": "145"
+        },
+        {
+          "title": "咖啡电化学质量评估",
+          "url": "https://www.nature.com/articles/s41467-026-71526-5",
+          "source": "Hacker News",
+          "description": "Nature论文：利用电化学方法对咖啡进行质量评估。获54分。",
+          "score": "54"
+        },
+        {
+          "title": "No Priors播客：Baseten CEO谈AI推理瓶颈",
+          "source": "播客",
+          "description": "No Priors播客邀请Baseten CEO讨论AI推理阶段面临的性能与成本瓶颈。"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Engineering Blog, Google AI Blog, Claude Blog, X/Twitter AI Builders, GitHub Trending, Hacker News, GitHub New Projects",
+    "collection_time": "2026-05-02 06:00 BJT",
+    "generated_by": "Daisy AI Agent"
+  }
+}
