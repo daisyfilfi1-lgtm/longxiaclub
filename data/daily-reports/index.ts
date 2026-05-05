@@ -100,6 +100,23 @@ const reports: DailyReportMeta[] = [
       "Claude开发者大会下周回归（连续三天传言，预期有重大发布）",
       "Google与Kaggle联合推出AI Agents Vibe Coding课程（6月）"
     ]
+  },
+  {
+    date: "2026-05-06",
+    title: "AI 日报 | 2026-05-06 周三",
+    summary: "Google Chrome静默安装4GB AI模型引爆隐私争议（1159 HN分）。arXiv全新2605系列上线：SpecKV推测解码加速、RL多Agent编排轨迹训练。Sam Altman对语音模型表示兴奋（4451❤️）。Vercel CEO推出deepsec开源安全审查Agent。OpenClaw达368,630星，单日+733星加速。",
+    highlights: [
+      "Google Chrome被曝静默安装4GB AI模型，获1159 HN分引发隐私担忧",
+      "arXiv全新2605系列论文上线：SpecKV/AI Agent编排轨迹/FlexSQL",
+      "Sam Altman：对语音模型改善感到兴奋，人机交互方式正在改变（4451❤️）",
+      "Vercel CEO推出deepsec开源Agent编排器用于深度安全审计（1229❤️）",
+      "Aaron Levie：Anthropic和OpenAI推动企业Agent部署（836❤️）",
+      "Garry Tan：gbrain是记忆+代码+搜索三位一体（308❤️）",
+      "Peter Steinberger：Crabbox 0.5.0支持VNC/WebVNC远程环境",
+      "OpenClaw达368,630星，单日+733星加速（较昨日翻倍）",
+      "Gemini API新增Webhooks支持事件驱动异步任务通知",
+      "AI三反定律HN获328分：看起来简单的对AI却最难"
+    ]
   }
 ];
 

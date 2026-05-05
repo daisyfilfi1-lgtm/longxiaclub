@@ -1,0 +1,191 @@
+{
+  "date": "2026-05-06",
+  "title": "AI 日报 | 2026-05-06 周三",
+  "summary": "Google Chrome静置安装4GB AI模型引爆隐私争议（1159 HN分，近期最高）。arXiv全新2605系列上线：SpecKV自适应推测解码加速LLM推理、RL多Agent编排轨迹训练、FlexSQL革新Text-to-SQL范式。Sam Altman对语音模型表示兴奋（4451❤️）。Vercel CEO推出deepsec开源安全审查Agent（1229❤️）。OpenClaw达368,630星，单日增速加速至+733星。Garry Tan宣称gbrain是记忆+代码+搜索的三位一体。",
+  "highlights": [
+    "Google Chrome被曝静默安装4GB AI模型，获1159 HN分引发隐私担忧",
+    "arXiv全新2605系列论文：SpecKV推测解码、Multi-Agent RL编排轨迹、FlexSQL、知识蒸馏稳定性",
+    "Sam Altman：对语音模型改善感到兴奋，人机交互方式正在改变（4451❤️）",
+    "Vercel CEO推出deepsec：开源Agent编排器用于深度安全审计（1229❤️）",
+    "Aaron Levie：Anthropic和OpenAI都有新动作帮企业部署AI Agent（836❤️）",
+    "Garry Tan：gbrain是记忆+代码+搜索三位一体，统一图查询接口（308❤️）",
+    "Peter Steinberger：Crabbox 0.5.0支持VNC/WebVNC远程环境，Agent可自主测试修复",
+    "OpenClaw达368,630星，单日+733星（较昨日+343翻倍加速）",
+    "Peter Yang：编程→知识工作→个人Agent是AI发展的三个疆域",
+    "Gemini API新增Webhooks支持事件驱动异步任务通知"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection",
+          "url": "https://arxiv.org/abs/2605.02888",
+          "description": "提出自适应推测解码加速LLM推理——通过压缩感知的Gamma选择机制动态调整推测步长，比固定步长更实用。推理速度优化对LLM部署有直接影响。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Enhancing RL Generalizability in Robotics through SHAP Analysis",
+          "url": "https://arxiv.org/abs/2605.02867",
+          "description": "利用SHAP分析理解算法组件和超参数对机器人RL泛化能力的贡献度，为实验设计提供方法论指导。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces",
+          "url": "https://arxiv.org/abs/2605.02801",
+          "description": "通过编排轨迹（orchestration traces）对LLM多Agent系统进行强化学习——不仅优化个体行为，还优化工作分配、委派和协调策略。直击多Agent协作核心挑战。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "FlexSQL: Flexible Exploration and Execution Make Better Text-to-SQL Agents",
+          "url": "https://arxiv.org/abs/2605.02815",
+          "description": "让Text-to-SQL Agent先灵活探索Schema和采样数据后再生成SQL，模拟人类数据分析师的做法。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Standing on the Shoulders of Giants: Stabilized Knowledge Distillation for Cross-Language Code Clone Detection",
+          "url": "https://arxiv.org/abs/2605.02860",
+          "description": "LLM代码理解能力蒸馏到轻量模型时面临稳定性问题，本文提出稳定的跨语言代码克隆检测知识蒸馏框架。",
+          "source": "arXiv 2605"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Google AI",
+          "entries": [
+            "2026年4月AI产品更新汇总",
+            "Gemini API新增Webhooks支持：事件驱动通知，降低长时间任务延迟和轮询摩擦"
+          ],
+          "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Sam Altman（OpenAI CEO）",
+          "content": "对语音模型的改善感到兴奋——人们已经开始改变与AI交互的方式，从打字到说话。推文获4451爱心。",
+          "url": "https://x.com/sama/status/2051464865634742334",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Guillermo Rauch（Vercel CEO）",
+          "content": "推出npx deepsec——开源Agent编排器用于深度安全审计。内部使用后对大项目开源进行了验证，1229爱心。",
+          "url": "https://x.com/rauchg/status/2051386798899888539",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aaron Levie（Box CEO）",
+          "content": "Anthropic和OpenAI都有新动作帮助企业在组织内部署AI Agent。这一趋势刚开始但会快速变大，836爱心。",
+          "url": "https://x.com/levie/status/2051344780328858040",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Garry Tan（Y Combinator）",
+          "content": "gbrain的独特之处：它不只是记忆层/代码工具/搜索引擎中的某一个，而是三者统一到一张图和一个查询接口下，308爱心。",
+          "url": "https://x.com/garrytan/status/2051525161380364315",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger",
+          "content": "Crabbox 0.5.0发布：支持Desktop/浏览器租赁、VNC+认证WebVNC、AWS Windows+WSL2、截图+应用启动。远程CI可用性大幅提升，260爱心。",
+          "url": "https://x.com/steipete/status/2051485798613111116",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger",
+          "content": "可在临时crabbox中通过WebVNC复现问题，Agent自动设置测试环境并修复，PR附带操作视频——Agent驱动的自动化QA已落地，119爱心。",
+          "url": "https://x.com/steipete/status/2051557150040711425",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Yang",
+          "content": "编程是第一疆域。知识工作是第二。个人Agent是第三——AI发展的三段论，121爱心。",
+          "url": "https://x.com/petergyang/status/2051508988936937764",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Nikunj Kothari",
+          "content": "2023-2025年成立的AI初创公司正在觉醒——华丽的发布视频和只做分发可能拿到融资，但最终钱还是会烧掉，262爱心。",
+          "url": "https://x.com/nikunj/status/2051349526171287930",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "swyx",
+          "content": "分享OpenAI（850B估值/~30B ARR）和蚂蚁集团（~900B估值/~440B ARR）的估值收入对比图表。",
+          "url": "https://x.com/swyx/status/2051440392722391180",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Amjad Masad（Replit CEO）",
+          "content": "Replit帮助创业者找到投资人和安排会议——AI开发平台的功能边界从做产品延伸到搭资源，25爱心。",
+          "url": "https://x.com/amasad/status/2051511694040744139",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Amjad Masad（Replit CEO）",
+          "content": "聋哑学生多模态学习平台的AI教育应用——AI最温暖的用例，124爱心。",
+          "url": "https://x.com/amasad/status/2051406536443035922",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Aditya Agarwal",
+          "content": "我们认为做加速器没有意义——速度如果没有真正的方向感就没有价值，65爱心。",
+          "url": "https://x.com/adityaag/status/2051330205902581842",
+          "source": "X/Twitter"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": [
+        {
+          "name": "openclaw/openclaw",
+          "stars": "368630",
+          "description": "个人AI助手，跨平台开源，TypeScript编写。单日+733星，较昨日+343星翻倍加速。达368,630星。",
+          "url": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "name": "EbookFoundation/free-programming-books",
+          "stars": "387741",
+          "description": "免费编程书籍资源集合，持续位居GitHub第一。",
+          "url": "https://github.com/EbookFoundation/free-programming-books"
+        },
+        {
+          "name": "tensorflow/tensorflow",
+          "stars": "195004",
+          "description": "Google开源机器学习框架，C++编写。+24星/日。",
+          "url": "https://github.com/tensorflow/tensorflow"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Google Chrome silently installs a 4 GB AI model on your device without consent",
+          "url": "https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/",
+          "source": "Hacker News",
+          "description": "Google Chrome未经用户明确同意静默安装4GB AI模型（Gemini Nano），引发强烈的隐私担忧。获1159分，是近期HN最高分话题。",
+          "score": "1159"
+        },
+        {
+          "title": "Three Inverse Laws of AI",
+          "url": "https://susam.net/inverse-laws-of-robotics.html",
+          "source": "Hacker News",
+          "description": "三个AI反定律：1）简单任务对AI最难；2）困难任务对AI最简单；3）总是高估AI能做的、低估AI已做的。对AI能力评估有启发意义。获328分。",
+          "score": "328"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Google AI Blog, X/Twitter AI Builders, GitHub Trending, Hacker News, GitHub New Projects, Podcasts",
+    "collection_time": "2026-05-06 06:00 BJT",
+    "generated_by": "Daisy AI Agent"
+  }
+}
