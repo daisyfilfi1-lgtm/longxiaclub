@@ -1,0 +1,114 @@
+{
+  "date": "2026-05-07",
+  "title": "AI 日报 | 2026-05-07 周四",
+  "summary": "临床LLM安全性与准确性遵循不同扩展定律，打破\"更强=更安全\"直觉。Anthropic与SpaceX达成算力交易获292 HN分。OpenSeeker-v2用高难度轨迹训练搜索Agent。AI红队自动化从数周缩短到数小时。Simon Willison警告Vibe Coding与Agent Engineering趋同（252 HN分）。Tilde.run事务性文件系统Agent沙箱发布。cheat-on-content以754星领跑GitHub新项目。",
+  "highlights": [
+    "临床LLM安全性与准确性遵循不同扩展定律，打破\"更强=更安全\"假设",
+    "OpenSeeker-v2用高信息量高难度轨迹推动开源搜索Agent能力边界",
+    "AI红队自动化：从数周缩短到数小时，Agent安全评估进入快车道",
+    "推理密集型检索评估框架发布，重新定义Agent搜索系统的检索器标准",
+    "Anthropic+SpaceX算力合作获292 HN分，跨界算力共享新时代",
+    "Simon Willison：Vibe Coding与Agent Engineering正在趋同（252 HN分）",
+    "Tilde.run事务性版本化文件系统Agent沙箱发布（102 HN分）",
+    "cheat-on-content以754星领跑：AI驱动内容策略自动化工具",
+    "beautiful-html-templates 267星：专为编码Agent设计的HTML模板库",
+    "yao-open-prompts 255星：中文AI提示词开源知识库"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "Safety and accuracy follow different scaling laws in clinical large language models",
+          "url": "https://arxiv.org/abs/2605.04039",
+          "description": "临床LLM的安全性与准确性遵循不同的扩展定律，两者并无线性正相关关系。在医疗高风险领域，安全性需要独立的设计和评估维度。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "OpenSeeker-v2: Pushing the Limits of Search Agents with Informative and High-Difficulty Trajectories",
+          "url": "https://arxiv.org/abs/2605.04036",
+          "description": "通过高信息量、高难度的训练轨迹来提升开源搜索Agent的深度搜索能力，打破工业巨头在搜索Agent领域的主导地位。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Redefining AI Red Teaming in the Agentic Era: From Weeks to Hours",
+          "url": "https://arxiv.org/abs/2605.04019",
+          "description": "将AI红队时间从数周缩短到数小时的自动化方法论，应对Agent时代AI系统进入医疗、金融、国防等关键领域的安全需求。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Rethinking Reasoning-Intensive Retrieval: Evaluating and Advancing Retrievers in Agentic Search Systems",
+          "url": "https://arxiv.org/abs/2605.04018",
+          "description": "推理密集型检索旨在找出能支持下游推理的证据而不仅仅是匹配主题相似性，提出评估框架并推进检索器表现。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "HeadsUp: Large-Scale High-Quality 3D Gaussian Head Reconstruction from Multi-View Captures",
+          "url": "https://arxiv.org/abs/2605.04035",
+          "description": "高效编解码器架构从多视图捕捉中大规模重建高质量3D高斯头部，对数字人/虚拟形象技术有直接工程价值。",
+          "source": "arXiv 2605"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": []
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": []
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": [
+        {
+          "name": "cheat-on-content",
+          "stars": 754,
+          "description": "AI驱动的内容策略自动化工具——\"谁先破解内容模式，谁先获得流量\"，自动进化运营专家。",
+          "url": "https://github.com/XBuilderLAB/cheat-on-content",
+          "language": "Python"
+        },
+        {
+          "name": "beautiful-html-templates",
+          "stars": 267,
+          "description": "专为AI编码Agent设计的HTML幻灯片模板库，让任何编码Agent都能选择正确模板生成漂亮演示文档。",
+          "url": "https://github.com/zarazhangrui/beautiful-html-templates",
+          "language": "HTML"
+        },
+        {
+          "name": "yao-open-prompts",
+          "stars": 255,
+          "description": "中文AI提示词库，覆盖工作、学习、内容、营销和生活场景的开源Prompt工程知识库。",
+          "url": "https://github.com/yaojingang/yao-open-prompts",
+          "language": ""
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Higher usage limits for Claude and a compute deal with SpaceX",
+          "url": "https://www.anthropic.com/news/higher-limits-spacex",
+          "source": "Hacker News",
+          "description": "Anthropic宣布Claude更高使用限制，并与SpaceX达成算力合作——跨界算力共享反映AI算力需求已超越传统科技圈范畴。",
+          "score": 292
+        },
+        {
+          "title": "Vibe coding and agentic engineering are getting closer than I'd like",
+          "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+          "source": "Simon Willison / Hacker News",
+          "description": "Simon Willison观察到Vibe Coding和Agent Engineering正在趋同，两种范式的融合可能让开发者同时失去直觉式编码的自由和工程化Agent的严谨。",
+          "score": 252
+        },
+        {
+          "title": "Tilde.run - Agent sandbox with a transactional, versioned filesystem",
+          "url": "https://tilde.run/",
+          "source": "Show HN",
+          "description": "事务性、版本化文件系统的Agent沙箱——Agent的每次操作都可以回滚，为高风险操作提供安全可恢复的执行环境。",
+          "score": 102
+        }
+      ]
+    }
+  }
+}
