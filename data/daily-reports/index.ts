@@ -134,6 +134,21 @@ const reports: DailyReportMeta[] = [
       "yao-open-prompts 255星：中文AI提示词开源知识库",
       "HeadsUp高效编解码实现大规模多视图3D高斯头部重建"
     ]
+  },
+  {
+    date: "2026-05-08",
+    title: "AI 日报 | 2026-05-08 周五",
+    summary: "Dario Amodei披露80x营收增长并全力抢算力(1319❤️)，Claude发布Outcomes质量门控+Dreaming记忆学习两大Agent新能力。Boris Cherny自曝夜间跑数千Agent、几乎只用Claude Code。Grok数学发现登上arXiv——AI辅助数学研究成新范式。Mirage统一AI Agent虚拟文件系统获945星。「The First Token Knows」论文发现单Token置信度即可检测幻觉，大幅降低计算成本。",
+    highlights: [
+      "Dario Amodei披露80x营收增长，全力抢算力「能抢多少抢多少」(1319❤️)",
+      "Claude发布Outcomes+Dreaming：Agent质量门控与记忆学习两大新能力",
+      "Boris Cherny：夜间跑数千Agent、几乎只用Claude Code",
+      "Mirage以945星领跑：AI Agent统一虚拟文件系统",
+      "Grok数学合作成果登上arXiv——AI辅助数学研究成为新范式",
+      "The First Token Knows：单次解码置信度即可检测幻觉，降本显著",
+      "AI slop正在毁灭在线社区，HN 349分热议",
+      "Chrome悄然移除'设备端AI不发送数据'声明(406pts)"
+    ]
   }
 ];
 

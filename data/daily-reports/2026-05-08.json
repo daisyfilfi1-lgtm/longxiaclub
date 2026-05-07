@@ -1,0 +1,177 @@
+{
+  "date": "2026-05-08",
+  "title": "AI 日报 | 2026-05-08 周五",
+  "summary": "Dario Amodei披露80x营收增长并全力抢算力(1319❤️)，Claude发布Outcomes质量门控+Dreaming记忆学习两大Agent新能力。Boris Cherny自曝夜间跑数千Agent、几乎只用Claude Code。Grok数学发现登上arXiv，AI辅助数学研究成新范式。Mirage统一AI Agent虚拟文件系统获945星。AI slop毁灭在线社区获349 HN分。arXiv新论文:单Token幻觉检测、DiT异常Token驯服、LLM语法性隐式表征。",
+  "highlights": [
+    "Dario Amodei披露80x营收增长，全力抢算力「能抢多少抢多少」(1319❤️)",
+    "Claude发布Outcomes+Dreaming：Agent质量门控与记忆学习两大新能力",
+    "Boris Cherny：夜间跑数千Agent、几乎只用Claude Code",
+    "Mirage以945星领跑：AI Agent统一虚拟文件系统",
+    "Grok数学合作成果登上arXiv——AI辅助数学研究成为新范式",
+    "The First Token Knows：单次解码置信度即可检测幻觉",
+    "AI slop正在毁灭在线社区，HN 349分热议",
+    "Taming Outlier Tokens in DiT：驯服扩散Transformer异常Token",
+    "Dirtyfrag通用Linux本地提权漏洞获305 HN分"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "Taming Outlier Tokens in Diffusion Transformers",
+          "url": "https://arxiv.org/abs/2605.05206",
+          "description": "研究扩散Transformer(DiT)中异常高范数Token对图像生成质量的影响。少量异常Token会不成比例地吸引注意力并破坏生成质量，提出驯服机制。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Grokability in five inequalities",
+          "url": "https://arxiv.org/abs/2605.05193",
+          "description": "与Grok合作发现的五个数学不等式的严格形式化证明，包括最大函数Lp范数下界改进等，展示AI辅助数学研究的新范式。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Almost-Orthogonality in Lp Spaces: A Case Study with Grok",
+          "url": "https://arxiv.org/abs/2605.05192",
+          "description": "Grok辅助证明的Carbery三角形不等式锐化形式——多个Lp函数的加权和范数与其p-范数之和的关系边界。AI辅助数学研究的又一案例。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Implicit Representations of Grammaticality in Language Models",
+          "url": "https://arxiv.org/abs/2605.05197",
+          "description": "语法性与似然性在人类语言中是不同的概念。预训练语言模型虽然以最大化语料似然为目标，但其内部是否形成语法性的隐式表征？研究揭示两者的深层关系。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "MRI-Eval: A Tiered Benchmark for Evaluating LLM Performance on MRI Physics",
+          "url": "https://arxiv.org/abs/2605.05175",
+          "description": "分层MRI物理与GE扫描器操作知识基准——超越简单多选题，系统性评估LLM在专业医学成像领域的实际知识深度。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "The First Token Knows: Single-Decode Confidence for Hallucination Detection",
+          "url": "https://arxiv.org/abs/2605.05166",
+          "description": "重大发现：仅凭第一个生成Token的置信度就能检测幻觉——无需多次采样、无需自一致性，单次解码即可。这大幅降低幻觉检测的计算成本。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Sharp Capacity Thresholds in Linear Associative Memory",
+          "url": "https://arxiv.org/abs/2605.05189",
+          "description": "线性联想记忆能存储多少键值对？答案不仅取决于d^2自由度，还取决于检索标准——从Winner-Take-All到列表检索，揭示容量阈值。",
+          "source": "arXiv 2605"
+        },
+        {
+          "title": "Estimating expected output of wide random MLPs more efficiently than sampling",
+          "url": "https://arxiv.org/abs/2605.05179",
+          "description": "比采样更高效地估计宽随机MLP的期望输出——利用解析近似代替蒙特卡洛采样，在某些条件下可大幅降低计算成本。",
+          "source": "arXiv 2605"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂动态",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "Claude Code质量报告4月23日后更新——复盘近期用户质量波动",
+            "Scaling Managed Agents：大脑(推理决策)与手(执行操作)解耦架构详解",
+            "Claude Code Auto Mode：更安全的免逐次授权操作模式"
+          ],
+          "url": "https://www.anthropic.com/engineering/april-23-postmortem"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Dario Amodei (Anthropic CEO)",
+          "content": "今年初看到80x的用量和营收增长，正在全力获取尽可能多的算力。'Build for exponential — 有些产品现在不可能，但指数增长后会成为现实。'",
+          "url": "https://x.com/petergyang/status/2052123472583864780",
+          "source": "X/Twitter via Peter Yang"
+        },
+        {
+          "author": "Boris Cherny (Anthropic)",
+          "content": "自曝夜间运行数千个Agent，几乎只用Claude Code——'Coding's Printing Press Moment'，编码正在经历印刷术时刻。",
+          "url": "https://x.com/zarazhangrui/status/2052277868319916402",
+          "source": "X/Twitter via Zara Zhang / Training Data播客"
+        },
+        {
+          "author": "Claude 官方",
+          "content": "Outcomes功能发布：设定质量标准，独立评分器检查输出，Agent自动迭代直到达标。Dreaming功能：回顾Agent历史会话，提取模式，管理记忆——Agent学会自我进化。",
+          "url": "https://x.com/claudeai/status/2052067403228455419",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Garry Tan (Y Combinator)",
+          "content": "Lulu就像低俗小说里的The Wolf——万能解决问题的人物。",
+          "url": "https://x.com/garrytan/status/2052007711601291602",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Dan Shipper (Every)",
+          "content": "今日参加Code with Claude活动，与Kieran Klaassen和Ted Escau同场。",
+          "url": "https://x.com/danshipper/status/2052050161388634197",
+          "source": "X/Twitter"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门",
+      "items": [
+        {
+          "name": "strukto-ai/mirage",
+          "stars": 945,
+          "description": "AI Agent统一虚拟文件系统——为Agent提供统一的文件操作接口，解决多工具间文件系统碎片化问题。",
+          "url": "https://github.com/strukto-ai/mirage",
+          "language": "TypeScript"
+        },
+        {
+          "name": "V4bel/dirtyfrag",
+          "stars": 349,
+          "description": "通用Linux本地提权漏洞利用(CVE相关)，引发安全社区广泛关注。",
+          "url": "https://github.com/V4bel/dirtyfrag",
+          "language": "C"
+        },
+        {
+          "name": "TQ-trade-agent/tq-trading-agent",
+          "stars": 250,
+          "description": "AI驱动的多Agent股票研究与交易策略编排系统，覆盖从研究到执行的完整流程。",
+          "url": "https://github.com/TQ-trade-agent/tq-trading-agent",
+          "language": "TypeScript"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Chrome removes claim of On-device AI not sending data to Google Servers",
+          "url": "https://old.reddit.com/r/chrome/comments/1t5qayz/chrome_removes_claim_of_ondevice_al_not_sending/",
+          "source": "Hacker News / Reddit",
+          "description": "Chrome被发现在静默安装4GB AI模型后，移除了'设备端AI不向Google服务器发送数据'的声明，进一步加剧隐私担忧。",
+          "score": 406
+        },
+        {
+          "title": "AI slop is killing online communities",
+          "url": "https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/",
+          "source": "Hacker News",
+          "description": "AI生成的垃圾内容正在侵蚀在线社区的质量和信任——从假评论到SEO农场内容，在线讨论的真实性面临系统性威胁。",
+          "score": 349
+        },
+        {
+          "title": "Dirtyfrag: Universal Linux LPE",
+          "url": "https://www.openwall.com/lists/oss-security/2026/05/07/8",
+          "source": "Hacker News",
+          "description": "通用Linux本地提权漏洞利用发布，影响范围广泛，安全社区高度关注。",
+          "score": 305
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Engineering Blog, X/Twitter AI Builders, GitHub Trending, Hacker News, GitHub New Projects, Training Data Podcast",
+    "collection_time": "2026-05-08 06:00 BJT",
+    "generated_by": "Daisy AI Agent"
+  }
+}
