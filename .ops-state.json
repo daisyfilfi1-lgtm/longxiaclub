@@ -1,0 +1,37 @@
+{
+  "project": "AI导航站",
+  "phase": "traffic_growth",
+  "phase_description": "流量增长期 — 稳定日更多少不重要，重要的是让已有内容被搜到、被看到",
+  "last_run": {
+    "date": "2026-05-08",
+    "duration_seconds": 120.0,
+    "status": "ok"
+  },
+  "tasks_completed_today": [],
+  "backlog": [
+    {
+      "id": "tool_spot",
+      "priority": "low",
+      "desc": "从近期日报中找有没有值得加入导航站的新工具",
+      "created": "2026-05-07"
+    },
+    {
+      "id": "gsc_setup",
+      "priority": "high",
+      "desc": "接入 Google Search Console API — 需用户操作: (1) 重新OAuth授权 (2) 在GSC中添加longxiaclub.com并验证所有权 (3) 确认OAuth token可访问该站点 [上次尝试: 2026-05-09, token 401] [远程服务器: 47.239.67.21, 脚本: /usr/local/bin/gsc_query.py]",
+      "created": "2026-05-08"
+    }
+  ],
+  "project_files_mtime": {
+    "tools.ts": null,
+    "types/index.ts": null,
+    "app/": null
+  },
+  "metrics": {
+    "total_pages": 104,
+    "daily_reports_count": 10.0,
+    "gsc_last_fetch": null,
+    "last_build_status": "ok"
+  },
+  "notes": []
+}

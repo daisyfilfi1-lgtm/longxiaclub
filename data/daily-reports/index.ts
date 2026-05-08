@@ -5,6 +5,23 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-09",
+    title: "AI 日报 | 2026-05-09 周六",
+    summary: "Claude for Office正式GA发布，覆盖Excel/PowerPoint/Word+Outlook公测，获30256互动引爆企业AI办公赛道。Alex Albert披露Firefox团队在Claude Mythos Preview辅助下单月修复安全漏洞超过去15个月总和(11614❤️)。Sam Altman两连发：帮助开发者进化成超级英雄(3046❤️)+OpenAI将帮助企业安全建设(1439❤️)。arXiv新论文聚焦MoE架构创新(UniPool/EMO)和训练自由推理(BAMI/GUI Grounding)。Stability AI发布SD-XL 1.0宽松许可版本。",
+    highlights: [
+      "Claude for Office GA发布：Excel/PowerPoint/Word全面可用+Outlook公测(30256❤️)",
+      "Alex Albert：Firefox在Claude辅助下单月修复漏洞超过去15个月总和(11614❤️)",
+      "Sam Altman：帮助开发者进化成超级英雄比替代他们更酷(3046❤️)",
+      "Sam Altman：OpenAI将帮助企业快速进行安全建设(1439❤️)",
+      "steipete：/goal+GPT 5.5可完成带e2e测试的深度重构(1957❤️)",
+      "Madhu Guru离任Google：从零构建Gemini业务的三年历程(1104❤️)",
+      "UniPool：跨层共享专家池打破MoE逐层分配惯例",
+      "EMO：MoE预训练实现涌现模块化，按需激活子能力",
+      "BAMI：无需训练的GUI Grounding偏见缓解方法",
+      "Stability AI发布SD-XL 1.0宽松许可版本"
+    ]
+  },
+  {
     date: "2026-04-29",
     title: "AI 日报 | 2026-04-29 周三",
     summary: "Anthropic发布Claude Code质量复盘报告与Managed Agents架构升级，连接Adobe Creative Cloud等创意工具生态。递归多Agent系统论文定义Agent第三条scaling axis。Claude Design开源复刻open-design获2852星。",

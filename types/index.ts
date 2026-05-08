@@ -202,11 +202,11 @@ export interface DailyReport {
   summary: string;
   highlights: string[];
   sections: {
-    S: DailyReportSection;
-    A: DailyReportSection;
-    B: DailyReportSection;
-    C: DailyReportSection;
-    D: DailyReportSection;
+    papers?: DailyReportSection;
+    blogs?: DailyReportSection;
+    builders?: DailyReportSection;
+    github?: DailyReportSection;
+    community?: DailyReportSection;
   };
   source_info: {
     data_sources: string;

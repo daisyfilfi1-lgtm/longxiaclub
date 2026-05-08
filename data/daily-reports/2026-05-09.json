@@ -1,0 +1,216 @@
+{
+  "date": "2026-05-09",
+  "title": "AI 日报 | 2026-05-09 周六",
+  "summary": "Claude for Office正式GA发布，覆盖Excel/PowerPoint/Word+Outlook公测，获得30256互动引爆企业AI办公赛道。Alex Albert披露Firefox团队在Claude Mythos Preview辅助下单月修复的安全漏洞超过过去15个月总和(11614❤️)。Sam Altman两连发：帮助开发者从程序员进化成超级英雄(3046❤️)+OpenAI将帮助企业安全建设(1439❤️)。arXiv新论文聚焦MoE架构创新(UniPool/EMO)和训练自由推理(BAMI/GUI Grounding)。Stability AI发布SD-XL 1.0宽松许可开源。Madhu Guru离任Google，曾从零构建Gemini业务。",
+  "highlights": [
+    "Claude for Office GA发布：Excel/PowerPoint/Word全面可用+Outlook公测，获30256互动",
+    "Alex Albert：Firefox在Claude Mythos Preview辅助下单月修复安全漏洞超过过去15个月总和(11614❤️)",
+    "Sam Altman：帮助开发者进化成超级英雄比替代他们更酷(3046❤️)",
+    "Sam Altman：OpenAI将帮助企业快速进行安全建设(1439❤️)",
+    "steipete：/goal+GPT 5.5可完成带e2e测试的深度重构(1957❤️)",
+    "Madhu Guru离任Google：从零构建Gemini业务的三年历程(1104❤️)",
+    "UniPool：跨层共享专家池打破MoE逐层分配惯例",
+    "EMO：MoE预训练实现涌现模块化，按需激活子能力",
+    "BAMI：无需训练的GUI Grounding偏见缓解方法",
+    "Stability AI发布SD-XL 1.0宽松许可版本"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "UniPool: 跨层共享专家池重构MoE架构",
+          "url": "https://arxiv.org/abs/2605.06665",
+          "description": "当前MoE架构中每层Transformer独占一组专家，深度扩展时专家数量线性增长。UniPool提出跨层全局共享专家池，打破逐层分配惯例，在同等参数量下提升模型容量利用率。",
+          "source": "arXiv",
+          "arxiv_id": "2605.06665"
+        },
+        {
+          "title": "EMO: MoE预训练实现涌现模块化",
+          "url": "https://arxiv.org/abs/2605.06663",
+          "description": "大模型通常作为单体系统部署，即使应用只需代码或数学等子能力也必须加载全量参数。EMO通过MoE预训练使模型自然涌现模块化结构，推理时可按需激活特定专家子集。",
+          "source": "arXiv",
+          "arxiv_id": "2605.06663"
+        },
+        {
+          "title": "BAMI: 无需训练的GUI Grounding偏见缓解",
+          "url": "https://arxiv.org/abs/2605.06664",
+          "description": "GUI Agent执行点击拖拽等操作时，在ScreenSpot-Pro等复杂基准上常因位置偏见而失败。BAMI提出无需额外训练的偏见缓解方法，直接提升现有模型的GUI Grounding准确率。",
+          "source": "arXiv",
+          "arxiv_id": "2605.06664"
+        },
+        {
+          "title": "ActCam: 零样本联合相机与3D动作控制视频生成",
+          "url": "https://arxiv.org/abs/2605.06667",
+          "description": "面向艺术创作场景，ActCam实现零样本同时控制演员动作和摄像机轨迹的视频生成，无需针对特定动作或运镜进行微调。",
+          "source": "arXiv",
+          "arxiv_id": "2605.06667"
+        },
+        {
+          "title": "Verifier-Backed Hard Problem Generation: 用验证器生成高质量数学难题",
+          "url": "https://arxiv.org/abs/2605.06660",
+          "description": "LLM虽能解决科学和数学问题，但难以生成有效、有挑战且新颖的问题——这是合成训练数据的核心障碍。本文提出用验证器反向驱动难题生成，确保生成的问题既困难又可解。",
+          "source": "arXiv",
+          "arxiv_id": "2605.06660"
+        },
+        {
+          "title": "无基准如何验证LLM安全评分",
+          "url": "https://arxiv.org/abs/2605.06652",
+          "description": "多语种、多行业、多监管体系的LLM安全评估往往缺乏标注基准。本文形式化了'无基准设置'下的比较性安全评分验证问题，为新兴市场和垂直领域的安全评估提供方法论。",
+          "source": "arXiv",
+          "arxiv_id": "2605.06652"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂动态",
+      "items": [
+        {
+          "title": "Claude for Office 正式 GA 发布",
+          "url": "https://x.com/claudeai/status/2052445786651168849",
+          "description": "Claude for Excel、PowerPoint、Word 全面可用（所有付费计划），Outlook 进入公开测试。Claude 在 Microsoft 应用间切换时携带完整对话上下文，实现跨应用的连贯 AI 办公体验。推文互动达 30256，为今日最高热度事件。",
+          "source": "Anthropic / X"
+        },
+        {
+          "title": "Google AI: 创意大师用AI为小企业制作广告",
+          "url": "https://blog.google/company-news/inside-google/company-announcements/the-small-brief/",
+          "description": "Google 邀请创意领域的传奇人物使用 AI 工具为小型企业制作广告，展示 AI 在广告创意领域的实际应用潜力。",
+          "source": "Google AI Blog"
+        },
+        {
+          "title": "Stability AI 发布 SD-XL 1.0 宽松许可版本",
+          "url": "https://github.com/Stability-AI/generative-models/releases/tag/0.1.0",
+          "description": "Stability AI 以宽松许可（permissive license）发布 SD-XL 1.0，降低商业使用门槛，为开源图像生成生态注入新动力。",
+          "source": "Stability AI / GitHub"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder 动态",
+      "items": [
+        {
+          "author": "Alex Albert (Anthropic)",
+          "content": "Firefox 团队在 Claude Mythos Preview 的辅助下，4月份修复的安全漏洞数量超过过去 15 个月的总和。这是 AI 辅助安全审计的标志性案例。",
+          "url": "https://x.com/alexalbert__/status/2052468573516513762",
+          "source": "X/Twitter",
+          "engagement": "11614❤️"
+        },
+        {
+          "author": "Sam Altman (OpenAI)",
+          "content": "帮助软件开发者从程序员'宝可梦进化'成超级英雄，比尝试替代他们要酷得多。现在一个真正优秀的人能做到的事情令人难以置信。",
+          "url": "https://x.com/sama/status/2052485051812909530",
+          "source": "X/Twitter",
+          "engagement": "3046❤️"
+        },
+        {
+          "author": "Sam Altman (OpenAI)",
+          "content": "OpenAI 希望帮助企业进行安全建设，并认为需要迅速启动这项工作。",
+          "url": "https://x.com/sama/status/2052558319940944256",
+          "source": "X/Twitter",
+          "engagement": "1439❤️"
+        },
+        {
+          "author": "Peter Steinberger (steipete)",
+          "content": "/goal + GPT 5.5 体验令人惊叹。现在可以规划包含端到端测试的深度重构，并且一切正常运行。Claws 之间已有对话能力，Molty 正在学习如何委派 cron 任务。",
+          "url": "https://x.com/steipete/status/2052514752245481675",
+          "source": "X/Twitter",
+          "engagement": "1957❤️"
+        },
+        {
+          "author": "Madhu Guru (ex-Google Gemini)",
+          "content": "正式离开 Google。在 Google 期间帮助从零构建了两个业务：先是搜索与广告，后是 Gemini。三年前 OpenAI 和 Anthropic 领先，团队迎头赶上。",
+          "url": "https://x.com/realmadhuguru/status/2052490869320946037",
+          "source": "X/Twitter",
+          "engagement": "1104❤️"
+        },
+        {
+          "author": "Dan Shipper / Kieran Klaassen",
+          "content": "AI 平台战争即将到来。讨论了 xAI 算力交易、Anthropic Managed Agents、以及 Anthropic 如何将 API 转变为完整云平台的战略。",
+          "url": "https://x.com/danshipper/status/2052501376195080381",
+          "source": "X/Twitter",
+          "engagement": "64❤️"
+        },
+        {
+          "author": "Aaron Levie (Box)",
+          "content": "当 AI 让某件事变得容易做时，应默认这对所有人同样成立。如果对所有人成立，竞争力量将确保利润流向消费者而非生产者。",
+          "url": "https://x.com/levie/status/2052566788236509254",
+          "source": "X/Twitter",
+          "engagement": "167❤️"
+        },
+        {
+          "author": "Garry Tan (Y Combinator)",
+          "content": "GBrain 新增 thin-client 模式。Claude Code 或 Hermes 等二级 Agent 无需运行自己的 MCP 服务器，可直接通过 MCP 使用 GBrain。GStack 是个人 Claude Code 设置，在 Mac/PC 的 headed 模式下运行 /pair-agent 让 Claw/Hermes 进行网页交互。",
+          "url": "https://x.com/garrytan/status/2052629679572701455",
+          "source": "X/Twitter",
+          "engagement": "19❤️"
+        },
+        {
+          "author": "Amjad Masad (Replit)",
+          "content": "被称作史上最具病毒性的请愿书托管在 Replit 上。",
+          "url": "https://x.com/amasad/status/2052478595277467703",
+          "source": "X/Twitter",
+          "engagement": "1023❤️"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub 热门项目",
+      "items": [
+        {
+          "name": "prompts.chat",
+          "stars": 161845,
+          "description": "前身为 Awesome ChatGPT Prompts。分享、发现和收录社区提示词的免费开源项目，支持自托管。",
+          "url": "https://github.com/f/prompts.chat",
+          "language": "HTML"
+        },
+        {
+          "name": "huggingface/transformers",
+          "stars": 160402,
+          "description": "Transformers 模型定义框架，支持文本、视觉、音频和多模态领域最先进的机器学习模型。",
+          "url": "https://github.com/huggingface/transformers",
+          "language": "Python"
+        },
+        {
+          "name": "LifeManga",
+          "stars": 235,
+          "description": "iOS Swift 应用，结合 OpenAI GPT-Image 生成日式漫画风格 AI 艺术作品。",
+          "url": "https://github.com/iam567/LifeManga",
+          "language": "Swift"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Canvas 数据泄露：ShinyHunters 威胁公开学校数据",
+          "url": "https://www.theverge.com/tech/926458/canvas-shinyhunters-breach",
+          "source": "Hacker News",
+          "description": "教育科技平台 Canvas 遭遇数据泄露，黑客组织 ShinyHunters 威胁公开大量学校数据。HN 热议中获 890 分。",
+          "score": 890
+        },
+        {
+          "title": "AI 正在打破两种漏洞文化",
+          "url": "https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures",
+          "source": "Hacker News",
+          "description": "AI 辅助代码生成正在同时影响安全研究人员和攻击者的工作方式，传统漏洞发现和修复文化面临范式转变。",
+          "score": 143
+        },
+        {
+          "title": "Podman 无根容器与 Copy Fail 漏洞利用",
+          "url": "https://garrido.io/notes/podman-rootless-containers-copy-fail/",
+          "source": "Hacker News",
+          "description": "Podman 无根容器模式下的 Copy Fail 漏洞技术分析，涉及容器逃逸和安全边界问题。",
+          "score": 108
+        },
+        {
+          "title": "The MAD Podcast: OpenAI 董事会成员 Zico Kolter 谈前沿 AI 真实风险",
+          "url": "https://www.youtube.com/watch?v=DvyZcCfepeI",
+          "source": "YouTube / The MAD Podcast",
+          "description": "Matt Turck 对话 OpenAI 董事会成员、CMU 机器学习系主任 Zico Kolter，深度讨论 AI 安全、AI 安全攻防、Agent 和前沿 AI 的真实风险。",
+          "score": null
+        }
+      ]
+    }
+  }
+}

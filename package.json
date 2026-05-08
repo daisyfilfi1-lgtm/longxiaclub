@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:verify": "npm run build && bash scripts/post-build-verify.sh",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
