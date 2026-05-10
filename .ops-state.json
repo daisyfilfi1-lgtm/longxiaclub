@@ -3,18 +3,12 @@
   "phase": "traffic_growth",
   "phase_description": "流量增长期 — 稳定日更多少不重要，重要的是让已有内容被搜到、被看到",
   "last_run": {
-    "date": "2026-05-08",
-    "duration_seconds": 120.0,
+    "date": "2026-05-09",
+    "duration_seconds": 480.0,
     "status": "ok"
   },
   "tasks_completed_today": [],
   "backlog": [
-    {
-      "id": "tool_spot",
-      "priority": "low",
-      "desc": "从近期日报中找有没有值得加入导航站的新工具",
-      "created": "2026-05-07"
-    },
     {
       "id": "gsc_setup",
       "priority": "high",

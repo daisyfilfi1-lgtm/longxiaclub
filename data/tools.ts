@@ -1609,8 +1609,8 @@ export const tools: Tool[] = [
       { question: 'Felo适合做学术研究吗？', answer: '适合。Felo的跨语言搜索能力对学术研究很有帮助：1)可以同时搜索中英文论文和资料 2)自动翻译外文摘要 3)整合不同语言的研究成果 4)标注信息来源方便引用。但需要注意：Felo的学术文献索引深度不如Google Scholar和专业学术数据库，建议作为辅助工具，核心文献检索还是在专业学术库中进行。' }
     ]
   },
-];
 
+];
 // 完整的Skills库 - 由skill-generator.js自动生成和维护
 export const skills: Skill[] = [
   // ===== 内容创作类 =====

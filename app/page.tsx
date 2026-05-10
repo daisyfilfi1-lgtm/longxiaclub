@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Leaderboard from '@/components/Leaderboard';
 import SceneTags from '@/components/SceneTags';
-import EvolutionLog from '@/components/EvolutionLog';
 import { TrendingUp, Flame, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
@@ -162,9 +161,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Evolution Log - Self-improvement transparency */}
-        <EvolutionLog />
-        
         {/* Footer */}
         <footer className="border-t border-slate-200 py-12 bg-white mt-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

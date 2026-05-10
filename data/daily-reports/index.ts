@@ -5,6 +5,23 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-11",
+    title: "AI 日报 | 2026-05-11 周一",
+    summary: "Sam Altman描述GPT 5.5为「自闭症天才，命名品味极其怪异」(6188❤️)，GPT 5.5代号暗示下一代模型方向。Claude两大新能力发布：日常应用Connectors扩展+Managed Agents内置记忆公测，Agent从工具进化到同事。Garry Tan GBrain v0.31.1发布MCP瘦客户端模式，一个家庭GBrain服务器服务所有Agent。Peter Yang警告AI生成文件必有10% slop问题引爆社区讨论(229❤️)。HN热议：本地AI应为常态(253pts)+任务瘫痪与AI的关系(162pts)。GitHub新项目everything-claude-code达17.8万星领跑。",
+    highlights: [
+      "Sam Altman：GPT 5.5是「自闭症天才」，命名品味极其怪异(6188❤️)",
+      "Claude发布日常Connectors扩展+Managed Agents内置记忆公测",
+      "Garry Tan：GBrain v0.31.1 MCP瘦客户端，一个服务器服务所有Agent(256❤️)",
+      "Peter Yang：Agent生成文件永远有10% slop(229❤️)，所有人懒得手动改",
+      "Peter Steinberger：教Codex在PR审查时检测社交信号(76❤️)+Crabbox Windows终端支持(102❤️)",
+      "Aaron Levie：Agent让复杂领域入口大幅降低，更多人会涌入尝试(321❤️)",
+      "Zara Zhang引用Duolingo创始人: People don't read, HTML至上(104❤️)",
+      "Swyx：新加坡外交部长是NanoClaw超级粉丝(47❤️)",
+      "HN热议：Local AI应成为常态(253pts)，任务瘫痪与AI的思辨(162pts)",
+      "GitHub: everything-claude-code达178,040星，3DCellForge获615星"
+    ]
+  },
+  {
     date: "2026-05-09",
     title: "AI 日报 | 2026-05-09 周六",
     summary: "Claude for Office正式GA发布，覆盖Excel/PowerPoint/Word+Outlook公测，获30256互动引爆企业AI办公赛道。Alex Albert披露Firefox团队在Claude Mythos Preview辅助下单月修复安全漏洞超过去15个月总和(11614❤️)。Sam Altman两连发：帮助开发者进化成超级英雄(3046❤️)+OpenAI将帮助企业安全建设(1439❤️)。arXiv新论文聚焦MoE架构创新(UniPool/EMO)和训练自由推理(BAMI/GUI Grounding)。Stability AI发布SD-XL 1.0宽松许可版本。",

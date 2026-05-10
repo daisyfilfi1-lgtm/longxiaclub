@@ -98,7 +98,7 @@ export default function DailyArchivePage() {
 
           {/* Reports list */}
           <div className="space-y-4">
-            {reports.map((report) => (
+            {[...reports].sort((a, b) => b.date.localeCompare(a.date)).map((report) => (
               <Link
                 key={report.date}
                 href={`/daily/${report.date}`}

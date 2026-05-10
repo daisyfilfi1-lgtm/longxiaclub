@@ -1,0 +1,159 @@
+{
+  "date": "2026-05-11",
+  "title": "AI Daily | 2026-05-11 Monday",
+  "summary": "Sam Altman describes GPT 5.5 as an 'autistic genius with very strange taste in naming' (6188 likes). Claude ships two major features: everyday-life connectors and built-in memory for Managed Agents in public beta. Garry Tan's GBrain v0.31.1 ships MCP thin client support, enabling one home server with everything connecting via MCP. Peter Yang sparks discussion on the AI trap: agent-generated files always have at least 10% slop. Hacker News debates why local AI needs to be the norm (253pts) and task paralysis in the age of AI (162pts). GitHub sees everything-claude-code surge past 178K stars.",
+  "highlights": [
+    "Sam Altman: GPT 5.5 is an 'autistic genius with very strange taste in naming' (6188 likes)",
+    "Claude ships everyday-life connectors + Managed Agents built-in memory in public beta",
+    "GBrain v0.31.1: MCP thin client support - one home server, everything connects via MCP",
+    "Peter Yang on the AI trap: agent files always have ~10% slop, too lazy to edit manually",
+    "HN debates: Local AI needs to be the norm (253pts)",
+    "HN: Task paralysis in the age of AI (162pts)",
+    "everything-claude-code surges to 178,040 stars on GitHub",
+    "Peter Steinberger teaches Codex social signals for PR review",
+    "Zara Zhang makes the case for HTML as AI agent output: humans are visual"
+  ],
+  "sections": {
+    "papers": {
+      "title": "Research Papers",
+      "items": []
+    },
+    "blogs": {
+      "title": "Big Tech Blogs",
+      "items": [
+        {
+          "title": "New connectors in Claude for everyday life",
+          "url": "https://claude.com/blog/connectors-for-everyday-life",
+          "description": "Claude introduces connectors that bridge AI into daily workflows and tools, expanding beyond the Office suite into broader everyday use cases.",
+          "source": "Claude Blog"
+        },
+        {
+          "title": "Built-in memory for Claude Managed Agents (public beta)",
+          "url": "https://claude.com/blog/claude-managed-agents-memory",
+          "description": "Managed Agents gain persistent built-in memory in public beta, enabling agents to retain context and learn across sessions without external memory plumbing.",
+          "source": "Claude Blog"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder Updates",
+      "items": [
+        {
+          "author": "Sam Altman (OpenAI)",
+          "content": "Describes GPT 5.5 as an 'autistic genius with very strange taste in naming' - acknowledging the model's raw capability while poking fun at its quirks.",
+          "url": "https://x.com/sama/status/2053192407664259251",
+          "source": "X/Twitter",
+          "engagement": "6188 likes"
+        },
+        {
+          "author": "Aaron Levie (Box)",
+          "content": "Agents will make complicated fields more accessible, leading more people to try things they previously avoided due to complexity barriers.",
+          "url": "https://x.com/levie/status/2053267097493573921",
+          "source": "X/Twitter",
+          "engagement": "321 likes"
+        },
+        {
+          "author": "Garry Tan (Y Combinator)",
+          "content": "GBrain v0.31.1 ships MCP thin client support - one home GBrain server, everything else (Claude Code, Hermes, etc.) connects via MCP as thin clients. Neuromancer (Hermes Agent) cited in the GBrain changelog.",
+          "url": "https://x.com/garrytan/status/2053306243704410460",
+          "source": "X/Twitter",
+          "engagement": "256 likes"
+        },
+        {
+          "author": "Peter Yang",
+          "content": "The AI trap: agent-generated files always contain at least 10% slop, but editing them manually feels too tedious - a new form of technical debt unique to the agent era.",
+          "url": "https://x.com/petergyang/status/2053317001976881312",
+          "source": "X/Twitter",
+          "engagement": "229 likes"
+        },
+        {
+          "author": "Peter Steinberger (steipete)",
+          "content": "Taught Codex to understand social signals for PR review - the agent now factors in GitHub reactions, comment tone, and review dynamics when deciding how to approach a pull request.",
+          "url": "https://x.com/steipete/status/2053374981824798751",
+          "source": "X/Twitter",
+          "engagement": "76 likes"
+        },
+        {
+          "author": "Peter Steinberger (steipete)",
+          "content": "Crabbox Windows terminal milestone: Codex E2E fixed gifgrep to properly render animated GIFs in the terminal, showing agents tackling niche developer tooling.",
+          "url": "https://x.com/steipete/status/2053329609064685740",
+          "source": "X/Twitter",
+          "engagement": "102 likes"
+        },
+        {
+          "author": "Dan Shipper (Every)",
+          "content": "We got a tool to perform poorly is the lowest form of science - critiquing how people benchmark AI by giving it bad prompts and celebrating the failure. Also: Knives Can Blind You as an aphorism about tool safety.",
+          "url": "https://x.com/danshipper/status/2053199393658937423",
+          "source": "X/Twitter",
+          "engagement": "93 likes combined"
+        },
+        {
+          "author": "Nikunj Kothari",
+          "content": "Custom instructions tip: tell AI to estimate tasks as the model doing the work, not as a human - yields more realistic time and effort estimates for agent-driven workflows.",
+          "url": "https://x.com/nikunj/status/2053159569015328953",
+          "source": "X/Twitter",
+          "engagement": "56 likes"
+        },
+        {
+          "author": "Zara Zhang",
+          "content": "HTML output is critically important for AI agents because humans are visual. Quotes Duolingo: People don't read. Argues agents must render results visually to be useful.",
+          "url": "https://x.com/zarazhangrui/status/2053291803135410674",
+          "source": "X/Twitter",
+          "engagement": "104 likes"
+        },
+        {
+          "author": "Swyx",
+          "content": "Singapore's Foreign Minister is a huge NanoClaw fan - highlighting how AI agent tools are reaching mainstream government and diplomatic circles.",
+          "url": "https://x.com/swyx/status/2053370687931498603",
+          "source": "X/Twitter",
+          "engagement": "47 likes"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub Trending",
+      "items": [
+        {
+          "name": "affaan-m/everything-claude-code",
+          "stars": 178040,
+          "description": "Agent harness performance optimization for Claude Code. A comprehensive toolkit and performance tuning guide that has rapidly become one of the most-starred AI developer tools.",
+          "url": "https://github.com/affaan-m/everything-claude-code",
+          "language": "JavaScript"
+        },
+        {
+          "name": "huangserva/3DCellForge",
+          "stars": 615,
+          "description": "AI-powered 3D cell generation studio. Uses generative AI to create and manipulate 3D cellular structures, bridging biology and computer graphics.",
+          "url": "https://github.com/huangserva/3DCellForge",
+          "language": "JavaScript"
+        },
+        {
+          "name": "nickvasilescu/hermes-desktop-os1",
+          "stars": 331,
+          "description": "Desktop operating system concept built around AI agent primitives, exploring what an OS designed for agent-first interaction looks like.",
+          "url": "https://github.com/nickvasilescu/hermes-desktop-os1",
+          "language": "Unknown"
+        }
+      ]
+    },
+    "community": {
+      "title": "Community Highlights",
+      "items": [
+        {
+          "title": "Local AI needs to be the norm",
+          "url": "https://unix.foo/posts/local-ai-needs-to-be-norm/",
+          "source": "Hacker News",
+          "description": "Argues that running AI models locally should be the default, not the exception. Covers privacy, latency, cost, and sovereignty arguments for shifting inference to the edge and away from cloud APIs.",
+          "score": 253
+        },
+        {
+          "title": "Task Paralysis and AI",
+          "url": "https://g5t.de/articles/20260510-task-paralysis-and-ai/index.html",
+          "source": "Hacker News",
+          "description": "Explores how the abundance of AI capabilities creates decision paralysis - when an agent can do anything, knowing what to ask it becomes the bottleneck. A counterintuitive productivity challenge.",
+          "score": 162
+        }
+      ]
+    }
+  }
+}
