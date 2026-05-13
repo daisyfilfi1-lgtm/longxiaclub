@@ -3,8 +3,8 @@
   "phase": "traffic_growth",
   "phase_description": "流量增长期 — 稳定日更多少不重要，重要的是让已有内容被搜到、被看到",
   "last_run": {
-    "date": "2026-05-09",
-    "duration_seconds": 480.0,
+    "date": "2026-05-11",
+    "duration_seconds": 720.0,
     "status": "ok"
   },
   "tasks_completed_today": [],
@@ -23,7 +23,7 @@
   },
   "metrics": {
     "total_pages": 104,
-    "daily_reports_count": 10.0,
+    "daily_reports_count": 11.0,
     "gsc_last_fetch": null,
     "last_build_status": "ok"
   },

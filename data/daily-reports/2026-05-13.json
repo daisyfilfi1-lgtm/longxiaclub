@@ -1,0 +1,63 @@
+{
+  "date": "2026-05-13",
+  "title": "AI 日报 | 2026-05-13 周三",
+  "summary": "Anthropic连发三篇工程博客，正式提出Managed Agents的Brain-Hand双层解耦架构——Agent大脑负责规划决策、双手负责执行，行业正在向这个方向收敛。同时发布了Claude Code近期质量问题的复盘报告和auto mode权限优化。Google AI Finance扩展欧洲，AI+金融数据本地化加速。",
+  "highlights": [
+    "Anthropic正式提出Managed Agents: Brain-Hand双层解耦架构",
+    "Claude Code April 23 Postmortem 质量问题全面复盘",
+    "Claude Code auto mode: 更安全的免权限模式",
+    "Google AI Finance 扩展欧洲，AI+金融区域复制加速"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": []
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "An update on recent Claude Code quality reports — Claude Code April 23质量问题的工程复盘报告，分析近期质量波动的原因和应对措施。 (https://www.anthropic.com/engineering/april-23-postmortem)",
+            "Scaling Managed Agents: Decoupling the brain from the hands — 正式提出Managed Agents的Brain-Hand双层解耦架构。Brain负责规划和决策，Hands负责执行——让Agent可以横向扩展而不失控。 (https://www.anthropic.com/engineering/managed-agents)",
+            "Claude Code auto mode: a safer way to skip permissions — Claude Code新增auto mode，在保持安全边界的前提下智能跳过不必要的权限确认，减少高频使用场景的摩擦。 (https://www.anthropic.com/engineering/claude-code-auto-mode)"
+          ],
+          "url": "https://www.anthropic.com/engineering/"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "AI-powered Google Finance expanding to Europe — Google Finance的AI功能从美国扩展到欧洲市场，AI+金融数据的本地化复制正在加速。 (https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/)",
+            "The Small Brief: Creative legends use AI for small business ads — Google让顶级创意人用AI为小企业做广告，展示AI降低创意门槛的实际案例。 (https://blog.google/company-news/inside-google/company-announcements/the-small-brief/)"
+          ],
+          "url": "https://blog.google/"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": []
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": []
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "No Priors: The World's First AI Take Private",
+          "description": "Amex GBT CEO Alexander Taubman讨论AI如何驱动全球首个AI概念的私有化交易。『AI Take Private』成为新金融叙事。",
+          "url": "https://www.youtube.com/watch?v=g5TWnUjbeFM",
+          "source": "No Priors Podcast"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "Anthropic Engineering, Google AI Blog, No Priors Podcast",
+    "collection_time": "2026-05-13 06:00 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}

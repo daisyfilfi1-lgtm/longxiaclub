@@ -5,6 +5,17 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-13",
+    title: "AI 日报 | 2026-05-13 周三",
+    summary: "Anthropic连发三篇工程博客，正式提出Managed Agents的Brain-Hand双层解耦架构。同时发布Claude Code质量复盘和auto mode。Google AI Finance扩展欧洲。安静的工作日，适合精读架构文章。",
+    highlights: [
+      "Anthropic提出Managed Agents Brain-Hand双层解耦架构",
+      "Claude Code April 23 质量问题全面复盘",
+      "Claude Code auto mode 更安全的免权限模式",
+      "Google AI Finance 扩展欧洲",
+    ]
+  },
+  {
     date: "2026-05-11",
     title: "AI 日报 | 2026-05-11 周一",
     summary: "Sam Altman描述GPT 5.5为「自闭症天才，命名品味极其怪异」(6188❤️)，GPT 5.5代号暗示下一代模型方向。Claude两大新能力发布：日常应用Connectors扩展+Managed Agents内置记忆公测，Agent从工具进化到同事。Garry Tan GBrain v0.31.1发布MCP瘦客户端模式，一个家庭GBrain服务器服务所有Agent。Peter Yang警告AI生成文件必有10% slop问题引爆社区讨论(229❤️)。HN热议：本地AI应为常态(253pts)+任务瘫痪与AI的关系(162pts)。GitHub新项目everything-claude-code达17.8万星领跑。",
