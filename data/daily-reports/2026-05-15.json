@@ -1,0 +1,136 @@
+{
+  "date": "2026-05-15",
+  "title": "AI 日报 | 2026-05-15 周五",
+  "summary": "arXiv上新6篇论文：WARDEN以6小时数据实现濒危语言翻译、EVA-Bench端到端语音Agent评估、Hodge分解保拓扑学习、Good Agentic Friends提出权重更新式多Agent协作。Anthropic连续发布三篇工程博客（Managed Agents解耦架构/Claude Code质量复盘/Auto Mode）。HN热议AI让人变笨与大学AI僵尸化。Claude Managed Agents推出dreaming功能。",
+  "highlights": [
+    "WARDEN：仅6小时训练数据实现濒危语言Wardaman的转录与英文翻译",
+    "EVA-Bench：首个端到端语音Agent评估框架，联合评估企业级语音对话Agent",
+    "Anthropic三连发：Managed Agents脑手解耦架构 + Claude Code质量复盘 + Auto Mode安全跳过权限",
+    "Good Agentic Friends：多Agent协作不应只交换文本，更应直接更新对方权重",
+    "HN热议：AI正在让我变笨 + 大学AI僵尸化现象"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "WARDEN: Endangered Indigenous Language Transcription and Translation with 6 Hours of Training Data",
+          "url": "https://arxiv.org/abs/2605.13846",
+          "description": "提出WARDEN早期语言模型系统，仅使用6小时训练数据实现濒危澳大利亚原住民语言Wardaman的转录与英文翻译，探索极低资源场景下的语言模型能力边界。",
+          "source": "arXiv"
+        },
+        {
+          "title": "EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents",
+          "url": "https://arxiv.org/abs/2605.13841",
+          "description": "提出EVA-Bench，首个端到端语音Agent评估框架。针对企业应用中日益部署的语音对话AI系统，联合评估其在多维度任务中的综合表现，填补现有基准空白。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Topology-Preserving Neural Operator Learning via Hodge Decomposition",
+          "url": "https://arxiv.org/abs/2605.13834",
+          "description": "从函数空间视角研究几何网格上物理场方程的解算子。揭示Hodge正交分解如何从根本上解决神经算子学习中的谱干扰问题，实现保拓扑的物理仿真。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Good Agentic Friends Do Not Just Give Verbal Advice: They Can Update Your Weights",
+          "url": "https://arxiv.org/abs/2605.13839",
+          "description": "提出多Agent LLM系统协作新范式：当前Agent仅通过自然语言消息交换协作，但文本序列化会丢失中间计算信息。本文探索让Agent直接更新彼此权重参数的高效协作方式。",
+          "source": "arXiv"
+        },
+        {
+          "title": "What is Learnable in Valiant's Theory of the Learnable?",
+          "url": "https://arxiv.org/abs/2605.13840",
+          "description": "重新审视Valiant 1984年提出的学习理论模型。与经典PAC学习不同，该模型中学习者仅接收正样本并可查询成员资格，本文系统分析该模型下真正可学习的内容边界。",
+          "source": "arXiv"
+        },
+        {
+          "title": "R-DMesh: Video-Guided 3D Animation via Rectified Dynamic Mesh Flow",
+          "url": "https://arxiv.org/abs/2605.13838",
+          "description": "提出Rectified Dynamic Mesh Flow方法用于视频引导3D动画生成。解决实际部署中几何与外观耦合的关键问题，为内容创作提供直观且精确的动态资产控制。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "An update on recent Claude Code quality reports — Claude Code April 23质量问题的工程复盘，分析近期质量波动原因和应对措施。 (https://www.anthropic.com/engineering/april-23-postmortem)",
+            "Scaling Managed Agents: Decoupling the brain from the hands — 正式提出Managed Agents的Brain-Hand双层解耦架构。Brain负责规划和决策，Hands负责执行，让Agent可横向扩展而不失控。 (https://www.anthropic.com/engineering/managed-agents)",
+            "Claude Code auto mode: a safer way to skip permissions — Claude Code新增auto mode，在保持安全边界的前提下智能跳过不必要的权限确认，减少高频使用场景的摩擦。 (https://www.anthropic.com/engineering/claude-code-auto-mode)"
+          ],
+          "url": "https://www.anthropic.com/engineering/"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "The new AI-powered Google Finance is expanding to Europe — AI驱动的Google Finance从美国扩展到欧洲市场，AI+金融数据的本地化复制正在加速。 (https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/)",
+            "The Small Brief: Creative legends use AI for small business ads — Google让顶级创意人用AI为小企业制作广告，展示AI降低创意门槛的实际应用案例。 (https://blog.google/company-news/inside-google/company-announcements/the-small-brief/)"
+          ],
+          "url": "https://blog.google/"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": []
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Peter Yang (@petergyang)",
+          "content": "分享了一类反复出现的AI裁员模式：公司声称业务从未如此强劲，但因AI改变了工作方式而裁掉1000+人。质疑这些决策背后的逻辑一致性。",
+          "url": "https://x.com/petergyang/status/2054569893060809151",
+          "source": "X (Twitter)",
+          "engagement": "❤️60"
+        },
+        {
+          "author": "Nikunj Kothari (@nikunj)",
+          "content": "指出VC已沦为共识资本：当创始人仅为拿到融资而创业时，风投就不再是风险投资而是从众工具。引发对当前创投生态的反思。",
+          "url": "https://x.com/nikunj/status/2054599845214650442",
+          "source": "X (Twitter)",
+          "engagement": "❤️159"
+        },
+        {
+          "author": "Training Data Podcast",
+          "content": "Suno CEO Mikey Shulman深度访谈：讨论AI音乐生成的民主化——现在每个人都可以创作音乐。探讨Suno的技术路线与音乐产业未来。",
+          "url": "https://www.youtube.com/watch?v=Jq3BIGz4vXQ",
+          "source": "YouTube"
+        },
+        {
+          "author": "Claude Blog",
+          "content": "Claude Managed Agents三大新功能：dreaming通过回顾历史会话发现模式来扩展记忆；outcomes追踪Agent任务完成情况；multiagent orchestration支持多Agent编排协作。",
+          "url": "https://claude.com/blog/new-in-claude-managed-agents",
+          "source": "Anthropic"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "AI is making me dumb",
+          "url": "https://jpain.io/god-damn-ai-is-making-me-dumb/",
+          "source": "Hacker News",
+          "description": "一篇引发广泛共鸣的个人反思：过度依赖AI工具正在侵蚀编程能力和深度思考习惯，讨论在AI时代如何保持认知自主。",
+          "score": "319"
+        },
+        {
+          "title": "The AI Zombification of Universities",
+          "url": "https://www.thenewcritic.com/p/the-great-zombification",
+          "source": "Hacker News",
+          "description": "深度调查美国大学正被AI吞噬：学生用AI代写作业、教师用AI批改、行政用AI决策——整个学术生态系统正在沦为AI傀儡。",
+          "score": "146"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Engineering Blog, Google AI Blog, Hacker News, Follow Builders (X/Twitter), Training Data Podcast, Claude Blog, Stability AI Blog",
+    "collection_time": "2026-05-15 06:00 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}

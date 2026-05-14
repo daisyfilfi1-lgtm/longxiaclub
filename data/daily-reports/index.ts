@@ -5,6 +5,19 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-15",
+    title: "AI 日报 | 2026-05-15 周五",
+    summary: "arXiv上新6篇论文：WARDEN以6小时数据实现濒危语言翻译、EVA-Bench端到端语音Agent评估、Hodge分解保拓扑学习、Good Agentic Friends提出权重更新式多Agent协作。Anthropic连续发布三篇工程博客持续发酵。Claude Managed Agents发布Dreaming记忆回顾功能。HN热议AI使人变笨+大学AI僵尸化现象。Google AI Finance扩展欧洲。",
+    highlights: [
+      "WARDEN：仅6小时训练数据实现濒危语言Wardaman的转录与英文翻译",
+      "EVA-Bench：首个端到端语音Agent评估框架，联合评测企业级语音对话能力",
+      "Good Agentic Friends：多Agent协作不应只交换文本，更应直接更新对方权重",
+      "Anthropic三连发：Managed Agents脑手解耦 + Claude Code质量复盘 + Auto Mode安全机制",
+      "Claude Managed Agents Dreaming：Agent跨会话记忆回顾与模式发现功能",
+      "HN热议：AI正在让我变笨(319pts) + 大学AI僵尸化现象(146pts)",
+    ]
+  },
+  {
     date: "2026-05-14",
     title: "AI 日报 | 2026-05-14 周四",
     summary: "Agent记忆评测成为研究热点，LongMemEval-V2和MEME两篇论文为Agent记忆能力设定了新标准——超出简单事实存储，要求经验记忆和工作流记忆。Anthropic三连持续发酵，Brain-Hand解耦从实践走向行业共识。arXiv论文聚焦GRPO多模态扩展和模型后训练优化。Google AI Finance扩展欧洲，AI+金融数据本地化复制加速。",
