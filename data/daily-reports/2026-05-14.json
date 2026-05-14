@@ -1,0 +1,147 @@
+{
+  "date": "2026-05-14",
+  "title": "AI 日报 | 2026-05-14 周四",
+  "summary": "arXiv 2605系列上新8篇：LongMemEval-V2和MEME双论文聚焦Agent长期记忆评估——从单一实体演化到多实体跨会话；AlphaGRPO将Group Relative Policy Optimization引入AR-Diffusion统一多模态生成模型；Pion提出基于正交等价变换的谱保持优化器，不同于Adam/Muon的加性更新路径。Anthropic三篇工程博客（Managed Agents / Claude Code质量复盘 / Auto Mode）持续发酵。OpenClaw突破37.1万星继续领跑GitHub。HN热议美国AI商业化领先。",
+  "highlights": [
+    "Agent记忆双论文：LongMemEval-V2长期记忆评估 + MEME多实体演化记忆",
+    "AlphaGRPO：将GRPO引入AR-Diffusion统一多模态生成模型",
+    "Learning, Fast and Slow：探索LLM持续自适应学习新范式",
+    "Beyond GRPO：稀疏到密集奖励原则优化语言模型后训练",
+    "Pion：正交等价变换实现谱保持优化器，突破加性优化范式",
+    "OpenClaw突破371,606星，个人AI助手持续领跑GitHub"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "AlphaGRPO: Unlocking Self-Reflective Multimodal Generation in UMMs via Decompositional Verifiable Reward",
+          "url": "https://arxiv.org/abs/2605.12495",
+          "description": "提出AlphaGRPO框架，将Group Relative Policy Optimization应用于AR-Diffusion统一多模态模型，通过分解式可验证奖励实现自反思式多模态生成增强。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Learning, Fast and Slow: Towards LLMs That Adapt Continually",
+          "url": "https://arxiv.org/abs/2605.12484",
+          "description": "探索LLM持续自适应学习范式——参数更新迫使模型吸收任务特定信息，可能导致灾难性遗忘，本文研究快慢结合的持续学习策略。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training",
+          "url": "https://arxiv.org/abs/2605.12483",
+          "description": "提出经验性稀疏到密集奖励原则：在标注验证数据有限的约束下，审慎分配每一条检查样本，通过渐进式奖励密度提升后训练效率。",
+          "source": "arXiv"
+        },
+        {
+          "title": "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues",
+          "url": "https://arxiv.org/abs/2605.12493",
+          "description": "评估Agent在专业Web环境中的长期记忆能力，聚焦于界面功能记忆、状态动态、工作流程和反复失败模式——推动Agent从新手到经验丰富的同事。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Task-Adaptive Embedding Refinement via Test-time LLM Guidance",
+          "url": "https://arxiv.org/abs/2605.12487",
+          "description": "探索LLM引导的查询精炼范式，将嵌入模型扩展到具有挑战性的零样本搜索和分类任务，通过测试时LLM指导实现任务自适应嵌入精炼。",
+          "source": "arXiv"
+        },
+        {
+          "title": "MEME: Multi-entity & Evolving Memory Evaluation",
+          "url": "https://arxiv.org/abs/2605.12477",
+          "description": "提出多实体演化记忆评估基准——LLM Agent越来越需要在持久环境中跨多会话存储、更新和推理信息，超越此前仅评估单一实体更新的基准。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Pion: A Spectrum-Preserving Optimizer via Orthogonal Equivalence Transformation",
+          "url": "https://arxiv.org/abs/2605.12492",
+          "description": "提出Pion谱保持优化器，基于正交等价变换进行乘法更新，不同于Adam/Muon等加性优化器，能在LLM训练中保持模型谱结构。",
+          "source": "arXiv"
+        },
+        {
+          "title": "Elastic Attention Cores for Scalable Vision Transformers",
+          "url": "https://arxiv.org/abs/2605.12491",
+          "description": "提出弹性注意力核心机制，解决Vision Transformer全对全自注意力的二次计算复杂度，实现可扩展的高效视觉Transformer。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "An update on recent Claude Code quality reports — Claude Code April 23质量问题的工程复盘报告，分析近期质量波动原因和应对措施。 (https://www.anthropic.com/engineering/april-23-postmortem)",
+            "Scaling Managed Agents: Decoupling the brain from the hands — 正式提出Managed Agents的Brain-Hand双层解耦架构。Brain负责规划和决策，Hands负责执行——让Agent可以横向扩展而不失控。 (https://www.anthropic.com/engineering/managed-agents)",
+            "Claude Code auto mode: a safer way to skip permissions — Claude Code新增auto mode，在保持安全边界的前提下智能跳过不必要的权限确认，减少高频使用场景的摩擦。 (https://www.anthropic.com/engineering/claude-code-auto-mode)"
+          ],
+          "url": "https://www.anthropic.com/engineering/"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "The new AI-powered Google Finance is expanding to Europe — AI驱动的Google Finance从美国扩展到欧洲市场，AI+金融数据的本地化复制正在加速。 (https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/)",
+            "The Small Brief: Creative legends use AI for small business ads — Google让顶级创意人用AI为小企业制作广告，展示AI降低创意门槛的实际案例。 (https://blog.google/company-news/inside-google/company-announcements/the-small-brief/)"
+          ],
+          "url": "https://blog.google/"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Training Data Podcast",
+          "content": "Waymo CEO Dmitri Dolgov深度访谈：从2000万次自动驾驶到完全自主的历程。讨论Waymo在凤凰城、旧金山等城市的规模化运营经验和技术演进路径。",
+          "url": "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8",
+          "source": "YouTube"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": [
+        {
+          "name": "openclaw/openclaw",
+          "stars": "371,606",
+          "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way.",
+          "url": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "name": "nilbuild/developer-roadmap",
+          "stars": "354,724",
+          "description": "Interactive roadmaps, guides and other educational content to help developers grow in their careers.",
+          "url": "https://github.com/nilbuild/developer-roadmap"
+        },
+        {
+          "name": "tensorflow/tensorflow",
+          "stars": "195,107",
+          "description": "An Open Source Machine Learning Framework for Everyone",
+          "url": "https://github.com/tensorflow/tensorflow"
+        },
+        {
+          "name": "obra/superpowers",
+          "stars": "189,524",
+          "description": "",
+          "url": "https://github.com/obra/superpowers"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "The US is winning the AI race where it matters most: commercialization",
+          "url": "https://avkcode.github.io/blog/us-winning-ai-race.html",
+          "source": "Hacker News",
+          "description": "分析美国在AI商业化领域的领先地位——AI竞赛的真正决胜点在于商业化落地而非单纯模型能力。",
+          "score": "159"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Engineering Blog, Google AI Blog, GitHub Trending, Hacker News, Follow Builders (Training Data Podcast)",
+    "collection_time": "2026-05-14 09:01 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}

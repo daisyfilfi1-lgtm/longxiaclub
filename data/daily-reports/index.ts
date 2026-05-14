@@ -5,6 +5,19 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-14",
+    title: "AI 日报 | 2026-05-14 周四",
+    summary: "Agent记忆评测成为研究热点，LongMemEval-V2和MEME两篇论文为Agent记忆能力设定了新标准——超出简单事实存储，要求经验记忆和工作流记忆。Anthropic三连持续发酵，Brain-Hand解耦从实践走向行业共识。arXiv论文聚焦GRPO多模态扩展和模型后训练优化。Google AI Finance扩展欧洲，AI+金融数据本地化复制加速。",
+    highlights: [
+      "Agent记忆评测新标准：LongMemEval-V2 + MEME定义经验记忆新范式",
+      "AlphaGRPO将GRPO引入多模态生成，分解式可验证奖励机制",
+      "Learning Fast and Slow: LLM持续适应框架，受Kahneman双系统理论启发",
+      "Anthropic三连持续发酵：Brain-Hand解耦成为行业共识",
+      "Google AI Finance扩展欧洲，AI+金融数据区域复制加速",
+      "Waymo 2000万次自动驾驶行程的规模化验证故事",
+    ]
+  },
+  {
     date: "2026-05-13",
     title: "AI 日报 | 2026-05-13 周三",
     summary: "Anthropic连发三篇工程博客，正式提出Managed Agents的Brain-Hand双层解耦架构。同时发布Claude Code质量复盘和auto mode。Google AI Finance扩展欧洲。安静的工作日，适合精读架构文章。",
