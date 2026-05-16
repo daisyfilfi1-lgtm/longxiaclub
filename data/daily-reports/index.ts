@@ -5,6 +5,16 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-16",
+    title: "AI 日报 | 2026-05-16 周六",
+    summary: "Anthropic发布Claude Code事故复盘与Managed Agents「大脑双手解耦」新架构；Stability AI发布SD-XL 1.0宽松许可版本；Google Finance AI扩展至欧洲",
+    highlights: [
+      "Anthropic公开Claude Code四月事故复盘，并发布Managed Agents架构：将Agent决策大脑与执行双手解耦",
+      "Stability AI正式发布SD-XL 1.0，采用宽松许可协议，商业友好度大幅提升",
+      "Google AI Finance功能扩展至欧洲市场，金融AI合规基础设施趋于成熟"
+    ]
+  },
+  {
     date: "2026-05-15",
     title: "AI 日报 | 2026-05-15 周五",
     summary: "arXiv上新6篇论文：WARDEN以6小时数据实现濒危语言翻译、EVA-Bench端到端语音Agent评估、Hodge分解保拓扑学习、Good Agentic Friends提出权重更新式多Agent协作。Anthropic连续发布三篇工程博客持续发酵。Claude Managed Agents发布Dreaming记忆回顾功能。HN热议AI使人变笨+大学AI僵尸化现象。Google AI Finance扩展欧洲。",

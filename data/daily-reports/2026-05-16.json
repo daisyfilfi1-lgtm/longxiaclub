@@ -1,0 +1,90 @@
+{
+  "date": "2026-05-16",
+  "title": "AI 日报 | 2026-05-16 周六",
+  "summary": "周六数据偏少但质量高。Anthropic三连发持续发酵：Auto Mode让Agent安全跳过权限、Managed Agents脑手解耦架构、Claude Code质量复盘。Mitchell Hashimoto「AI精神病」帖引爆HN(805分)。arXiv两篇：条件视频解码增强视觉生成、张量相似度推进机制可解释性从定性到定量。",
+  "highlights": [
+    "Mitchell Hashimoto：I believe there are entire companies right now under AI psychosis — HN 805分现象级讨论",
+    "Anthropic三连发：Claude Code Auto Mode安全跳权限 + Managed Agents脑手解耦 + 质量复盘",
+    "arXiv: Tensor Similarity for Mechanistic Interpretability — 用张量相似度判定两个网络组件是否等价",
+    "The MAD Podcast：为什么每个AI Agent需要自己的隔离执行环境"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "RefDecoder: Enhancing Visual Generation with Conditional Video Decoding",
+          "url": "https://arxiv.org/abs/2605.15196",
+          "description": "视频生成领域新工作，提出条件视频解码增强视觉生成方法。针对latent diffusion model的解码阶段做条件化改进，提升生成视频的视觉质量。",
+          "source": "arXiv"
+        },
+        {
+          "title": "When Are Two Networks the Same? Tensor Similarity for Mechanistic Interpretability",
+          "url": "https://arxiv.org/abs/2605.15183",
+          "description": "机制可解释性领域的基础问题：如何判定两个神经网络组件实现了相同的计算？提出张量相似度方法，弥补现有方法只看表象不看内部机理的缺陷，为可解释性提供数学基础。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "entries": [
+            "Claude Code auto mode: a safer way to skip permissions — Claude Code新增auto mode，在保持安全边界的前提下智能跳过不必要的权限确认，减少高频使用场景的摩擦。 (https://www.anthropic.com/engineering/claude-code-auto-mode)",
+            "Scaling Managed Agents: Decoupling the brain from the hands — 正式提出Managed Agents的Brain-Hand双层解耦架构。Brain负责规划和决策，Hands负责执行，让Agent可横向扩展而不失控。 (https://www.anthropic.com/engineering/managed-agents)",
+            "An update on recent Claude Code quality reports — Claude Code April 23质量问题的工程复盘，分析近期质量波动原因和应对措施。 (https://www.anthropic.com/engineering/april-23-postmortem)"
+          ],
+          "url": "https://www.anthropic.com/engineering/"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "The new AI-powered Google Finance is expanding to Europe — AI驱动的Google Finance从美国扩展到欧洲市场，AI+金融数据的本地化复制正在加速。 (https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/)",
+            "The Small Brief: Creative legends use AI for small business ads — Google让顶级创意人用AI为小企业制作广告，展示AI降低创意门槛的实际应用案例。 (https://blog.google/company-news/inside-google/company-announcements/the-small-brief/)"
+          ],
+          "url": "https://blog.google/"
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder动态",
+      "items": [
+        {
+          "author": "Mitchell Hashimoto (@mitchellh)",
+          "content": "Hashicorp创始人在X上直言：I believe there are entire companies right now under AI psychosis — 整家公司处于AI精神病状态，盲目追逐AI而丧失理性判断。引发大规模讨论。",
+          "url": "https://twitter.com/mitchellh/status/2055380239711457578",
+          "source": "X (Twitter)"
+        },
+        {
+          "author": "The MAD Podcast with Matt Turck",
+          "content": "采访Daytona CEO Ivan Burazin：为什么每个AI Agent需要自己的隔离执行环境（sandboxed computer），而不是在用户主机上直接操作。与GitHub Codespaces理念一致。",
+          "url": "https://www.youtube.com/watch?v=kMXJrzAa5fM",
+          "source": "YouTube"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub热门项目",
+      "items": []
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "AI Psychosis: Mitchell Hashimoto claims entire companies are under AI delusion",
+          "url": "https://twitter.com/mitchellh/status/2055380239711457578",
+          "source": "Hacker News",
+          "description": "Hashicorp创始人Mitchell Hashimoto在Hacker News引发805分热议：他认为当前有整家公司陷入了AI精神病，盲目把所有问题都用AI解决，而不是用AI解决真正需要AI的问题。社区讨论从AI万能论转向理性使用AI。",
+          "score": "805"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "arXiv, Anthropic Engineering Blog, Google AI Blog, Hacker News, MAD Podcast (YouTube), X (Twitter), Stability AI Blog",
+    "collection_time": "2026-05-16 06:00 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}
