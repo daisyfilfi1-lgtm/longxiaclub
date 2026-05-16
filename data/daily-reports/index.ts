@@ -5,6 +5,19 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-17",
+    title: "AI 日报 | 2026-05-17 周日",
+    summary: "周日数据偏少但精品多。Anthropic Managed Agents脑手分离架构正式发布；Peter Steinberger每月$200k AI支出实验引发热议(3727❤️)；新加坡政府规划1.3B agents国家MCP网关；Guillermo Rauch展示Grok CLI+Vercel云部署；Aaron Levie提出AI需前向部署工程而非传统SaaS；HN热议SANA-WM 2.6B开源世界模型(276pts)。",
+    highlights: [
+      "Peter Steinberger每月$200k AI支出: 探索AI原生软件开发范式(3727❤️)",
+      "Anthropic Managed Agents: 脑手分离架构正式发布",
+      "新加坡政府规划2年内1.3B agents + 国家MCP网关",
+      "Guillermo Rauch: Grok CLI + Vercel Plugin一键云部署(853❤️)",
+      "Aaron Levie: AI需要前向部署工程, 传统SaaS模式不适用(220❤️)",
+      "HN热议: SANA-WM 2.6B开源世界模型1分钟720p视频(276pts)",
+    ]
+  },
+  {
     date: "2026-05-16",
     title: "AI 日报 | 2026-05-16 周六",
     summary: "周六数据偏少但质量高。Anthropic三连发持续发酵：Auto Mode让Agent安全跳过权限、Managed Agents脑手解耦架构、Claude Code质量复盘。Mitchell Hashimoto「AI精神病」帖引爆HN(805分)。arXiv两篇：条件视频解码增强视觉生成、张量相似度推进机制可解释性从定性到定量。Google AI Finance扩展欧洲、AI创意广告项目The Small Brief。",
