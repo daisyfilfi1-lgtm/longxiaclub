@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description: 'GitHub 上最受关注的 AI 开源项目排名，按星标数排序',
     url: 'https://longxiaclub.com/trends/github',
     type: 'website',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GitHub热门AI开源项目排行榜 | longxiaclub.com',
+    description: 'GitHub 上最受关注的 AI 开源项目排名，按星标数排序',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/trends/github',
   },
 };
 

@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description: '来自 ProductHunt 的最新AI产品排行，按投票数排序',
     url: 'https://longxiaclub.com/trends/producthunt',
     type: 'website',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ProductHunt AI新品排行榜 | longxiaclub.com',
+    description: '来自 ProductHunt 的最新AI产品排行，按投票数排序',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/trends/producthunt',
   },
 };
 

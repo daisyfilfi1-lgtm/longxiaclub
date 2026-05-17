@@ -108,8 +108,68 @@ export default function ComparePage() {
     link.setAttribute('href', 'https://longxiaclub.com/compare/cursor-vs-copilot');
   }, []);
 
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    name: '面包屑导航',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'AI导航站', item: 'https://longxiaclub.com' },
+      { '@type': 'ListItem', position: 2, name: '工具对比', item: 'https://longxiaclub.com/compare' },
+      { '@type': 'ListItem', position: 3, name: 'Cursor vs GitHub Copilot', item: 'https://longxiaclub.com/compare/cursor-vs-copilot' },
+    ],
+  };
+
+  // FAQPage JSON-LD
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Cursor和GitHub Copilot哪个更好？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Cursor和GitHub Copilot各有优势，具体选择取决于你的使用场景。Cursor在某些方面更出色，GitHub Copilot在其他方面更强。建议根据你的具体需求选择最适合的工具。'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Cursor和GitHub Copilot的价格对比如何？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Cursor和GitHub Copilot的定价模式不同。请查看页面中的价格对比表获取详细信息。'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Cursor和GitHub Copilot分别适合什么场景？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Cursor适合特定的使用场景和用户群体，GitHub Copilot则在不同场景下表现更好。本文详细对比了两者在各个维度的表现。'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: '如何选择最适合自己的AI工具？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '选择AI工具时需要考虑你的使用场景、预算、技术需求和生态兼容性。建议先明确自己的核心需求，再根据对比维度选择最匹配的工具。'
+        }
+      },
+    ]
+  };
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      {/* JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
 

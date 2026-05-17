@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description: '综合 GitHub、ProductHunt、Google Trends 三大数据源的 AI 工具热度排名',
     url: 'https://longxiaclub.com/trends/leaderboard',
     type: 'website',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI工具综合热度排行榜 | longxiaclub.com',
+    description: '综合 GitHub、ProductHunt、Google Trends 三大数据源的 AI 工具热度排名',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/trends/leaderboard',
   },
 };
 

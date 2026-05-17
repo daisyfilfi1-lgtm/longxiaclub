@@ -113,8 +113,24 @@ const allEntries = [
 ];
 
 export default function EvolutionPage() {
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    name: '面包屑导航',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'AI导航站', item: 'https://longxiaclub.com' },
+      { '@type': 'ListItem', position: 2, name: '进化历程', item: 'https://longxiaclub.com/evolution' },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
+      {/* JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
       <Navbar />
       
