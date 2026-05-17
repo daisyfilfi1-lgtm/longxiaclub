@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { ArrowRight, Check, X as XIcon, Minus, Zap, Code, Brain, DollarSign, FileText, Database, Puzzle, Users, Shield, WifiOff, BarChart3, MessageSquare, Globe, Sparkles, Lightbulb, GraduationCap } from 'lucide-react';
 
 type Winner = 'notion' | 'obsidian' | 'draw';
@@ -83,6 +84,29 @@ export default function ComparePage() {
       },
     ],
   };
+
+  // SEO metadata injection for 'use client' page
+  useEffect(() => {
+    document.title = 'Notion AI vs Obsidian AI | AI工具对比 | longxiaclub.com';
+    const setMeta = (name: string, content: string, property = false) => {
+      let el = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!el) { el = document.createElement('meta'); property ? el.setAttribute('property', name) : el.setAttribute('name', name); document.head.appendChild(el); }
+      el.setAttribute('content', content);
+    };
+    setMeta('description', 'Notion AI vs Obsidian AI：AI增强笔记工具巅峰对决——AI写作、知识管理、插件生态全面对比。');
+    setMeta('og:title', 'Notion AI vs Obsidian AI | AI工具对比 | longxiaclub.com', true);
+    setMeta('og:description', 'Notion AI vs Obsidian AI全方位PK：AI写作、知识管理、插件生态全面横评。', true);
+    setMeta('og:url', 'https://longxiaclub.com/compare/notion-vs-obsidian', true);
+    setMeta('og:type', 'article', true);
+    setMeta('og:image', 'https://longxiaclub.com/og-image.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'Notion AI vs Obsidian AI | AI工具对比 | longxiaclub.com');
+    setMeta('twitter:description', 'Notion AI vs Obsidian AI全方位PK：AI写作、知识管理、插件生态全面横评。');
+    setMeta('twitter:image', 'https://longxiaclub.com/og-image.png');
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); }
+    link.setAttribute('href', 'https://longxiaclub.com/compare/notion-vs-obsidian');
+  }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { ArrowRight, Check, X as XIcon, Minus, Zap, Code, Brain, DollarSign, Search, Globe, Clock, Camera, FileText, MessageSquare, Languages, Sparkles, Lightbulb, BarChart3 } from 'lucide-react';
 
 type Winner = 'perplexity' | 'gemini' | 'draw';
@@ -82,6 +83,29 @@ export default function ComparePage() {
       },
     ],
   };
+
+  // SEO metadata injection for 'use client' page
+  useEffect(() => {
+    document.title = 'Perplexity vs Google Gemini | AI工具对比 | longxiaclub.com';
+    const setMeta = (name: string, content: string, property = false) => {
+      let el = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!el) { el = document.createElement('meta'); property ? el.setAttribute('property', name) : el.setAttribute('name', name); document.head.appendChild(el); }
+      el.setAttribute('content', content);
+    };
+    setMeta('description', 'Perplexity vs Google Gemini：AI搜索引擎和全能AI助手巅峰对决——搜索精度、实时信息、多模态能力全面PK。');
+    setMeta('og:title', 'Perplexity vs Google Gemini | AI工具对比 | longxiaclub.com', true);
+    setMeta('og:description', 'Perplexity vs Google Gemini全方位PK：搜索精度、实时信息、多模态能力全面横评。', true);
+    setMeta('og:url', 'https://longxiaclub.com/compare/perplexity-vs-gemini', true);
+    setMeta('og:type', 'article', true);
+    setMeta('og:image', 'https://longxiaclub.com/og-image.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'Perplexity vs Google Gemini | AI工具对比 | longxiaclub.com');
+    setMeta('twitter:description', 'Perplexity vs Google Gemini全方位PK：搜索精度、实时信息、多模态能力全面横评。');
+    setMeta('twitter:image', 'https://longxiaclub.com/og-image.png');
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); }
+    link.setAttribute('href', 'https://longxiaclub.com/compare/perplexity-vs-gemini');
+  }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { ArrowRight, Check, X as XIcon, Minus, Zap, Code, Brain, DollarSign, MessageSquare, Image, Globe, Bot, Network, Terminal, Sparkles, Lightbulb, BarChart3, FileText } from 'lucide-react';
 
 type Winner = 'claude' | 'chatgpt' | 'draw';
@@ -83,6 +84,29 @@ export default function ComparePage() {
       },
     ],
   };
+
+  // SEO metadata injection for 'use client' page
+  useEffect(() => {
+    document.title = 'Claude vs ChatGPT | AI工具对比 | longxiaclub.com';
+    const setMeta = (name: string, content: string, property = false) => {
+      let el = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!el) { el = document.createElement('meta'); property ? el.setAttribute('property', name) : el.setAttribute('name', name); document.head.appendChild(el); }
+      el.setAttribute('content', content);
+    };
+    setMeta('description', 'Claude vs ChatGPT：2026年AI对话模型深度对比——价格、推理、代码、长文本、多模态全面横评，帮你选对AI助手。');
+    setMeta('og:title', 'Claude vs ChatGPT | AI工具对比 | longxiaclub.com', true);
+    setMeta('og:description', 'Claude vs ChatGPT全方位PK：价格、推理、代码、长文本、多模态全面横评。', true);
+    setMeta('og:url', 'https://longxiaclub.com/compare/claude-vs-chatgpt', true);
+    setMeta('og:type', 'article', true);
+    setMeta('og:image', 'https://longxiaclub.com/og-image.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'Claude vs ChatGPT | AI工具对比 | longxiaclub.com');
+    setMeta('twitter:description', 'Claude vs ChatGPT全方位PK：价格、推理、代码、长文本、多模态全面横评。');
+    setMeta('twitter:image', 'https://longxiaclub.com/og-image.png');
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); }
+    link.setAttribute('href', 'https://longxiaclub.com/compare/claude-vs-chatgpt');
+  }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">

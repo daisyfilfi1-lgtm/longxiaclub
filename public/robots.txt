@@ -1,3 +1,13 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api/admin
+Disallow: /auth
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /api/admin
+Disallow: /auth
+
 Sitemap: https://longxiaclub.com/sitemap.xml

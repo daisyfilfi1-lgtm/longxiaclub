@@ -11,13 +11,18 @@ export const metadata: Metadata = {
     description: '每日精选AI前沿论文、大厂动态、社区风向和深度解读，覆盖S/A/B/C/D五级内容体系。',
     type: 'website',
     url: 'https://longxiaclub.com/daily',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
   },
   twitter: {
     title: 'AI日报 — 每日AI前沿资讯 | AI导航站',
     description: '每日精选AI前沿论文、大厂动态、社区风向和深度解读。',
+    images: ['https://longxiaclub.com/og-image.png'],
   },
-  keywords: ['AI日报', 'AI前沿', 'AI论文', '每日AI资讯', 'AI导航站日报'],
-};
+  alternates: {
+    canonical: '/daily',
+  },
+}
 
 const levelColors: Record<string, { bg: string; text: string; label: string }> = {
   S: { bg: 'bg-purple-100', text: 'text-purple-700', label: '前沿' },

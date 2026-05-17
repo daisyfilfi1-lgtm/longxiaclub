@@ -9,6 +9,18 @@ export const metadata: Metadata = {
     title: 'ChatGPT vs DeepSeek 全面对比 | 2026年',
     description: '从价格到性能，从中文支持到代码能力，一篇文章看懂两大AI模型怎么选。',
     type: 'article',
+    url: 'https://longxiaclub.com/compare/chatgpt-vs-deepseek',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ChatGPT vs DeepSeek 全面对比 | 2026年',
+    description: '从价格到性能，从中文支持到代码能力，一篇文章看懂两大AI模型怎么选。',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/compare/chatgpt-vs-deepseek',
   },
 };
 

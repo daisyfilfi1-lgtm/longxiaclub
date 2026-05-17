@@ -9,6 +9,18 @@ export const metadata: Metadata = {
     title: 'Claude Code vs Cursor | 2026年AI编程工具对比',
     description: '从价格到Agent能力，从IDE体验到插件生态，两大AI编程工具全方位PK。',
     type: 'article',
+    url: 'https://longxiaclub.com/compare/claude-code-vs-cursor',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Claude Code vs Cursor | 2026年AI编程工具对比',
+    description: '从价格到Agent能力，从IDE体验到插件生态，两大AI编程工具全方位PK。',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/compare/claude-code-vs-cursor',
   },
 };
 

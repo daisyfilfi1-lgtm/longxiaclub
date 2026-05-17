@@ -99,12 +99,19 @@ export async function generateMetadata({ params }: { params: Promise<{ date: str
       type: 'article',
       publishedTime: `${meta.date}T00:00:00+08:00`,
       url: `https://longxiaclub.com/daily/${meta.date}`,
+      images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+      siteName: 'AI导航站',
     },
     twitter: {
+      card: 'summary_large_image',
       title: `${meta.title} | AI导航站`,
       description: meta.summary,
+      images: ['https://longxiaclub.com/og-image.png'],
     },
     keywords: ['AI日报', meta.date, 'AI前沿', 'AI论文', 'AI资讯'],
+    alternates: {
+      canonical: `/daily/${meta.date}`,
+    },
   };
 }
 

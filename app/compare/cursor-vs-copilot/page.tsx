@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { ArrowRight, Check, X as XIcon, Minus, Zap, Code, Brain, DollarSign, Terminal, GitBranch, Layers, Users, Sparkles, Lightbulb, BarChart3, Globe, Monitor } from 'lucide-react';
 
 type Winner = 'cursor' | 'copilot' | 'draw';
@@ -83,6 +84,29 @@ export default function ComparePage() {
       },
     ],
   };
+
+  // SEO metadata injection for 'use client' page
+  useEffect(() => {
+    document.title = 'Cursor vs GitHub Copilot | AI工具对比 | longxiaclub.com';
+    const setMeta = (name: string, content: string, property = false) => {
+      let el = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!el) { el = document.createElement('meta'); property ? el.setAttribute('property', name) : el.setAttribute('name', name); document.head.appendChild(el); }
+      el.setAttribute('content', content);
+    };
+    setMeta('description', 'Cursor vs GitHub Copilot：2026年AI编程助手深度对比——智能程度、价格、IDE集成、代码生成质量全面PK。');
+    setMeta('og:title', 'Cursor vs GitHub Copilot | AI工具对比 | longxiaclub.com', true);
+    setMeta('og:description', 'Cursor vs GitHub Copilot全方位PK：智能程度、价格、IDE集成、代码生成质量全面横评。', true);
+    setMeta('og:url', 'https://longxiaclub.com/compare/cursor-vs-copilot', true);
+    setMeta('og:type', 'article', true);
+    setMeta('og:image', 'https://longxiaclub.com/og-image.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'Cursor vs GitHub Copilot | AI工具对比 | longxiaclub.com');
+    setMeta('twitter:description', 'Cursor vs GitHub Copilot全方位PK：智能程度、价格、IDE集成、代码生成质量全面横评。');
+    setMeta('twitter:image', 'https://longxiaclub.com/og-image.png');
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); }
+    link.setAttribute('href', 'https://longxiaclub.com/compare/cursor-vs-copilot');
+  }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">

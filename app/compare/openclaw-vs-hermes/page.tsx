@@ -9,6 +9,18 @@ export const metadata: Metadata = {
     title: 'OpenClaw vs Hermes Agent | 2026年AI Agent对比',
     description: '从开源性到编程能力，从安装复杂度到社区生态，两大AI Agent框架全方位PK。',
     type: 'article',
+    url: 'https://longxiaclub.com/compare/openclaw-vs-hermes',
+    images: [{ url: 'https://longxiaclub.com/og-image.png', width: 1200, height: 630 }],
+    siteName: 'AI导航站',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OpenClaw vs Hermes Agent | 2026年AI Agent对比',
+    description: '从开源性到编程能力，从安装复杂度到社区生态，两大AI Agent框架全方位PK。',
+    images: ['https://longxiaclub.com/og-image.png'],
+  },
+  alternates: {
+    canonical: '/compare/openclaw-vs-hermes',
   },
 };
 

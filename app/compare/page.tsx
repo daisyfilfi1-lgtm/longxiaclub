@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import { ArrowUpRight, GitCompare, BarChart3, Star, Zap } from 'lucide-react';
 
@@ -96,6 +97,32 @@ const breadcrumbJsonLd = {
 };
 
 export default function CompareListPage() {
+  // SEO metadata injection for 'use client' page
+  useEffect(() => {
+    document.title = 'AI工具对比 | longxiaclub.com | ChatGPT vs DeepSeek vs Claude 全方位PK';
+    
+    const setMeta = (name: string, content: string, property = false) => {
+      let el = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!el) { el = document.createElement('meta'); property ? el.setAttribute('property', name) : el.setAttribute('name', name); document.head.appendChild(el); }
+      el.setAttribute('content', content);
+    };
+    setMeta('description', 'AI工具全方位对比PK：ChatGPT vs DeepSeek、Cursor vs Copilot、Claude vs ChatGPT、Perplexity vs Gemini、Notion vs Obsidian——从价格、能力、生态帮你选出最佳AI工具。');
+    setMeta('og:title', 'AI工具对比 | longxiaclub.com', true);
+    setMeta('og:description', 'ChatGPT vs DeepSeek、Cursor vs Copilot等AI工具全方位PK对比，帮你选出最佳AI工具。', true);
+    setMeta('og:url', 'https://longxiaclub.com/compare', true);
+    setMeta('og:type', 'website', true);
+    setMeta('og:image', 'https://longxiaclub.com/og-image.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'AI工具对比 | longxiaclub.com');
+    setMeta('twitter:description', 'AI工具全方位PK对比，帮你选出最佳AI工具。');
+    setMeta('twitter:image', 'https://longxiaclub.com/og-image.png');
+    
+    // Canonical URL
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); }
+    link.setAttribute('href', 'https://longxiaclub.com/compare');
+  }, []);
+
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">
       <div className="fixed inset-0 bg-gradient-mint pointer-events-none" />
