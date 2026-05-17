@@ -5,6 +5,18 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-18",
+    title: "AI 日报 | 2026-05-18 周一 — Agent 架构大讨论",
+    summary: "Anthropic Managed Agents 大脑-双手解耦架构正式发布；AI Builder 圈全面转向 Codex（steipete 344❤️、Dan Shipper 100❤️）；HN 热帖（443pt）反思 AI 不会加速旧流程，需要重新设计流程；Zerostack 纯 Rust 极简 Agent 获 529 分；OpenAI 与马耳他政府合作全民 ChatGPT Plus。",
+    highlights: [
+      "Anthropic 发布 Managed Agents 架构：大脑与双手解耦的设计原则",
+      "AI Builder 圈 Codex 接管潮 — steipete、Dan Shipper 带头转向",
+      "HN 热帖（443pt）：AI 不会让你的流程更快，需要重新设计流程而非在旧流程上叠加 AI",
+      "Zerostack：Unix 风格的纯 Rust 编码 Agent 获 HN 529 分",
+      "OpenAI 与马耳他政府合作，全国公民免费使用 ChatGPT Plus",
+    ]
+  },
+  {
     date: "2026-05-17",
     title: "AI 日报 | 2026-05-17 周日",
     summary: "周日数据偏少但精品多。Anthropic Managed Agents脑手分离架构正式发布；Peter Steinberger每月$200k AI支出实验引发热议(3727❤️)；新加坡政府规划1.3B agents国家MCP网关；Guillermo Rauch展示Grok CLI+Vercel云部署；Aaron Levie提出AI需前向部署工程而非传统SaaS；HN热议SANA-WM 2.6B开源世界模型(276pts)。",

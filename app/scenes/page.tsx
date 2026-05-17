@@ -5,7 +5,7 @@ import { ArrowUpRight, Bookmark, Layers, Network } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { scenes } from '@/data/tools';
 import { getSceneRelations } from '@/lib/knowledge-graph';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 // AI Level badge colors
 const aiLevelConfig: Record<string, { label: string; bg: string; text: string; border: string }> = {
@@ -46,6 +46,46 @@ export default function ScenesPage() {
     personal: scenes.filter(s => s.category === 'personal').length,
     enterprise: scenes.filter(s => s.category === 'enterprise').length,
   }), []);
+
+  // SEO metadata + JSON-LD for client component
+  useEffect(() => {
+    document.title = '场景方案 - AI导航站 | AI工具场景化推荐';
+    const setMeta = (name: string, content: string, property = false) => {
+      let el = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!el) { el = document.createElement('meta'); property ? el.setAttribute('property', name) : el.setAttribute('name', name); document.head.appendChild(el); }
+      el.setAttribute('content', content);
+    };
+    setMeta('description', '基于业务场景的AI解决方案推荐系统，覆盖个人效率和企业组织两大类别，整合AI工具和Skill，提供场景化策展方案。');
+    setMeta('og:title', '场景方案 - AI导航站', true);
+    setMeta('og:description', '基于业务场景的AI解决方案推荐系统，覆盖个人效率和企业组织两大类别。', true);
+    setMeta('og:url', 'https://longxiaclub.com/scenes', true);
+    setMeta('og:type', 'website', true);
+    setMeta('og:image', 'https://longxiaclub.com/og-image.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', '场景方案 - AI导航站');
+    setMeta('twitter:description', '基于业务场景的AI解决方案推荐系统。');
+    setMeta('twitter:image', 'https://longxiaclub.com/og-image.png');
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) { canon = document.createElement('link'); canon.setAttribute('rel', 'canonical'); document.head.appendChild(canon); }
+    canon.setAttribute('href', 'https://longxiaclub.com/scenes');
+    
+    // Inject CollectionPage + ItemList JSON-LD
+    let script = document.querySelector('script[data-scene-jsonld]');
+    if (!script) {
+      script = document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('data-scene-jsonld', '');
+      document.head.appendChild(script);
+    }
+    const collectionPageJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'AI场景方案',
+      description: '基于业务场景的AI解决方案推荐系统，覆盖个人效率和企业组织两大类别',
+      url: 'https://longxiaclub.com/scenes',
+    };
+    script.textContent = JSON.stringify(collectionPageJsonLd);
+  }, []);
 
   return (
     <main className="min-h-screen bg-slate-50 dot-pattern">

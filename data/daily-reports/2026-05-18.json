@@ -1,0 +1,124 @@
+{
+  "date": "2026-05-18",
+  "title": "AI 日报 | 2026-05-18 周一 — Agent 架构大讨论",
+  "summary": "Anthropic 发布 Managed Agents 大脑-双手解耦架构；AI Builder 圈全面转向 Codex；HN 热帖反思 AI 不会加速旧流程；Zerostack 纯 Rust 极简 Agent 获 529 分；OpenAI 与马耳他合作全民 ChatGPT Plus",
+  "highlights": [
+    "Anthropic 发布 Managed Agents 架构：大脑与双手解耦的设计原则",
+    "AI Builder 圈 Codex 接管潮 — steipete、Dan Shipper 带头转向",
+    "HN 热帖（443pt）：AI 不会让你的流程更快，需要重新设计流程而非在旧流程上叠加 AI",
+    "Zerostack：Unix 风格的纯 Rust 编码 Agent 获 HN 529 分",
+    "OpenAI 与马耳他政府合作，全国公民免费使用 ChatGPT Plus"
+  ],
+  "sections": {
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/engineering",
+          "entries": [
+            "Scaling Managed Agents: Decoupling the brain from the hands — Anthropic 正式发布 Managed Agents 架构文章，阐述将 Agent 的大脑（规划、推理）与双手（执行、工具调用）解耦的设计原则 (https://www.anthropic.com/engineering/managed-agents)",
+            "Claude Code auto mode: a safer way to skip permissions — Claude Code 新增 auto mode，可在安全约束下自动跳过权限确认，减少人工打断 (https://www.anthropic.com/engineering/claude-code-auto-mode)",
+            "An update on recent Claude Code quality reports — Claude Code 4月23日质量事件的回顾与改进措施 (https://www.anthropic.com/engineering/april-23-postmortem)"
+          ]
+        },
+        {
+          "source": "Google AI",
+          "url": "https://blog.google",
+          "entries": [
+            "AI-powered Google Finance expands to Europe — Google Finance AI 功能扩展到欧洲，AI 驱动的金融信息聚合 (https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/)",
+            "Creative legends use AI to make ads for small businesses — Google 让创意大师用 AI 为小企业制作广告 (https://blog.google/company-news/inside-google/company-announcements/the-small-brief/)"
+          ]
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder 动态",
+      "items": [
+        {
+          "author": "Garry Tan (YC President)",
+          "content": "GBrain is free open source. MIT license. You can find it and install it in your agent with one command.",
+          "url": "https://x.com/garrytan/status/2055670797596012657",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Peter Steinberger (steipete)",
+          "content": "deslop your Claude code if you haven't yet switched to Codex. — AI Builder 圈重量级人物公开对比 Claude Code 与 Codex，推荐转向后者",
+          "url": "https://x.com/steipete/status/2055747016727167035",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Dan Shipper (Every.to CEO)",
+          "content": "Successfully Codex-pilling the world one text at a time — Every.to CEO 持续推动 Codex 在创作者圈的采用",
+          "url": "https://x.com/danshipper/status/2055715359244566552",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Zara Zhang",
+          "content": "AI psychosis: cycling between two mental states every day — using coding agents feels omnipotent, scrolling social media makes you feel worthless. Describes the psychological whiplash of AI-augmented work",
+          "url": "https://x.com/zarazhangrui/status/2055728641913536762",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Dan Shipper (Every.to CEO)",
+          "content": "If you use a bicycle it weakens your walking abilities, too! — 回击 AI 让人变笨的论点：工具不削弱能力，而是改变了能力的定义",
+          "url": "https://x.com/danshipper/status/2055727669900141017",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Nikunj Kothari",
+          "content": "Advises young people against moving to venture — you need to deeply embed in a domain before you can understand what excellence means",
+          "url": "https://x.com/nikunj/status/2055648134819450907",
+          "source": "X/Twitter"
+        },
+        {
+          "author": "Thariq (trq212)",
+          "content": "HTML continues to be undefeated — 在 JS 框架泛滥的时代，纯 HTML 依然是最可靠的前端方案",
+          "url": "https://x.com/trq212/status/2055903660476129723",
+          "source": "X/Twitter"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub 热门项目",
+      "items": [
+        {
+          "name": "Zerostack",
+          "stars": "529pts (HN)",
+          "description": "一个 Unix 风格的编码 Agent，使用纯 Rust 编写。遵循做一件事并做到极致的设计哲学，对比当前 Agent 框架的臃肿趋势令人耳目一新",
+          "url": "https://crates.io/crates/zerostack/1.0.0"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "I don't think AI will make your processes go faster",
+          "url": "https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/",
+          "source": "Hacker News",
+          "description": "核心论点：AI 被塞进了没有重新设计的旧流程中，所以不会加速。需要重新设计流程，让 AI 成为大脑、人成为决策者，而非在旧流程上叠加 AI",
+          "score": "443"
+        },
+        {
+          "title": "OpenAI and Government of Malta partner to roll out ChatGPT Plus to all citizens",
+          "url": "https://openai.com/index/malta-chatgpt-plus-partnership/",
+          "source": "Hacker News",
+          "description": "首个国家级 AI 普及案例 — OpenAI 与马耳他政府合作，全国公民免费使用 ChatGPT Plus",
+          "score": "310"
+        },
+        {
+          "title": "No Priors: Pax Silica — Inside the Trump Administration's Tech Strategy",
+          "url": "https://www.youtube.com/watch?v=xjlYpGaxIPA",
+          "source": "No Priors Podcast",
+          "description": "美国副国务卿 Jacob Helberg 讨论 Trump 政府的科技策略，涵盖芯片出口管制和 AI 地缘政治"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "Anthropic Engineering Blog (3), Google AI Blog (2), X/Twitter AI Builders (11), Hacker News (3), GitHub Trending (1), No Priors Podcast (1), Stability AI Blog (2), B站 (1)",
+    "collection_time": "2026-05-18 06:15 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}

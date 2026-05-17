@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "") || "";
 
 const nextConfig: NextConfig = {
-  // 输出模式：standalone 用于 Docker 部署
-  output: 'standalone',
+  // 输出模式：默认（Netlify 自动处理）
   
   images: {
     unoptimized: true,

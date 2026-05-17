@@ -111,7 +111,7 @@ export default async function SceneDetailPage({ params }: Props) {
           '@type': 'ListItem',
           position: sceneTools.length + i + 1,
           item: {
-            '@type': 'TechArticle',
+            '@type': 'HowTo',
             name: s.name,
             description: s.description,
             url: `https://longxiaclub.com/skills/${s.id}`,
