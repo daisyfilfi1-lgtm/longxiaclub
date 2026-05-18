@@ -5,6 +5,18 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-19",
+    title: "AI 日报 | 2026-05-19 周一 — Anthropic脑手分离架构与Claude Code Auto Mode",
+    summary: "Anthropic发布Managed Agents脑手分离架构及Claude Code auto mode白名单机制。Google Finance AI扩展欧洲。No Priors播客讨论特朗普政府科技战略。vibe-observer代表Agent可观测性新品类。摩尔线程召开2026产品发布会。",
+    highlights: [
+      "Anthropic提出「脑手分离」Managed Agents架构，将Agent的规划与执行解耦",
+      "Claude Code推出auto mode，通过声明式白名单实现安全自主操作",
+      "Claude Code Tracer vibe-observer代表Agent可观测性新品类",
+      "Google AI Finance扩展至欧洲市场",
+      "摩尔线程举行2026产品发布会，国产AI算力持续演进",
+    ]
+  },
+  {
     date: "2026-05-18",
     title: "AI 日报 | 2026-05-18 周一 — Agent 架构大讨论",
     summary: "Anthropic Managed Agents 大脑-双手解耦架构正式发布；AI Builder 圈全面转向 Codex（steipete 344❤️、Dan Shipper 100❤️）；HN 热帖（443pt）反思 AI 不会加速旧流程，需要重新设计流程；Zerostack 纯 Rust 极简 Agent 获 529 分；OpenAI 与马耳他政府合作全民 ChatGPT Plus。",

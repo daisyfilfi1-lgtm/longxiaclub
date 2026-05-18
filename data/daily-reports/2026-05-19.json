@@ -1,0 +1,94 @@
+{
+  "date": "2026-05-19",
+  "title": "AI 日报 | 2026-05-19 周一",
+  "summary": "Anthropic 发布 Managed Agents 脑手分离架构及 Claude Code auto mode；Google Finance AI 扩展至欧洲；vibe-observer 等新工具涌现。",
+  "highlights": [
+    "Anthropic 提出「脑手分离」Managed Agents 架构，将 Agent 的规划与执行解耦",
+    "Claude Code 推出 auto mode，通过声明式白名单实现安全自主操作",
+    "Claude Code Tracer vibe-observer 代表 Agent 可观测性新品类"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿架构",
+      "items": [
+        {
+          "title": "Scaling Managed Agents: Decoupling the brain from the hands",
+          "url": "https://www.anthropic.com/engineering/managed-agents",
+          "description": "Anthropic 提出 Managed Agents 架构，将 Agent 的规划决策（脑）与执行操作（手）解耦。中心化的 brain 模型负责任务分解和策略制定，hands 只负责执行具体操作。该架构解决了 Agent 在复杂多步骤任务中容易偏离目标的核心问题，为规模化部署 Agent 提供了基础设施级方案。",
+          "source": "Anthropic Engineering"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂动态",
+      "items": [
+        {
+          "source": "Anthropic Engineering",
+          "entries": [
+            "Claude Code auto mode — 通过项目级 .claude/auto.yaml 声明白名单操作（读取文件、运行特定命令），在安全边界内跳过权限确认，实现不打断用户的自主任务执行",
+            "Claude Code 质量事件复盘 (April 23 postmortem) — 公布 4月23日质量事件的根因、修复措施和后续质量保障改进计划，包括增强测试覆盖和改进回滚机制"
+          ],
+          "url": "https://www.anthropic.com/engineering/"
+        },
+        {
+          "source": "Google AI",
+          "entries": [
+            "AI-powered Google Finance 扩展至欧洲 — 为欧洲市场用户提供 AI 驱动的财经信息和分析",
+            "The Small Brief — 邀请创意界传奇人物使用 AI 为小型企业制作广告，探索 AI+创意产业的结合"
+          ],
+          "url": "https://blog.google/"
+        }
+      ]
+    },
+    "builders": {
+      "title": "Builder 动态",
+      "items": [
+        {
+          "author": "No Priors (Sarah Guo & Elad Gil)",
+          "content": "Pax Silica: Inside the Trump Administration's Tech Strategy — 邀请美国副国务卿 Jacob Helberg 讨论 AI 监管、芯片出口管控、中美科技竞争等话题",
+          "url": "https://www.youtube.com/watch?v=xjlYpGaxIPA",
+          "source": "No Priors Podcast"
+        },
+        {
+          "author": "Stability AI",
+          "content": "发布 SD-XL 1.0 (Generative Models v0.1.0)，采用宽松许可协议，推进商用友好的开源图像生成",
+          "url": "https://github.com/Stability-AI/generative-models/releases/tag/0.1.0",
+          "source": "GitHub"
+        }
+      ]
+    },
+    "github": {
+      "title": "新锐项目",
+      "items": [
+        {
+          "name": "vibe-observer",
+          "stars": "92",
+          "description": "Claude Code Tracer & Observer — 追踪和观察 Claude Code 执行过程的工具，帮助开发者理解 Agent 行为模式。用 Rust 编写，代表 Agent 可观测性工具的新品类。",
+          "url": "https://github.com/AIchovy/vibe-observer"
+        },
+        {
+          "name": "hydra-launcher",
+          "stars": "244",
+          "description": "Hydra Launcher — PC 游戏启动器，管理免费游戏库和可信来源链接。TypeScript 编写。",
+          "url": "https://github.com/arnabchoudhury404/hydra-launcher"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区",
+      "items": [
+        {
+          "title": "Moore Threads 2026 产品发布会",
+          "url": "https://www.ithome.com/0/951/234.htm",
+          "source": "IT之家",
+          "description": "摩尔线程于 5月18日19:00 举行 2026 产品发布会，预计发布 NAS/迷你主机形态的新产品。国产 GPU/AI 算力硬件的持续演进。"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "Anthropic Engineering Blog, Google AI Blog, No Priors Podcast, Stability AI GitHub, Hacker News, GitHub Trending/New, Bocha AI Search",
+    "collection_time": "2026-05-18 05:30 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}
