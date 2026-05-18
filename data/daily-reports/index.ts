@@ -6,14 +6,14 @@ import type { DailyReportMeta } from '@/types';
 const reports: DailyReportMeta[] = [
   {
     date: "2026-05-19",
-    title: "AI 日报 | 2026-05-19 周一 — Anthropic脑手分离架构与Claude Code Auto Mode",
-    summary: "Anthropic发布Managed Agents脑手分离架构及Claude Code auto mode白名单机制。Google Finance AI扩展欧洲。No Priors播客讨论特朗普政府科技战略。vibe-observer代表Agent可观测性新品类。摩尔线程召开2026产品发布会。",
+    title: "AI 日报 | 2026-05-19 周二 — Anthropic 收购 Stainless",
+    summary: "Anthropic收购API SDK平台Stainless强化开发者工具链。Elon Musk输掉对OpenAI的诉讼（HN 648pts）。smallcode用4B小模型达87%编码基准（466★）。Odyssey发布Agora-1多Agent世界模型。Modal将GPU推理冷启动缩短40倍。",
     highlights: [
-      "Anthropic提出「脑手分离」Managed Agents架构，将Agent的规划与执行解耦",
-      "Claude Code推出auto mode，通过声明式白名单实现安全自主操作",
-      "Claude Code Tracer vibe-observer代表Agent可观测性新品类",
-      "Google AI Finance扩展至欧洲市场",
-      "摩尔线程举行2026产品发布会，国产AI算力持续演进",
+      "Anthropic收购Stainless，API SDK领域最佳公司并入Claude生态",
+      "Elon Musk输掉对Sam Altman和OpenAI的诉讼（648pts HN）",
+      "smallcode：4B小模型编码Agent达87%基准，挑战大模型假设（466★）",
+      "Agora-1：多Agent世界模型发布，Agent社会模拟新基建",
+      "Modal推理冷启动优化40倍，serverless GPU推理里程碑",
     ]
   },
   {

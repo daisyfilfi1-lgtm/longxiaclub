@@ -1,94 +1,121 @@
 {
   "date": "2026-05-19",
-  "title": "AI 日报 | 2026-05-19 周一",
-  "summary": "Anthropic 发布 Managed Agents 脑手分离架构及 Claude Code auto mode；Google Finance AI 扩展至欧洲；vibe-observer 等新工具涌现。",
+  "title": "AI 日报 | 2026-05-19 周二 — Anthropic 收购 Stainless",
+  "summary": "Anthropic 收购 API SDK 平台 Stainless；Elon Musk 输掉对 OpenAI 的诉讼（HN 648pts）；smallcode 用 4B 小模型达到 87% 编码基准；Odyssey 发布 Agora-1 多 Agent 世界模型；Modal 将 GPU 推理冷启动缩短 40 倍",
   "highlights": [
-    "Anthropic 提出「脑手分离」Managed Agents 架构，将 Agent 的规划与执行解耦",
-    "Claude Code 推出 auto mode，通过声明式白名单实现安全自主操作",
-    "Claude Code Tracer vibe-observer 代表 Agent 可观测性新品类"
+    "Anthropic 收购 Stainless，加强 API 开发者工具链",
+    "Elon Musk 输掉对 Sam Altman 和 OpenAI 的诉讼（648pts HN）",
+    "smallcode：4B 小模型编码 Agent 达 87% 基准，466★",
+    "Agora-1：多 Agent 世界模型发布",
+    "Modal 推理冷启动优化 40 倍"
   ],
   "sections": {
-    "papers": {
-      "title": "前沿架构",
-      "items": [
-        {
-          "title": "Scaling Managed Agents: Decoupling the brain from the hands",
-          "url": "https://www.anthropic.com/engineering/managed-agents",
-          "description": "Anthropic 提出 Managed Agents 架构，将 Agent 的规划决策（脑）与执行操作（手）解耦。中心化的 brain 模型负责任务分解和策略制定，hands 只负责执行具体操作。该架构解决了 Agent 在复杂多步骤任务中容易偏离目标的核心问题，为规模化部署 Agent 提供了基础设施级方案。",
-          "source": "Anthropic Engineering"
-        }
-      ]
-    },
     "blogs": {
       "title": "大厂动态",
       "items": [
         {
-          "source": "Anthropic Engineering",
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/engineering",
           "entries": [
-            "Claude Code auto mode — 通过项目级 .claude/auto.yaml 声明白名单操作（读取文件、运行特定命令），在安全边界内跳过权限确认，实现不打断用户的自主任务执行",
-            "Claude Code 质量事件复盘 (April 23 postmortem) — 公布 4月23日质量事件的根因、修复措施和后续质量保障改进计划，包括增强测试覆盖和改进回滚机制"
-          ],
-          "url": "https://www.anthropic.com/engineering/"
+            "Anthropic 收购 Stainless API SDK 平台 — 客户包括 OpenAI、Meta、Cloudflare，将强化 Claude API 的多语言 SDK 生态 (https://www.anthropic.com/news/anthropic-acquires-stainless)",
+            "Scaling Managed Agents: Decoupling the brain from the hands — 正式阐述 Agent 大脑（规划/推理）与双手（执行/工具调用）分离的设计原则 (https://www.anthropic.com/engineering/managed-agents)",
+            "Claude Code auto mode: a safer way to skip permissions — 新增自动模式，在安全约束下跳过权限确认减少打断 (https://www.anthropic.com/engineering/claude-code-auto-mode)",
+            "April 23 Postmortem: Claude Code quality incident — 质量事件回顾与改进措施 (https://www.anthropic.com/engineering/april-23-postmortem)"
+          ]
         },
         {
           "source": "Google AI",
+          "url": "https://blog.google",
           "entries": [
-            "AI-powered Google Finance 扩展至欧洲 — 为欧洲市场用户提供 AI 驱动的财经信息和分析",
-            "The Small Brief — 邀请创意界传奇人物使用 AI 为小型企业制作广告，探索 AI+创意产业的结合"
-          ],
-          "url": "https://blog.google/"
+            "AI-powered Google Finance expands to Europe — AI 驱动金融信息聚合扩展到欧洲 (https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/)",
+            "Creative legends use AI to make ads for small businesses — 创意大师用 AI 为小企业制作广告 (https://blog.google/company-news/inside-google/company-announcements/the-small-brief/)"
+          ]
         }
       ]
     },
     "builders": {
-      "title": "Builder 动态",
+      "title": "AI Builder 动态",
       "items": [
         {
-          "author": "No Priors (Sarah Guo & Elad Gil)",
-          "content": "Pax Silica: Inside the Trump Administration's Tech Strategy — 邀请美国副国务卿 Jacob Helberg 讨论 AI 监管、芯片出口管控、中美科技竞争等话题",
-          "url": "https://www.youtube.com/watch?v=xjlYpGaxIPA",
-          "source": "No Priors Podcast"
+          "author": "Odyssey ML",
+          "content": "Introducing Agora-1: The Multi-Agent World Model — 发布多 Agent 世界模型，让多个 AI Agent 在共享世界模型中进行交互和协作",
+          "url": "https://odyssey.ml/introducing-agora-1",
+          "source": "Odyssey"
         },
         {
-          "author": "Stability AI",
-          "content": "发布 SD-XL 1.0 (Generative Models v0.1.0)，采用宽松许可协议，推进商用友好的开源图像生成",
-          "url": "https://github.com/Stability-AI/generative-models/releases/tag/0.1.0",
-          "source": "GitHub"
+          "author": "Modal",
+          "content": "Cutting inference cold starts by 40x with LP, FUSE, C/R, and CUDA-checkpoint — 推理冷启动优化 40 倍，对 serverless GPU 推理有重大工程意义",
+          "url": "https://modal.com/blog/truly-serverless-gpus",
+          "source": "Modal Blog"
+        },
+        {
+          "author": "Jacob Helberg (US Under Secretary)",
+          "content": "Pax Silica: Inside the Trump Administration's Tech Strategy — 讨论芯片出口管制和 AI 地缘政治",
+          "url": "https://www.youtube.com/watch?v=xjlYpGaxIPA",
+          "source": "No Priors Podcast"
         }
       ]
     },
     "github": {
-      "title": "新锐项目",
+      "title": "GitHub 热门项目",
       "items": [
+        {
+          "name": "smallcode",
+          "stars": "466",
+          "description": "专为小模型优化的 AI 编码 Agent，使用 4B 参数模型达到 87% 的基准测试成绩，挑战了「编码 Agent 必须用大模型」的假设",
+          "url": "https://github.com/Doorman11991/smallcode"
+        },
         {
           "name": "vibe-observer",
           "stars": "92",
-          "description": "Claude Code Tracer & Observer — 追踪和观察 Claude Code 执行过程的工具，帮助开发者理解 Agent 行为模式。用 Rust 编写，代表 Agent 可观测性工具的新品类。",
+          "description": "用 Rust 编写的 Claude Code 追踪和观察工具，可记录和分析 Claude Code 的执行过程",
           "url": "https://github.com/AIchovy/vibe-observer"
         },
         {
           "name": "hydra-launcher",
           "stars": "244",
-          "description": "Hydra Launcher — PC 游戏启动器，管理免费游戏库和可信来源链接。TypeScript 编写。",
+          "description": "Hydra Launcher — 免费 PC 游戏库下载器，支持可信源链接",
           "url": "https://github.com/arnabchoudhury404/hydra-launcher"
         }
       ]
     },
     "community": {
-      "title": "社区",
+      "title": "社区热点",
       "items": [
         {
-          "title": "Moore Threads 2026 产品发布会",
-          "url": "https://www.ithome.com/0/951/234.htm",
-          "source": "IT之家",
-          "description": "摩尔线程于 5月18日19:00 举行 2026 产品发布会，预计发布 NAS/迷你主机形态的新产品。国产 GPU/AI 算力硬件的持续演进。"
+          "title": "Elon Musk has lost his lawsuit against Sam Altman and OpenAI",
+          "url": "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/",
+          "source": "Hacker News",
+          "description": "Elon Musk 对 Sam Altman 和 OpenAI 的诉讼被驳回。这是 AI 行业持续数年的法律大戏的重大节点，短期利好 OpenAI，但 AI 治理底层问题未解决",
+          "score": "648"
+        },
+        {
+          "title": "Anthropic acquires Stainless",
+          "url": "https://www.anthropic.com/news/anthropic-acquires-stainless",
+          "source": "Hacker News",
+          "description": "Anthropic 收购 API SDK 生成平台 Stainless，其客户包括 OpenAI、Meta、Cloudflare。将大幅提升 Claude API 的开发者体验",
+          "score": "297"
+        },
+        {
+          "title": "We stopped AI bot spam in GitHub repo using Git's --author flag",
+          "url": "https://archestra.ai/blog/only-responsible-ai",
+          "source": "Hacker News",
+          "description": "利用 Git 的 --author 标记识别和阻止 AI bot 生成的 spam PR，简单有效的防御方案",
+          "score": "360"
+        },
+        {
+          "title": "We let AIs run radio stations (Andon FM)",
+          "url": "https://andonlabs.com/blog/andon-fm",
+          "source": "Hacker News",
+          "description": "AI 完全运营广播电台的实验，展示 AI 在内容生成领域的边界拓展——从文本到实时音频流",
+          "score": "94"
         }
       ]
     }
   },
   "source_info": {
-    "data_sources": "Anthropic Engineering Blog, Google AI Blog, No Priors Podcast, Stability AI GitHub, Hacker News, GitHub Trending/New, Bocha AI Search",
-    "collection_time": "2026-05-18 05:30 BJT",
+    "data_sources": "Anthropic Blog (3+1), Google AI Blog (2), Hacker News (5), GitHub Trending (3), No Priors Podcast (1), Stability AI (2), B站 (1)",
+    "collection_time": "2026-05-19 06:30 BJT",
     "generated_by": "Daisy Agent (Hermes)"
   }
 }
