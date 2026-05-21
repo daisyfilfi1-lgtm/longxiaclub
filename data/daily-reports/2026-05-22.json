@@ -1,0 +1,146 @@
+{
+  "date": "2026-05-22",
+  "title": "AI 日报 | 2026-05-22 周五",
+  "summary": "Google I/O 2026 正式开启 Agentic Era，Gemini 3.5 Flash + Antigravity 2.0 发布；Anthropic 以约3亿美元收购 SDK 工具公司 Stainless，MCP 生态进入平台之争；社区掀起 Anti-AI-Slop 运动，slopless 等工具崛起。",
+  "highlights": [
+    "Google I/O 2026: Agentic Era 正式开启，Gemini 3.5 Flash、Antigravity 2.0、AI搜索大改",
+    "Anthropic 约3亿美元收购 Stainless，MCP 生态工具链控制权争夺",
+    "HN 热议 Google Antigravity '数据换AI'争议（460pts），Anti-Slop 运动引爆讨论（440pts）",
+    "GitHub本周：rmux (486★)、slopless (255★) 等 Anti-Slop 与 Agent 工具崛起"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿论文",
+      "items": [
+        {
+          "title": "Multi-Stream LLMs: Parallelizing Prompts, Thinking, and I/O",
+          "url": "https://arxiv.org/abs/2605.12460",
+          "description": "提出将 prompt 处理、推理链和输出生成并行化的新 LLM 架构，有望显著降低推理延迟。HN 社区 28pts 讨论中。",
+          "source": "arXiv"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂动态",
+      "items": [
+        {
+          "source": "Google I/O 2026",
+          "url": "https://www.digitimes.com/news/a20260520VL204/google-2026-gemini-design-hardware.html",
+          "entries": [
+            "Gemini 3.5 Flash 发布：速度突破，面向实时交互场景",
+            "Antigravity 2.0 Agent 框架：将 Gemini 从 App 升级为操作系统级 AI 层",
+            "Omni 多模态世界模型：整合视觉、语音、文本的通用理解",
+            "Google Search 全面 AI 化 + Android XR 智能眼镜硬件布局",
+            "主题定为 'Agentic Era'，战略重心从模型参数转向 AI 基础设施"
+          ]
+        },
+        {
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/engineering/managed-agents",
+          "entries": [
+            "5月18日宣布收购 SDK/MCP 服务器工具公司 Stainless，交易金额约3亿美元（The Information 报道）",
+            "Stainless 公共 SDK 生成器已关闭，OpenAI/Google 的 SDK 工具链被迫重建或迁移",
+            "此为 Anthropic 继 Managed Agents Brain-Hand 架构后的又一生态布局，旨在通过 MCP 协议构建开发者护城河",
+            "Engineering Blog 持续更新：Claude Code auto mode 实现更安全的权限跳过机制"
+          ]
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder 动态",
+      "items": [
+        {
+          "author": "AI & I by Every",
+          "content": "深度分析 Stainless 收购案：Anthropic 以3亿美元收购 SDK 工具公司的战略逻辑，MCP 协议如何从开放标准走向生态护城河",
+          "url": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "source": "Podcast"
+        },
+        {
+          "author": "0xSid",
+          "content": "Google's Antigravity bait and switch — 深度分析 Google Antigravity 框架的'数据换AI'捆绑策略，获 HN 460pts 热议",
+          "url": "https://www.0xsid.com/blog/antigravity-bait-n-switch",
+          "source": "Blog"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub 热门项目",
+      "items": [
+        {
+          "name": "Helvesec/rmux",
+          "stars": "486",
+          "description": "Universal Rust multiplexer，带类型 SDK，可驱动任意 CLI/TUI 应用。原生支持 Linux/macOS/Windows",
+          "url": "https://github.com/Helvesec/rmux"
+        },
+        {
+          "name": "seochecks-ai/slopless",
+          "stars": "255",
+          "description": "确定性 textlint 规则 + CLI，用于检测和清理 Markdown 中的 AI prose slop。Anti-Slop 运动的工具化代表",
+          "url": "https://github.com/seochecks-ai/slopless"
+        },
+        {
+          "name": "basionwang-bot/HermesPet",
+          "stars": "180",
+          "description": "MacBook 桌面 AI 伴侣，Swift 6/SwiftUI，零依赖开箱即用，多引擎并行",
+          "url": "https://github.com/basionwang-bot/HermesPet"
+        },
+        {
+          "name": "DomDemetz/claude-soul",
+          "stars": "76",
+          "description": "Claude Code 自修正学习引擎：持久身份、行为模式追踪、跨会话记忆",
+          "url": "https://github.com/DomDemetz/claude-soul"
+        },
+        {
+          "name": "vincelele/ai-fomo-skills",
+          "stars": "76",
+          "description": "个人超对齐技能集：将 AI 信息过载转化为可复用知识、信号和摘要",
+          "url": "https://github.com/vincelele/ai-fomo-skills"
+        },
+        {
+          "name": "Tartarus-AI/tartarusai-cli",
+          "stars": "67",
+          "description": "无审查 AI 编程 Agent，256K 上下文，纯加密支付，无需绑卡",
+          "url": "https://github.com/Tartarus-AI/tartarusai-cli"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "Google's Antigravity bait and switch",
+          "url": "https://www.0xsid.com/blog/antigravity-bait-n-switch",
+          "source": "Hacker News",
+          "description": "深度分析 Google Antigravity 框架的隐私与数据捆绑问题，社区热议 Google I/O 的'Agentic Era'是否以用户数据为代价",
+          "score": "470"
+        },
+        {
+          "title": "Throwing AI-generated walls of text into conversations",
+          "url": "https://noslopgrenade.com/",
+          "source": "Hacker News",
+          "description": "引爆社区对 AI slop（AI 生成废话）的系统性反思：AI content 正在占领互联网首页，挤出人类原创内容",
+          "score": "446"
+        },
+        {
+          "title": "Launch HN: Runtime (YC P26) — Sandboxed coding agents for everyone on a team",
+          "url": "https://www.runtm.com/",
+          "source": "Hacker News",
+          "description": "面向团队的沙盒化编程 Agent 平台，YC P26 孵化。让非技术人员也能安全使用编码 Agent",
+          "score": "47"
+        },
+        {
+          "title": "Show HN: Agent.email — sign up via curl, claim with a human OTP",
+          "url": "",
+          "source": "Hacker News",
+          "description": "极简 Agent 邮件服务：curl 注册 + 人工 OTP 验证，开发者友好的 Agent 通信基础设施",
+          "score": "35"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "采集器(4源: Anthropic/arXiv/Builders/Stability) + Bocha实时搜索 + GitHub Trending API + Hacker News API",
+    "collection_time": "2026-05-22 06:00 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}

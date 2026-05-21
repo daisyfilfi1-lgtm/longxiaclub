@@ -5,6 +5,17 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-22",
+    title: "AI 日报 | 2026-05-22 周五 — Google I/O 2026 Agentic Era",
+    summary: "Google I/O 2026 正式开启 Agentic Era，Gemini 3.5 Flash + Antigravity 2.0 发布；Anthropic 以约3亿美元收购 Stainless，MCP 生态进入平台之争；社区掀起 Anti-AI-Slop 运动，slopless 等工具崛起。",
+    highlights: [
+      "Google I/O 2026: Agentic Era 正式开启，Gemini 3.5 Flash、Antigravity 2.0、AI搜索大改",
+      "Anthropic 约3亿美元收购 Stainless，MCP 生态工具链控制权争夺",
+      "HN 热议 Google Antigravity '数据换AI'争议（470pts），Anti-Slop 运动引爆讨论（446pts）",
+      "GitHub本周：rmux (486★)、slopless (255★) 等 Anti-Slop 与 Agent 工具崛起",
+    ]
+  },
+  {
     date: "2026-05-19",
     title: "AI 日报 | 2026-05-19 周二 — Anthropic 收购 Stainless",
     summary: "Anthropic收购API SDK平台Stainless强化开发者工具链。Elon Musk输掉对OpenAI的诉讼（HN 648pts）。smallcode用4B小模型达87%编码基准（466★）。Odyssey发布Agora-1多Agent世界模型。Modal将GPU推理冷启动缩短40倍。",
