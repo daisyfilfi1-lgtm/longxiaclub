@@ -1,0 +1,135 @@
+{
+  "date": "2026-05-23",
+  "title": "AI 日报 | 2026-05-23 周六",
+  "summary": "Anthropic Project Glasswing 发布初期报告：50个合作伙伴、Claude Mythos Preview 发现超10,000个高危漏洞。HN 热议 annas-archive/llms.txt（702分）、kanbots.dev 并行 Agent Kanban（143分）。GitHub Trending：claude-plugins-official、chrome-devtools-mcp、ai-engineering-from-scratch 等。",
+  "highlights": [
+    "Project Glasswing 初期报告：50个合作伙伴，发现超10,000个高危/严重漏洞（HN 255分）",
+    "HN 榜首：annas-archive/llms.txt — AI时代的robots.txt提案（702分）",
+    "kanbots.dev：开源Kanban桌面应用，每张卡片运行并行Agent（143分）",
+    "Anthropic 工程博客三连：Managed Agents架构 + Auto Mode + 质量复盘",
+    "GitHub Trending：claude-plugins-official、chrome-devtools-mcp 等 AI 工具上榜"
+  ],
+  "sections": {
+    "papers": {
+      "title": "前沿研究",
+      "items": [
+        {
+          "title": "Project Glasswing: An Initial Update",
+          "url": "https://www.anthropic.com/research/glasswing-initial-update",
+          "description": "Anthropic 发布 Project Glasswing 初期报告。自上月启动以来，与约50个合作伙伴使用 Claude Mythos Preview，已在全球最关键软件中发现超过10,000个高危或严重级别漏洞。目标是赶在AI模型被用于攻击之前加固关键基础设施。",
+          "source": "Anthropic Research"
+        }
+      ]
+    },
+    "blogs": {
+      "title": "大厂博客",
+      "items": [
+        {
+          "source": "Anthropic Engineering",
+          "url": "https://www.anthropic.com/engineering",
+          "entries": [
+            "Managed Agents: 大脑与双手解耦 — 硬编码的harness会随着模型进步而快速过时。Managed Agents服务围绕稳定接口构建，使harness独立演进。长时Agent任务自动管理。 (https://www.anthropic.com/engineering/managed-agents)",
+            "Claude Code Auto Mode: 更安全的权限跳过 — 93%的权限提示被用户批准。通过构建分类器自动化部分决策，在提升安全性的同时减少批准疲劳。 (https://www.anthropic.com/engineering/claude-code-auto-mode)",
+            "Claude Code 质量复盘 — 近期质量下降被追溯到三个独立变更。公开分析每个变更的影响和修复方案。 (https://www.anthropic.com/engineering/april-23-postmortem)"
+          ]
+        }
+      ]
+    },
+    "builders": {
+      "title": "AI Builder 动态",
+      "items": [
+        {
+          "author": "Every / AI & I Podcast",
+          "content": "深入探讨 Anthropic 以约3亿美元收购 API SDK 平台 Stainless 的内幕——这是 Anthropic 对 MCP 生态平台化的关键一步，将大幅提升 Claude 生态的 API/SDK 体验。",
+          "url": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "source": "AI & I Podcast"
+        },
+        {
+          "author": "kanbots.dev (Launch)",
+          "content": "开源 Kanban 桌面应用正式发布，核心特色是每张卡片都可以运行并行 AI Agent——用户可以在一张卡片上部署编码 Agent、另一张上部署审查 Agent，实现多 Agent 协作。",
+          "url": "https://www.kanbots.dev/",
+          "source": "Hacker News"
+        },
+        {
+          "author": "Superset (YC P26)",
+          "content": "YC P26 项目，定位为 Agent 时代的 IDE，提供可视化环境来构建、调试和管理 AI Agent。在 Codex、Cursor 之外开辟 Agent IDE 新品类。",
+          "url": "https://github.com/superset-sh/superset",
+          "source": "Hacker News"
+        }
+      ]
+    },
+    "github": {
+      "title": "GitHub 热门项目",
+      "items": [
+        {
+          "name": "anthropics/claude-plugins-official",
+          "stars": "Trending #1",
+          "description": "Anthropic 官方 Claude 插件仓库，提供 Claude Code 和 Claude 平台的标准化插件系统。",
+          "url": "https://github.com/anthropics/claude-plugins-official"
+        },
+        {
+          "name": "ChromeDevTools/chrome-devtools-mcp",
+          "stars": "Trending",
+          "description": "Chrome DevTools 的 MCP 协议适配器，让 AI Agent 可以直接通过 MCP 协议操控 Chrome DevTools 进行调试和自动化。",
+          "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
+        },
+        {
+          "name": "rohitg00/ai-engineering-from-scratch",
+          "stars": "Trending",
+          "description": "从零开始的 AI 工程学习资源库，覆盖 LLM、Agent、RAG、微调等全栈 AI 工程实践。",
+          "url": "https://github.com/rohitg00/ai-engineering-from-scratch"
+        },
+        {
+          "name": "colbymchenry/codegraph",
+          "stars": "Trending",
+          "description": "代码依赖关系可视化工具，帮助开发者理解大型代码库的模块依赖和架构。",
+          "url": "https://github.com/colbymchenry/codegraph"
+        },
+        {
+          "name": "anomalyco/models.dev",
+          "stars": "78 HN",
+          "description": "开源 AI 模型规格、定价和能力数据库，为开发者提供统一的模型对比和选择参考。",
+          "url": "https://github.com/anomalyco/models.dev"
+        }
+      ]
+    },
+    "community": {
+      "title": "社区热点",
+      "items": [
+        {
+          "title": "annas-archive/llms.txt: 'If you're an LLM, please read this'",
+          "url": "https://annas-archive.gl/blog/llms-txt.html",
+          "source": "Hacker News",
+          "description": "Anna's Archive 发布 llms.txt 提案——相当于 AI 时代的 robots.txt。网站可声明 AI 如何合法使用其内容。引发 HN 702分大规模讨论。",
+          "score": "702"
+        },
+        {
+          "title": "Antigravity 2.0 Tops OpenSCAD Architectural 3D LLM Benchmark",
+          "url": "https://modelrift.com/blog/openscad-llm-benchmark/",
+          "source": "Hacker News",
+          "description": "Antigravity 2.0 在 OpenSCAD 架构 3D LLM 基准测试中登顶，展示了 AI 在 3D 建模设计领域的最新进展。",
+          "score": "336"
+        },
+        {
+          "title": "Deno 2.8 发布",
+          "url": "https://deno.com/blog/v2.8",
+          "source": "Hacker News",
+          "description": "新一代 JavaScript/TypeScript 运行时 Deno 发布 2.8 版本，持续改进开发体验和性能。",
+          "score": "286"
+        },
+        {
+          "title": "yt-dlp: Bun support is now limited and deprecated",
+          "url": "https://github.com/yt-dlp/yt-dlp/issues/16766",
+          "source": "Hacker News",
+          "description": "知名下载工具 yt-dlp 宣布限制并弃用对 Bun 运行时的支持，引发技术社区对 Bun 生态成熟度的讨论。",
+          "score": "321"
+        }
+      ]
+    }
+  },
+  "source_info": {
+    "data_sources": "Anthropic Blog, HN API, GitHub Trending, Every/AI & I Podcast, Daisy Daily Collector (4/10 sources)",
+    "collection_time": "2026-05-23 06:00 BJT",
+    "generated_by": "Daisy Agent (Hermes)"
+  }
+}

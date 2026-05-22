@@ -5,6 +5,17 @@ import type { DailyReportMeta } from '@/types';
 
 const reports: DailyReportMeta[] = [
   {
+    date: "2026-05-23",
+    title: "AI 日报 | 2026-05-23 周六 — Project Glasswing 发布报告",
+    summary: "Anthropic Project Glasswing 发布初期报告：50个合作伙伴、Claude Mythos Preview 发现超10,000个高危漏洞。HN 热议 annas-archive/llms.txt（702分）、kanbots.dev 并行 Agent Kanban（143分）。GitHub Trending：claude-plugins-official、chrome-devtools-mcp 等 AI 工具上榜。Anthropic 工程博客三连持续发酵。",
+    highlights: [
+      "Project Glasswing 初期报告：50个合作伙伴，Claude Mythos Preview 发现超10,000个高危/严重漏洞（HN 255分）",
+      "HN 榜首：annas-archive/llms.txt — AI时代的robots.txt提案引爆702分讨论",
+      "kanbots.dev 发布：开源Kanban桌面应用，每张卡片运行并行AI Agent（143分）",
+      "GitHub Trending：claude-plugins-official、chrome-devtools-mcp、ai-engineering-from-scratch",
+    ]
+  },
+  {
     date: "2026-05-22",
     title: "AI 日报 | 2026-05-22 周五 — Google I/O 2026 Agentic Era",
     summary: "Google I/O 2026 正式开启 Agentic Era，Gemini 3.5 Flash + Antigravity 2.0 发布；Anthropic 以约3亿美元收购 Stainless，MCP 生态进入平台之争；社区掀起 Anti-AI-Slop 运动，slopless 等工具崛起。",
